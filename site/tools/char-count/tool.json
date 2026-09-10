@@ -1,0 +1,10 @@
+{
+  "slug": "char-count",
+  "title": "文字数カウント（改行・空白を除く／バイト数・行数も）",
+  "short_title": "文字数カウント",
+  "description": "貼り付けた文章の文字数を即時カウント。改行や空白を除いた文字数、行数、単語数、UTF-8/Shift_JIS換算のバイト数、原稿用紙換算まで一度に表示。登録不要・ブラウザ内処理。",
+  "keywords": ["文字数カウント", "文字数 数える", "バイト数 計算", "原稿用紙 換算"],
+  "category": "text",
+  "related": ["byte-converter", "base64", "url-encode"],
+  "updated": "2026-09-10"
+}

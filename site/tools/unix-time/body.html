@@ -1,0 +1,47 @@
+<div class="result">
+  <dl class="result-grid">
+    <dt>現在のエポック秒</dt>
+    <dd><span id="ut-now-sec" class="mono">0</span><button type="button" class="copy-btn" data-copy-target="ut-now-sec">コピー</button></dd>
+    <dt>現在のエポックミリ秒</dt>
+    <dd><span id="ut-now-ms" class="mono">0</span><button type="button" class="copy-btn" data-copy-target="ut-now-ms">コピー</button></dd>
+  </dl>
+</div>
+
+<div class="row">
+  <div class="field">
+    <label for="ut-epoch">エポック値（秒 または ミリ秒）</label>
+    <input type="text" id="ut-epoch" inputmode="numeric" autocomplete="off" value="1700000000">
+  </div>
+  <div class="field">
+    <label for="ut-unit">単位の判定</label>
+    <select id="ut-unit">
+      <option value="auto" selected>自動判定（桁数）</option>
+      <option value="sec">秒として扱う</option>
+      <option value="ms">ミリ秒として扱う</option>
+    </select>
+  </div>
+</div>
+<p id="ut-detect" class="hint"></p>
+<p id="ut-epoch-error" class="error"></p>
+<div class="result">
+  <dl class="result-grid">
+    <dt>JST（日本時間）</dt><dd><span id="ut-jst" class="mono"></span></dd>
+    <dt>UTC</dt><dd><span id="ut-utc" class="mono"></span></dd>
+    <dt>ISO 8601</dt><dd><span id="ut-iso" class="mono"></span></dd>
+  </dl>
+</div>
+
+<div class="field">
+  <label for="ut-datetime">日時から変換（この日時は JST として扱います）</label>
+  <input type="datetime-local" id="ut-datetime" step="1" value="2024-01-01T00:00:00">
+</div>
+<p id="ut-datetime-error" class="error"></p>
+<div class="result">
+  <dl class="result-grid">
+    <dt>エポック秒</dt>
+    <dd><span id="ut-back-sec" class="mono">0</span><button type="button" class="copy-btn" data-copy-target="ut-back-sec">コピー</button></dd>
+    <dt>エポックミリ秒</dt>
+    <dd><span id="ut-back-ms" class="mono">0</span><button type="button" class="copy-btn" data-copy-target="ut-back-ms">コピー</button></dd>
+  </dl>
+</div>
+<p class="hint">32bit符号付き整数のUNIX時間は 2147483647（2038-01-19 12:14:07 JST）が上限で、それを超える環境では桁あふれが起きます（2038年問題）。1970-01-01 00:00:00 UTC より前の日時はエポック秒が負の値になります。</p>

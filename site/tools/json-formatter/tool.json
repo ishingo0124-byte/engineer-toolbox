@@ -1,0 +1,10 @@
+{
+  "slug": "json-formatter",
+  "title": "JSON 整形・検証（圧縮・エスケープ解除）",
+  "short_title": "JSON整形・検証",
+  "description": "JSONをその場で整形・検証。インデント（2/4/タブ）や圧縮（minify）を選べ、構文エラーは行番号・列番号と原因を日本語で表示します。キーのソートや\\uXXXXエスケープの可読化にも対応、結果はワンクリックでコピーできます。",
+  "keywords": ["JSON 整形", "JSON 検証", "JSON 圧縮", "JSON フォーマッター", "JSON バリデーター"],
+  "category": "dev",
+  "related": ["base64", "url-encode"],
+  "updated": "2026-09-10"
+}

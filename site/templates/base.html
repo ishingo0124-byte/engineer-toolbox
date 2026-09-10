@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{page_title}}</title>
+<meta name="description" content="{{description}}">
+<link rel="canonical" href="{{canonical}}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{page_title}}">
+<meta property="og:description" content="{{description}}">
+<meta property="og:url" content="{{canonical}}">
+<meta property="og:site_name" content="{{site_name}}">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="{{root}}assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="{{root}}assets/site.css">
+{{jsonld}}
+{{analytics}}
+{{adsense_head}}
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="{{root}}">🧰 {{site_name}}</a>
+    <nav class="site-nav" aria-label="カテゴリ">{{nav}}</nav>
+  </div>
+</header>
+<main class="wrap">
+{{breadcrumb}}
+{{content}}
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>{{site_name}} — {{tagline}}</p>
+    <p><a href="{{root}}about/">このサイトについて</a> · <a href="{{root}}privacy/">プライバシーポリシー</a> · <a href="{{root}}tools/">ツール一覧</a></p>
+    <p class="hint">すべてのツールはブラウザ内で処理され、入力内容はサーバーへ送信されません。</p>
+  </div>
+</footer>
+<script src="{{root}}assets/site.js"></script>
+{{scripts}}
+</body>
+</html>

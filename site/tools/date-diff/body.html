@@ -1,0 +1,69 @@
+<style>
+  .df-sep { border: none; border-top: 1px solid var(--line); margin: 22px 0; }
+</style>
+<div class="row">
+  <div class="field">
+    <label for="df-start">開始日</label>
+    <input type="date" id="df-start" value="2026-04-01">
+  </div>
+  <div class="field">
+    <label for="df-end">終了日</label>
+    <input type="date" id="df-end" value="2026-09-10">
+  </div>
+</div>
+<label class="check"><input type="checkbox" id="df-include" checked> 初日を含めて数える（例: 4/1〜4/2 を2日と数える）</label>
+<p class="error" id="df-error1"></p>
+<div class="result">
+  <dl class="result-grid">
+    <dt>日数</dt><dd><span id="df-days">-</span></dd>
+    <dt>週数（あまり）</dt><dd><span id="df-weeks">-</span></dd>
+    <dt>年・月・日の内訳（暦どおり）</dt><dd><span id="df-ymd">-</span></dd>
+    <dt>開始日の曜日</dt><dd><span id="df-start-wd">-</span></dd>
+    <dt>終了日の曜日</dt><dd><span id="df-end-wd">-</span></dd>
+  </dl>
+</div>
+
+<div class="field">
+  <label for="df-holidays">祝日（任意・1行に1日、YYYY-MM-DD形式）</label>
+  <textarea id="df-holidays" rows="3" spellcheck="false" placeholder="例:
+2026-05-04
+2026-05-05">2026-05-04
+2026-05-05</textarea>
+</div>
+<div class="result">
+  <dl class="result-grid">
+    <dt>平日数（開始日・終了日を含む期間、土日と祝日欄を除く）</dt><dd><span id="df-weekdays">-</span></dd>
+    <dt>土日日数</dt><dd><span id="df-weekend">-</span></dd>
+    <dt>期間内の祝日日数（除外分）</dt><dd><span id="df-holicount">-</span></dd>
+  </dl>
+</div>
+<p class="hint">日本の祝日は法改正や年によって変わります。正確な日付は内閣府「国民の祝日について」の一覧で確認し、上の欄に貼り付けてください（このツールは祝日を自動取得しません）。</p>
+
+<hr class="df-sep">
+
+<div class="row">
+  <div class="field">
+    <label for="df-base">基準日</label>
+    <input type="date" id="df-base" value="2026-09-10">
+  </div>
+  <div class="field">
+    <label for="df-n">加減する数（負の値で前の日付）</label>
+    <input type="number" id="df-n" value="30" step="1">
+  </div>
+  <div class="field">
+    <label for="df-unit">単位</label>
+    <select id="df-unit">
+      <option value="day" selected>日</option>
+      <option value="week">週</option>
+      <option value="month">月</option>
+    </select>
+  </div>
+</div>
+<p class="error" id="df-error2"></p>
+<div class="result">
+  <dl class="result-grid">
+    <dt>計算結果の日付</dt><dd><span id="df-result-date">-</span></dd>
+    <dt>曜日</dt><dd><span id="df-result-wd">-</span></dd>
+  </dl>
+</div>
+<p class="hint">月単位の加減で、加算先の月に同じ日付が存在しない場合（例:1/31の1か月後）は、その月の末日に自動調整します。日付計算はすべてUTC基準で行うため、タイムゾーンや夏時間による1日のずれは発生しません。</p>

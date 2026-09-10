@@ -1,0 +1,10 @@
+{
+  "slug": "regex-tester",
+  "title": "正規表現テスター（JavaScript・マッチ箇所ハイライト／置換）",
+  "short_title": "正規表現テスター",
+  "description": "JavaScript(ECMAScript)の正規表現をブラウザ内でテスト。マッチ箇所のハイライト表示、インデックスやキャプチャグループの一覧、$1や$<name>を使った置換プレビューまで一度に確認でき、メール・IPv4などのプリセットも用意しています。",
+  "keywords": ["正規表現テスター", "regex テスト", "正規表現 置換", "キャプチャグループ 確認"],
+  "category": "text",
+  "related": ["char-count", "url-encode"],
+  "updated": "2026-09-10"
+}

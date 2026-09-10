@@ -1,0 +1,23 @@
+{
+  "site_name": "エンジニアの道具箱",
+  "tagline": "インフラ・開発の現場で毎日使う計算・変換ツールを、登録なし・広告控えめ・ブラウザ内処理で。",
+  "base_url": "https://example.com",
+  "lang": "ja",
+  "author": "エンジニアの道具箱 編集部",
+  "adsense_client": "",
+  "ga4_id": "",
+  "cloudflare_analytics_token": "",
+  "contact_url": "",
+  "affiliate": {
+    "amazon_tag": "",
+    "note": "ASP(A8/もしも)のリンクは data/affiliate_links.json に追加し、guide.md 内で {{aff:キー}} と書くと差し込まれる"
+  },
+  "categories": {
+    "network": "ネットワーク",
+    "linux": "Linux・サーバー",
+    "dev": "開発・データ",
+    "security": "セキュリティ",
+    "time": "日付・時間",
+    "text": "テキスト"
+  }
+}

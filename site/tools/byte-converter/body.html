@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="field">
+    <label for="bc-value">数値</label>
+    <input type="text" id="bc-value" inputmode="decimal" autocomplete="off" spellcheck="false" value="1.5">
+  </div>
+  <div class="field">
+    <label for="bc-unit">単位</label>
+    <select id="bc-unit">
+      <option value="B">B（バイト）</option>
+      <option value="KB">KB（キロバイト・10進 1,000 B）</option>
+      <option value="MB">MB（メガバイト・10進 1000^2 B）</option>
+      <option value="GB" selected>GB（ギガバイト・10進 1000^3 B）</option>
+      <option value="TB">TB（テラバイト・10進 1000^4 B）</option>
+      <option value="KiB">KiB（キビバイト・2進 1,024 B）</option>
+      <option value="MiB">MiB（メビバイト・2進 1024^2 B）</option>
+      <option value="GiB">GiB（ギビバイト・2進 1024^3 B）</option>
+      <option value="TiB">TiB（テビバイト・2進 1024^4 B）</option>
+      <option value="bit">bit（ビット・1/8 B）</option>
+    </select>
+  </div>
+</div>
+<p class="error" id="bc-error"></p>
+
+<div class="result">
+  <dl class="result-grid">
+    <dt>B（バイト）</dt><dd><span class="mono" id="bc-out-b">-</span></dd>
+    <dt>bit（ビット）</dt><dd><span class="mono" id="bc-out-bit">-</span></dd>
+  </dl>
+</div>
+
+<div class="result">
+  <table>
+    <thead><tr><th>接頭辞</th><th>10進（SI・1000単位）</th><th>2進（IEC・1024単位）</th></tr></thead>
+    <tbody>
+      <tr><td>キロ</td><td class="mono" id="bc-kb">-</td><td class="mono" id="bc-kib">-</td></tr>
+      <tr><td>メガ</td><td class="mono" id="bc-mb">-</td><td class="mono" id="bc-mib">-</td></tr>
+      <tr><td>ギガ</td><td class="mono" id="bc-gb">-</td><td class="mono" id="bc-gib">-</td></tr>
+      <tr><td>テラ</td><td class="mono" id="bc-tb">-</td><td class="mono" id="bc-tib">-</td></tr>
+    </tbody>
+  </table>
+</div>
+<p class="hint">2進の KiB/MiB/GiB/TiB は IEC 60027-2 で定義された単位です。ストレージ製品の「1TB」は10進で1,000,000,000,000バイトを指すことが多く、OSが2進基準で容量表示すると約931GiBと表示されます（1TB ÷ 1024^4 ≒ 0.9095TiB × 1024 ≒ 931.3GiB）。</p>

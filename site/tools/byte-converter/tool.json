@@ -1,0 +1,10 @@
+{
+  "slug": "byte-converter",
+  "title": "バイト換算（KB/MB/GB ⇄ KiB/MiB/GiB）",
+  "short_title": "バイト換算",
+  "description": "数値と単位を入力するだけでB/KB/MB/GB/TB（10進）とKiB/MiB/GiB/TiB（2進）、bitへ一括換算。1TBが931GiBに見える理由も解説し、BigIntで大きな数値でも精度を保って計算。",
+  "keywords": ["バイト変換", "KB MB GB 変換", "KiB 変換", "10進 2進 バイト", "ストレージ 容量 計算"],
+  "category": "dev",
+  "related": ["char-count", "unix-time"],
+  "updated": "2026-09-10"
+}

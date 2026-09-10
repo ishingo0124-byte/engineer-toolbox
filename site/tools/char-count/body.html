@@ -1,0 +1,23 @@
+<div class="field">
+  <label for="cc-text">テキストを貼り付け</label>
+  <textarea id="cc-text" rows="8" placeholder="ここに文章を貼り付けると、すぐに数えます">サーバーの設定変更は、必ずバックアップを取ってから行う。
+特に /etc 配下は、変更前後の diff を残しておくと後で助かる。</textarea>
+</div>
+<div class="actions">
+  <button type="button" id="cc-clear" class="ghost">クリア</button>
+  <button type="button" class="copy-btn" data-copy-target="cc-text">テキストをコピー</button>
+</div>
+<div class="result">
+  <dl class="result-grid">
+    <dt>文字数（すべて）</dt><dd><span id="cc-all">0</span></dd>
+    <dt>文字数（改行を除く）</dt><dd><span id="cc-nonl">0</span></dd>
+    <dt>文字数（改行・空白を除く）</dt><dd><span id="cc-nows">0</span></dd>
+    <dt>行数</dt><dd><span id="cc-lines">0</span></dd>
+    <dt>段落数（空行区切り）</dt><dd><span id="cc-paras">0</span></dd>
+    <dt>単語数（英数の語）</dt><dd><span id="cc-words">0</span></dd>
+    <dt>バイト数（UTF-8）</dt><dd><span id="cc-utf8">0</span></dd>
+    <dt>バイト数（Shift_JIS 換算）</dt><dd><span id="cc-sjis">0</span></dd>
+    <dt>原稿用紙（400字）換算</dt><dd><span id="cc-genko">0 枚</span></dd>
+  </dl>
+</div>
+<p class="hint">絵文字や結合文字は「見た目の1文字」で数えます（コードポイント数は UTF-8 の欄の内訳で確認できます）。Shift_JIS 換算は「半角＝1・全角＝2 バイト」の概算です。</p>

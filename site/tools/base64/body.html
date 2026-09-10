@@ -1,0 +1,19 @@
+<div class="field">
+  <label for="b64-text">テキスト（UTF-8）</label>
+  <textarea id="b64-text" rows="6" placeholder="ここに文章を入力するとBase64に変換します">Hello, 世界！ / こんにちは、Base64。</textarea>
+</div>
+<div class="row">
+  <label class="check"><input type="checkbox" id="b64-urlsafe"> URL-safe（+/ を -_ に、パディング(=)なし）</label>
+  <label class="check"><input type="checkbox" id="b64-wrap"> 76文字で改行する（MIME形式）</label>
+</div>
+<div class="field">
+  <label for="b64-b64">Base64</label>
+  <textarea id="b64-b64" rows="6" placeholder="ここにBase64文字列を貼り付けるとテキストに変換します"></textarea>
+</div>
+<div class="actions">
+  <button type="button" id="b64-clear" class="ghost">クリア</button>
+  <button type="button" class="copy-btn" data-copy-target="b64-b64">Base64をコピー</button>
+  <button type="button" class="copy-btn" data-copy-target="b64-text">テキストをコピー</button>
+</div>
+<p id="b64-error" class="error"></p>
+<p class="hint">`btoa()` をそのまま日本語などの非ASCII文字に使うと「文字列に変換できません（InvalidCharacterError）」で失敗します。このツールは一度 UTF-8 のバイト列に変換してから Base64 化する（TextEncoder / TextDecoder を使う）ことで、絵文字や日本語も正しく相互変換します。</p>

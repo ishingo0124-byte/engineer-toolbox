@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="field">
+    <label for="pg-length">長さ: <span id="pg-length-val">16</span> 文字</label>
+    <input type="range" id="pg-length" min="8" max="64" step="1" value="16">
+  </div>
+</div>
+<div class="row">
+  <label class="check"><input type="checkbox" id="pg-upper" checked> 英大文字（A-Z）</label>
+  <label class="check"><input type="checkbox" id="pg-lower" checked> 英小文字（a-z）</label>
+  <label class="check"><input type="checkbox" id="pg-digit" checked> 数字（0-9）</label>
+  <label class="check"><input type="checkbox" id="pg-symbol" checked> 記号</label>
+</div>
+<label class="check"><input type="checkbox" id="pg-exclude" checked> 紛らわしい文字を除外する（0 O 1 l I |）</label>
+<div class="field">
+  <label for="pg-customsymbol">記号セット（空欄なら既定の <span class="mono">!@#$%^&amp;*()-_=+[]{};:,.&lt;&gt;/?</span> を使用）</label>
+  <input type="text" id="pg-customsymbol" class="mono" autocomplete="off" spellcheck="false" placeholder="例: !@#-_.">
+</div>
+<div class="actions">
+  <button type="button" id="pg-generate" class="primary">5個生成しなおす</button>
+</div>
+<p class="error" id="pg-error"></p>
+<div class="result" id="pg-result">
+  <dl class="result-grid" id="pg-list"></dl>
+</div>
+<p class="hint" id="pg-entropy"></p>
+<p class="hint">生成したパスワードはこの端末（ブラウザ）内だけで作成され、サーバーへの送信・保存は一切行っていません。ページを開くたび、またはボタンを押すたびに新しい値になります。</p>

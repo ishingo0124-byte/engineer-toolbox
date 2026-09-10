@@ -1,0 +1,10 @@
+{
+  "slug": "password-generator",
+  "title": "パスワード生成（長さ・文字種・紛らわしい文字除外）",
+  "short_title": "パスワード生成",
+  "description": "長さ(8〜64)と文字種(英大小・数字・記号)を指定し、紛らわしい文字(0O1lI|)を除いた安全なパスワードを一度に5個生成。crypto.getRandomValuesの暗号乱数を使い、結果は送信せずブラウザ内だけで生成します。",
+  "keywords": ["パスワード生成", "安全なパスワード 作成", "ランダムパスワード", "強力なパスワード 自動生成"],
+  "category": "security",
+  "related": ["hash-generator", "base64"],
+  "updated": "2026-09-10"
+}

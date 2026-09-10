@@ -1,0 +1,10 @@
+{
+  "slug": "hash-generator",
+  "title": "ハッシュ計算（MD5/SHA-1/SHA-256/SHA-512）",
+  "short_title": "ハッシュ計算",
+  "description": "テキストやファイルのMD5・SHA-1・SHA-256・SHA-512を同時に計算。SHA系はWebCryptoのcrypto.subtle、MD5はRFC 1321準拠の自作実装で、いずれもブラウザ内のみで処理しサーバーには送信しません。",
+  "keywords": ["ハッシュ計算", "MD5 変換", "SHA256 計算", "ファイル ハッシュ値 確認"],
+  "category": "security",
+  "related": ["password-generator", "base64"],
+  "updated": "2026-09-10"
+}

@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="field">
+    <label for="sc-ip">IPアドレス</label>
+    <input type="text" id="sc-ip" inputmode="numeric" autocomplete="off" spellcheck="false" value="192.168.1.10">
+  </div>
+  <div class="field">
+    <label for="sc-cidr">CIDR（プレフィックス長 /0〜/32）</label>
+    <input type="text" id="sc-cidr" inputmode="numeric" autocomplete="off" spellcheck="false" value="24">
+  </div>
+</div>
+<div class="field">
+  <label for="sc-mask">サブネットマスク（上のCIDRと双方向に同期。どちらを書き換えても可）</label>
+  <input type="text" id="sc-mask" inputmode="numeric" autocomplete="off" spellcheck="false" value="255.255.255.0">
+</div>
+<p class="error" id="sc-error"></p>
+<div class="result">
+  <dl class="result-grid">
+    <dt>ネットワークアドレス</dt><dd><span id="sc-network">-</span></dd>
+    <dt>ブロードキャストアドレス</dt><dd><span id="sc-broadcast">-</span></dd>
+    <dt>先頭ホスト</dt><dd><span id="sc-first">-</span></dd>
+    <dt>末尾ホスト</dt><dd><span id="sc-last">-</span></dd>
+    <dt>使用可能ホスト数</dt><dd><span id="sc-hostcount">-</span></dd>
+    <dt>ワイルドカードマスク</dt><dd><span id="sc-wildcard">-</span></dd>
+    <dt>アドレスクラス（参考）</dt><dd><span id="sc-class">-</span></dd>
+    <dt>プライベート / グローバル</dt><dd><span id="sc-scope">-</span></dd>
+  </dl>
+</div>
+<div class="result">
+  <dl class="result-grid">
+    <dt>IPアドレス（2進）</dt><dd><span class="mono" id="sc-bin-ip">-</span></dd>
+    <dt>サブネットマスク（2進）</dt><dd><span class="mono" id="sc-bin-mask">-</span></dd>
+    <dt>ネットワーク部（2進）</dt><dd><span class="mono" id="sc-bin-net">-</span></dd>
+  </dl>
+</div>
+<p class="hint">CIDR とサブネットマスクはどちらを入力しても自動でもう一方に反映されます。/31 は RFC 3021 準拠でネットワーク・ブロードキャストを区別せず2ホストとも使用可能、/32 はホスト1件のみとして扱います。</p>

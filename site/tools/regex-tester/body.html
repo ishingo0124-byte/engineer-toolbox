@@ -1,0 +1,46 @@
+<style>
+  #rt-highlight mark, #rt-replaced mark { background: var(--accent); color: var(--accent-ink); border-radius: 3px; padding: 0 2px; }
+  #rt-highlight, #rt-replaced { white-space: pre-wrap; word-break: break-word; }
+  .rt-match { border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; margin: 0 0 8px; font-size: 0.92em; }
+  .rt-match .idx { color: var(--muted); }
+  .rt-match ul { margin: 4px 0 0; padding-left: 1.3em; }
+</style>
+<div class="field">
+  <label for="rt-pattern">正規表現パターン</label>
+  <input type="text" id="rt-pattern" class="mono" autocomplete="off" spellcheck="false" value="(\d{4})-(\d{2})-(\d{2})">
+</div>
+<div class="row">
+  <label class="check"><input type="checkbox" id="rt-g" checked> g（すべて検索）</label>
+  <label class="check"><input type="checkbox" id="rt-i"> i（大文字小文字を無視）</label>
+  <label class="check"><input type="checkbox" id="rt-m"> m（複数行モード）</label>
+  <label class="check"><input type="checkbox" id="rt-s"> s（. が改行にもマッチ）</label>
+  <label class="check"><input type="checkbox" id="rt-u"> u（Unicodeモード）</label>
+</div>
+<div class="actions">
+  <button type="button" class="ghost" data-preset="email">プリセット: メール</button>
+  <button type="button" class="ghost" data-preset="ipv4">プリセット: IPv4</button>
+  <button type="button" class="ghost" data-preset="date">プリセット: 日付</button>
+  <button type="button" class="ghost" data-preset="zip">プリセット: 郵便番号</button>
+</div>
+<div class="field">
+  <label for="rt-text">テスト文字列</label>
+  <textarea id="rt-text" rows="5" spellcheck="false">問い合わせは 2026-09-10 までに info@example.com へ。旧住所の郵便番号は 100-0001、サーバーは 192.168.1.1 でした。</textarea>
+</div>
+<div class="field">
+  <label for="rt-replace">置換後の文字列（$1, $2 … や $&lt;name&gt; が使えます）</label>
+  <input type="text" id="rt-replace" class="mono" autocomplete="off" spellcheck="false" value="$1年$2月$3日">
+</div>
+<p class="error" id="rt-error"></p>
+<div class="result">
+  <p class="hint">ハイライト（マッチ箇所を強調表示）</p>
+  <div id="rt-highlight" class="mono"></div>
+</div>
+<div class="result">
+  <p class="hint">マッチ一覧（<span id="rt-count">0</span> 件）</p>
+  <div id="rt-matches"></div>
+</div>
+<div class="result">
+  <p class="hint">置換プレビュー</p>
+  <div id="rt-replaced" class="mono"></div>
+</div>
+<p class="hint">この正規表現はJavaScript（ECMAScript）の構文・挙動で評価しています。PHP（PCRE）やPythonのreモジュールとは記法・挙動が一部異なります。処理はすべてブラウザ内で行われ、入力内容は送信されません。</p>

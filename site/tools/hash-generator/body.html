@@ -1,0 +1,30 @@
+<div class="field">
+  <label for="hg-text">テキストを入力</label>
+  <textarea id="hg-text" rows="4" spellcheck="false">Hello, World!</textarea>
+</div>
+<label class="check"><input type="checkbox" id="hg-upper"> 大文字（A-F）で表示</label>
+<div class="result">
+  <dl class="result-grid">
+    <dt>MD5</dt><dd><span id="hg-md5" class="mono"></span><button type="button" class="copy-btn" data-copy-target="hg-md5">コピー</button></dd>
+    <dt>SHA-1</dt><dd><span id="hg-sha1" class="mono"></span><button type="button" class="copy-btn" data-copy-target="hg-sha1">コピー</button></dd>
+    <dt>SHA-256</dt><dd><span id="hg-sha256" class="mono"></span><button type="button" class="copy-btn" data-copy-target="hg-sha256">コピー</button></dd>
+    <dt>SHA-512</dt><dd><span id="hg-sha512" class="mono"></span><button type="button" class="copy-btn" data-copy-target="hg-sha512">コピー</button></dd>
+  </dl>
+</div>
+<p class="error" id="hg-error"></p>
+
+<div class="field">
+  <label for="hg-file">ファイルを選択してハッシュを計算</label>
+  <input type="file" id="hg-file">
+</div>
+<p class="hint" id="hg-fileprogress"></p>
+<div class="result" id="hg-file-result" hidden>
+  <dl class="result-grid">
+    <dt>ファイル</dt><dd><span id="hg-filename"></span></dd>
+    <dt>MD5</dt><dd><span id="hg-fmd5" class="mono"></span><button type="button" class="copy-btn" data-copy-target="hg-fmd5">コピー</button></dd>
+    <dt>SHA-1</dt><dd><span id="hg-fsha1" class="mono"></span><button type="button" class="copy-btn" data-copy-target="hg-fsha1">コピー</button></dd>
+    <dt>SHA-256</dt><dd><span id="hg-fsha256" class="mono"></span><button type="button" class="copy-btn" data-copy-target="hg-fsha256">コピー</button></dd>
+    <dt>SHA-512</dt><dd><span id="hg-fsha512" class="mono"></span><button type="button" class="copy-btn" data-copy-target="hg-fsha512">コピー</button></dd>
+  </dl>
+</div>
+<p class="hint">テキスト・ファイルとも、この端末（ブラウザ）内だけで計算しており、サーバーへは送信していません。パスワードの保存にはMD5・SHAではなくbcryptやArgon2などパスワード用アルゴリズムを使ってください（下の解説参照）。</p>

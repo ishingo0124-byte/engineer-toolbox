@@ -1,0 +1,10 @@
+{
+  "slug": "chmod-calculator",
+  "title": "chmod パーミッション計算機（数字⇄記号）",
+  "short_title": "chmod 計算",
+  "description": "rwxのチェックボックスやSUID/SGID/Stickyから8進数（755や4755など）と記号表記（-rwxr-xr-x）を双方向に自動計算。644/755などのプリセットとumaskの関係も解説。",
+  "keywords": ["chmod 計算", "パーミッション 計算", "8進数 パーミッション", "umask", "SUID SGID"],
+  "category": "linux",
+  "related": ["umask-calculator", "cron-parser"],
+  "updated": "2026-09-10"
+}

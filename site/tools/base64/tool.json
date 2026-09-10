@@ -1,0 +1,10 @@
+{
+  "slug": "base64",
+  "title": "Base64 エンコード・デコード（UTF-8 / URL-safe 対応）",
+  "short_title": "Base64変換",
+  "description": "テキストとBase64を双方向で相互変換。TextEncoder/TextDecoderでUTF-8を正しく扱うため日本語も文字化けしません。URL-safe（-_、パディングなし）やMIME形式の76文字改行にも対応し、不正な入力は理由を表示します。",
+  "keywords": ["Base64 エンコード", "Base64 デコード", "Base64 変換", "URL-safe Base64", "Base64 日本語"],
+  "category": "dev",
+  "related": ["url-encode", "json-formatter", "hash-generator"],
+  "updated": "2026-09-10"
+}

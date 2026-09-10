@@ -1,0 +1,30 @@
+<div class="field">
+  <label for="jf-input">JSON を貼り付け</label>
+  <textarea id="jf-input" rows="10" placeholder='{"key": "value"}'>{"b":2,"a":1,"list":[3,1,2],"note":"日本語も読めます","child":{"ok":true,"empty":null}}</textarea>
+</div>
+<div class="row">
+  <div class="field">
+    <label for="jf-mode">出力形式</label>
+    <select id="jf-mode">
+      <option value="pretty" selected>整形（インデント付き）</option>
+      <option value="minify">圧縮（1行・minify）</option>
+    </select>
+  </div>
+  <div class="field">
+    <label for="jf-indent">インデント</label>
+    <select id="jf-indent">
+      <option value="2" selected>スペース2</option>
+      <option value="4">スペース4</option>
+      <option value="tab">タブ</option>
+    </select>
+  </div>
+</div>
+<label class="check"><input type="checkbox" id="jf-sort"> キーをアルファベット順にソート</label>
+<label class="check"><input type="checkbox" id="jf-unescape"> 文字列内の \uXXXX を可読化する（エスケープ解除）</label>
+<div class="actions">
+  <button type="button" id="jf-clear" class="ghost">クリア</button>
+  <button type="button" class="copy-btn" data-copy-target="jf-output">結果をコピー</button>
+</div>
+<p id="jf-status" class="hint"></p>
+<pre class="mono" id="jf-output"></pre>
+<p class="hint">最大 1MB 程度の入力を想定しています（ブラウザ標準の JSON.parse を利用）。「エスケープ解除」は文字列値の中にさらに \uXXXX がそのまま残っているケース（二重エンコードされた JSON など）を読みやすくするための機能で、出力はプレビュー用途です。</p>

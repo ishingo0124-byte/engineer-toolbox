@@ -1,0 +1,68 @@
+# ツール実装仕様（1ツール = 1フォルダ）
+
+`site/tools/<slug>/` に次の4ファイルを置く。`python site/build.py` が `site/dist/tools/<slug>/index.html` を生成する。
+**外部ライブラリ・CDN・fetch は禁止**（完全クライアントサイド、オフラインでも動く）。
+
+## 1. tool.json
+```json
+{
+  "slug": "subnet-calculator",
+  "title": "サブネット計算機（IPv4 / CIDR）",
+  "short_title": "サブネット計算",
+  "description": "IPアドレスとCIDR（/24 など）からネットワークアドレス・ブロードキャスト・ホスト範囲・使用可能ホスト数を即時計算。サブネットマスク⇄CIDR変換にも対応。",
+  "keywords": ["サブネット計算", "CIDR 計算", "サブネットマスク 変換", "ホスト数 計算"],
+  "category": "network",
+  "related": ["cidr-to-mask", "ip-range-check"],
+  "updated": "2026-09-10"
+}
+```
+- `title` は検索語を先頭に。全角30字以内。`description` は110〜130字、数字や具体語を入れる。
+- `keywords` は実際に検索されそうな日本語 3〜6 個。`category` は config.json の categories のキー。
+
+## 2. body.html
+ツールの UI だけ（`<section class="tool">` の中身）。見出し・解説は書かない（guide.md の担当）。
+- id は `<slug の英字>-` を接頭辞にして衝突を避ける（例 `sc-ip`）。
+- 使えるクラス:`.row`(横並び) `.field`(ラベル+入力のブロック) `.result`(結果枠) `.result-grid`(dt/dl の2列表) `.actions`(ボタン列) `button.primary` `button.ghost` `.copy-btn`(data-copy-target="id" で自動コピー) `.error`(赤字) `.hint`(灰色補足) `.mono`(等幅)
+- 入力は `<label for>` を必ず付ける。スマホ幅（360px）で崩れないこと。
+- 初期状態で例を入れておき、開いた瞬間に結果が見えるようにする（`data-example`）。
+
+## 3. script.js
+```js
+(function () {
+  "use strict";
+  const $ = (id) => document.getElementById(id);
+  function run() { /* 入力→計算→表示。例外は .error に表示 */ }
+  document.addEventListener("DOMContentLoaded", () => {
+    ["sc-ip", "sc-cidr"].forEach((id) => $(id).addEventListener("input", run));
+    run();
+  });
+})();
+```
+- vanilla JS、IIFE、グローバル汚染なし。`input` イベントで即時計算（送信ボタン不要）。
+- 共通ヘルパ（site.js が提供）:`window.tb.copy(text, btnEl)` `window.tb.fmt(n)`（3桁区切り）`window.tb.debounce(fn, ms)`。
+- 計算ロジックは正確さ最優先。境界値（/0, /31, /32、うるう年、負数、空文字、全角数字）をハンドリング。
+- 端末内で完結（localStorage 可、ネットワーク不可）。
+
+## 4. guide.md（読者向け解説。600〜1,200字。日本語。オリジナル文章）
+```
+## 使い方
+1〜4行の手順（箇条書き）
+
+## 仕組み・計算式
+式や仕様の根拠（RFC 番号・POSIX・man ページなど、出典名を本文に書く。URL は書かない）
+
+## よくある質問
+### Q. …
+A. …（2〜4問）
+
+## 関連ツール
+（build.py が related から自動生成するので書かない）
+```
+- 事実のみ。曖昧なら書かない。「誰でも」「必ず」の断定は避ける。
+- 現場の落とし穴（例:/31 の扱い、cron の曜日と日の OR 条件）を1つ以上入れる。それが検索で選ばれる差になる。
+
+## 5. 品質チェック（作った本人が最後に自己確認して、結果を報告に書く）
+- [ ] `python site/build.py` が通る（エラー0）
+- [ ] 代表入力3つと境界値2つで正しい結果（値を報告に書く）
+- [ ] 360px 幅で横スクロールしない（CSS は共通、独自 CSS は `<style>` を body.html 先頭に最小限）
+- [ ] guide.md に出典名・落とし穴が入っている

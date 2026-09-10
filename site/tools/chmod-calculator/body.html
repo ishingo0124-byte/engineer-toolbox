@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="field">
+    <label for="cm-octal">8進数（例: 755, 4755）</label>
+    <input type="text" id="cm-octal" inputmode="numeric" autocomplete="off" spellcheck="false" value="755">
+  </div>
+  <div class="field">
+    <label for="cm-symbolic">記号表記（例: -rwxr-xr-x）</label>
+    <input type="text" id="cm-symbolic" autocomplete="off" spellcheck="false" value="-rwxr-xr-x">
+  </div>
+</div>
+
+<div class="row">
+  <div class="field">
+    <label>所有者（owner / u）</label>
+    <label class="check"><input type="checkbox" id="cm-u-r"> 読み取り (r)</label>
+    <label class="check"><input type="checkbox" id="cm-u-w"> 書き込み (w)</label>
+    <label class="check"><input type="checkbox" id="cm-u-x"> 実行 (x)</label>
+  </div>
+  <div class="field">
+    <label>グループ（group / g）</label>
+    <label class="check"><input type="checkbox" id="cm-g-r"> 読み取り (r)</label>
+    <label class="check"><input type="checkbox" id="cm-g-w"> 書き込み (w)</label>
+    <label class="check"><input type="checkbox" id="cm-g-x"> 実行 (x)</label>
+  </div>
+  <div class="field">
+    <label>その他（other / o）</label>
+    <label class="check"><input type="checkbox" id="cm-o-r"> 読み取り (r)</label>
+    <label class="check"><input type="checkbox" id="cm-o-w"> 書き込み (w)</label>
+    <label class="check"><input type="checkbox" id="cm-o-x"> 実行 (x)</label>
+  </div>
+</div>
+
+<div class="field">
+  <label>特殊権限</label>
+  <label class="check"><input type="checkbox" id="cm-suid"> SUID（先頭桁 +4）</label>
+  <label class="check"><input type="checkbox" id="cm-sgid"> SGID（先頭桁 +2）</label>
+  <label class="check"><input type="checkbox" id="cm-sticky"> スティッキービット（先頭桁 +1）</label>
+</div>
+
+<div class="actions">
+  <button type="button" class="ghost" data-preset="644">644（一般ファイル）</button>
+  <button type="button" class="ghost" data-preset="755">755（実行ファイル/ディレクトリ）</button>
+  <button type="button" class="ghost" data-preset="600">600（秘密鍵など）</button>
+  <button type="button" class="ghost" data-preset="700">700（自分専用ディレクトリ）</button>
+  <button type="button" class="ghost" data-preset="777">777（非推奨・全権限）</button>
+  <button type="button" class="copy-btn" data-copy-target="cm-command">コマンドをコピー</button>
+</div>
+
+<p class="error" id="cm-error"></p>
+
+<div class="result">
+  <dl class="result-grid">
+    <dt>chmod コマンド</dt><dd><span class="mono" id="cm-command">chmod 755 対象</span></dd>
+    <dt>所有者の権限</dt><dd><span id="cm-desc-u">-</span></dd>
+    <dt>グループの権限</dt><dd><span id="cm-desc-g">-</span></dd>
+    <dt>その他の権限</dt><dd><span id="cm-desc-o">-</span></dd>
+    <dt>特殊権限</dt><dd><span id="cm-desc-special">なし</span></dd>
+  </dl>
+</div>
+<p class="hint">記号表記の4桁目（SUID/SGID/Sticky）は所有者/グループ/その他の実行ビットに重なって表示されます（例: 実行権限ありなら小文字 s / t、なければ大文字 S / T）。</p>

@@ -1,0 +1,10 @@
+{
+  "slug": "url-encode",
+  "title": "URL エンコード・デコード（encodeURIComponent / 日本語対応）",
+  "short_title": "URLエンコード",
+  "description": "URLエンコード・デコードをその場で確認。encodeURIComponentとencodeURIの違いを切り替えて比較でき、不正な%シーケンスはエラー表示します。スペースを+にする変換や、URL全体からクエリをkey=valueの表に分解する機能も搭載。",
+  "keywords": ["URLエンコード", "URLデコード", "encodeURIComponent", "クエリパラメータ 分解", "パーセントエンコード"],
+  "category": "dev",
+  "related": ["base64", "json-formatter"],
+  "updated": "2026-09-10"
+}

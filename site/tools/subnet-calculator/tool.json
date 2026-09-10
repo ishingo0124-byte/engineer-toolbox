@@ -1,0 +1,10 @@
+{
+  "slug": "subnet-calculator",
+  "title": "サブネット計算機（IPv4 / CIDR）",
+  "short_title": "サブネット計算",
+  "description": "IPアドレスとCIDR（/24 など）またはサブネットマスクから、ネットワークアドレス・ブロードキャスト・ホスト範囲・使用可能ホスト数を即時計算。マスク⇄CIDR変換や2進数表示にも対応。",
+  "keywords": ["サブネット計算", "CIDR 計算", "サブネットマスク 変換", "ホスト数 計算", "ブロードキャストアドレス"],
+  "category": "network",
+  "related": ["cidr-mask-converter", "ip-in-range"],
+  "updated": "2026-09-10"
+}

@@ -1,0 +1,10 @@
+{
+  "slug": "unix-time",
+  "title": "UNIX時間（エポック秒）⇄ 日時 変換",
+  "short_title": "UNIX時間変換",
+  "description": "UNIXタイムスタンプ（エポック秒/ミリ秒）と日時を相互変換。現在のエポック秒を1秒ごとにリアルタイム表示し、桁数から秒/ミリ秒を自動判定してJST・UTC・ISO 8601で表示します。2038年問題や負の値の扱いも解説します。",
+  "keywords": ["UNIX時間 変換", "エポック秒 変換", "UNIXタイムスタンプ", "エポック秒 現在時刻"],
+  "category": "time",
+  "related": ["date-diff", "cron-parser"],
+  "updated": "2026-09-10"
+}

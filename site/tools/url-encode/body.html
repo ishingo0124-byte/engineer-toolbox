@@ -1,0 +1,29 @@
+<div class="row">
+  <label class="check"><input type="radio" name="ue-method" id="ue-method-component" value="component" checked> encodeURIComponent（クエリ値・パスの1部分向け）</label>
+  <label class="check"><input type="radio" name="ue-method" id="ue-method-uri" value="uri"> encodeURI（URL全体向け）</label>
+</div>
+<label class="check"><input type="checkbox" id="ue-plus"> スペースを + にする（application/x-www-form-urlencoded）</label>
+<div class="field">
+  <label for="ue-text">元の文字列</label>
+  <textarea id="ue-text" rows="3">こんにちは 世界 & 記号/example?</textarea>
+</div>
+<div class="field">
+  <label for="ue-encoded">エンコード後</label>
+  <textarea id="ue-encoded" rows="3"></textarea>
+</div>
+<div class="actions">
+  <button type="button" id="ue-clear" class="ghost">クリア</button>
+  <button type="button" class="copy-btn" data-copy-target="ue-encoded">エンコード結果をコピー</button>
+</div>
+<p id="ue-error" class="error"></p>
+<p class="hint">encodeURIComponent は `A-Z a-z 0-9 - _ . ! ~ * ' ( )` 以外をすべてエンコードします（`/ : ? # [ ] @ & = + $ , ;` も対象）。encodeURI はURL全体を壊さないよう、これらの区切り文字はエンコードしません。どちらも半角スペースは `%20` になります。</p>
+
+<div class="field">
+  <label for="ue-url">URLを貼り付けてクエリを分解</label>
+  <textarea id="ue-url" rows="3" placeholder="https://example.com/search?q=東京+タワー&page=2">https://example.com/search?q=東京+タワー&page=2&empty=</textarea>
+</div>
+<p id="ue-url-error" class="error"></p>
+<table id="ue-table">
+  <thead><tr><th>キー</th><th>値（デコード後）</th></tr></thead>
+  <tbody id="ue-table-body"></tbody>
+</table>

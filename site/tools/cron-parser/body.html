@@ -1,0 +1,43 @@
+<div class="field">
+  <label for="cr-expr">cron 式（分 時 日 月 曜日）</label>
+  <input type="text" id="cr-expr" class="mono" autocomplete="off" spellcheck="false" value="15 3 * * *">
+</div>
+<p class="hint">例: <code>*/10 * * * *</code>（10分ごと）、<code>0 9 * * 1-5</code>（平日 9:00）、<code>0 0 1 * *</code>（毎月1日 0:00）</p>
+<p class="error" id="cr-error"></p>
+<div class="result">
+  <p id="cr-desc" style="margin:0 0 8px;font-weight:600;">-</p>
+  <div class="hint" id="cr-daydow-note"></div>
+</div>
+<div class="result">
+  <p class="hint" style="margin:0 0 6px;">次回実行日時（ブラウザのローカル時刻・最大5回、1年以内で計算）</p>
+  <ol id="cr-next-list" class="mono" style="margin:0;padding-left:1.3em;"></ol>
+</div>
+
+<hr style="border:none;border-top:1px solid var(--line);margin:20px 0;">
+
+<p class="hint" style="margin:0 0 8px;">簡易ジェネレータ（セレクトで組み立てて上の式に反映）</p>
+<div class="row">
+  <div class="field">
+    <label for="cr-g-min">分</label>
+    <select id="cr-g-min"></select>
+  </div>
+  <div class="field">
+    <label for="cr-g-hour">時</label>
+    <select id="cr-g-hour"></select>
+  </div>
+  <div class="field">
+    <label for="cr-g-day">日</label>
+    <select id="cr-g-day"></select>
+  </div>
+  <div class="field">
+    <label for="cr-g-month">月</label>
+    <select id="cr-g-month"></select>
+  </div>
+  <div class="field">
+    <label for="cr-g-week">曜日</label>
+    <select id="cr-g-week"></select>
+  </div>
+</div>
+<div class="actions">
+  <button type="button" id="cr-g-apply" class="primary">生成した式を上に反映</button>
+</div>

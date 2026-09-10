@@ -1,0 +1,10 @@
+{
+  "slug": "cron-parser",
+  "title": "cron 式の解読・生成（次回実行日時つき）",
+  "short_title": "cron 解読",
+  "description": "5フィールドのcron式を日本語で解説し、次回実行日時を5回分まで計算。*, -, /や曜日名（MON等）にも対応。セレクトで組む簡易ジェネレータも搭載し、日と曜日を両方指定した場合のOR条件も正しく扱う。",
+  "keywords": ["cron 意味", "cron 次回実行", "cron 式 生成", "crontab 書き方", "cron 解読"],
+  "category": "linux",
+  "related": ["chmod-calculator", "unix-time"],
+  "updated": "2026-09-10"
+}
