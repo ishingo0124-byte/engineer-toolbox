@@ -218,6 +218,9 @@ def sitemap(tools, pages, cfg):
         f"  <url><loc>{html.escape(u)}</loc><lastmod>{d}</lastmod><priority>{p}</priority></url>\n" for u, d, p in urls) + "</urlset>\n"
     write(os.path.join(DIST, "sitemap.xml"), xml)
     write(os.path.join(DIST, "robots.txt"), f"User-agent: *\nAllow: /\nSitemap: {cfg['base_url']}/sitemap.xml\n")
+    host = re.sub(r"^https?://", "", cfg["base_url"]).strip("/")
+    if host and "localhost" not in host and "example.com" not in host:
+        write(os.path.join(DIST, "CNAME"), host + "\n")  # GitHub Pages カスタムドメイン
 
 
 def main():
