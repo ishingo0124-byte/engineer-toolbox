@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="field">
+    <label for="cmc-cidr">CIDR（プレフィックス長 /0〜/32）</label>
+    <input type="text" id="cmc-cidr" inputmode="numeric" autocomplete="off" spellcheck="false" value="24">
+  </div>
+  <div class="field">
+    <label for="cmc-mask">サブネットマスク</label>
+    <input type="text" id="cmc-mask" inputmode="numeric" autocomplete="off" spellcheck="false" value="255.255.255.0">
+  </div>
+  <div class="field">
+    <label for="cmc-wildcard">ワイルドカードマスク（Cisco ACL 等）</label>
+    <input type="text" id="cmc-wildcard" inputmode="numeric" autocomplete="off" spellcheck="false" value="0.0.0.255">
+  </div>
+</div>
+<p class="error" id="cmc-error"></p>
+<div class="result">
+  <dl class="result-grid">
+    <dt>CIDR表記</dt><dd><span id="cmc-out-cidr">-</span> <button type="button" class="copy-btn" data-copy-target="cmc-out-cidr">コピー</button></dd>
+    <dt>サブネットマスク</dt><dd><span id="cmc-out-mask">-</span> <button type="button" class="copy-btn" data-copy-target="cmc-out-mask">コピー</button></dd>
+    <dt>ワイルドカードマスク</dt><dd><span id="cmc-out-wildcard">-</span> <button type="button" class="copy-btn" data-copy-target="cmc-out-wildcard">コピー</button></dd>
+    <dt>アドレス総数</dt><dd><span id="cmc-out-addrcount">-</span></dd>
+    <dt>使用可能ホスト数</dt><dd><span id="cmc-out-hostcount">-</span></dd>
+  </dl>
+</div>
+<p class="hint">CIDR・サブネットマスク・ワイルドカードマスクは、どれか1つを書き換えると残り2つに自動反映されます。<code>255.0.255.0</code> のように「1」のビットが連続しない不連続マスクは無効としてエラー表示します。</p>
+<h3>/0〜/32 早見表</h3>
+<div class="result">
+<table class="mono" id="cmc-table">
+<thead><tr><th>CIDR</th><th>サブネットマスク</th><th>ワイルドカードマスク</th><th>アドレス総数</th><th>使用可能ホスト数</th></tr></thead>
+<tbody></tbody>
+</table>
+</div>

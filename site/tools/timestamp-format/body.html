@@ -1,0 +1,59 @@
+<div class="field">
+  <label for="tf-input">日時を入力（ISO 8601 / RFC 2822 / "2026/09/10 15:04:05" / エポック秒 のいずれか）</label>
+  <input type="text" id="tf-input" autocomplete="off" value="2026-09-10T15:04:05+09:00">
+</div>
+<div class="row">
+  <div class="field">
+    <label for="tf-picker">日時ピッカーから入力</label>
+    <input type="datetime-local" id="tf-picker" step="1" value="2026-09-10T15:04:05">
+  </div>
+  <div class="field">
+    <label for="tf-tz">タイムゾーン省略時の解釈</label>
+    <select id="tf-tz">
+      <option value="9" selected>JST（UTC+9）として扱う</option>
+      <option value="0">UTC として扱う</option>
+    </select>
+  </div>
+</div>
+<p id="tf-error" class="error"></p>
+
+<div class="result">
+  <dl class="result-grid">
+    <dt>ISO 8601（UTC / Z）</dt>
+    <dd><span id="tf-iso-z" class="mono"></span><button type="button" class="copy-btn" data-copy-target="tf-iso-z">コピー</button></dd>
+    <dt>ISO 8601（+09:00）</dt>
+    <dd><span id="tf-iso-jst" class="mono"></span><button type="button" class="copy-btn" data-copy-target="tf-iso-jst">コピー</button></dd>
+    <dt>RFC 3339（+00:00）</dt>
+    <dd><span id="tf-rfc3339" class="mono"></span><button type="button" class="copy-btn" data-copy-target="tf-rfc3339">コピー</button></dd>
+    <dt>RFC 2822</dt>
+    <dd><span id="tf-rfc2822" class="mono"></span><button type="button" class="copy-btn" data-copy-target="tf-rfc2822">コピー</button></dd>
+    <dt>エポック秒</dt>
+    <dd><span id="tf-epoch" class="mono"></span><button type="button" class="copy-btn" data-copy-target="tf-epoch">コピー</button></dd>
+    <dt>Excelシリアル値（1900日付システム）</dt>
+    <dd><span id="tf-excel" class="mono"></span><button type="button" class="copy-btn" data-copy-target="tf-excel">コピー</button></dd>
+    <dt>日本語表記</dt>
+    <dd><span id="tf-ja" class="mono"></span></dd>
+    <dt>曜日（JST基準）</dt>
+    <dd><span id="tf-weekday" class="mono"></span></dd>
+    <dt>年内通算日</dt>
+    <dd><span id="tf-yday" class="mono"></span></dd>
+    <dt>ISO週番号</dt>
+    <dd><span id="tf-isoweek" class="mono"></span></dd>
+  </dl>
+</div>
+
+<div class="field">
+  <label for="tf-strftime">strftime書式を自由入力（JST基準でプレビュー）</label>
+  <input type="text" id="tf-strftime" autocomplete="off" value="%Y-%m-%d %H:%M:%S">
+</div>
+<div class="result"><span id="tf-strftime-out" class="mono"></span></div>
+
+<div class="result">
+  <dl class="result-grid">
+    <dt><code>%Y-%m-%d %H:%M:%S</code></dt><dd><span id="tf-s1" class="mono"></span></dd>
+    <dt><code>%a, %d %b %Y %H:%M:%S %z</code></dt><dd><span id="tf-s2" class="mono"></span></dd>
+    <dt><code>%Y年%m月%d日(%a) %H時%M分</code></dt><dd><span id="tf-s3" class="mono"></span></dd>
+    <dt><code>%Y/%m/%d</code></dt><dd><span id="tf-s4" class="mono"></span></dd>
+  </dl>
+</div>
+<p class="hint">strftime・日本語表記・曜日・年内通算日・ISO週番号は常にJST（UTC+9）で計算します。ISO 8601／RFC 2822／RFC 3339／エポック秒／Excelシリアル値はUTC基準の絶対時刻です。閏秒は考慮していません。</p>

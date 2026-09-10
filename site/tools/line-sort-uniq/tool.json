@@ -1,0 +1,10 @@
+{
+  "slug": "line-sort-uniq",
+  "title": "行のソート・重複削除・空行削除・トリム（sort | uniq をブラウザで）",
+  "short_title": "行のソート・重複削除",
+  "description": "貼り付けたテキストを行単位でソート（昇順/降順/自然順/数値/大文字小文字無視）、重複行の削除（出現回数表示付き）、空行削除、前後の空白トリム、順序反転、シャッフル、行番号付与まで組み合わせて即時処理します。",
+  "keywords": ["行 ソート", "重複行 削除", "uniq ブラウザ", "テキスト 空行削除"],
+  "category": "text",
+  "related": ["diff-text", "case-converter", "char-count"],
+  "updated": "2026-09-10"
+}

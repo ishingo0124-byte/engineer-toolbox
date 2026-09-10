@@ -1,0 +1,19 @@
+<div class="field">
+  <label for="v6x-input">IPv6アドレス（省略形・完全形・プレフィックス付き・IPv4射影のいずれも可）</label>
+  <input type="text" id="v6x-input" autocomplete="off" spellcheck="false" value="2001:0db8:0000:0000:0001:0000:0000:0001">
+</div>
+<p class="error" id="v6x-error"></p>
+<div class="result">
+  <dl class="result-grid">
+    <dt>完全展開（8ブロック・4桁）</dt><dd><span class="mono" id="v6x-full">-</span> <button type="button" class="copy-btn" data-copy-target="v6x-full">コピー</button></dd>
+    <dt>正規表記（RFC 5952）</dt><dd><span class="mono" id="v6x-canonical">-</span> <button type="button" class="copy-btn" data-copy-target="v6x-canonical">コピー</button></dd>
+    <dt>プレフィックス長</dt><dd><span id="v6x-prefix">-</span></dd>
+    <dt>IPv4射影表記</dt><dd><span class="mono" id="v6x-ipv4mapped">-</span></dd>
+  </dl>
+</div>
+<div class="result">
+  <dl class="result-grid">
+    <dt>2進数表示（16bitごと）</dt><dd><span class="mono" id="v6x-binary">-</span></dd>
+  </dl>
+</div>
+<p class="hint"><code>::</code> による省略は1箇所のみ有効です。完全形に展開したあと、最長のゼロ連続ブロックを <code>::</code> に置き換え、各ブロックの先頭ゼロを取り除いた小文字表記が RFC 5952 の正規形です。ゼロブロックが1個だけの場合は <code>::</code> に置き換えません（RFC 5952 の推奨に準拠）。</p>

@@ -78,8 +78,9 @@ def nav_html(cfg, root):
 
 
 def card(t, root):
-    return ('<li class="card"><span class="cat">%s</span><a class="t" href="%stools/%s/">%s</a><p>%s</p></li>'
-            % (html.escape(t["_catname"]), root, t["slug"], html.escape(t["title"]), html.escape(t["description"][:80] + ("…" if len(t["description"]) > 80 else ""))))
+    kw = " ".join([t["title"], t.get("short_title", ""), t["slug"], t["_catname"]] + list(t.get("keywords", []))).lower()
+    return ('<li class="card" data-kw="%s"><span class="cat">%s</span><a class="t" href="%stools/%s/">%s</a><p>%s</p></li>'
+            % (html.escape(kw), html.escape(t["_catname"]), root, t["slug"], html.escape(t["title"]), html.escape(t["description"][:80] + ("…" if len(t["description"]) > 80 else ""))))
 
 
 def analytics_html(cfg):
@@ -190,7 +191,10 @@ def index_pages(tools, cfg, base):
         if not ts:
             continue
         sections.append(f'<h2 id="{k}">{html.escape(v)}</h2>\n<ul class="cards">' + "".join(card(t, root) for t in ts) + "</ul>")
-    content = f"<h1>ツール一覧（{len(tools)}件）</h1><p class=\"lead\">{html.escape(cfg['tagline'])}</p>\n" + "\n".join(sections)
+    search = ('<div class="field" style="margin:0 0 18px"><label for="tool-search">ツールを探す</label>'
+              '<input type="text" id="tool-search" placeholder="例: cron、サブネット、JSON、日付…" autocomplete="off"></div>'
+              '<p class="hint" id="tool-search-empty" hidden>該当するツールがありません。</p>')
+    content = f"<h1>ツール一覧（{len(tools)}件）</h1><p class=\"lead\">{html.escape(cfg['tagline'])}</p>\n" + search + "\n".join(sections)
     page = render(base, page_title=f"ツール一覧 | {cfg['site_name']}", description=f"{cfg['site_name']}の全ツール一覧。{cfg['tagline']}",
                   canonical=cfg["base_url"] + "/tools/", site_name=cfg["site_name"], tagline=cfg["tagline"], root=root, nav=nav_html(cfg, root),
                   breadcrumb=f'<p class="breadcrumb"><a href="{root}">ホーム</a> › ツール一覧</p>', content=content, jsonld="",
@@ -208,6 +212,17 @@ def index_pages(tools, cfg, base):
                   jsonld='<script type="application/ld+json">%s</script>' % json.dumps(jsonld, ensure_ascii=False),
                   analytics=analytics_html(cfg), adsense_head=adsense_head(cfg), scripts="")
     write(os.path.join(DIST, "index.html"), page)
+
+
+def not_found_page(cfg, base, tools):
+    root = "/"
+    content = ('<h1>ページが見つかりません</h1><p class="lead">URL が変わったか、削除された可能性があります。</p>'
+               '<p><a href="/tools/">ツール一覧へ</a> · <a href="/">トップへ</a></p>'
+               '<h2>よく使われるツール</h2><ul class="cards">' + "".join(card(t, root) for t in tools[:6]) + "</ul>")
+    page = render(base, page_title=f"ページが見つかりません | {cfg['site_name']}", description="404 Not Found", canonical=cfg["base_url"] + "/404.html",
+                  site_name=cfg["site_name"], tagline=cfg["tagline"], root=root, nav=nav_html(cfg, root), breadcrumb="", content=content,
+                  jsonld="", analytics=analytics_html(cfg), adsense_head="", scripts="")
+    write(os.path.join(DIST, "404.html"), page)
 
 
 def sitemap(tools, pages, cfg):
@@ -258,6 +273,7 @@ def main():
     for p in pages:
         static_page(p, cfg, base, aff, tools)
     index_pages(tools, cfg, base)
+    not_found_page(cfg, base, tools)
     sitemap(tools, pages, cfg)
     print(f"built: {len(tools)} tools, {len(pages)} pages → {DIST}")
 

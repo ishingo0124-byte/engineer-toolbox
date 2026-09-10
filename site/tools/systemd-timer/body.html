@@ -1,0 +1,47 @@
+<div class="field">
+  <label for="stm-oncal">OnCalendar= の式</label>
+  <input type="text" id="stm-oncal" autocomplete="off" spellcheck="false" value="Mon..Fri 09:00">
+</div>
+
+<div class="actions">
+  <button type="button" class="ghost" data-preset="daily">daily</button>
+  <button type="button" class="ghost" data-preset="weekly">weekly</button>
+  <button type="button" class="ghost" data-preset="monthly">monthly</button>
+  <button type="button" class="ghost" data-preset="hourly">hourly</button>
+  <button type="button" class="ghost" data-preset="*-*-* 03:15:00">*-*-* 03:15:00</button>
+  <button type="button" class="ghost" data-preset="*:0/15">*:0/15</button>
+</div>
+
+<p class="error" id="stm-oncal-error"></p>
+
+<div class="result">
+  <dl class="result-grid">
+    <dt>曜日</dt><dd><span id="stm-desc-weekday">-</span></dd>
+    <dt>年</dt><dd><span id="stm-desc-year">-</span></dd>
+    <dt>月</dt><dd><span id="stm-desc-month">-</span></dd>
+    <dt>日</dt><dd><span id="stm-desc-day">-</span></dd>
+    <dt>時刻</dt><dd><span id="stm-desc-time">-</span></dd>
+    <dt>対応するcron式</dt><dd><span class="mono" id="stm-cron-equiv">-</span><button type="button" class="copy-btn" data-copy-target="stm-cron-equiv">コピー</button></dd>
+  </dl>
+</div>
+
+<div class="result">
+  <p class="hint" style="margin:0 0 6px">次回5回の実行日時（この端末のローカル時刻）</p>
+  <ol id="stm-next-list" class="mono" style="margin:0;padding-left:1.2em"></ol>
+</div>
+
+<hr style="border:none;border-top:1px solid var(--line);margin:20px 0">
+
+<div class="field">
+  <label for="stm-cron">逆変換：cron式（分 時 日 月 曜日）→ OnCalendar</label>
+  <input type="text" id="stm-cron" autocomplete="off" spellcheck="false" value="0 9 * * 1-5">
+</div>
+<p class="error" id="stm-cron-error"></p>
+<div class="result">
+  <dl class="result-grid">
+    <dt>対応するOnCalendar式</dt><dd><span class="mono" id="stm-oncal-equiv">-</span><button type="button" class="copy-btn" data-copy-target="stm-oncal-equiv">コピー</button></dd>
+  </dl>
+</div>
+<p class="hint" id="stm-cron-note"></p>
+
+<p class="hint">本ツールは <code>systemd-analyze calendar</code> と同等の計算をブラウザ内だけで行うことを目指しています（実機での確認を推奨）。<code>Persistent=true</code> を設定すると、タイマーが停止していた間に実行時刻を過ぎていた場合は次回起動時に1回だけ実行されます。<code>RandomizedDelaySec=</code> は実行時刻に指定秒数以内のランダムな遅延を加え、多数のマシンが同時刻に負荷を集中させるのを避けるための設定です。</p>

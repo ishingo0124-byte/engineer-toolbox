@@ -1,0 +1,10 @@
+{
+  "slug": "ipv6-expander",
+  "title": "IPv6アドレスの省略⇄展開・正規化（RFC 5952）",
+  "short_title": "IPv6 展開・正規化",
+  "description": "IPv6アドレスの省略形を8ブロック4桁の完全展開に、完全形をRFC 5952準拠の正規表記に相互変換。IPv4射影アドレス（::ffff:192.0.2.1）やプレフィックス表記（/64など）にも対応し、不正な入力はエラー表示する。",
+  "keywords": ["IPv6 展開", "IPv6 省略形", "IPv6 正規化", "IPv6 変換", "RFC 5952"],
+  "category": "network",
+  "related": ["subnet-calculator", "mac-address-format"],
+  "updated": "2026-09-10"
+}

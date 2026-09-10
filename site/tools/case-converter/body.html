@@ -1,0 +1,47 @@
+<style>
+  #cc-table-wrap table { font-size: 0.86em; }
+  #cc-table-wrap td, #cc-table-wrap th { white-space: nowrap; }
+  .cc-row { display: flex; align-items: center; gap: 8px; padding: 4px 0; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+  .cc-row:last-child { border-bottom: none; }
+  .cc-row .cc-src { color: var(--muted); font-size: 0.86em; min-width: 140px; }
+  .cc-row .cc-val { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-weight: 600; }
+  .cc-row .cc-detect { font-size: 0.78em; color: var(--muted); }
+</style>
+
+<div class="field">
+  <label for="cc-input">変換したい単語・識別子（1行に1つ）</label>
+  <textarea id="cc-input" rows="6" spellcheck="false">user_first_name
+HTTPServerConfig
+max-retry-count
+apiResponseHandled
+DB_HOST
+version2Update</textarea>
+</div>
+
+<div class="row">
+  <div class="field">
+    <label for="cc-target">下のリストに表示する出力形式</label>
+    <select id="cc-target">
+      <option value="camel">camelCase</option>
+      <option value="pascal">PascalCase</option>
+      <option value="snake" selected>snake_case</option>
+      <option value="kebab">kebab-case</option>
+      <option value="constant">CONSTANT_CASE</option>
+      <option value="title">Title Case</option>
+      <option value="dot">dot.case</option>
+    </select>
+  </div>
+</div>
+<div class="actions">
+  <button type="button" id="cc-copy-all" class="primary copy-btn">選択形式を全行まとめてコピー</button>
+</div>
+<p id="cc-error" class="error"></p>
+
+<div class="result" id="cc-list"></div>
+
+<div class="field">
+  <label>一括変換表（7形式）</label>
+  <div id="cc-table-wrap"></div>
+</div>
+
+<p class="hint">"HTTPServerConfig" のような連続大文字（頭字語）は "HTTP" をひとかたまりの単語として認識し、["HTTP", "Server", "Config"] に分割します。数字は前後の英字と切り離して独立した単語として扱います（例: "version2Update" → ["version","2","Update"]）。</p>

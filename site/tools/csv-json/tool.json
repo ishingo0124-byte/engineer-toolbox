@@ -1,0 +1,10 @@
+{
+  "slug": "csv-json",
+  "title": "CSV ⇄ JSON 変換（ヘッダー・区切り文字・引用符対応）",
+  "short_title": "CSV⇄JSON変換",
+  "description": "CSVとJSONを相互変換。カンマ・タブ・セミコロンの自動判定、RFC 4180準拠の引用符と改行入りセルに対応し、数値・真偽値の自動型変換やExcel向けBOM付与も選べます。ファイル読み込みにも対応。",
+  "keywords": ["CSV JSON 変換", "CSV 変換 ツール", "JSON CSV 変換", "CSV 文字化け BOM"],
+  "category": "dev",
+  "related": ["json-formatter", "base64"],
+  "updated": "2026-09-10"
+}

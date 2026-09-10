@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="field">
+    <label for="rc-level">RAIDレベル</label>
+    <select id="rc-level">
+      <option value="0">RAID 0（ストライピング）</option>
+      <option value="1">RAID 1（ミラーリング）</option>
+      <option value="5" selected>RAID 5（分散パリティ1つ）</option>
+      <option value="6">RAID 6（分散パリティ2つ）</option>
+      <option value="10">RAID 10（ミラー＋ストライプ）</option>
+    </select>
+  </div>
+  <div class="field">
+    <label for="rc-count">ディスク本数</label>
+    <input type="text" id="rc-count" inputmode="numeric" autocomplete="off" spellcheck="false" value="4">
+  </div>
+  <div class="field">
+    <label for="rc-capacity">1本あたりの容量</label>
+    <input type="text" id="rc-capacity" inputmode="decimal" autocomplete="off" spellcheck="false" value="4">
+  </div>
+  <div class="field">
+    <label for="rc-unit">単位</label>
+    <select id="rc-unit">
+      <option value="TB" selected>TB（10進, 1TB=10^12バイト）</option>
+      <option value="GB">GB（10進, 1GB=10^9バイト）</option>
+      <option value="TiB">TiB（2進, 1TiB=2^40バイト）</option>
+      <option value="GiB">GiB（2進, 1GiB=2^30バイト）</option>
+    </select>
+  </div>
+</div>
+
+<p class="error" id="rc-error"></p>
+
+<div class="result">
+  <dl class="result-grid">
+    <dt>合計容量（生容量）</dt><dd><span id="rc-raw">-</span></dd>
+    <dt>実効容量（使えるデータ容量）</dt><dd><span id="rc-usable">-</span></dd>
+    <dt>パリティ/ミラーに消える容量</dt><dd><span id="rc-overhead">-</span></dd>
+    <dt>容量効率</dt><dd><span id="rc-efficiency">-</span></dd>
+    <dt>耐えられる故障本数</dt><dd><span id="rc-tolerance">-</span></dd>
+    <dt>最小必要本数</dt><dd><span id="rc-minimum">-</span></dd>
+  </dl>
+</div>
+<p class="hint">HDD/SSDメーカーの表記は10進（1TB=1,000,000,000,000バイト）が一般的だが、OSは2進（1TiB=1,099,511,627,776バイト）で表示することが多く、「1TBのHDDが931GiBとしか認識されない」という現象の原因になる。単位は生容量・実効容量ともに同じ基準で表示している。</p>

@@ -1,0 +1,10 @@
+{
+  "slug": "mac-address-format",
+  "title": "MACアドレス表記変換（コロン・ハイフン・Ciscoドット）",
+  "short_title": "MAC表記変換",
+  "description": "MACアドレスをコロン区切り・ハイフン区切り・Ciscoのドット区切り・大文字小文字・区切りなしの6形式に一括変換。1行1件で複数入力可能。ユニキャスト/マルチキャスト、U/Lビット判定、EUI-64のインターフェースID生成にも対応する。",
+  "keywords": ["MACアドレス 変換", "MAC 表記", "EUI-64", "Cisco MAC 形式", "MACアドレス コロン ハイフン"],
+  "category": "network",
+  "related": ["ipv6-expander", "cidr-mask-converter"],
+  "updated": "2026-09-10"
+}

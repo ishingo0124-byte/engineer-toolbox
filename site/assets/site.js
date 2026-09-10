@@ -35,6 +35,32 @@
   };
   window.tb = tb;
 
+  // ツール一覧のインクリメンタル検索（/tools/）
+  document.addEventListener("DOMContentLoaded", () => {
+    const box = document.getElementById("tool-search");
+    if (!box) return;
+    const cards = Array.from(document.querySelectorAll(".card[data-kw]"));
+    const sections = Array.from(document.querySelectorAll("h2[id]"));
+    const empty = document.getElementById("tool-search-empty");
+    const norm = (s) => tb.z2h(s).toLowerCase().replace(/[\s　]+/g, " ").trim();
+    const apply = () => {
+      const q = norm(box.value).split(" ").filter(Boolean);
+      let shown = 0;
+      cards.forEach((c) => {
+        const hit = q.every((w) => c.dataset.kw.indexOf(w) >= 0);
+        c.hidden = !hit; if (hit) shown++;
+      });
+      sections.forEach((h) => {
+        const list = h.nextElementSibling;
+        const any = list && Array.from(list.children).some((li) => !li.hidden);
+        h.hidden = !any; if (list) list.hidden = !any;
+      });
+      if (empty) empty.hidden = shown > 0;
+    };
+    box.addEventListener("input", apply);
+    try { const q = new URLSearchParams(location.search).get("q"); if (q) { box.value = q; apply(); } } catch (e) { /* ignore */ }
+  });
+
   document.addEventListener("click", (e) => {
     const b = e.target.closest(".copy-btn");
     if (!b) return;

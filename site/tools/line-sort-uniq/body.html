@@ -1,0 +1,52 @@
+<style>
+  #lsu-output { max-height: 380px; overflow: auto; margin: 0; }
+</style>
+<div class="field">
+  <label for="lsu-input">入力テキスト（1行1項目）</label>
+  <textarea id="lsu-input" rows="10" spellcheck="false">file10.txt
+file2.txt
+  banana
+apple
+banana
+apple
+
+file1.txt</textarea>
+</div>
+<div class="row">
+  <div class="field">
+    <label for="lsu-order">並べ替え</label>
+    <select id="lsu-order">
+      <option value="none">そのまま（並べ替えない）</option>
+      <option value="asc">昇順（文字コード順）</option>
+      <option value="desc">降順（文字コード順）</option>
+      <option value="natural-asc" selected>自然順 昇順（file2 &lt; file10）</option>
+      <option value="natural-desc">自然順 降順</option>
+      <option value="numeric-asc">数値として昇順</option>
+      <option value="numeric-desc">数値として降順</option>
+      <option value="shuffle">シャッフル（ランダム）</option>
+    </select>
+  </div>
+</div>
+<div class="row">
+  <label class="check"><input type="checkbox" id="lsu-nocase"> 並べ替え時に大文字小文字を無視</label>
+  <label class="check"><input type="checkbox" id="lsu-trim" checked> 前後の空白をトリム</label>
+  <label class="check"><input type="checkbox" id="lsu-blank" checked> 空行を削除</label>
+</div>
+<div class="row">
+  <label class="check"><input type="checkbox" id="lsu-uniq" checked> 重複行を削除（連続する行のみ・uniq相当）</label>
+  <label class="check"><input type="checkbox" id="lsu-count"> 出現回数を表示（uniq -c相当）</label>
+</div>
+<div class="row">
+  <label class="check"><input type="checkbox" id="lsu-reverse"> 行の順序を反転（末尾→先頭）</label>
+  <label class="check"><input type="checkbox" id="lsu-linenum"> 行番号を付与</label>
+</div>
+<p class="error" id="lsu-error"></p>
+<div class="result">
+  <p class="hint"><span id="lsu-stats"></span></p>
+  <div class="actions">
+    <p class="hint" style="flex:1 1 auto;margin:0">処理結果</p>
+    <button type="button" class="ghost copy-btn" data-copy-target="lsu-output">コピー</button>
+  </div>
+  <pre id="lsu-output" class="mono"></pre>
+</div>
+<p class="hint">処理は「トリム→空行削除→並べ替え→重複削除→順序反転→行番号付与」の順で適用されます。重複削除は隣り合う同一行のみを1つにまとめる、実際の <code>uniq</code> コマンドと同じ仕様です。処理はすべてブラウザ内で行われます。</p>

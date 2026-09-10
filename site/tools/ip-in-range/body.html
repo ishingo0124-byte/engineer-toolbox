@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="field">
+    <label for="iir-ips">判定対象のIPアドレス（1行に1つ）</label>
+    <textarea id="iir-ips" autocomplete="off" spellcheck="false" rows="6">192.168.1.10
+10.0.5.3
+8.8.8.8
+127.0.0.1
+169.254.1.5</textarea>
+  </div>
+  <div class="field">
+    <label for="iir-ranges">範囲（1行に1つ。CIDR または「開始IP - 終了IP」）</label>
+    <textarea id="iir-ranges" autocomplete="off" spellcheck="false" rows="6">192.168.1.0/24
+10.0.0.0/8
+8.8.8.0 - 8.8.8.255</textarea>
+  </div>
+</div>
+<p class="error" id="iir-error"></p>
+<div class="result" id="iir-result-wrap">
+<table id="iir-table">
+<thead><tr><th>IPアドレス</th><th>注記</th><th>含まれる範囲</th></tr></thead>
+<tbody id="iir-tbody"></tbody>
+</table>
+</div>
+<p class="hint">範囲は <code>192.168.1.0/24</code> のような CIDR 表記か、<code>192.168.1.10 - 192.168.1.20</code> のように「開始IP - 終了IP」（区切りは <code>-</code> <code>~</code> <code>〜</code> のいずれでも可）で複数行指定できます。プライベート（RFC 1918）・ループバック（RFC 5735）・リンクローカル（RFC 3927）に該当するIPは自動で注記します。</p>

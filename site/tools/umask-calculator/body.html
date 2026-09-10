@@ -1,0 +1,59 @@
+<div class="row">
+  <div class="field">
+    <label for="umk-umask">umask（8進数、例: 022）</label>
+    <input type="text" id="umk-umask" inputmode="numeric" autocomplete="off" spellcheck="false" value="022">
+  </div>
+</div>
+
+<div class="actions">
+  <button type="button" class="ghost" data-preset="022">022（一般的なLinux既定）</button>
+  <button type="button" class="ghost" data-preset="027">027（グループのみ許可）</button>
+  <button type="button" class="ghost" data-preset="077">077（自分専用）</button>
+  <button type="button" class="ghost" data-preset="002">002（グループ共有）</button>
+</div>
+
+<p class="error" id="umk-error"></p>
+
+<div class="result">
+  <dl class="result-grid">
+    <dt>新規ファイルの権限</dt>
+    <dd><span class="mono" id="umk-file-octal">644</span><span class="mono" id="umk-file-sym">-rw-r--r--</span></dd>
+    <dt>新規ディレクトリの権限</dt>
+    <dd><span class="mono" id="umk-dir-octal">755</span><span class="mono" id="umk-dir-sym">drwxr-xr-x</span></dd>
+  </dl>
+</div>
+<p class="hint">計算式: 新規ファイル = 666 &amp; ~umask、新規ディレクトリ = 777 &amp; ~umask（8進数の桁ごとにビットAND NOT）。</p>
+
+<div class="field" style="margin-top:18px">
+  <label>逆算：欲しい新規ディレクトリの権限からumaskを求める</label>
+  <div class="row">
+    <div class="field">
+      <label>所有者（owner）</label>
+      <label class="check"><input type="checkbox" id="umk-tu-r" checked> 読み取り (r)</label>
+      <label class="check"><input type="checkbox" id="umk-tu-w" checked> 書き込み (w)</label>
+      <label class="check"><input type="checkbox" id="umk-tu-x" checked> 実行 (x)</label>
+    </div>
+    <div class="field">
+      <label>グループ（group）</label>
+      <label class="check"><input type="checkbox" id="umk-tg-r" checked> 読み取り (r)</label>
+      <label class="check"><input type="checkbox" id="umk-tg-w"> 書き込み (w)</label>
+      <label class="check"><input type="checkbox" id="umk-tg-x" checked> 実行 (x)</label>
+    </div>
+    <div class="field">
+      <label>その他（other）</label>
+      <label class="check"><input type="checkbox" id="umk-to-r"> 読み取り (r)</label>
+      <label class="check"><input type="checkbox" id="umk-to-w"> 書き込み (w)</label>
+      <label class="check"><input type="checkbox" id="umk-to-x"> 実行 (x)</label>
+    </div>
+  </div>
+</div>
+
+<div class="result">
+  <dl class="result-grid">
+    <dt>計算されたumask</dt>
+    <dd><span class="mono" id="umk-rev-umask">027</span><button type="button" class="copy-btn" data-copy-target="umk-rev-umask">コピー</button></dd>
+    <dt>同じumaskでの新規ファイル権限</dt>
+    <dd><span class="mono" id="umk-rev-file">640（-rw-r-----）</span></dd>
+  </dl>
+</div>
+<p class="hint">上のチェックボックスは「新規ディレクトリに与えたい権限」を表します。ディレクトリは666のような上限がないため、rwx を逆算の基準にしています。</p>

@@ -1,0 +1,20 @@
+<div class="field">
+  <label for="he-text">テキスト（エスケープ前）</label>
+  <textarea id="he-text" rows="6" placeholder="ここに文章を入力するとHTMLエスケープします">&lt;script&gt;alert('XSS')&lt;/script&gt; を含む "危険" な入力例 & 日本語もOK</textarea>
+</div>
+<div class="row">
+  <label class="check"><input type="radio" name="he-mode" id="he-mode-text" value="text" checked> テキスト用（&amp; &lt; &gt; をエスケープ）</label>
+  <label class="check"><input type="radio" name="he-mode" id="he-mode-attr" value="attr"> 属性値用（上記に加え " と ' もエスケープ）</label>
+</div>
+<div class="field">
+  <label for="he-escaped">HTML実体参照（エスケープ後）</label>
+  <textarea id="he-escaped" rows="6" placeholder="ここにHTML実体参照（&amp;lt; や &amp;#65; など）を貼り付けるとデコードします"></textarea>
+</div>
+<p id="he-decode-note" class="hint"></p>
+<div class="actions">
+  <button type="button" id="he-clear" class="ghost">クリア</button>
+  <button type="button" class="copy-btn" data-copy-target="he-escaped">エスケープ結果をコピー</button>
+  <button type="button" class="copy-btn" data-copy-target="he-text">テキストをコピー</button>
+</div>
+<p id="he-error" class="error"></p>
+<p class="hint">HTMLエスケープは「HTMLとして出力する直前」に行うのが原則です。JavaScript文字列リテラルの中やURLのクエリ文字列、CSSの値など文脈が変わればエスケープ方法も変わるため、ここでの変換結果をそのままJSやURLに流用しないでください（別途「URLエンコード」ツールなどを使用します）。</p>

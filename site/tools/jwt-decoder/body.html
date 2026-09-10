@@ -1,0 +1,36 @@
+<div class="field">
+  <label for="jd-token">JWT（JSON Web Token）</label>
+  <textarea id="jd-token" rows="5" spellcheck="false" placeholder="ここにJWT（xxxxx.yyyyy.zzzzz の形式）を貼り付けます">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IuWxseeUsCDlpKrpg44iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODkwMzgwMDAsIm5iZiI6MTc4OTAzODAwMCwiZXhwIjoxNzg5MDQzNDAwfQ.dGhpc19pc19hX2Zha2Vfc2lnbmF0dXJlX2V4YW1wbGU</textarea>
+</div>
+<p id="jd-error" class="error"></p>
+
+<div class="result" id="jd-result" hidden>
+  <dl class="result-grid">
+    <dt>アルゴリズム（alg）</dt><dd><span id="jd-alg" class="mono"></span></dd>
+    <dt>タイプ（typ）</dt><dd><span id="jd-typ" class="mono"></span></dd>
+    <dt>有効期限（exp）</dt><dd><span id="jd-exp" class="mono"></span></dd>
+    <dt>発行日時（iat）</dt><dd><span id="jd-iat" class="mono"></span></dd>
+    <dt>有効開始（nbf）</dt><dd><span id="jd-nbf" class="mono"></span></dd>
+  </dl>
+</div>
+<p id="jd-status" class="result big" hidden></p>
+<p id="jd-alg-warn" class="error" hidden></p>
+
+<div class="field">
+  <label for="jd-header">ヘッダー（JSON）</label>
+  <textarea id="jd-header" rows="4" class="mono" readonly></textarea>
+</div>
+<div class="actions">
+  <button type="button" class="copy-btn" data-copy-target="jd-header">ヘッダーをコピー</button>
+</div>
+
+<div class="field">
+  <label for="jd-payload">ペイロード（JSON）</label>
+  <textarea id="jd-payload" rows="10" class="mono" readonly></textarea>
+</div>
+<div class="actions">
+  <button type="button" class="copy-btn" data-copy-target="jd-payload">ペイロードをコピー</button>
+  <button type="button" id="jd-clear" class="ghost">クリア</button>
+</div>
+
+<p class="hint"><strong>このツールは署名の検証を行いません。</strong> JWTの署名を正しく検証するには秘密鍵（またはサーバー側の公開鍵）が必要ですが、それをブラウザに貼り付けることは秘密情報の漏えいにつながるため危険です。ここではヘッダーとペイロードの中身を読み取って表示するだけで、トークンの真正性は保証していません。</p>

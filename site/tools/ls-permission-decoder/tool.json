@@ -1,0 +1,10 @@
+{
+  "slug": "ls-permission-decoder",
+  "title": "ls -lの読み方（パーミッション・所有者・サイズを解説）",
+  "short_title": "ls -l 読み方解説",
+  "description": "ls -lの出力行を貼り付けると、ファイル種別・所有者/グループ/その他のrwx権限・setuid/setgid/stickyビット・リンク数・サイズ（人間可読換算）・日時・ファイル名を日本語で解説し、8進数のパーミッションにも変換します。",
+  "keywords": ["ls -l 読み方", "パーミッション 8進数", "chmod 意味", "ファイル権限 確認"],
+  "category": "linux",
+  "related": ["chmod-calculator", "umask-calculator"],
+  "updated": "2026-09-10"
+}

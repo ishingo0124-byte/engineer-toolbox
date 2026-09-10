@@ -1,0 +1,10 @@
+{
+  "slug": "uuid-generator",
+  "title": "UUID生成（v4・v7）と解析",
+  "short_title": "UUID生成",
+  "description": "ランダムなUUID v4と、生成時刻順に並ぶUUID v7を1〜100個まとめて生成。大文字/小文字やハイフンの有無を切り替えでき、既存のUUIDを貼り付けるとバージョン・バリアント・v7の埋め込み生成日時を解析表示します。",
+  "keywords": ["UUID 生成", "UUID v4", "UUID v7", "GUID 生成", "UUID 解析"],
+  "category": "dev",
+  "related": ["password-generator", "hash-generator"],
+  "updated": "2026-09-10"
+}

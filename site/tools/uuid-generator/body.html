@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="field">
+    <label for="ug-version">バージョン</label>
+    <select id="ug-version">
+      <option value="v4" selected>v4（完全ランダム）</option>
+      <option value="v7">v7（時刻順・先頭48bitがUNIXミリ秒）</option>
+    </select>
+  </div>
+  <div class="field">
+    <label for="ug-count">生成する個数（1〜100）</label>
+    <input type="text" id="ug-count" inputmode="numeric" autocomplete="off" value="5">
+  </div>
+</div>
+<div class="row">
+  <label class="check"><input type="checkbox" id="ug-upper"> 大文字にする</label>
+  <label class="check"><input type="checkbox" id="ug-nohyphen"> ハイフンを付けない</label>
+</div>
+<div class="actions">
+  <button type="button" id="ug-generate" class="primary">生成する</button>
+  <button type="button" class="copy-btn" data-copy-target="ug-output">まとめてコピー</button>
+</div>
+<p id="ug-error" class="error"></p>
+<div class="field">
+  <label for="ug-output">生成結果（1行1個）</label>
+  <textarea id="ug-output" rows="8" class="mono" readonly></textarea>
+</div>
+
+<div class="field">
+  <label for="ug-parse">既存のUUIDを解析</label>
+  <textarea id="ug-parse" rows="2" class="mono" placeholder="ここに解析したいUUIDを貼り付けます">018f2f3b-9e4e-7c3a-8b1e-1a2b3c4d5e6f</textarea>
+</div>
+<p id="ug-parse-error" class="error"></p>
+<div class="result" id="ug-parse-result" hidden>
+  <dl class="result-grid">
+    <dt>正規化（小文字・ハイフンあり）</dt><dd><span id="ug-p-norm" class="mono"></span></dd>
+    <dt>バージョン</dt><dd><span id="ug-p-version" class="mono"></span></dd>
+    <dt>バリアント</dt><dd><span id="ug-p-variant" class="mono"></span></dd>
+    <dt>埋め込み生成日時（v7のみ）</dt><dd><span id="ug-p-time" class="mono"></span></dd>
+  </dl>
+</div>
+<p class="hint">v4はRFC 9562（旧RFC 4122）に準拠した完全ランダムなUUIDです。並び順に意味はなく、DBの主キーに使うとインデックスがランダム挿入されpage分割が増えやすい点に注意してください。v7は先頭48bitにミリ秒精度のUNIX時刻を持つため、生成順に文字列としてもソートでき、多くのDBでインデックス効率が良好です。</p>

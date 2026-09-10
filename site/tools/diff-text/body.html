@@ -1,0 +1,49 @@
+<style>
+  #dt-diff { white-space: pre-wrap; word-break: break-word; max-height: 420px; overflow-y: auto; border: 1px solid var(--line); border-radius: 8px; }
+  .dt-row { display: flex; gap: 8px; padding: 1px 8px; }
+  .dt-row .dt-sign { flex: 0 0 1.2em; color: var(--muted); user-select: none; }
+  .dt-row .dt-txt { flex: 1 1 auto; overflow-wrap: anywhere; }
+  .dt-del { background: rgba(198, 40, 40, 0.12); }
+  .dt-add { background: rgba(10, 122, 61, 0.12); }
+  #dt-diff ins { background: rgba(10, 122, 61, 0.38); text-decoration: none; border-radius: 2px; }
+  #dt-diff del { background: rgba(198, 40, 40, 0.38); text-decoration: none; border-radius: 2px; }
+  #dt-unified { max-height: 320px; overflow: auto; margin: 0; }
+</style>
+<div class="row">
+  <div class="field">
+    <label for="dt-left">テキストA（変更前）</label>
+    <textarea id="dt-left" rows="8" spellcheck="false">server {
+    listen 80;
+    server_name example.com;
+    root /var/www/html;
+    index index.html;
+}</textarea>
+  </div>
+  <div class="field">
+    <label for="dt-right">テキストB（変更後）</label>
+    <textarea id="dt-right" rows="8" spellcheck="false">server {
+    listen 443 ssl;
+    server_name example.com www.example.com;
+    root /var/www/html;
+    index index.html index.htm;
+    gzip on;
+}</textarea>
+  </div>
+</div>
+<div class="row">
+  <label class="check"><input type="checkbox" id="dt-ws"> 空白を無視</label>
+  <label class="check"><input type="checkbox" id="dt-case"> 大文字小文字を無視</label>
+</div>
+<p class="error" id="dt-error"></p>
+<div class="result">
+  <p class="hint"><span id="dt-stats"></span></p>
+  <div id="dt-diff" class="mono"></div>
+</div>
+<div class="result">
+  <div class="actions">
+    <p class="hint" style="flex:1 1 auto;margin:0">unified diff 形式</p>
+    <button type="button" class="ghost copy-btn" data-copy-target="dt-unified">コピー</button>
+  </div>
+  <pre id="dt-unified" class="mono"></pre>
+</div>
+<p class="hint">行単位で差分を計算し（Myers差分アルゴリズム）、対応する削除・追加行は文字単位でも差分をハイライトします。処理はすべてブラウザ内で行われ、入力内容は送信されません。</p>

@@ -1,0 +1,10 @@
+{
+  "slug": "timezone-converter",
+  "title": "タイムゾーン変換（JST・UTC・主要都市・夏時間対応）",
+  "short_title": "タイムゾーン変換",
+  "description": "基準日時と基準タイムゾーンを指定すると、東京・UTC・ロンドン・ニューヨークなど主要12都市の現地時刻を同時に一覧表示。夏時間（DST）を自動で考慮し、日付が翌日・前日にまたがる場合も表示します。",
+  "keywords": ["タイムゾーン 変換", "世界時計 一覧", "JST UTC 変換", "夏時間 計算", "海外 会議 時差"],
+  "category": "time",
+  "related": ["timestamp-format", "unix-time"],
+  "updated": "2026-09-10"
+}

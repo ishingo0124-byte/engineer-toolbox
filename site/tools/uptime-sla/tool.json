@@ -1,0 +1,10 @@
+{
+  "slug": "uptime-sla",
+  "title": "SLA稼働率→許容停止時間計算（早見表付き）",
+  "short_title": "SLA稼働率計算",
+  "description": "稼働率（99.9%など）から年間・月間・週間・日次の許容停止時間を即時計算。停止分数から稼働率を逆算したり、直列・並列冗長構成の合成稼働率も求められる、99〜99.9999%の早見表つき。",
+  "keywords": ["SLA 稼働率", "99.9% 停止時間", "可用性 計算", "稼働率 計算", "ナイン 稼働率"],
+  "category": "linux",
+  "related": ["bandwidth-calc", "raid-calculator"],
+  "updated": "2026-09-10"
+}

@@ -1,0 +1,10 @@
+{
+  "slug": "raid-calculator",
+  "title": "RAID容量計算（RAID 0/1/5/6/10・実効容量）",
+  "short_title": "RAID容量計算",
+  "description": "ディスク本数と1本の容量からRAID 0/1/5/6/10の実効容量・パリティ消費量・耐障害本数・容量効率を即時計算。10進(TB)/2進(TiB)の切替と本数不足時のエラー表示に対応。",
+  "keywords": ["RAID 容量計算", "RAID5 実効容量", "RAID10 容量", "RAID 耐障害性", "TB TiB 変換"],
+  "category": "linux",
+  "related": ["byte-converter", "uptime-sla"],
+  "updated": "2026-09-10"
+}

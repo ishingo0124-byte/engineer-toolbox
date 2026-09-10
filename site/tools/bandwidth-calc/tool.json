@@ -1,0 +1,10 @@
+{
+  "slug": "bandwidth-calc",
+  "title": "転送時間・帯域計算（ファイルサイズ÷回線速度）",
+  "short_title": "転送時間計算",
+  "description": "ファイルサイズと回線速度から転送時間を即時計算。実効効率を考慮した現実的な所要時間、目標時間から逆算した必要帯域、月間転送量から必要な平均帯域も求められます。bpsとB/sの違いも解説。",
+  "keywords": ["転送時間 計算", "帯域 計算", "ダウンロード 時間 計算", "Mbps 変換", "bps ByteS 違い"],
+  "category": "network",
+  "related": ["byte-converter", "subnet-calculator"],
+  "updated": "2026-09-10"
+}

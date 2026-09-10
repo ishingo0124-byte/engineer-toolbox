@@ -1,0 +1,10 @@
+{
+  "slug": "case-converter",
+  "title": "命名規則の変換（camelCase・snake_case・kebab-case等）",
+  "short_title": "命名規則変換",
+  "description": "1行1語で複数の単語を貼り付けると、camelCase・snake_case・kebab-case・PascalCase・CONSTANT_CASE・Title Case・dot.caseの7形式に一括変換。入力形式を自動判定し、連続大文字も分割します。",
+  "keywords": ["camelCase 変換", "snake_case 変換", "kebab-case 変換", "命名規則 変換", "PascalCase 変換"],
+  "category": "text",
+  "related": ["line-sort-uniq", "char-count"],
+  "updated": "2026-09-10"
+}

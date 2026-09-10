@@ -1,0 +1,10 @@
+{
+  "slug": "ip-in-range",
+  "title": "IPアドレスが範囲内か判定（CIDR・開始〜終了・複数一括）",
+  "short_title": "IP範囲判定",
+  "description": "複数のIPアドレスが、CIDR（192.168.1.0/24）や開始〜終了IPで指定した1つ以上の範囲に含まれるかを一括判定。一致した範囲をすべて列挙し、プライベート・ループバック・リンクローカルの自動注記もつく。ACLやFW設定の確認に。",
+  "keywords": ["IP 範囲 判定", "CIDR 含まれる 確認", "IPアドレス 範囲内", "IP レンジ チェック", "サブネット 所属確認"],
+  "category": "network",
+  "related": ["subnet-calculator", "cidr-mask-converter"],
+  "updated": "2026-09-10"
+}

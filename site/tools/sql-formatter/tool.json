@@ -1,0 +1,10 @@
+{
+  "slug": "sql-formatter",
+  "title": "SQL整形（キーワード大文字化・インデント・圧縮）",
+  "short_title": "SQL整形",
+  "description": "SELECT/INSERT/UPDATE/DELETE/CREATE TABLE/JOIN/サブクエリ/CASE/WITHに対応した簡易SQL整形ツール。キーワードの大文字小文字統一、インデント幅、カンマの前置・後置、1行への圧縮を選べます。文字列やコメントは壊しません。",
+  "keywords": ["SQL 整形", "SQL フォーマッター", "SQL インデント", "SQL 大文字変換"],
+  "category": "dev",
+  "related": ["json-formatter", "csv-json"],
+  "updated": "2026-09-10"
+}

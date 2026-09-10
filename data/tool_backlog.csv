@@ -12,30 +12,30 @@ password-generator,パスワード生成,security,1,done,batch1 2026-09-10
 hash-generator,ハッシュ計算,security,1,done,batch1 2026-09-10
 regex-tester,正規表現テスター,text,1,done,batch1 2026-09-10
 date-diff,日数計算,time,1,done,batch1 2026-09-10
-cidr-mask-converter,サブネットマスク⇄CIDR⇄ワイルドカード,network,2,todo,batch2
-ip-in-range,IPアドレスが範囲内か判定,network,2,todo,batch2
-ipv6-expander,IPv6 省略⇄展開,network,2,todo,batch2
-mac-address-format,MACアドレス表記変換・ベンダー判定なし,network,2,todo,batch2
-umask-calculator,umask 計算,linux,2,todo,batch2
+cidr-mask-converter,サブネットマスク⇄CIDR⇄ワイルドカード,network,2,done,batch2A 2026-09-10
+ip-in-range,IPアドレスが範囲内か判定,network,2,done,batch2A 2026-09-10
+ipv6-expander,IPv6 省略⇄展開,network,2,done,batch2A 2026-09-10
+mac-address-format,MACアドレス表記変換・ベンダー判定なし,network,2,done,batch2A 2026-09-10
+umask-calculator,umask 計算,linux,2,done,batch2B 2026-09-10
 crontab-generator,cron 生成専用,linux,3,todo,cron-parser に統合済みなら不要
-ls-permission-decoder,ls -l の読み方,linux,3,todo,
-systemd-timer,systemd timer OnCalendar 解読,linux,2,todo,cron の姉妹
+ls-permission-decoder,ls -l の読み方,linux,3,done,batch2E 2026-09-10
+systemd-timer,systemd timer OnCalendar 解読,linux,2,done,batch2B 2026-09-10
 cert-decoder,証明書(PEM)デコード,security,2,todo,WebCrypto では ASN.1 が要る→純JSで
-jwt-decoder,JWT デコード,security,2,todo,署名検証はしない・注意書き
-uuid-generator,UUID v4/v7 生成,dev,2,todo,
-timestamp-format,日付フォーマット変換(strftime/ISO),time,2,todo,
-timezone-converter,タイムゾーン変換,time,2,todo,Intl
+jwt-decoder,JWT デコード,security,2,done,batch2C 2026-09-10
+uuid-generator,UUID v4/v7 生成,dev,2,done,batch2C 2026-09-10
+timestamp-format,日付フォーマット変換(strftime/ISO),time,2,done,batch2D 2026-09-10
+timezone-converter,タイムゾーン変換,time,2,done,batch2D 2026-09-10
 epoch-batch,エポック秒 一括変換,time,3,todo,
 log-timestamp,ログのタイムスタンプ整形,linux,3,todo,
 yaml-json,YAML⇄JSON,dev,2,todo,純JS YAML パーサが必要・軽量実装
-csv-json,CSV⇄JSON,dev,2,todo,
-sql-formatter,SQL 整形,dev,2,todo,
-diff-text,テキスト差分,text,2,todo,LCS 実装
-line-sort-uniq,行のソート・重複削除,text,2,todo,
-case-converter,camel/snake/kebab 変換,text,2,todo,
-html-escape,HTML エスケープ,text,2,todo,
+csv-json,CSV⇄JSON,dev,2,done,batch2D 2026-09-10
+sql-formatter,SQL 整形,dev,2,done,batch2E 2026-09-10
+diff-text,テキスト差分,text,2,done,batch2E 2026-09-10
+line-sort-uniq,行のソート・重複削除,text,2,done,batch2E 2026-09-10
+case-converter,camel/snake/kebab 変換,text,2,done,batch2C 2026-09-10
+html-escape,HTML エスケープ,text,2,done,batch2C 2026-09-10
 color-converter,HEX⇄RGB⇄HSL,dev,3,todo,
 qr-generator,QRコード生成,dev,3,todo,純JS QR 実装が要る
-bandwidth-calc,転送時間・帯域計算,network,2,todo,
-raid-calculator,RAID 容量計算,linux,2,todo,
-uptime-sla,SLA 稼働率→許容停止時間,linux,1,todo,運用者に刺さる
+bandwidth-calc,転送時間・帯域計算,network,2,done,batch2D 2026-09-10
+raid-calculator,RAID 容量計算,linux,2,done,batch2B 2026-09-10
+uptime-sla,SLA 稼働率→許容停止時間,linux,1,done,batch2B 2026-09-10

@@ -1,0 +1,10 @@
+{
+  "slug": "systemd-timer",
+  "title": "systemdタイマー OnCalendar式解読・次回実行",
+  "short_title": "systemdタイマー解読",
+  "description": "OnCalendar=の書式（daily、Mon..Fri 09:00、*:0/15など）を解析し、次回5回の実行日時と対応するcron式を即座に表示。cron式からOnCalendar式への逆変換にも対応。",
+  "keywords": ["OnCalendar 書式", "systemdタイマー 書き方", "systemd-analyze calendar", "OnCalendar cron 変換", "systemd タイマー 次回実行"],
+  "category": "linux",
+  "related": ["cron-parser", "unix-time"],
+  "updated": "2026-09-10"
+}

@@ -1,0 +1,67 @@
+<h3 style="margin-top:0">CSV → JSON</h3>
+<div class="field">
+  <label for="cj-csv-input">CSVを貼り付け</label>
+  <textarea id="cj-csv-input" spellcheck="false">id,name,note
+1,"佐藤 太郎","東京都, 新宿区"
+2,"鈴木 花子","改行を含む
+メモ"
+3,山田次郎,</textarea>
+</div>
+<div class="row">
+  <div class="field">
+    <label for="cj-csv-file">ファイルから読み込み（.csv）</label>
+    <input type="file" id="cj-csv-file" accept=".csv,.tsv,text/csv,text/plain">
+  </div>
+  <div class="field">
+    <label for="cj-delim">区切り文字</label>
+    <select id="cj-delim">
+      <option value="auto" selected>自動判定</option>
+      <option value=",">カンマ ( , )</option>
+      <option value="&#9;">タブ</option>
+      <option value=";">セミコロン ( ; )</option>
+    </select>
+  </div>
+</div>
+<div class="row">
+  <label class="check"><input type="checkbox" id="cj-header" checked> 1行目をヘッダー行として扱う</label>
+  <label class="check"><input type="checkbox" id="cj-typeconvert"> 数値・真偽値を自動変換する</label>
+</div>
+<div class="field">
+  <label for="cj-shape">出力形式</label>
+  <select id="cj-shape">
+    <option value="objects" selected>オブジェクトの配列（ヘッダーをキーに使用）</option>
+    <option value="arrays">配列の配列（生の行データ）</option>
+  </select>
+</div>
+<p id="cj-delim-detected" class="hint"></p>
+<p id="cj-csv-error" class="error"></p>
+<div class="result">
+  <textarea id="cj-json-output" class="mono" readonly style="min-height:160px"></textarea>
+  <div class="actions"><button type="button" class="copy-btn" data-copy-target="cj-json-output">JSONをコピー</button></div>
+</div>
+
+<h3>JSON → CSV</h3>
+<div class="field">
+  <label for="cj-json-input">JSONを貼り付け（配列 of オブジェクト、または配列 of 配列）</label>
+  <textarea id="cj-json-input" class="mono" spellcheck="false">[
+  {"id": 1, "name": "佐藤 太郎", "tags": ["A", "B"]},
+  {"id": 2, "name": "鈴木, 花子", "tags": []}
+]</textarea>
+</div>
+<div class="row">
+  <div class="field">
+    <label for="cj-out-delim">出力の区切り文字</label>
+    <select id="cj-out-delim">
+      <option value="," selected>カンマ ( , )</option>
+      <option value="&#9;">タブ</option>
+      <option value=";">セミコロン ( ; )</option>
+    </select>
+  </div>
+  <label class="check" style="align-self:center"><input type="checkbox" id="cj-bom" checked> 先頭にUTF-8 BOMを付与（Excel文字化け対策）</label>
+</div>
+<p id="cj-json-error" class="error"></p>
+<div class="result">
+  <textarea id="cj-csv-output" class="mono" readonly style="min-height:120px"></textarea>
+  <div class="actions"><button type="button" class="copy-btn" data-copy-target="cj-csv-output">CSVをコピー</button></div>
+</div>
+<p class="hint">ネストしたオブジェクトや配列をCSVに出力する場合は、そのセルの値をJSON文字列として書き出します。CSV出力の改行はCRLF（\r\n）、区切り文字・ダブルクォート・改行を含む値は引用符で囲みます（RFC 4180準拠）。</p>

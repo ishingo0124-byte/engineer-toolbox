@@ -1,0 +1,82 @@
+<div class="row">
+  <div class="field">
+    <label for="bw-size">ファイルサイズ</label>
+    <input type="number" id="bw-size" min="0" step="any" value="4.7">
+  </div>
+  <div class="field">
+    <label for="bw-size-unit">サイズ単位</label>
+    <select id="bw-size-unit">
+      <option value="B">B（バイト）</option>
+      <option value="KB">KB</option>
+      <option value="MB">MB</option>
+      <option value="GB" selected>GB</option>
+      <option value="TB">TB</option>
+    </select>
+  </div>
+  <div class="field">
+    <label for="bw-size-base">サイズの基数</label>
+    <select id="bw-size-base">
+      <option value="1000" selected>1000進（SI, 一般的な表記）</option>
+      <option value="1024">1024進（KiB等の二進接頭辞）</option>
+    </select>
+  </div>
+</div>
+<div class="row">
+  <div class="field">
+    <label for="bw-speed">回線速度</label>
+    <input type="number" id="bw-speed" min="0" step="any" value="100">
+  </div>
+  <div class="field">
+    <label for="bw-speed-unit">速度単位</label>
+    <select id="bw-speed-unit">
+      <option value="Kbps">Kbps</option>
+      <option value="Mbps" selected>Mbps</option>
+      <option value="Gbps">Gbps</option>
+    </select>
+  </div>
+  <div class="field">
+    <label for="bw-efficiency">実効効率（%）</label>
+    <input type="number" id="bw-efficiency" min="1" max="100" step="any" value="80">
+  </div>
+</div>
+<p id="bw-error1" class="error"></p>
+<div class="result">
+  <dl class="result-grid">
+    <dt>理論転送時間</dt><dd><span id="bw-ideal" class="mono"></span></dd>
+    <dt>実効転送時間（効率考慮）</dt><dd><span id="bw-real" class="mono"></span></dd>
+    <dt>理論転送時間（秒/分/時間）</dt><dd><span id="bw-detail" class="mono"></span></dd>
+  </dl>
+</div>
+
+<div class="field" style="margin-top:18px">
+  <label for="bw-target-hours">この時間で終わらせたい（時間）※上のファイルサイズを使用</label>
+  <input type="number" id="bw-target-hours" min="0" step="any" value="1">
+</div>
+<p id="bw-error2" class="error"></p>
+<div class="result">
+  <dl class="result-grid">
+    <dt>必要な回線速度（理論値）</dt><dd><span id="bw-req-speed" class="mono"></span></dd>
+    <dt>必要な回線速度（実効効率考慮）</dt><dd><span id="bw-req-speed-eff" class="mono"></span></dd>
+  </dl>
+</div>
+
+<div class="row" style="margin-top:18px">
+  <div class="field">
+    <label for="bw-monthly">月間転送量</label>
+    <input type="number" id="bw-monthly" min="0" step="any" value="500">
+  </div>
+  <div class="field">
+    <label for="bw-monthly-unit">単位</label>
+    <select id="bw-monthly-unit">
+      <option value="GB" selected>GB/月</option>
+      <option value="TB">TB/月</option>
+    </select>
+  </div>
+</div>
+<p id="bw-error3" class="error"></p>
+<div class="result">
+  <dl class="result-grid">
+    <dt>必要な平均帯域（30日間・24時間稼働換算）</dt><dd><span id="bw-avg" class="mono"></span></dd>
+  </dl>
+</div>
+<p class="hint">回線速度（bps・Mbps・Gbps）は常に1000進（1 Mbps = 1,000,000 bit/秒）で計算します。ファイルサイズのバイト単位（KB/MB/GB/TB）は「サイズの基数」で1000進・1024進を切り替えられます。1バイト=8ビットとして換算しています。月間転送量は1ヶ月=30日として概算しています。</p>

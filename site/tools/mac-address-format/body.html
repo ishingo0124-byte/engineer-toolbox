@@ -1,0 +1,14 @@
+<div class="field">
+  <label for="maf-input">MACアドレス（1行に1つ。コロン・ハイフン・ドット区切り、区切りなし、いずれでも可）</label>
+  <textarea id="maf-input" autocomplete="off" spellcheck="false" rows="5">00:1A:2B:3C:4D:5E
+0050.5601.0203
+0C-0C-0C-0C-0C-0C</textarea>
+</div>
+<p class="error" id="maf-error"></p>
+<div class="result" id="maf-result-wrap">
+<table id="maf-table">
+<thead><tr><th>入力</th><th>コロン（小文字）</th><th>コロン（大文字）</th><th>ハイフン（小文字）</th><th>ハイフン（大文字）</th><th>Ciscoドット</th><th>区切りなし</th><th>種別</th><th>EUI-64（インターフェースID）</th></tr></thead>
+<tbody id="maf-tbody"></tbody>
+</table>
+</div>
+<p class="hint">区切り文字や大文字小文字は無視して読み取ります。種別は先頭オクテットの下位2ビットから、ユニキャスト/マルチキャスト（I/Gビット）とユニバーサル/ローカル管理（U/Lビット）を判定します。ベンダー（OUI）名の判定はオフライン動作のため行いません。</p>

@@ -1,0 +1,10 @@
+{
+  "slug": "umask-calculator",
+  "title": "umask 計算機（umask ⇄ 新規ファイル/ディレクトリの権限）",
+  "short_title": "umask 計算",
+  "description": "umask（022など）から新規作成ファイル・ディレクトリの権限を8進数と記号表記で即時計算。欲しい権限からumaskを逆算する機能や022/027/077/002のプリセットも搭載。",
+  "keywords": ["umask 計算", "umask 022", "umask 逆算", "新規ファイル 権限", "umask 一覧"],
+  "category": "linux",
+  "related": ["chmod-calculator", "ls-permission-decoder"],
+  "updated": "2026-09-10"
+}

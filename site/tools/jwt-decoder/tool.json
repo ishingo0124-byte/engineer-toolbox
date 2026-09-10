@@ -1,0 +1,10 @@
+{
+  "slug": "jwt-decoder",
+  "title": "JWTデコード（ヘッダー・ペイロード・有効期限の確認）",
+  "short_title": "JWTデコード",
+  "description": "JWT（JSON Web Token）を貼り付けるだけでヘッダーとペイロードを整形JSONで表示し、exp/iat/nbfをJST・UTCの日時に変換。期限切れかどうかも即座に判定し、alg:noneの危険性も解説します。署名の検証は行いません。",
+  "keywords": ["JWT デコード", "JWT 中身 確認", "JWT exp 確認", "JWT ペイロード 表示", "JWT 有効期限"],
+  "category": "security",
+  "related": ["base64", "hash-generator"],
+  "updated": "2026-09-10"
+}

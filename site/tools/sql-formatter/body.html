@@ -1,0 +1,39 @@
+<style>
+  #sf-output { max-height: 420px; overflow: auto; margin: 0; }
+</style>
+<div class="field">
+  <label for="sf-input">SQL文</label>
+  <textarea id="sf-input" rows="10" spellcheck="false">select u.id, u.name, (select count(*) from orders o where o.user_id = u.id) as order_count, case when u.status = 'active' then 'Active' else 'Inactive' end as status_label from users u left join profiles p on p.user_id = u.id where u.created_at >= '2026-01-01' and u.deleted_at is null order by u.name asc limit 50;</textarea>
+</div>
+<div class="row">
+  <div class="field">
+    <label for="sf-case">キーワードの大文字・小文字</label>
+    <select id="sf-case">
+      <option value="upper" selected>大文字（SELECT）</option>
+      <option value="lower">小文字（select）</option>
+    </select>
+  </div>
+  <div class="field">
+    <label for="sf-indent">インデント幅（半角スペース）</label>
+    <input type="number" id="sf-indent" min="1" max="8" step="1" value="2">
+  </div>
+  <div class="field">
+    <label for="sf-comma">カンマの位置</label>
+    <select id="sf-comma">
+      <option value="trailing" selected>後置（値, ）</option>
+      <option value="leading">前置（ ,値）</option>
+    </select>
+  </div>
+</div>
+<div class="row">
+  <label class="check"><input type="checkbox" id="sf-oneline"> 1行に圧縮する</label>
+</div>
+<p class="error" id="sf-error"></p>
+<div class="result">
+  <div class="actions">
+    <p class="hint" style="flex:1 1 auto;margin:0">整形結果</p>
+    <button type="button" class="ghost copy-btn" data-copy-target="sf-output">コピー</button>
+  </div>
+  <pre id="sf-output" class="mono"></pre>
+</div>
+<p class="hint">これは完全なSQLパーサではなく、整形（見た目の調整）専用の簡易ツールです。SQLの構文的な正しさは検証しません。文字列リテラル・コメント・引用符付き識別子の中身は書き換えません。処理はすべてブラウザ内で行われます。</p>

@@ -1,0 +1,10 @@
+{
+  "slug": "diff-text",
+  "title": "テキスト差分（行単位・文字単位ハイライト／unified diff）",
+  "short_title": "テキスト差分",
+  "description": "2つのテキストを比較し、追加・削除・変更された行を色分け表示。変更行はさらに文字単位で差分をハイライトし、unified diff形式（@@ -a,b +c,d @@）でのコピーにも対応。空白・大文字小文字を無視する比較も可能です。",
+  "keywords": ["テキスト差分", "diff ツール", "unified diff 作成", "行の差分比較"],
+  "category": "text",
+  "related": ["line-sort-uniq", "regex-tester"],
+  "updated": "2026-09-10"
+}

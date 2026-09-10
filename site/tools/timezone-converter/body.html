@@ -1,0 +1,40 @@
+<div class="actions">
+  <button type="button" class="ghost" id="tz-preset1">JST 10:00（今日）の会議</button>
+  <button type="button" class="ghost" id="tz-preset2">JST 21:00（今日）の会議</button>
+  <button type="button" class="ghost" id="tz-preset3">UTC 09:00（今日）の会議</button>
+</div>
+
+<div class="row">
+  <div class="field">
+    <label for="tz-datetime">基準日時</label>
+    <input type="datetime-local" id="tz-datetime" step="1" value="2026-09-10T10:00:00">
+  </div>
+  <div class="field">
+    <label for="tz-base">基準タイムゾーン</label>
+    <select id="tz-base">
+      <option value="Asia/Tokyo" selected>東京（Asia/Tokyo）</option>
+      <option value="UTC">UTC</option>
+      <option value="Europe/London">ロンドン（Europe/London）</option>
+      <option value="Europe/Paris">パリ（Europe/Paris）</option>
+      <option value="Europe/Berlin">ベルリン（Europe/Berlin）</option>
+      <option value="America/New_York">ニューヨーク（America/New_York）</option>
+      <option value="America/Los_Angeles">ロサンゼルス（America/Los_Angeles）</option>
+      <option value="America/Chicago">シカゴ（America/Chicago）</option>
+      <option value="Asia/Singapore">シンガポール（Asia/Singapore）</option>
+      <option value="Australia/Sydney">シドニー（Australia/Sydney）</option>
+      <option value="Asia/Kolkata">ムンバイ（Asia/Kolkata）</option>
+      <option value="America/Sao_Paulo">サンパウロ（America/Sao_Paulo）</option>
+    </select>
+  </div>
+</div>
+<p id="tz-error" class="error"></p>
+
+<div class="result">
+  <table id="tz-table">
+    <thead>
+      <tr><th>都市</th><th>現地時刻</th><th>UTCオフセット</th><th>基準日との差</th></tr>
+    </thead>
+    <tbody id="tz-tbody"></tbody>
+  </table>
+</div>
+<p class="hint">オフセットと夏時間（サマータイム）の有無は、ブラウザに搭載されたIANAタイムゾーンデータベース（Intl.DateTimeFormat）から実際の制度に基づいて算出しています。「基準日との差」は基準タイムゾーンでの暦日と比べて、その都市の現地時刻が翌日・前日にまたがっているかを示します。</p>

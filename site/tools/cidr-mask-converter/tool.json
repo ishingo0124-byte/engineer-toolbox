@@ -1,0 +1,10 @@
+{
+  "slug": "cidr-mask-converter",
+  "title": "サブネットマスク⇄CIDR⇄ワイルドカードマスク変換",
+  "short_title": "マスク⇄CIDR変換",
+  "description": "サブネットマスク・CIDR（/24など）・ワイルドカードマスクのどれか1つを入力すると、残り2つとアドレス総数・使用可能ホスト数を即座に計算。/0〜/32の全プレフィックス長の早見表つきで、255.0.255.0のような不連続マスクはエラー表示する。",
+  "keywords": ["CIDR 変換", "サブネットマスク 変換", "ワイルドカードマスク", "CIDR 一覧表", "サブネットマスク 早見表"],
+  "category": "network",
+  "related": ["subnet-calculator", "ip-in-range"],
+  "updated": "2026-09-10"
+}

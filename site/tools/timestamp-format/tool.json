@@ -1,0 +1,10 @@
+{
+  "slug": "timestamp-format",
+  "title": "日付フォーマット変換（ISO 8601・RFC 2822・strftime・Excel）",
+  "short_title": "日付フォーマット変換",
+  "description": "日時をISO 8601・RFC 3339・RFC 2822・strftime書式・Excelシリアル値・日本語表記に相互変換。エポック秒や\"2026/09/10 15:04:05\"形式の貼り付けにも対応し、曜日や年内通算日、ISO週番号も即時表示します。",
+  "keywords": ["日付フォーマット 変換", "ISO8601 変換", "strftime 書式", "Excel シリアル値 変換", "RFC2822 日付"],
+  "category": "time",
+  "related": ["unix-time", "timezone-converter", "date-diff"],
+  "updated": "2026-09-10"
+}

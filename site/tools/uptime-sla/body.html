@@ -1,0 +1,76 @@
+<div class="row">
+  <div class="field">
+    <label for="usla-avail">稼働率（%）</label>
+    <input type="text" id="usla-avail" inputmode="decimal" autocomplete="off" spellcheck="false" value="99.9">
+  </div>
+</div>
+<div class="actions">
+  <button type="button" class="ghost" data-preset="99">99%</button>
+  <button type="button" class="ghost" data-preset="99.9">99.9%</button>
+  <button type="button" class="ghost" data-preset="99.95">99.95%</button>
+  <button type="button" class="ghost" data-preset="99.99">99.99%</button>
+  <button type="button" class="ghost" data-preset="99.999">99.999%</button>
+</div>
+<p class="error" id="usla-error"></p>
+<div class="result">
+  <dl class="result-grid">
+    <dt>年間の許容停止時間</dt><dd><span id="usla-year">-</span></dd>
+    <dt>月間の許容停止時間（30日換算）</dt><dd><span id="usla-month">-</span></dd>
+    <dt>週間の許容停止時間</dt><dd><span id="usla-week">-</span></dd>
+    <dt>日次の許容停止時間</dt><dd><span id="usla-day">-</span></dd>
+  </dl>
+</div>
+
+<div class="field" style="margin-top:18px">
+  <label>逆算：実際に止まった時間から稼働率を求める</label>
+  <div class="row">
+    <div class="field">
+      <label for="usla-rev-period">対象期間</label>
+      <select id="usla-rev-period">
+        <option value="31536000">年間（365日）</option>
+        <option value="2592000" selected>月間（30日）</option>
+        <option value="604800">週間（7日）</option>
+        <option value="86400">日次（24時間）</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="usla-rev-minutes">停止していた時間（分）</label>
+      <input type="text" id="usla-rev-minutes" inputmode="decimal" autocomplete="off" spellcheck="false" value="30">
+    </div>
+  </div>
+</div>
+<p class="error" id="usla-rev-error"></p>
+<div class="result">
+  <dl class="result-grid">
+    <dt>算出された稼働率</dt><dd><span id="usla-rev-avail">-</span></dd>
+  </dl>
+</div>
+
+<div class="field" style="margin-top:18px">
+  <label>直列・並列構成の合成稼働率</label>
+  <div class="row">
+    <div class="field">
+      <label for="usla-comp-a">構成要素A（%）</label>
+      <input type="text" id="usla-comp-a" inputmode="decimal" autocomplete="off" spellcheck="false" value="99.9">
+    </div>
+    <div class="field">
+      <label for="usla-comp-b">構成要素B（%）</label>
+      <input type="text" id="usla-comp-b" inputmode="decimal" autocomplete="off" spellcheck="false" value="99.9">
+    </div>
+  </div>
+</div>
+<p class="error" id="usla-comp-error"></p>
+<div class="result">
+  <dl class="result-grid">
+    <dt>直列（A × B。両方必要）</dt><dd><span id="usla-comp-series">-</span></dd>
+    <dt>並列冗長（1-(1-A)(1-B)。どちらか稼働でOK）</dt><dd><span id="usla-comp-parallel">-</span></dd>
+  </dl>
+</div>
+
+<p class="hint" style="margin-top:14px">早見表（99%〜99.9999%、365日年・30日月換算）</p>
+<div style="overflow-x:auto">
+  <table id="usla-table">
+    <thead><tr><th>稼働率</th><th>年間</th><th>月間(30日)</th><th>週間</th><th>日次</th></tr></thead>
+    <tbody></tbody>
+  </table>
+</div>

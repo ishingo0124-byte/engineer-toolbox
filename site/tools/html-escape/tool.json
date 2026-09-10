@@ -1,0 +1,10 @@
+{
+  "slug": "html-escape",
+  "title": "HTMLエスケープ・アンエスケープ（&lt; &amp; &quot; 等）",
+  "short_title": "HTMLエスケープ",
+  "description": "テキストとHTML実体参照（&lt;や&amp;など）を双方向に変換。名前付きと数値実体（&#65;や&#x41;）の両方をデコードでき、テキスト用と属性値用のエスケープの切り替えや、XSS対策としての位置づけも解説します。",
+  "keywords": ["HTML エスケープ", "HTML アンエスケープ", "文字参照 変換", "実体参照 デコード", "XSS対策 エスケープ"],
+  "category": "text",
+  "related": ["url-encode", "base64"],
+  "updated": "2026-09-10"
+}

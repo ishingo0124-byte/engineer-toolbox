@@ -1,0 +1,24 @@
+<style>
+  .lpd-card { border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; margin: 0 0 10px; }
+  .lpd-card .lpd-raw { font-size: 0.88em; color: var(--muted); word-break: break-all; margin: 0 0 6px; }
+  .lpd-skip { font-size: 0.88em; color: var(--muted); padding: 4px 2px; }
+  .lpd-triads { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 6px 14px; margin: 0 0 8px; font-size: 0.92em; }
+  .lpd-triads .t { font-weight: 600; }
+  .lpd-oct { font-size: 1.2em; font-weight: 700; }
+</style>
+<div class="field">
+  <label for="lpd-input">ls -l の出力（複数行可）／パーミッション文字列のみでも可</label>
+  <textarea id="lpd-input" rows="9" spellcheck="false">total 24
+-rw-r--r--  1 alice staff   1024 Jan  5 09:15 report.txt
+drwxr-xr-x  4 alice staff   4096 Jan  6 10:00 project
+lrwxrwxrwx  1 alice staff     11 Jan  6 10:01 latest -> project/v3
+-rwsr-xr-x  1 root  wheel  45000 Jan  2  2025 backup-tool
+drwxrwxrwt  9 root  root    4096 Jan  6 08:00 tmp
+rwxr-xr-x</textarea>
+</div>
+<p class="error" id="lpd-error"></p>
+<div class="result">
+  <p class="hint"><span id="lpd-stats"></span></p>
+  <div id="lpd-out"></div>
+</div>
+<p class="hint">「total 24」のような集計行や、形式に一致しない行はスキップされます（エラーにはなりません）。処理はすべてブラウザ内で行われます。</p>
