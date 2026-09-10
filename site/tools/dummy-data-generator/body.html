@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="field">
+    <label for="ddg-count">件数（1〜1,000）</label>
+    <input type="text" id="ddg-count" inputmode="numeric" autocomplete="off" value="10">
+  </div>
+  <div class="field">
+    <label for="ddg-seed">シード（同じ値なら毎回同じデータを再現。空欄ならランダム）</label>
+    <input type="text" id="ddg-seed" autocomplete="off" placeholder="例: 2026 や sample-01（空欄可）">
+  </div>
+</div>
+<div class="row">
+  <div class="field">
+    <label for="ddg-format">出力形式</label>
+    <select id="ddg-format">
+      <option value="csv" selected>CSV</option>
+      <option value="json">JSON（オブジェクトの配列）</option>
+      <option value="sql">SQL INSERT文</option>
+    </select>
+  </div>
+  <div class="field">
+    <label for="ddg-table">テーブル名（SQL INSERT文の場合のみ使用）</label>
+    <input type="text" id="ddg-table" autocomplete="off" value="users">
+  </div>
+</div>
+<p class="hint">生成する列を選択してください。</p>
+<div class="row">
+  <label class="check"><input type="checkbox" id="ddg-col-id" checked> 連番ID</label>
+  <label class="check"><input type="checkbox" id="ddg-col-name_kanji" checked> 氏名（漢字）</label>
+  <label class="check"><input type="checkbox" id="ddg-col-name_kana" checked> 氏名（かな）</label>
+  <label class="check"><input type="checkbox" id="ddg-col-name_romaji"> 氏名（ローマ字）</label>
+  <label class="check"><input type="checkbox" id="ddg-col-gender" checked> 性別</label>
+  <label class="check"><input type="checkbox" id="ddg-col-birthdate" checked> 生年月日</label>
+  <label class="check"><input type="checkbox" id="ddg-col-age" checked> 年齢</label>
+  <label class="check"><input type="checkbox" id="ddg-col-email" checked> メールアドレス</label>
+  <label class="check"><input type="checkbox" id="ddg-col-phone" checked> 電話番号</label>
+  <label class="check"><input type="checkbox" id="ddg-col-postal" checked> 郵便番号</label>
+  <label class="check"><input type="checkbox" id="ddg-col-prefecture" checked> 都道府県</label>
+  <label class="check"><input type="checkbox" id="ddg-col-city" checked> 市区町村・番地</label>
+  <label class="check"><input type="checkbox" id="ddg-col-company"> 会社名</label>
+  <label class="check"><input type="checkbox" id="ddg-col-uuid"> UUID</label>
+  <label class="check"><input type="checkbox" id="ddg-col-price"> 価格</label>
+  <label class="check"><input type="checkbox" id="ddg-col-datetime"> 登録日時</label>
+</div>
+<p class="hint">氏名・住所・電話番号・メールアドレスはすべて機械的な組み合わせで作った架空のデータです。実在の個人・企業とは無関係で、特定の個人を示すものではありません。メールは実在しないドメイン（example.com / example.jp）のみを使用します。電話番号は090・03から始まる番号帯を使いますが、残りの桁は完全にランダムなため、まれに実在の番号と一致する可能性はゼロではありません。実際の送信・架電には使用しないでください。</p>
+<p id="ddg-error" class="error"></p>
+<p id="ddg-status" class="hint"></p>
+<div class="result">
+  <textarea id="ddg-output" class="mono" readonly style="min-height:260px"></textarea>
+  <div class="actions"><button type="button" class="copy-btn" data-copy-target="ddg-output">結果をコピー</button></div>
+</div>

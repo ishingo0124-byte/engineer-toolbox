@@ -1,0 +1,46 @@
+<style>
+  .scd-item { border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; margin: 0 0 10px; }
+  .scd-item .scd-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .scd-name { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-weight: 700; word-break: break-all; }
+  .scd-badge { font-size: 0.78em; padding: 2px 10px; border-radius: 999px; font-weight: 700; border: 1px solid transparent; white-space: nowrap; }
+  .scd-badge.b-ok { background: #0a7a3d22; color: var(--ok); border-color: var(--ok); }
+  .scd-badge.b-accept { background: #0b5fff22; color: var(--accent); border-color: var(--accent); }
+  .scd-badge.b-bad { background: #c6282822; color: var(--err); border-color: var(--err); }
+  .scd-badge.b-danger { background: #c62828; color: #fff; border-color: #c62828; }
+  .scd-item dl { margin: 8px 0 0; }
+  .scd-item dt { font-size: 0.82em; color: var(--muted); margin-top: 4px; }
+  .scd-item dd { margin: 0 0 2px; }
+  .scd-reasons { margin: 6px 0 0; padding-left: 1.2em; font-size: 0.92em; }
+  .scd-alt { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: var(--muted); font-size: 0.88em; }
+  .scd-tbl-wrap { max-height: 420px; overflow-y: auto; }
+  .scd-tbl { width: 100%; border-collapse: collapse; font-size: 0.86em; }
+  .scd-tbl th, .scd-tbl td { border: 1px solid var(--line); padding: 4px 8px; text-align: left; white-space: nowrap; }
+  .scd-tbl th { background: var(--soft); position: sticky; top: 0; }
+</style>
+<div class="field">
+  <label for="scd-input">TLS暗号スイート名（複数行可。IANA名またはOpenSSL名）</label>
+  <textarea id="scd-input" rows="6" spellcheck="false" placeholder="1行に1つ、TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 やECDHE-RSA-AES128-GCM-SHA256 の形式で貼り付けます">TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+ECDHE-RSA-AES128-GCM-SHA256
+TLS_AES_256_GCM_SHA384
+TLS_RSA_WITH_3DES_EDE_CBC_SHA
+TLS_RSA_WITH_RC4_128_MD5</textarea>
+</div>
+<p id="scd-error" class="error"></p>
+<p class="hint" id="scd-count"></p>
+<div id="scd-results"></div>
+
+<div class="actions">
+  <button type="button" id="scd-clear" class="ghost">クリア</button>
+</div>
+
+<p class="hint">判定は代表的な既知の弱点（RC4・DES/3DES・NULL・EXPORT・匿名DH・静的RSA鍵交換・CBC+SHA1 等）に基づく簡易的な目安です。実運用の可否は、対向システムの制約やTLSバージョン、鍵長ポリシーなど個別の要件と合わせて判断してください。</p>
+
+<details>
+  <summary><strong>IANA名 ⇔ OpenSSL名 変換表（主要な暗号スイート）</strong></summary>
+  <div class="scd-tbl-wrap">
+    <table class="scd-tbl" id="scd-conv-table">
+      <thead><tr><th>IANA名（TLS_...）</th><th>OpenSSL名</th><th>TLS版</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</details>

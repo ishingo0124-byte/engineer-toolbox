@@ -1,0 +1,10 @@
+{
+  "slug": "number-base-converter",
+  "title": "進数変換（2進・8進・10進・16進）とビット演算",
+  "short_title": "進数変換・ビット演算",
+  "description": "2進・8進・10進・16進を相互に即時変換するツールです。BigIntで64bit超の値にも対応し、負数は8/16/32/64bit幅を選んで2の補数表示にできます。AND/OR/XOR/NOT/シフトのビット演算電卓と立っているビット位置の一覧も表示します。",
+  "keywords": ["進数変換", "2進数 変換", "16進数 変換", "2の補数", "ビット演算 電卓"],
+  "category": "dev",
+  "related": ["byte-converter", "unit-prefix", "hash-generator"],
+  "updated": "2026-09-10"
+}

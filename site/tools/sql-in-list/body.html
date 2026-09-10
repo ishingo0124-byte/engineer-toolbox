@@ -1,0 +1,64 @@
+<h3 style="margin-top:0">1行1値 → IN句・配列</h3>
+<div class="field">
+  <label for="sil-input">値のリスト（1行1値、またはカンマ/タブ/スペース区切り）</label>
+  <textarea id="sil-input" rows="6" class="mono" spellcheck="false">apple
+banana
+O'Brien
+banana</textarea>
+</div>
+<div class="row">
+  <div class="field">
+    <label for="sil-split">区切り方</label>
+    <select id="sil-split">
+      <option value="auto" selected>自動判定</option>
+      <option value="newline">改行（1行1値）</option>
+      <option value="comma">カンマ区切り</option>
+      <option value="tab">タブ区切り</option>
+      <option value="space">スペース区切り</option>
+    </select>
+  </div>
+  <div class="field">
+    <label for="sil-format">出力形式</label>
+    <select id="sil-format">
+      <option value="sql" selected>SQL IN句 — IN ('a','b')</option>
+      <option value="pgarray">PostgreSQL配列 — ARRAY['a','b']</option>
+      <option value="json">JSON配列 — ["a","b"]</option>
+      <option value="python">Pythonリスト — ['a','b']</option>
+      <option value="js">JavaScript配列 — ['a','b']</option>
+      <option value="csv">カンマ区切り1行</option>
+    </select>
+  </div>
+</div>
+<div class="row">
+  <div class="field">
+    <label for="sil-numeric">数値の扱い</label>
+    <select id="sil-numeric">
+      <option value="auto" selected>自動判定（数値らしい値はクォートなし）</option>
+      <option value="string">すべて文字列として扱う（常にクォート）</option>
+      <option value="number">すべて数値として扱う（常にクォートなし）</option>
+    </select>
+  </div>
+  <div class="field">
+    <label for="sil-perline">1行あたりの個数（折り返し・0で折り返さない）</label>
+    <input type="text" id="sil-perline" inputmode="numeric" autocomplete="off" value="0">
+  </div>
+</div>
+<label class="check"><input type="checkbox" id="sil-dedupe"> 重複する値を除去する</label>
+<p id="sil-count" class="hint"></p>
+<p id="sil-error" class="error"></p>
+<div class="result">
+  <textarea id="sil-output" class="mono" readonly style="min-height:120px"></textarea>
+  <div class="actions"><button type="button" class="copy-btn" data-copy-target="sil-output">結果をコピー</button></div>
+</div>
+<p class="hint">Oracle Databaseでは1つのIN句に指定できる要素数が1000個までという制限があります（超えるとORA-01795）。件数が多い場合は本ツールで分割するか、一時テーブルとの結合を検討してください。</p>
+
+<h3>IN句・配列 → 1行1値（逆変換）</h3>
+<div class="field">
+  <label for="sil-rev-input">SQLのIN句や配列リテラルを貼り付け</label>
+  <textarea id="sil-rev-input" rows="4" class="mono" spellcheck="false">IN ('apple', 'banana', 'O''Brien')</textarea>
+</div>
+<p class="hint">先頭の IN / ARRAY と、外側の丸カッコ・角カッコは自動的に取り除きます。シングルクォート（'' でエスケープ）・ダブルクォート（\" でエスケープ）のどちらにも対応します。</p>
+<div class="result">
+  <textarea id="sil-rev-output" class="mono" readonly style="min-height:100px"></textarea>
+  <div class="actions"><button type="button" class="copy-btn" data-copy-target="sil-rev-output">1行1値をコピー</button></div>
+</div>

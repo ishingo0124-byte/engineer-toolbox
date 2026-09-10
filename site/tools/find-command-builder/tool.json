@@ -1,0 +1,10 @@
+{
+  "slug": "find-command-builder",
+  "title": "find コマンド生成（名前/日時/サイズ/種別）",
+  "short_title": "find コマンド生成",
+  "description": "起点パス・-name/-iname・-type・-mtime/-mmin・-size・-user・-perm・-maxdepthなどの条件をフォームで選ぶだけで、-exec/-delete/xargs付きの安全なfindコマンドを1行生成します。",
+  "keywords": ["find コマンド 生成", "find -exec", "find -mtime", "find -delete", "find 条件 作成"],
+  "category": "linux",
+  "related": ["shell-escape", "tar-command-builder"],
+  "updated": "2026-09-10"
+}

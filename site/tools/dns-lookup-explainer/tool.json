@@ -1,0 +1,10 @@
+{
+  "slug": "dns-lookup-explainer",
+  "title": "dig/nslookup出力の読み方解説",
+  "short_title": "dig/nslookup解説",
+  "description": "digやnslookupの出力を貼り付けると、flags・status、QUESTION/ANSWER/AUTHORITY各セクション、レコード種別ごとの意味とTTL残り時間、SOAの各フィールドを日本語で解説。照会は行わない貼り付け専用の解析ツールです。",
+  "keywords": ["dig 出力 見方", "nslookup 結果 意味", "DNS レコード 種別", "SOA レコード 意味", "DNS TTL 確認"],
+  "category": "network",
+  "related": ["subnet-calculator", "well-known-ports"],
+  "updated": "2026-09-10"
+}

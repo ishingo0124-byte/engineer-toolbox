@@ -1,0 +1,77 @@
+<div class="row">
+  <div class="field">
+    <label for="tcb-op">操作</label>
+    <select id="tcb-op">
+      <option value="create" selected>作成（圧縮）</option>
+      <option value="extract">展開</option>
+      <option value="list">一覧表示</option>
+    </select>
+  </div>
+  <div class="field">
+    <label for="tcb-format">形式</label>
+    <select id="tcb-format">
+      <option value="targz" selected>tar.gz（gzip）</option>
+      <option value="tarbz2">tar.bz2（bzip2）</option>
+      <option value="tarxz">tar.xz（xz）</option>
+      <option value="tar">tar（無圧縮）</option>
+      <option value="zip">zip</option>
+    </select>
+  </div>
+</div>
+
+<div class="field">
+  <label for="tcb-archive">アーカイブファイル名</label>
+  <input type="text" id="tcb-archive" autocomplete="off" spellcheck="false" value="backup.tar.gz">
+</div>
+
+<div class="row">
+  <div class="field">
+    <label for="tcb-paths">対象パス（1行に1つ。作成時=圧縮する対象／展開・一覧時=特定メンバーのみ指定したい場合のみ。空なら全部）</label>
+    <textarea id="tcb-paths" rows="3" spellcheck="false">src/
+README.md</textarea>
+  </div>
+  <div class="field">
+    <label for="tcb-exclude">除外パターン（1行に1つ）</label>
+    <textarea id="tcb-exclude" rows="3" spellcheck="false">*.log
+.git</textarea>
+  </div>
+</div>
+
+<div class="row">
+  <div class="field">
+    <label for="tcb-destdir">展開先ディレクトリ（-C / -d・空欄でカレントディレクトリ）</label>
+    <input type="text" id="tcb-destdir" autocomplete="off" spellcheck="false" value="">
+  </div>
+  <div class="field">
+    <label for="tcb-strip">strip-components（tar限定・パスの先頭N階層を除去）</label>
+    <input type="text" id="tcb-strip" inputmode="numeric" autocomplete="off" spellcheck="false" value="">
+  </div>
+</div>
+
+<div class="field">
+  <label class="check"><input type="checkbox" id="tcb-verbose" checked> 詳細表示（-v）</label>
+  <label class="check"><input type="checkbox" id="tcb-preserve"> 権限を保持して展開（tar -p）</label>
+</div>
+
+<p class="error" id="tcb-error"></p>
+
+<div class="result">
+  <p class="hint">生成コマンド</p>
+  <p class="mono" id="tcb-command">tar -czvf backup.tar.gz src/ README.md</p>
+  <button type="button" class="copy-btn" data-copy-target="tcb-command">コマンドをコピー</button>
+</div>
+
+<div class="result">
+  <p class="hint">展開後・作成後の確認コマンド</p>
+  <p class="mono" id="tcb-verify">tar -tzvf backup.tar.gz</p>
+  <button type="button" class="copy-btn" data-copy-target="tcb-verify">コピー</button>
+</div>
+
+<div class="result">
+  <p class="hint">生成された条件の意味</p>
+  <ul id="tcb-explain-box"></ul>
+</div>
+
+<p class="hint" id="tcb-note"></p>
+
+<p class="hint"><strong>落とし穴:</strong> tar は <code>c</code>（作成）・<code>x</code>（展開）・<code>t</code>（一覧）のうち1つしか同時に指定できません。<code>-zxvf</code> のように短いオプションをまとめて書く場合、<code>f</code> は直後にファイル名を取るため必ず最後に置く必要があります（<code>-fzxv</code> のように途中に置くと、次の文字がファイル名として解釈されエラーになります）。zip はファイル名の文字コードを保存する仕様が実装によって異なり、Windows で作成した日本語ファイル名入り zip を Linux の unzip で開く、あるいはその逆を行うと文字化けすることがあります。</p>

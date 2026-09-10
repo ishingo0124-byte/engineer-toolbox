@@ -1,0 +1,90 @@
+<div class="row">
+  <div class="field">
+    <label for="nbc-width">ビット幅（負数の2の補数表示に使用）</label>
+    <select id="nbc-width">
+      <option value="8" selected>8bit</option>
+      <option value="16">16bit</option>
+      <option value="32">32bit</option>
+      <option value="64">64bit</option>
+    </select>
+  </div>
+  <div class="field">
+    <label for="nbc-signed">2進・8進・16進の入力欄の解釈</label>
+    <select id="nbc-signed">
+      <option value="on" selected>符号あり（2の補数として解釈。最上位ビットが1なら負数）</option>
+      <option value="off">符号なし（そのまま非負の数値として解釈）</option>
+    </select>
+  </div>
+</div>
+<div class="row">
+  <div class="field">
+    <label for="nbc-dec">10進数</label>
+    <input type="text" id="nbc-dec" class="mono" inputmode="text" autocomplete="off" value="-1">
+  </div>
+  <div class="field">
+    <label for="nbc-hex">16進数</label>
+    <input type="text" id="nbc-hex" class="mono" inputmode="text" autocomplete="off" placeholder="例: ff, 0xFF">
+  </div>
+</div>
+<div class="row">
+  <div class="field">
+    <label for="nbc-oct">8進数</label>
+    <input type="text" id="nbc-oct" class="mono" inputmode="text" autocomplete="off" placeholder="例: 17, 0o17">
+  </div>
+  <div class="field">
+    <label for="nbc-bin">2進数</label>
+    <input type="text" id="nbc-bin" class="mono" inputmode="text" autocomplete="off" placeholder="例: 1010, 0b1010">
+  </div>
+</div>
+<p class="hint">どの欄に入力しても他の欄が即座に更新されます。先頭に「-」（負号）、または「0x」「0b」「0o」を付けるとその表記が優先されます（全角数字・全角マイナスにも対応）。</p>
+<p id="nbc-error" class="error"></p>
+<div class="result">
+  <dl class="result-grid">
+    <dt>16進（2桁区切り）</dt><dd><span id="nbc-out-hex" class="mono"></span></dd>
+    <dt>2進（4桁区切り）</dt><dd><span id="nbc-out-bin" class="mono"></span></dd>
+    <dt>8進</dt><dd><span id="nbc-out-oct" class="mono"></span></dd>
+    <dt>10進（符号なし・幅内）</dt><dd><span id="nbc-out-unsigned" class="mono"></span></dd>
+    <dt>有効ビット数（符号を除く絶対値）</dt><dd><span id="nbc-out-bitlen" class="mono"></span></dd>
+    <dt>立っているビット位置（0=最下位）</dt><dd><span id="nbc-out-positions" class="mono"></span></dd>
+  </dl>
+</div>
+
+<h3>ビット演算電卓</h3>
+<div class="row">
+  <div class="field">
+    <label for="nbc-op-a">A</label>
+    <input type="text" id="nbc-op-a" class="mono" autocomplete="off" value="12">
+  </div>
+  <div class="field">
+    <label for="nbc-op-b">B（NOT・シフトでは使用しません）</label>
+    <input type="text" id="nbc-op-b" class="mono" autocomplete="off" value="10">
+  </div>
+</div>
+<div class="row">
+  <div class="field">
+    <label for="nbc-operator">演算</label>
+    <select id="nbc-operator">
+      <option value="and" selected>AND（A &amp; B）</option>
+      <option value="or">OR（A | B）</option>
+      <option value="xor">XOR（A ^ B）</option>
+      <option value="not">NOT（~A）</option>
+      <option value="shl">左シフト（A &lt;&lt; N）</option>
+      <option value="shr">算術右シフト（A &gt;&gt; N、符号を保持）</option>
+      <option value="ushr">論理右シフト（A &gt;&gt;&gt; N、幅内で0埋め）</option>
+    </select>
+  </div>
+  <div class="field">
+    <label for="nbc-shift">シフト量 N（0〜幅-1）</label>
+    <input type="text" id="nbc-shift" class="mono" inputmode="numeric" autocomplete="off" value="2">
+  </div>
+</div>
+<p class="hint">A・Bはビット幅（上のビット幅設定と共通）でマスクしてから演算します。「0x」「0b」「0o」接頭辞を付けなければ10進数として解釈します。</p>
+<p id="nbc-calc-error" class="error"></p>
+<div class="result">
+  <dl class="result-grid">
+    <dt>結果（16進）</dt><dd><span id="nbc-calc-hex" class="mono"></span></dd>
+    <dt>結果（2進・4桁区切り）</dt><dd><span id="nbc-calc-bin" class="mono"></span></dd>
+    <dt>結果（10進・符号なし）</dt><dd><span id="nbc-calc-unsigned" class="mono"></span></dd>
+    <dt>結果（10進・符号あり）</dt><dd><span id="nbc-calc-signed" class="mono"></span></dd>
+  </dl>
+</div>

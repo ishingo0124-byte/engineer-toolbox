@@ -1,0 +1,10 @@
+{
+  "slug": "dummy-data-generator",
+  "title": "テストデータ生成（氏名・住所・メール・電話など）",
+  "short_title": "テストデータ生成",
+  "description": "件数と列（氏名・かな・ローマ字・性別・生年月日・年齢・メール・電話・郵便番号・住所・会社名・UUID・価格・日時）を選んでCSV/JSON/SQL INSERT文を即時生成します。実在の個人情報は使わず、シードを指定すれば同じデータを再現できます。",
+  "keywords": ["テストデータ 生成", "ダミーデータ 作成", "氏名 ダミー", "CSV テストデータ"],
+  "category": "dev",
+  "related": ["uuid-generator", "csv-json", "sql-in-list"],
+  "updated": "2026-09-10"
+}

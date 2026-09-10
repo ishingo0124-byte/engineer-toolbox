@@ -1,0 +1,142 @@
+<div class="row">
+  <div class="field">
+    <label for="fdb-root">起点パス</label>
+    <input type="text" id="fdb-root" autocomplete="off" spellcheck="false" value=".">
+  </div>
+  <div class="field">
+    <label for="fdb-maxdepth">-maxdepth（探索する階層の深さ・空欄で無指定）</label>
+    <input type="text" id="fdb-maxdepth" inputmode="numeric" autocomplete="off" spellcheck="false" value="">
+  </div>
+</div>
+
+<div class="row">
+  <div class="field">
+    <label for="fdb-name">名前パターン（空欄で無指定）</label>
+    <input type="text" id="fdb-name" autocomplete="off" spellcheck="false" value="*.log">
+  </div>
+  <div class="field">
+    <label for="fdb-name-mode">マッチ方式</label>
+    <select id="fdb-name-mode">
+      <option value="name">-name（大文字小文字を区別）</option>
+      <option value="iname">-iname（大文字小文字を無視）</option>
+    </select>
+  </div>
+  <div class="field">
+    <label class="check"><input type="checkbox" id="fdb-name-negate"> パターンを否定（! -name）</label>
+  </div>
+</div>
+
+<div class="row">
+  <div class="field">
+    <label for="fdb-type">種別（-type）</label>
+    <select id="fdb-type">
+      <option value="">指定しない</option>
+      <option value="f" selected>f（通常ファイル）</option>
+      <option value="d">d（ディレクトリ）</option>
+      <option value="l">l（シンボリックリンク）</option>
+    </select>
+  </div>
+  <div class="field">
+    <label class="check"><input type="checkbox" id="fdb-empty"> 空のファイル/ディレクトリのみ（-empty）</label>
+  </div>
+</div>
+
+<div class="row">
+  <div class="field">
+    <label for="fdb-mtime-op">更新日時の条件</label>
+    <select id="fdb-mtime-op">
+      <option value="">指定しない</option>
+      <option value="+" selected>+N（Nより前・経過）</option>
+      <option value="-">-N（N以内・最近）</option>
+      <option value="exact">N（ちょうどN、丸め区間内）</option>
+    </select>
+  </div>
+  <div class="field">
+    <label for="fdb-mtime-num">N（数値）</label>
+    <input type="text" id="fdb-mtime-num" inputmode="numeric" autocomplete="off" spellcheck="false" value="7">
+  </div>
+  <div class="field">
+    <label for="fdb-mtime-unit">単位</label>
+    <select id="fdb-mtime-unit">
+      <option value="day" selected>日（-mtime）</option>
+      <option value="min">分（-mmin）</option>
+    </select>
+  </div>
+</div>
+
+<div class="row">
+  <div class="field">
+    <label for="fdb-size-op">サイズの条件（-size）</label>
+    <select id="fdb-size-op">
+      <option value="">指定しない</option>
+      <option value="+" selected>+N（Nより大きい）</option>
+      <option value="-">-N（N未満）</option>
+      <option value="exact">N（ちょうど）</option>
+    </select>
+  </div>
+  <div class="field">
+    <label for="fdb-size-num">N（数値）</label>
+    <input type="text" id="fdb-size-num" inputmode="numeric" autocomplete="off" spellcheck="false" value="10">
+  </div>
+  <div class="field">
+    <label for="fdb-size-unit">単位</label>
+    <select id="fdb-size-unit">
+      <option value="c">c（バイト）</option>
+      <option value="k">k（KiB）</option>
+      <option value="M" selected>M（MiB）</option>
+      <option value="G">G（GiB）</option>
+    </select>
+  </div>
+</div>
+
+<div class="row">
+  <div class="field">
+    <label for="fdb-user">所有者（-user・空欄で無指定）</label>
+    <input type="text" id="fdb-user" autocomplete="off" spellcheck="false" value="">
+  </div>
+  <div class="field">
+    <label for="fdb-perm-mode">パーミッション条件（-perm）</label>
+    <select id="fdb-perm-mode">
+      <option value="">指定しない</option>
+      <option value="exact">完全一致（mode）</option>
+      <option value="all">-mode（全ビットを含む）</option>
+      <option value="any">/mode（いずれかのビット）</option>
+    </select>
+  </div>
+  <div class="field">
+    <label for="fdb-perm-value">mode（例: 644）</label>
+    <input type="text" id="fdb-perm-value" autocomplete="off" spellcheck="false" value="">
+  </div>
+</div>
+
+<div class="row">
+  <div class="field">
+    <label for="fdb-action">後段のアクション</label>
+    <select id="fdb-action">
+      <option value="none" selected>指定しない（既定の -print）</option>
+      <option value="exec-semi">-exec CMD {} \;（1件ずつ実行）</option>
+      <option value="exec-plus">-exec CMD {} +（まとめて実行）</option>
+      <option value="delete">-delete（削除・危険）</option>
+      <option value="xargs0">-print0 | xargs -0 CMD（NUL区切りで安全に渡す）</option>
+    </select>
+  </div>
+  <div class="field">
+    <label for="fdb-exec-cmd">-exec / xargs で実行するコマンド</label>
+    <input type="text" id="fdb-exec-cmd" autocomplete="off" spellcheck="false" value="ls -la">
+  </div>
+</div>
+
+<p class="error" id="fdb-error"></p>
+
+<div class="result">
+  <p class="mono" id="fdb-command">find . -type f</p>
+  <button type="button" class="copy-btn" data-copy-target="fdb-command">コマンドをコピー</button>
+</div>
+
+<div class="result">
+  <p class="hint">生成された条件の意味</p>
+  <ul id="fdb-explain"></ul>
+</div>
+
+<p class="hint"><strong>落とし穴:</strong> <code>-delete</code> は式の中で最後に置かないと、そこで即座に削除が実行されてしまい後続の条件（-name や -type など）が効きません（find は式を左から評価し、-delete 自体が真を返すため）。<code>-mtime +7</code> は「7日より新しい/古い」の境界を1日分丸めるため実際には「8日以上前」を意味します（find(1) の仕様）。ファイル名にスペースが含まれる場合は <code>-print0 | xargs -0</code>（NUL区切り）または <code>-exec CMD {} \;</code> を使うと単語分割で壊れません。</p>
+<p class="hint"><strong>GNU find と BSD/macOS find の違い:</strong> GNU findutils は <code>-printf</code>・<code>-regextype</code>・<code>-samefile</code> などの拡張を持つが、macOS 標準の BSD find には無い（Homebrew の <code>findutils</code> を <code>gfind</code> として入れると GNU 版を使える）。GNU find は起点パス省略時にカレントディレクトリを補うが、BSD find は起点パスの省略を許さない実装がある。<code>-iname</code> と <code>-delete</code> はいずれも現行の GNU/BSD 双方で利用可能。</p>

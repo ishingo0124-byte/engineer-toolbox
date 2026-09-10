@@ -1,0 +1,10 @@
+{
+  "slug": "rsync-command-builder",
+  "title": "rsync コマンド生成（-a --delete --exclude SSH）",
+  "short_title": "rsync コマンド生成",
+  "description": "送信元/宛先・-a -v -z -h -P・--delete・--exclude/--include・-e ssh・--bwlimit・--dry-runの各条件を選ぶだけでrsyncコマンドを1行生成。末尾スラッシュの違いも解説します。",
+  "keywords": ["rsync コマンド", "rsync --delete", "rsync --exclude", "rsync ssh ポート", "rsync dry-run"],
+  "category": "linux",
+  "related": ["find-command-builder", "tar-command-builder", "ssh-config-generator"],
+  "updated": "2026-09-10"
+}

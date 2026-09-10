@@ -1,0 +1,10 @@
+{
+  "slug": "nginx-config-checker",
+  "title": "nginx location 優先順位判定（=/^~/~/~*）",
+  "short_title": "nginx location 判定",
+  "description": "複数のlocation定義とテスト用のリクエストパスを入力すると、=（完全一致）・^~（最長前方一致優先）・~/~*（正規表現・定義順）・通常の前方一致という優先順位に従い、各パスがどのlocationに落ちるかを判定理由付きの表で表示します。",
+  "keywords": ["nginx location 優先順位", "nginx マッチ順", "nginx 正規表現 location", "nginx ^~", "nginx 設定 確認"],
+  "category": "linux",
+  "related": ["regex-tester", "http-status-codes"],
+  "updated": "2026-09-10"
+}

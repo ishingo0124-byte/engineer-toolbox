@@ -17,7 +17,7 @@ ip-in-range,IPアドレスが範囲内か判定,network,2,done,batch2A 2026-09-1
 ipv6-expander,IPv6 省略⇄展開,network,2,done,batch2A 2026-09-10
 mac-address-format,MACアドレス表記変換・ベンダー判定なし,network,2,done,batch2A 2026-09-10
 umask-calculator,umask 計算,linux,2,done,batch2B 2026-09-10
-crontab-generator,cron 生成専用,linux,3,todo,cron-parser に統合済みなら不要
+crontab-generator,cron 生成専用,linux,3,dropped,cron-parser にジェネレータ内蔵のため不要
 ls-permission-decoder,ls -l の読み方,linux,3,done,batch2E 2026-09-10
 systemd-timer,systemd timer OnCalendar 解読,linux,2,done,batch2B 2026-09-10
 cert-decoder,証明書(PEM)デコード,security,2,done,batch3F 2026-09-10
@@ -43,17 +43,29 @@ http-status-codes,HTTPステータスコード一覧・検索（意味と対処�
 well-known-ports,ポート番号一覧・検索（well-known / registered）,network,2,done,batch3G 2026-09-10
 ascii-unicode-table,ASCII・Unicode コード表と文字→コードポイント変換,text,2,done,batch3H 2026-09-10
 shell-escape,シェルのクォート・エスケープ（bash / PowerShell / cmd）,linux,2,done,batch3H 2026-09-10
-dns-lookup-explainer,digコマンドの出力の読み方（レコード種別・TTL・フラグ）,network,3,building,batch4I
-nginx-config-checker,nginx location マッチ順の判定（正規表現・前方一致）,linux,3,building,batch4J
+dns-lookup-explainer,digコマンドの出力の読み方（レコード種別・TTL・フラグ）,network,3,done,batch4I 2026-09-10
+nginx-config-checker,nginx location マッチ順の判定（正規表現・前方一致）,linux,3,done,batch4J 2026-09-10
 unit-prefix,SI接頭辞・IEC接頭辞 換算（k/M/G/T と Ki/Mi/Gi）,dev,3,done,batch3H 2026-09-10
 markdown-table,Markdown 表の整形・CSV から表生成,text,3,done,batch3H 2026-09-10
-ssl-cipher-decoder,TLS暗号スイート名の解読と安全性判定,security,2,building,batch4I
-http-header-analyzer,HTTPレスポンスヘッダー解析（セキュリティヘッダーの有無）,security,2,building,batch4I
-url-parser,URL分解・組み立て（スキーム/ホスト/パス/クエリ）,dev,2,building,batch4I
-find-command-builder,findコマンド生成（条件を選んで組み立て）,linux,2,building,batch4J
-rsync-command-builder,rsyncコマンド生成（オプション解説つき）,linux,2,building,batch4J
-tar-command-builder,tar/zip コマンド生成（圧縮・展開・除外）,linux,2,building,batch4J
-number-base-converter,進数変換（2/8/10/16進・ビット演算）,dev,2,building,batch4K
-json-to-typescript,JSONからTypeScript型定義を生成,dev,2,building,batch4K
-sql-in-list,行リストをSQLのIN句・配列リテラルに変換,dev,2,building,batch4K
-dummy-data-generator,テストデータ生成（氏名・住所・メール・日付をCSV/JSONで）,dev,2,building,batch4K
+ssl-cipher-decoder,TLS暗号スイート名の解読と安全性判定,security,2,done,batch4I 2026-09-10
+http-header-analyzer,HTTPレスポンスヘッダー解析（セキュリティヘッダーの有無）,security,2,done,batch4I 2026-09-10
+url-parser,URL分解・組み立て（スキーム/ホスト/パス/クエリ）,dev,2,done,batch4I 2026-09-10
+find-command-builder,findコマンド生成（条件を選んで組み立て）,linux,2,done,batch4J 2026-09-10
+rsync-command-builder,rsyncコマンド生成（オプション解説つき）,linux,2,done,batch4J 2026-09-10
+tar-command-builder,tar/zip コマンド生成（圧縮・展開・除外）,linux,2,done,batch4J 2026-09-10
+number-base-converter,進数変換（2/8/10/16進・ビット演算）,dev,2,done,batch4K 2026-09-10
+json-to-typescript,JSONからTypeScript型定義を生成,dev,2,done,batch4K 2026-09-10
+sql-in-list,行リストをSQLのIN句・配列リテラルに変換,dev,2,done,batch4K 2026-09-10
+dummy-data-generator,テストデータ生成（氏名・住所・メール・日付をCSV/JSONで）,dev,2,done,batch4K 2026-09-10
+ssh-config-generator,ssh_config 生成（Host/ProxyJump/鍵指定）,linux,2,todo,batch5候補
+iptables-rule-explainer,iptables / nftables ルールの読み方,linux,3,todo,batch5候補
+systemd-unit-generator,systemd サービスユニットの生成,linux,2,todo,batch5候補
+logrotate-generator,logrotate 設定の生成,linux,3,todo,batch5候補
+docker-run-to-compose,docker run コマンド → docker-compose.yml 変換,dev,2,todo,batch5候補
+crontab-from-schedule,日本語の予定 → cron 式（毎週月曜9時 など）,linux,2,todo,batch5候補
+json-diff,JSON の差分（キー単位）,dev,2,todo,batch5候補
+text-encoding-detector,文字化けの復元（Shift_JIS/EUC-JP/UTF-8 誤判定）,text,2,todo,batch5候補
+ipv4-arithmetic,IP アドレスの加減算・範囲分割（サブネット分割）,network,2,todo,batch5候補
+vlsm-calculator,VLSM 計算（必要ホスト数からサブネット割り当て）,network,2,todo,batch5候補
+mtu-mss-calculator,MTU / MSS 計算（VPN・PPPoE のオーバーヘッド）,network,2,todo,batch5候補
+latency-bandwidth-delay,帯域遅延積と TCP ウィンドウサイズ計算,network,3,todo,batch5候補

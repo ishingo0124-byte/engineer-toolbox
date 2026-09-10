@@ -1,0 +1,10 @@
+{
+  "slug": "url-parser",
+  "title": "URL分解・組み立てツール",
+  "short_title": "URL分解・組み立て",
+  "description": "URLを貼り付けるとscheme・ホスト・ポート・パス・クエリ（key=value表）・フラグメントに分解して表示。各要素を編集してURL APIで正規化・組み立ても可能。パーセントエンコードの解説や日本語ドメインのpunycode表示にも対応します。",
+  "keywords": ["URL 分解", "URL パース", "クエリパラメータ 一覧", "punycode 変換", "URL エンコード デコード"],
+  "category": "dev",
+  "related": ["url-encode", "http-header-analyzer"],
+  "updated": "2026-09-10"
+}

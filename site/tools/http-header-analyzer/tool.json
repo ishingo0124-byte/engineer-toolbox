@@ -1,0 +1,10 @@
+{
+  "slug": "http-header-analyzer",
+  "title": "HTTPレスポンスヘッダー解析（セキュリティ確認）",
+  "short_title": "HTTPヘッダー解析",
+  "description": "curl -I等で取得したHTTPレスポンスヘッダーを貼ると、Strict-Transport-Security等セキュリティヘッダーの有無と推奨値をチェックリスト表示。Server等の情報漏えいヘッダーを指摘し、HSTSのmax-ageを日数換算します。",
+  "keywords": ["HTTPヘッダー 解析", "セキュリティヘッダー チェック", "HSTS max-age 日数", "Content-Security-Policy 確認", "Set-Cookie SameSite 確認"],
+  "category": "security",
+  "related": ["ssl-cipher-decoder", "http-status-codes", "url-parser"],
+  "updated": "2026-09-10"
+}

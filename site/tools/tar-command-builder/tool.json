@@ -1,0 +1,10 @@
+{
+  "slug": "tar-command-builder",
+  "title": "tar / zip コマンド生成（圧縮・展開・一覧）",
+  "short_title": "tar / zip コマンド生成",
+  "description": "作成/展開/一覧の操作とtar.gz/tar.bz2/tar.xz/zipなどの形式、対象パス、除外パターン、展開先、strip-componentsを選ぶだけでtarやzip/unzipのコマンドと中身を確認する一覧コマンドまで生成します。",
+  "keywords": ["tar コマンド 生成", "tar 展開", "zip unzip コマンド", "tar 除外", "strip-components"],
+  "category": "linux",
+  "related": ["find-command-builder", "rsync-command-builder"],
+  "updated": "2026-09-10"
+}

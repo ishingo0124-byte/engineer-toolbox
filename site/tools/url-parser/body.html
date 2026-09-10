@@ -1,0 +1,73 @@
+<style>
+  .up-tbl-wrap { overflow-x: auto; }
+  .up-tbl { width: 100%; border-collapse: collapse; font-size: 0.9em; margin: 0 0 10px; }
+  .up-tbl th, .up-tbl td { border: 1px solid var(--line); padding: 5px 9px; text-align: left; vertical-align: top; word-break: break-all; }
+  .up-tbl th { background: var(--soft); }
+  .up-segs { margin: 0 0 10px; padding-left: 1.4em; }
+  .up-segs li { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; word-break: break-all; margin: 2px 0; }
+  .up-assembled { font-size: 1.05em; font-weight: 700; word-break: break-all; }
+  fieldset.up-fs { border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px 4px; margin: 0 0 14px; }
+  fieldset.up-fs legend { font-size: 0.86em; color: var(--muted); padding: 0 6px; font-weight: 600; }
+</style>
+<div class="field">
+  <label for="up-input">URL</label>
+  <input type="text" id="up-input" autocomplete="off" spellcheck="false" value="https://user:pass@例え.テスト:8443/foo/日本語 パス/bar?tag=a&amp;tag=b&amp;q=検索語&amp;empty=#section-1">
+</div>
+<p id="up-error" class="error"></p>
+
+<div class="result" id="up-result" hidden>
+  <div class="up-tbl-wrap">
+    <table class="up-tbl">
+      <tbody>
+        <tr><th>scheme（プロトコル）</th><td class="mono" id="up-scheme"></td></tr>
+        <tr><th>userinfo（ユーザー情報）</th><td class="mono" id="up-userinfo"></td></tr>
+        <tr><th>host（ホスト名）</th><td class="mono" id="up-host"></td></tr>
+        <tr><th>host（Unicode表記・入力値ベース）</th><td class="mono" id="up-host-unicode"></td></tr>
+        <tr><th>port（ポート）</th><td class="mono" id="up-port"></td></tr>
+        <tr><th>origin</th><td class="mono" id="up-origin"></td></tr>
+        <tr><th>fragment（デコード後）</th><td class="mono" id="up-hash"></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="hint">path のセグメント（デコード後、先頭の空セグメントは除外）</p>
+  <ol class="up-segs" id="up-segments"></ol>
+
+  <p class="hint">query（クエリパラメータ。デコード後の key=value。重複キーはそのまま複数行表示）</p>
+  <div class="up-tbl-wrap">
+    <table class="up-tbl" id="up-query-tbl">
+      <thead><tr><th>#</th><th>key</th><th>value</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</div>
+
+<p class="hint">パーセントエンコードとは、URLに使えないバイト列を <code>%XX</code>（16進数2桁）の形式で表す仕組みです（RFC 3986）。上記のデコード後の値は、これを元の文字に戻した表示です。</p>
+
+<hr style="border:none;border-top:1px solid var(--line);margin:18px 0">
+
+<p class="hint"><strong>各要素を編集してURLを組み立て直す</strong>（ブラウザのURL APIで正規化されます。上の入力欄とは独立して動作します）</p>
+<fieldset class="up-fs">
+  <legend>組み立て</legend>
+  <div class="row">
+    <div class="field"><label for="up-b-scheme">scheme</label><input type="text" id="up-b-scheme" value="https"></div>
+    <div class="field"><label for="up-b-user">username</label><input type="text" id="up-b-user" value=""></div>
+    <div class="field"><label for="up-b-pass">password</label><input type="text" id="up-b-pass" value=""></div>
+  </div>
+  <div class="row">
+    <div class="field"><label for="up-b-host">host</label><input type="text" id="up-b-host" value="example.com"></div>
+    <div class="field"><label for="up-b-port">port（空欄で既定値）</label><input type="text" id="up-b-port" value=""></div>
+  </div>
+  <div class="field"><label for="up-b-path">path</label><input type="text" id="up-b-path" value="/search"></div>
+  <div class="field"><label for="up-b-query">query（先頭の?なし）</label><input type="text" id="up-b-query" value="q=日本語&amp;page=2"></div>
+  <div class="field"><label for="up-b-hash">fragment（先頭の#なし）</label><input type="text" id="up-b-hash" value=""></div>
+</fieldset>
+<p id="up-b-error" class="error"></p>
+<div class="result" id="up-b-result" hidden>
+  <p class="hint">組み立て・正規化後のURL</p>
+  <p class="up-assembled" id="up-b-assembled"></p>
+</div>
+
+<div class="actions">
+  <button type="button" class="copy-btn" data-copy-target="up-b-assembled">組み立てたURLをコピー</button>
+</div>

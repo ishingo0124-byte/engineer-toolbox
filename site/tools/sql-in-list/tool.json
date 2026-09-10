@@ -1,0 +1,10 @@
+{
+  "slug": "sql-in-list",
+  "title": "行リストをSQLのIN句・配列リテラルに変換",
+  "short_title": "SQL IN句変換",
+  "description": "1行1値（またはカンマ・タブ区切り）をSQLのIN句やPostgreSQL配列、JSON・Python・JavaScriptの配列に即時変換。数値の自動判定、シングルクォートのエスケープ、重複除去、折り返しに対応し、IN句から1行1値への逆変換もできます。",
+  "keywords": ["SQL IN句 変換", "IN句 作成", "配列リテラル 変換", "SQL クォート 一括"],
+  "category": "dev",
+  "related": ["line-sort-uniq", "csv-json", "sql-formatter"],
+  "updated": "2026-09-10"
+}

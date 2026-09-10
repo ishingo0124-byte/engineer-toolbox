@@ -1,0 +1,63 @@
+<div class="row">
+  <div class="field">
+    <label for="rcb-src">送信元（ローカルパス、または user@host:path）</label>
+    <input type="text" id="rcb-src" autocomplete="off" spellcheck="false" value="./local/dir/">
+    <span class="hint" id="rcb-src-hint"></span>
+  </div>
+  <div class="field">
+    <label for="rcb-dst">宛先（ローカルパス、または user@host:path）</label>
+    <input type="text" id="rcb-dst" autocomplete="off" spellcheck="false" value="user@remote.example.com:/var/backup/dir/">
+  </div>
+</div>
+
+<div class="field">
+  <label>基本オプション</label>
+  <label class="check"><input type="checkbox" id="rcb-a" checked> -a（archive：属性・シンボリックリンク・再帰を一括保持）</label>
+  <label class="check"><input type="checkbox" id="rcb-v" checked> -v（verbose：転送内容を表示）</label>
+  <label class="check"><input type="checkbox" id="rcb-z"> -z（compress：転送中に圧縮）</label>
+  <label class="check"><input type="checkbox" id="rcb-h" checked> -h（human-readable：数値を人間が読みやすい単位で表示）</label>
+  <label class="check"><input type="checkbox" id="rcb-P"> -P（--partial --progress：中断再開＋進捗表示）</label>
+  <label class="check"><input type="checkbox" id="rcb-n"> -n（--dry-run：実際には転送・削除しない試験実行）</label>
+  <label class="check"><input type="checkbox" id="rcb-delete"> --delete（宛先だけに存在するファイルを削除）</label>
+</div>
+
+<p class="error" id="rcb-delete-warn"></p>
+
+<div class="row">
+  <div class="field">
+    <label for="rcb-include">--include パターン（1行に1つ・--exclude より前に置かれます）</label>
+    <textarea id="rcb-include" rows="3" spellcheck="false"></textarea>
+  </div>
+  <div class="field">
+    <label for="rcb-exclude">--exclude パターン（1行に1つ）</label>
+    <textarea id="rcb-exclude" rows="3" spellcheck="false">.git/
+*.tmp
+node_modules/</textarea>
+  </div>
+</div>
+
+<div class="row">
+  <div class="field">
+    <label for="rcb-ssh-port">SSH ポート（空欄で既定の22番）</label>
+    <input type="text" id="rcb-ssh-port" inputmode="numeric" autocomplete="off" spellcheck="false" value="">
+  </div>
+  <div class="field">
+    <label for="rcb-bwlimit">--bwlimit（KB/s・空欄で無制限）</label>
+    <input type="text" id="rcb-bwlimit" inputmode="numeric" autocomplete="off" spellcheck="false" value="">
+  </div>
+</div>
+
+<p class="error" id="rcb-error"></p>
+
+<div class="result">
+  <p class="mono" id="rcb-command">rsync -avh ./local/dir/ user@remote.example.com:/var/backup/dir/</p>
+  <button type="button" class="copy-btn" data-copy-target="rcb-command">コマンドをコピー</button>
+</div>
+
+<div class="result">
+  <p class="hint">生成された条件の意味</p>
+  <ul id="rcb-explain"></ul>
+</div>
+
+<p class="hint"><strong>送信元パス末尾のスラッシュの違い（rsync(1)の仕様）:</strong> <code>dir/</code>（末尾に / あり）を送信元に指定すると「dir の中身」が宛先の直下にコピーされ、宛先に dir という階層は作られません。一方 <code>dir</code>（末尾に / なし）を指定すると「dir というディレクトリ自体」が宛先の中にコピーされ、宛先側に新しく dir/ が作られます。宛先パスの末尾スラッシュの有無は結果に影響しません。</p>
+<p class="hint"><strong>--include / --exclude の順序:</strong> rsync のフィルタルールは先に書かれたものから順に評価され、最初にマッチしたルールが適用されます。特定のサブディレクトリだけ残しつつ他を除外したい場合は、--include を --exclude より前に置く必要があります（このツールは常にその順で生成します）。</p>

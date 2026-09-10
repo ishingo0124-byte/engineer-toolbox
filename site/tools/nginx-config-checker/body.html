@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="field">
+    <label for="ngc-locations">location 定義（1行に1つ。先頭部分だけでよい。例: location ~* \.(png|jpg)$）</label>
+    <textarea id="ngc-locations" rows="6" spellcheck="false">location = /favicon.ico
+location ^~ /static/
+location ~* \.(png|jpg|gif)$
+location ~ \.php$
+location /</textarea>
+  </div>
+  <div class="field">
+    <label for="ngc-paths">テストするリクエストパス（1行に1つ）</label>
+    <textarea id="ngc-paths" rows="6" spellcheck="false">/favicon.ico
+/static/app.js
+/static/images/logo.png
+/photo.png
+/index.php
+/about</textarea>
+  </div>
+</div>
+
+<p class="error" id="ngc-error"></p>
+
+<div class="result">
+  <table id="ngc-table">
+    <thead>
+      <tr><th>リクエストパス</th><th>マッチした location</th><th>判定理由</th></tr>
+    </thead>
+    <tbody id="ngc-rows"></tbody>
+  </table>
+</div>
+
+<p class="hint"><strong>優先順位（nginx公式ドキュメント ngx_http_core_module の location による）:</strong> ① <code>=</code> 完全一致（一致した時点で即決定）→ ② <code>^~</code> 付きの中で最も長く前方一致するもの（一致した時点で正規表現の検査を飛ばして即決定）→ ③ <code>~</code>（大小文字区別）・<code>~*</code>（区別なし）の正規表現を<strong>設定ファイルに書かれた順番</strong>に検査し、最初に一致したもの → ④ どの正規表現にも一致しなければ、②で除外した <code>^~</code> なしも含めた通常の前方一致の中で最も長いもの、の順に決定されます。</p>
+<p class="hint"><strong>よくある誤解:</strong> 正規表現の location（<code>~</code> / <code>~*</code>）は「より条件が厳しいもの」や「後に書いたもの」が優先されるわけではなく、あくまで<strong>設定ファイルに書いた順番</strong>で最初に一致したものが採用されます。一方、通常の前方一致（modifier なし、または <code>^~</code>）は逆に書いた順番ではなく<strong>一致する文字列が最も長いもの</strong>が優先されます。この2つの優先ルールの違いを混同すると、意図しない location にリクエストが振り分けられます。このツールの正規表現判定は JavaScript の正規表現エンジンで簡易的に行っており、PCRE固有の構文には完全には対応していません。</p>

@@ -1,0 +1,49 @@
+<style>
+  .dle-tbl-wrap { overflow-x: auto; }
+  .dle-tbl { width: 100%; border-collapse: collapse; font-size: 0.88em; margin: 0 0 12px; }
+  .dle-tbl th, .dle-tbl td { border: 1px solid var(--line); padding: 5px 9px; text-align: left; vertical-align: top; word-break: break-all; }
+  .dle-tbl th { background: var(--soft); }
+  .dle-sec { margin: 16px 0 6px; font-weight: 700; }
+  .dle-chip { display: inline-block; font-size: 0.78em; padding: 1px 8px; border-radius: 999px; border: 1px solid var(--line); margin: 0 4px 4px 0; }
+  .dle-chip.on { background: var(--soft); border-color: var(--accent); color: var(--accent); font-weight: 700; }
+  .dle-type { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-weight: 700; }
+  .dle-chain { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.92em; margin: 4px 0 12px; }
+  .dle-chain .seg { background: var(--soft); border-radius: 6px; padding: 3px 8px; }
+  .dle-soa dt { color: var(--muted); font-size: 0.85em; }
+  .dle-empty { color: var(--muted); font-size: 0.9em; }
+</style>
+<p class="hint"><strong>このツールは実際のDNS照会（名前解決）を一切行いません。</strong> 貼り付けた <code>dig</code> / <code>nslookup</code> の出力テキストを解析して意味を解説するだけの、ブラウザ内完結のツールです。</p>
+
+<div class="field">
+  <label for="dle-input">dig または nslookup の出力を貼り付け</label>
+  <textarea id="dle-input" rows="14" spellcheck="false" placeholder="dig example.com や nslookup example.com の出力をそのまま貼り付けます">; &lt;&lt;&gt;&gt; DiG 9.18.1 &lt;&lt;&gt;&gt; www.example.com
+;; global options: +cmd
+;; Got answer:
+;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 51234
+;; flags: qr rd ra ad; QUERY: 1, ANSWER: 3, AUTHORITY: 0, ADDITIONAL: 1
+
+;; QUESTION SECTION:
+;www.example.com.		IN	A
+
+;; ANSWER SECTION:
+www.example.com.	300	IN	CNAME	cdn.example.net.
+cdn.example.net.	60	IN	A	203.0.113.10
+cdn.example.net.	60	IN	A	203.0.113.20
+
+;; Query time: 24 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53)
+;; WHEN: Thu Sep 10 12:00:00 JST 2026
+;; MSG SIZE  rcvd: 96</textarea>
+</div>
+<p id="dle-error" class="error"></p>
+<p class="hint" id="dle-format"></p>
+
+<div id="dle-header-block"></div>
+
+<div id="dle-sections"></div>
+
+<div id="dle-chain-block"></div>
+
+<div class="actions">
+  <button type="button" id="dle-clear" class="ghost">クリア</button>
+</div>

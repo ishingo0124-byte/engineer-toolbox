@@ -1,0 +1,10 @@
+{
+  "slug": "ssl-cipher-decoder",
+  "title": "TLS暗号スイート解読・安全性判定",
+  "short_title": "TLS暗号スイート解読",
+  "description": "TLS暗号スイート名を貼り付けると、鍵交換・認証・暗号アルゴリズム/鍵長/モード・MACに分解して表示。IANA名とOpenSSL名の両方に対応し、前方秘匿性や既知の弱点から安全性を推奨/許容/非推奨/危険の4段階で判定します。",
+  "keywords": ["TLS 暗号スイート 意味", "cipher suite 解読", "OpenSSL 暗号スイート 変換", "暗号スイート 安全性", "前方秘匿性 確認"],
+  "category": "security",
+  "related": ["cert-decoder", "http-header-analyzer"],
+  "updated": "2026-09-10"
+}

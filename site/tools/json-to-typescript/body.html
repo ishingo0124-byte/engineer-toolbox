@@ -1,0 +1,38 @@
+<div class="field">
+  <label for="j2t-input">JSON を貼り付け</label>
+  <textarea id="j2t-input" rows="12" class="mono" spellcheck="false">{
+  "id": 1,
+  "name": "山田太郎",
+  "active": true,
+  "score": null,
+  "address": { "pref": "東京都", "city": "新宿区" },
+  "tags": ["admin", "beta"],
+  "items": [
+    { "id": 1, "label": "A", "price": 100 },
+    { "id": 2, "label": "B" }
+  ]
+}</textarea>
+</div>
+<div class="row">
+  <div class="field">
+    <label for="j2t-root-name">ルート型の名前</label>
+    <input type="text" id="j2t-root-name" autocomplete="off" value="Root">
+  </div>
+  <div class="field">
+    <label for="j2t-kind">出力形式</label>
+    <select id="j2t-kind">
+      <option value="interface" selected>interface</option>
+      <option value="type">type（type alias）</option>
+    </select>
+  </div>
+</div>
+<div class="row">
+  <label class="check"><input type="checkbox" id="j2t-readonly"> readonly を付ける</label>
+  <label class="check"><input type="checkbox" id="j2t-semi" checked> 行末にセミコロン（;）を付ける</label>
+</div>
+<p id="j2t-error" class="error"></p>
+<div class="result">
+  <textarea id="j2t-output" class="mono" readonly style="min-height:240px"></textarea>
+  <div class="actions"><button type="button" class="copy-btn" data-copy-target="j2t-output">型定義をコピー</button></div>
+</div>
+<p class="hint">ネストしたオブジェクトはキー名をPascalCase化した名前でinterface（またはtype）に分解されます。配列の要素はキー名を単数形化した名前を使います（例: items → Item）。配列内の一部の要素にしか無いキーは自動的にオプショナル（?）になり、同じキーに複数の型が混在する場合はユニオン型（A | B）にします。</p>

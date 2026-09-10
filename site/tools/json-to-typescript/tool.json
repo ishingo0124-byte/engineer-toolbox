@@ -1,0 +1,10 @@
+{
+  "slug": "json-to-typescript",
+  "title": "JSON から TypeScript の型定義を生成",
+  "short_title": "JSON→TS型生成",
+  "description": "貼り付けたJSONを解析し、ネストしたオブジェクトをinterfaceまたはtype別名に分解して出力します。配列内で欠けているキーはオプショナル（?）に、複数の型が混在する値はユニオン型に自動変換。readonlyやセミコロンの有無も選べます。",
+  "keywords": ["JSON TypeScript 変換", "型定義 自動生成", "interface 生成", "JSON to TS"],
+  "category": "dev",
+  "related": ["json-formatter", "case-converter"],
+  "updated": "2026-09-10"
+}
