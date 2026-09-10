@@ -12,6 +12,7 @@ build.py — 静的サイト生成（依存: markdown のみ）
   site/pages/<name>.md        固定ページ（先頭に "# タイトル"、2行目に "description: ..."）
   site/templates/base.html    共通レイアウト
   site/assets/                css / js / favicon
+  site/root/                  サイト直下にそのまま置くファイル（google 所有権確認 html、ads.txt など）
   site/data/affiliate_links.json  {"key": {"url": "...", "label": "..."}}   guide.md 内の {{aff:key}} を置換
 """
 import argparse, datetime, html, json, os, re, shutil, sys
@@ -247,6 +248,9 @@ def main():
     if os.path.exists(DIST):
         shutil.rmtree(DIST, ignore_errors=True)  # OneDrive/ロック中でも止めない（上書きで更新される）
     shutil.copytree(os.path.join(SITE, "assets"), os.path.join(DIST, "assets"), dirs_exist_ok=True)
+    root_dir = os.path.join(SITE, "root")  # サイト直下に置くファイル（所有権確認・ads.txt 等）
+    if os.path.isdir(root_dir):
+        shutil.copytree(root_dir, DIST, dirs_exist_ok=True)
     base = read(os.path.join(SITE, "templates", "base.html"))
     for t in tools:
         tool_page(t, by, cfg, base, aff)
