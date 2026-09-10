@@ -1,0 +1,45 @@
+<style>
+  #mt-md-out, #mt-csv-out { min-height: 90px; }
+</style>
+
+<div class="field">
+  <label for="mt-input">CSV・TSV・スペース区切りのデータ、または崩れたMarkdown表（自動判定）</label>
+  <textarea id="mt-input" rows="6" spellcheck="false">名前,役職,経験年数
+田中太郎,エンジニア,5
+佐藤花子,デザイナー,12
+Lee,PM,3</textarea>
+</div>
+
+<div class="row">
+  <div class="field">
+    <label for="mt-delim">区切り文字（CSV/TSV入力時のみ使用）</label>
+    <select id="mt-delim">
+      <option value="auto" selected>自動判定</option>
+      <option value=",">カンマ（CSV）</option>
+      <option value="tab">タブ（TSV）</option>
+      <option value="space">連続スペース</option>
+    </select>
+  </div>
+  <div class="field">
+    <label for="mt-align">列の配置（左からl/c/r/空白をカンマ区切り、空欄は既定）</label>
+    <input type="text" id="mt-align" autocomplete="off" spellcheck="false" value="l,c,r">
+  </div>
+</div>
+<p class="hint">配置指定: <code>l</code>=左揃え <code>:--</code>、<code>c</code>=中央揃え <code>:-:</code>、<code>r</code>=右揃え <code>--:</code>、空欄はGFMの既定（コロンなし <code>---</code>）。全角文字は表示幅2として列幅を揃えます。</p>
+<p id="mt-error" class="error"></p>
+
+<div class="field">
+  <label for="mt-md-out">Markdown表</label>
+  <textarea id="mt-md-out" readonly spellcheck="false"></textarea>
+</div>
+<div class="actions">
+  <button type="button" class="primary copy-btn" data-copy-target="mt-md-out">Markdown表をコピー</button>
+</div>
+
+<div class="field" style="margin-top:16px">
+  <label for="mt-csv-out">CSV（Markdown表からの逆変換・正規化済みデータ）</label>
+  <textarea id="mt-csv-out" readonly spellcheck="false"></textarea>
+</div>
+<div class="actions">
+  <button type="button" class="ghost copy-btn" data-copy-target="mt-csv-out">CSVをコピー</button>
+</div>

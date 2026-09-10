@@ -1,0 +1,55 @@
+<h3 style="margin-top:0">YAML → JSON</h3>
+<div class="field">
+  <label for="yj-yaml-input">YAMLを貼り付け</label>
+  <textarea id="yj-yaml-input" rows="14" spellcheck="false"># 設定ファイルの例
+name: my-app
+version: 1.2.3
+debug: false
+port: 8080
+tags: [web, prod]
+database:
+  host: db.internal
+  port: 5432
+  options: { timeout: 30, retry: true }
+servers:
+  - name: web-1
+    ip: 192.168.1.10
+  - name: web-2
+    ip: 192.168.1.11
+description: |
+  複数行の説明文です。
+  改行はそのまま保持されます。
+</textarea>
+</div>
+<p id="yj-yaml-error" class="error"></p>
+<div class="field">
+  <label for="yj-json-output">JSON（変換結果）</label>
+  <textarea id="yj-json-output" rows="14" class="mono" readonly></textarea>
+</div>
+<div class="actions">
+  <button type="button" class="copy-btn" data-copy-target="yj-json-output">JSONをコピー</button>
+</div>
+
+<hr style="border:none;border-top:1px solid var(--line);margin:22px 0">
+
+<h3>JSON → YAML</h3>
+<div class="field">
+  <label for="yj-json-input">JSONを貼り付け</label>
+  <textarea id="yj-json-input" rows="10" class="mono" spellcheck="false">{
+  "name": "my-app",
+  "version": "1.2.3",
+  "debug": false,
+  "tags": ["web", "prod"],
+  "database": { "host": "db.internal", "port": 5432 }
+}</textarea>
+</div>
+<p id="yj-json-error" class="error"></p>
+<div class="field">
+  <label for="yj-yaml-output">YAML（変換結果、インデント2）</label>
+  <textarea id="yj-yaml-output" rows="10" class="mono" readonly></textarea>
+</div>
+<div class="actions">
+  <button type="button" class="copy-btn" data-copy-target="yj-yaml-output">YAMLをコピー</button>
+</div>
+
+<p class="hint"><strong>注意（YAML 1.1との違い）:</strong> 本ツールはYAML 1.2のコアスキーマに基づき、<code>yes</code> / <code>no</code> / <code>on</code> / <code>off</code> を真偽値に変換せず文字列のまま扱います（<code>true</code> / <code>false</code> のみ真偽値）。古いパーサ（YAML 1.1系。一部のAnsible等）では <code>no</code> や <code>on</code> が自動的に真偽値になり、意図しない挙動を招くことがあるため、値として使う場合は明示的にクォートすることを推奨します。また、インデントに<strong>タブ文字は使用できません</strong>（半角スペースのみ）。</p>

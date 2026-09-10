@@ -1,0 +1,10 @@
+{
+  "slug": "qr-generator",
+  "title": "QRコード生成（URL・テキスト・Wi-Fi設定）",
+  "short_title": "QRコード生成",
+  "description": "URL・テキスト・Wi-Fi接続設定からQRコードをブラウザ内だけで生成。誤り訂正レベル(L/M/Q/H)・サイズ・余白を指定でき、Canvas表示とSVGコピーに対応。入力は一切送信されず端末内のJavaScriptだけで完結します。",
+  "keywords": ["QRコード 作成", "QRコード 生成 無料", "Wi-Fi QRコード", "QRコード SVG", "URL QRコード 作成"],
+  "category": "dev",
+  "related": ["url-encode", "base64"],
+  "updated": "2026-09-10"
+}

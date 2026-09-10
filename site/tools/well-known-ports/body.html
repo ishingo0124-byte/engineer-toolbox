@@ -1,0 +1,38 @@
+<style>
+  .wkp-item { border: 1px solid var(--line); border-radius: 10px; padding: 8px 14px; margin: 0 0 6px; }
+  .wkp-item .wkp-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .wkp-port { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-weight: 700; font-size: 1.1em; }
+  .wkp-proto { font-size: 0.76em; padding: 1px 7px; border-radius: 999px; background: var(--soft); color: var(--muted); }
+  .wkp-name { font-weight: 600; }
+  .wkp-tag { font-size: 0.72em; padding: 1px 7px; border-radius: 999px; border: 1px solid var(--err); color: var(--err); }
+  .wkp-desc { margin: 4px 0 0; font-size: 0.94em; }
+  .wkp-sec { margin: 2px 0 0; font-size: 0.86em; color: var(--err); }
+  .wkp-cat { border: 1px solid var(--line); border-radius: 10px; margin: 0 0 10px; overflow: hidden; }
+  .wkp-cat summary { cursor: pointer; padding: 10px 14px; background: var(--soft); font-weight: 700; list-style: none; }
+  .wkp-cat summary::-webkit-details-marker { display: none; }
+  .wkp-cat summary::before { content: "▶ "; }
+  .wkp-cat[open] summary::before { content: "▼ "; }
+  .wkp-cat .wkp-body { padding: 10px 14px 4px; }
+  .wkp-empty { color: var(--muted); font-size: 0.9em; padding: 8px 0; }
+</style>
+<div class="row">
+  <div class="field">
+    <label for="wkp-search">番号またはサービス名で検索（例: 443, redis, リモートデスクトップ）</label>
+    <input type="text" id="wkp-search" autocomplete="off" spellcheck="false" placeholder="例: 22">
+  </div>
+</div>
+<p class="hint" id="wkp-count"></p>
+<div id="wkp-results"></div>
+
+<h3>ポート番号の範囲区分（IANA）</h3>
+<div class="result">
+  <table class="mono">
+    <thead><tr><th>範囲</th><th>区分</th><th>説明</th></tr></thead>
+    <tbody>
+      <tr><td>0〜1023</td><td>Well-Known Ports</td><td>IANAが管理する既知のシステムポート。SSH・HTTP・DNSなど広く使われる基本サービスが割り当てられる。</td></tr>
+      <tr><td>1024〜49151</td><td>Registered Ports</td><td>特定のソフトウェア・サービス用にIANAへ登録申請できる範囲。MySQL(3306)やRDP(3389)などはここに含まれる。</td></tr>
+      <tr><td>49152〜65535</td><td>Dynamic / Private Ports</td><td>クライアントが接続のたびに一時的に使う動的ポート。特定用途への恒久的な割り当ては行われない。</td></tr>
+    </tbody>
+  </table>
+</div>
+<p class="hint">この一覧は端末内のJavaScriptだけで動作し、外部への通信は行いません。</p>

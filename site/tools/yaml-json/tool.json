@@ -1,0 +1,10 @@
+{
+  "slug": "yaml-json",
+  "title": "YAML⇄JSON変換（設定ファイルの確認用）",
+  "short_title": "YAML⇄JSON変換",
+  "description": "YAMLとJSONを相互変換します。ブロック形式・フロー形式（{}や[]）・複数行文字列（|・>）・コメント・アンカー/エイリアスに対応した自作パーサで解析し、対応外の構文は行番号付きでエラー表示。JSON→YAMLはインデント2のブロック形式で出力します。",
+  "keywords": ["YAML JSON 変換", "YAML 変換 ツール", "JSON YAML 変換", "YAML パーサー オンライン"],
+  "category": "dev",
+  "related": ["json-formatter", "csv-json"],
+  "updated": "2026-09-10"
+}

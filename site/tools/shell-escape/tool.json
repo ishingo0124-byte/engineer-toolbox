@@ -1,0 +1,10 @@
+{
+  "slug": "shell-escape",
+  "title": "シェルのエスケープ（bash/PowerShell/cmd）",
+  "short_title": "シェルエスケープ",
+  "description": "入力した文字列をbashのシングル/ダブルクォート、PowerShellのクォート、cmd.exeの^エスケープと引数解析、JSON文字列・正規表現リテラルまで一括変換。引数リストから安全なコマンドライン1行も組み立てます。",
+  "keywords": ["シェル エスケープ", "bash クォート", "PowerShell エスケープ", "cmd.exe エスケープ", "コマンドライン 引数"],
+  "category": "linux",
+  "related": ["html-escape", "url-encode", "regex-tester"],
+  "updated": "2026-09-10"
+}

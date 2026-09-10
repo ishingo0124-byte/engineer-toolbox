@@ -1,0 +1,76 @@
+<style>
+#eb-table1, #eb-table2 { width: 100%; border-collapse: collapse; font-size: 0.86em; margin: 10px 0; }
+#eb-table1 th, #eb-table1 td, #eb-table2 th, #eb-table2 td { border: 1px solid var(--line); padding: 5px 8px; text-align: left; white-space: nowrap; }
+#eb-table1 th, #eb-table2 th { background: var(--soft); }
+.eb-table-wrap { overflow-x: auto; }
+.eb-err-row { color: var(--err); }
+</style>
+
+<h3 style="margin-top:0">エポック秒/ミリ秒 → 日時（一括）</h3>
+<div class="field">
+  <label for="eb-epoch-input">エポック値（1行に1つ。または下の自動抽出モードでログ全文を貼り付け）</label>
+  <textarea id="eb-epoch-input" rows="8" class="mono" spellcheck="false">1700000000
+1700000000123
+1609459200
+-86400
+0</textarea>
+</div>
+<div class="row">
+  <label class="check"><input type="checkbox" id="eb-extract-mode"> 行中の10桁/13桁の数字を自動抽出する（ログをそのまま貼り付け可能）</label>
+</div>
+<div class="field">
+  <label for="eb-tz1">表示タイムゾーン（ISO 8601列に使用）</label>
+  <select id="eb-tz1">
+    <option value="jst" selected>JST（日本時間・UTC+9固定）</option>
+    <option value="utc">UTC</option>
+    <option value="browser">ブラウザのタイムゾーン</option>
+  </select>
+</div>
+<p id="eb-epoch-error" class="error"></p>
+<div class="eb-table-wrap">
+  <table id="eb-table1">
+    <thead><tr><th>#</th><th>入力値</th><th>単位</th><th>JST</th><th>UTC</th><th>ISO 8601（選択TZ）</th></tr></thead>
+    <tbody id="eb-tbody1"></tbody>
+  </table>
+</div>
+<div class="field">
+  <label for="eb-tsv1">TSV（表計算ソフトに貼り付け可能）</label>
+  <textarea id="eb-tsv1" rows="6" class="mono" readonly></textarea>
+</div>
+<div class="actions">
+  <button type="button" class="copy-btn" data-copy-target="eb-tsv1">TSVをコピー</button>
+</div>
+
+<hr style="border:none;border-top:1px solid var(--line);margin:22px 0">
+
+<h3>日時 → エポック秒（一括）</h3>
+<div class="field">
+  <label for="eb-datetime-input">日時（1行に1つ。例: 2026-09-10 21:00:00 / 2026-09-10T21:00:00 / 2026/09/10 21:00）</label>
+  <textarea id="eb-datetime-input" rows="5" class="mono" spellcheck="false">2026-09-10 21:00:00
+2026-01-01T00:00:00
+1970-01-01 09:00:00</textarea>
+</div>
+<div class="field">
+  <label for="eb-tz2">入力日時の解釈タイムゾーン</label>
+  <select id="eb-tz2">
+    <option value="jst" selected>JST（日本時間・UTC+9固定）として解釈</option>
+    <option value="utc">UTCとして解釈</option>
+    <option value="browser">ブラウザのタイムゾーンとして解釈</option>
+  </select>
+</div>
+<p id="eb-datetime-error" class="error"></p>
+<div class="eb-table-wrap">
+  <table id="eb-table2">
+    <thead><tr><th>#</th><th>入力値</th><th>エポック秒</th><th>エポックミリ秒</th></tr></thead>
+    <tbody id="eb-tbody2"></tbody>
+  </table>
+</div>
+<div class="field">
+  <label for="eb-tsv2">TSV（表計算ソフトに貼り付け可能）</label>
+  <textarea id="eb-tsv2" rows="4" class="mono" readonly></textarea>
+</div>
+<div class="actions">
+  <button type="button" class="copy-btn" data-copy-target="eb-tsv2">TSVをコピー</button>
+</div>
+
+<p class="hint">桁数によりエポック値の単位（秒/ミリ秒）を自動判定します（12桁以上をミリ秒とみなします）。誤判定を避けたい場合は、値の桁数を確認するか、1行1つのモードで入力してください。</p>

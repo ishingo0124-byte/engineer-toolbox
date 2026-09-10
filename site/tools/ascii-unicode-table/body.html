@@ -1,0 +1,34 @@
+<style>
+  #au-table-wrap table, #au-ascii-wrap table { font-size: 0.85em; }
+  #au-table-wrap td, #au-table-wrap th, #au-ascii-wrap td, #au-ascii-wrap th { white-space: nowrap; }
+  #au-table-wrap td.au-ch, #au-ascii-wrap td.au-ch { white-space: pre; min-width: 1.6em; text-align: center; }
+  tr.au-weird { background: var(--soft); }
+  tr.au-weird td.au-cat { color: var(--err); font-weight: 600; }
+  .au-reverse-row { display: flex; align-items: baseline; gap: 8px; padding: 4px 0; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+  .au-reverse-row:last-child { border-bottom: none; }
+  .au-reverse-row .au-src { color: var(--muted); font-size: 0.86em; }
+  .au-reverse-row .au-val { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-weight: 600; }
+</style>
+
+<div class="field">
+  <label for="au-input">文字 → コード変換したい文字列</label>
+  <textarea id="au-input" rows="3" spellcheck="false"></textarea>
+</div>
+<p class="hint">1文字ずつコードポイント・UTF-8バイト列・UTF-16コード単位・種別を表示します（先頭500文字まで）。全角スペース・NBSP・ゼロ幅スペースなど見た目が同じ紛らわしい文字は背景色つきで強調します。</p>
+<p id="au-error" class="error"></p>
+<div id="au-table-wrap"></div>
+
+<div class="field" style="margin-top:20px">
+  <label for="au-reverse-input">コード → 文字に復元したいテキスト（1行に1件、複数形式を自動判定）</label>
+  <textarea id="au-reverse-input" rows="4" spellcheck="false">U+3042 U+3044 U+30A2
+あい
+&#12354;&#12356;
+0xE3 0x81 0x82</textarea>
+</div>
+<p class="hint">対応形式: <code>U+3042</code> / <code>あ</code> / <code>\u{1F600}</code> / <code>&amp;#12354;</code>（10進実体参照）/ <code>&amp;#x3042;</code>（16進実体参照）/ <code>0xE3 0x81 0x82</code>（UTF-8バイト列・16進）。1行がすべて16進バイトのときはUTF-8として結合デコードします。</p>
+<div class="result" id="au-reverse-out"></div>
+
+<div class="field" style="margin-top:20px">
+  <label>ASCIIコード表（0〜127）</label>
+  <div id="au-ascii-wrap"></div>
+</div>

@@ -1,0 +1,10 @@
+{
+  "slug": "http-status-codes",
+  "title": "HTTPステータスコード一覧・検索（意味・原因・対処）",
+  "short_title": "HTTPステータスコード",
+  "description": "1xx〜5xxのHTTPステータスコードをRFC 9110ベースで一覧化し、番号や語句でインクリメンタル検索。日本語での意味・よくある原因・対処法・関連ヘッダーを添え、418や429、nginx独自の499など主要な拡張コードも収録しています。",
+  "keywords": ["HTTPステータスコード 一覧", "404 意味", "503 原因", "HTTPステータスコード 検索", "429 too many requests"],
+  "category": "dev",
+  "related": ["well-known-ports", "url-encode"],
+  "updated": "2026-09-10"
+}

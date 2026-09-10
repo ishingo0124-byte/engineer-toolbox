@@ -1,0 +1,10 @@
+{
+  "slug": "color-converter",
+  "title": "カラーコード変換（HEX⇄RGB⇄HSL・コントラスト比）",
+  "short_title": "カラーコード変換",
+  "description": "HEX(3/6/8桁)・rgb()/rgba()・hsl()/hsla()・CSS色名147色のどれか1つを入力すると他形式へ即座に変換。背景色との組み合わせでWCAGコントラスト比とAA/AAA判定、補色・明暗バリエーションも同時に表示します。",
+  "keywords": ["カラーコード変換", "HEX RGB 変換", "コントラスト比 計算", "WCAG AA 判定", "CSS 色名"],
+  "category": "dev",
+  "related": ["html-escape", "unit-prefix"],
+  "updated": "2026-09-10"
+}

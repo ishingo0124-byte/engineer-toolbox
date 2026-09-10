@@ -1,0 +1,10 @@
+{
+  "slug": "ascii-unicode-table",
+  "title": "ASCII・Unicodeコード表と文字⇄コードポイント変換",
+  "short_title": "ASCII/Unicode変換",
+  "description": "文字列を貼り付けると1文字ごとにコードポイント（U+XXXX）・UTF-8バイト列・文字種別を一覧表示。U+3042や\\u3042、&#12354;からも文字へ復元でき、全角スペースやNBSPなど見た目が同じ紛らわしい文字を検出します。",
+  "keywords": ["Unicode 変換", "コードポイント 変換", "ASCII コード表", "文字コード 変換", "UTF-8 バイト 変換"],
+  "category": "text",
+  "related": ["char-count", "html-escape", "case-converter"],
+  "updated": "2026-09-10"
+}

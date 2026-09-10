@@ -1,0 +1,10 @@
+{
+  "slug": "epoch-batch",
+  "title": "エポック秒 一括変換（ログのUNIX時間を日時に）",
+  "short_title": "エポック秒 一括変換",
+  "description": "ログに含まれる大量のUNIXエポック秒/ミリ秒を貼り付けると、JST・UTC・ISO 8601へまとめて一括変換します。行中の10桁/13桁の数字を自動抽出するモードや、日時からエポック秒への逆変換、TSVでのコピーにも対応。",
+  "keywords": ["エポック秒 一括変換", "UNIX時間 一括変換", "ログ タイムスタンプ 変換", "エポック秒 まとめて変換"],
+  "category": "time",
+  "related": ["unix-time", "log-timestamp", "timestamp-format"],
+  "updated": "2026-09-10"
+}

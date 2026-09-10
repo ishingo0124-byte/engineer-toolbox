@@ -1,0 +1,25 @@
+<style>
+  .hsc-item { border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; margin: 0 0 8px; }
+  .hsc-item .hsc-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .hsc-code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-weight: 700; font-size: 1.15em; }
+  .hsc-en { color: var(--muted); font-size: 0.92em; }
+  .hsc-tag { font-size: 0.72em; padding: 1px 7px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); }
+  .hsc-item dl { margin: 6px 0 0; }
+  .hsc-item dt { font-size: 0.82em; color: var(--muted); margin-top: 4px; }
+  .hsc-item dd { margin: 0 0 2px; }
+  .hsc-cat { border: 1px solid var(--line); border-radius: 10px; margin: 0 0 10px; overflow: hidden; }
+  .hsc-cat summary { cursor: pointer; padding: 10px 14px; background: var(--soft); font-weight: 700; list-style: none; }
+  .hsc-cat summary::-webkit-details-marker { display: none; }
+  .hsc-cat summary::before { content: "▶ "; }
+  .hsc-cat[open] summary::before { content: "▼ "; }
+  .hsc-cat .hsc-body { padding: 10px 14px 4px; }
+  .hsc-empty { color: var(--muted); font-size: 0.9em; padding: 8px 0; }
+</style>
+<div class="row">
+  <div class="field">
+    <label for="hsc-search">番号または語句で検索（例: 404, タイムアウト, レート制限）</label>
+    <input type="text" id="hsc-search" autocomplete="off" spellcheck="false" placeholder="例: 429">
+  </div>
+</div>
+<p class="hint" id="hsc-count"></p>
+<div id="hsc-results"></div>

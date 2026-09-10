@@ -1,0 +1,10 @@
+{
+  "slug": "unit-prefix",
+  "title": "SI/IEC接頭辞 換算（k/M/G/T・Ki/Mi/Gi）",
+  "short_title": "SI/IEC接頭辞換算",
+  "description": "数値と接頭辞を入力すると、SI接頭辞（yからYまで20種）とIEC 2進接頭辞（KiからYiまで8種）へ一括換算。工学表記・指数表記も表示し、10進のkB/Mbpsと2進のKiB/メモリ容量の使い分けを一覧で整理します。",
+  "keywords": ["SI接頭辞 変換", "キロ メガ ギガ 変換", "Ki Mi Gi 変換", "工学表記 変換", "2進 10進 単位"],
+  "category": "dev",
+  "related": ["byte-converter", "bandwidth-calc"],
+  "updated": "2026-09-10"
+}

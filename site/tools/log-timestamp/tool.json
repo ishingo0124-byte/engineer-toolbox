@@ -1,0 +1,10 @@
+{
+  "slug": "log-timestamp",
+  "title": "ログタイムスタンプ統一（syslog/Apache対応）",
+  "short_title": "ログタイムスタンプ統一",
+  "description": "syslog・Apache/nginx・ISO 8601・エポック秒など形式の異なるログ行から日時を自動検出し、指定タイムゾーンのISO 8601に統一表示します。複数ファイルのログ行を時系列にマージする機能つき。年の無いsyslogは今年と仮定します。",
+  "keywords": ["ログ タイムスタンプ 変換", "syslog 時刻 変換", "Apache ログ 日時", "ログ タイムゾーン 統一", "ログ マージ 時系列"],
+  "category": "linux",
+  "related": ["epoch-batch", "timezone-converter", "line-sort-uniq"],
+  "updated": "2026-09-10"
+}

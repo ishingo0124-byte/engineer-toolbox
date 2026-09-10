@@ -1,0 +1,39 @@
+<div class="field">
+  <label for="se-input">エスケープしたい文字列</label>
+  <input type="text" id="se-input" autocomplete="off" spellcheck="false" value="it's a &quot;test&quot; &amp; &lt;weird&gt; $HOME \ path">
+</div>
+
+<div class="result">
+  <dl class="result-grid">
+    <dt>bash（シングルクォート）</dt><dd><span class="mono" id="se-bash-sq">-</span><button type="button" class="copy-btn" data-copy-target="se-bash-sq">コピー</button></dd>
+    <dt>bash（ダブルクォート）</dt><dd><span class="mono" id="se-bash-dq">-</span><button type="button" class="copy-btn" data-copy-target="se-bash-dq">コピー</button></dd>
+    <dt>PowerShell（シングルクォート）</dt><dd><span class="mono" id="se-ps-sq">-</span><button type="button" class="copy-btn" data-copy-target="se-ps-sq">コピー</button></dd>
+    <dt>PowerShell（ダブルクォート）</dt><dd><span class="mono" id="se-ps-dq">-</span><button type="button" class="copy-btn" data-copy-target="se-ps-dq">コピー</button></dd>
+    <dt>cmd.exe（^ メタ文字エスケープ）</dt><dd><span class="mono" id="se-cmd-caret">-</span><button type="button" class="copy-btn" data-copy-target="se-cmd-caret">コピー</button></dd>
+    <dt>Windows引数解析（"" ・CommandLineToArgvW方式）</dt><dd><span class="mono" id="se-cmd-argv">-</span><button type="button" class="copy-btn" data-copy-target="se-cmd-argv">コピー</button></dd>
+    <dt>JSON文字列</dt><dd><span class="mono" id="se-json">-</span><button type="button" class="copy-btn" data-copy-target="se-json">コピー</button></dd>
+    <dt>正規表現リテラル</dt><dd><span class="mono" id="se-regex">-</span><button type="button" class="copy-btn" data-copy-target="se-regex">コピー</button></dd>
+  </dl>
+</div>
+<p class="hint">cmd.exeの「^ メタ文字エスケープ」はcmd自身が解釈する<code>&amp; | &lt; &gt; ^ ( ) !</code>を無効化するもの、「Windows引数解析」はプログラムが受け取る<code>argv</code>を組み立てる際の引用符・バックスラッシュの扱い（Cランタイム／<code>CommandLineToArgvW</code>方式）で、両者は別レイヤーです。バッチファイル内では<code>%</code>は<code>%%</code>と二重にする必要があります（このツールでは適用していません）。</p>
+
+<hr style="border:none;border-top:1px solid var(--line);margin:18px 0">
+
+<div class="field">
+  <label for="se-arglist">引数リスト（1行に1引数）</label>
+  <textarea id="se-arglist" rows="3" spellcheck="false">report 2024.csv
+data's_backup.txt
+"quoted name".log</textarea>
+</div>
+<div class="field">
+  <label for="se-cmdname">先頭に付けるコマンド（任意）</label>
+  <input type="text" id="se-cmdname" autocomplete="off" spellcheck="false" value="grep -rn TODO --">
+</div>
+<div class="result">
+  <dl class="result-grid">
+    <dt>bash 用コマンドライン</dt><dd><span class="mono" id="se-line-bash">-</span><button type="button" class="copy-btn" data-copy-target="se-line-bash">コピー</button></dd>
+    <dt>PowerShell 用コマンドライン</dt><dd><span class="mono" id="se-line-ps">-</span><button type="button" class="copy-btn" data-copy-target="se-line-ps">コピー</button></dd>
+    <dt>cmd.exe 用コマンドライン</dt><dd><span class="mono" id="se-line-cmd">-</span><button type="button" class="copy-btn" data-copy-target="se-line-cmd">コピー</button></dd>
+  </dl>
+</div>
+<p class="hint">スペースを含むファイル名を <code>xargs</code> や <code>find -exec</code> に渡すときは、既定の空白区切りで壊れないよう <code>find . -print0 | xargs -0 ...</code>（NUL区切り）や <code>find . -exec cmd {} \;</code>（1件ずつ実行）を使うのが安全です。</p>

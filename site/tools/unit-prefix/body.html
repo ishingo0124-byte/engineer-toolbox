@@ -1,0 +1,84 @@
+<style>
+  #up-si-wrap table, #up-iec-wrap table { font-size: 0.9em; }
+  #up-si-wrap td, #up-iec-wrap td { white-space: nowrap; }
+</style>
+
+<div class="row">
+  <div class="field">
+    <label for="up-value">数値</label>
+    <input type="text" id="up-value" inputmode="decimal" autocomplete="off" spellcheck="false" value="1">
+  </div>
+  <div class="field">
+    <label for="up-prefix">入力値の接頭辞</label>
+    <select id="up-prefix">
+      <optgroup label="SI（10進）">
+        <option value="si:-24">y（ヨクト・10⁻²⁴）</option>
+        <option value="si:-21">z（ゼプト・10⁻²¹）</option>
+        <option value="si:-18">a（アト・10⁻¹⁸）</option>
+        <option value="si:-15">f（フェムト・10⁻¹⁵）</option>
+        <option value="si:-12">p（ピコ・10⁻¹²）</option>
+        <option value="si:-9">n（ナノ・10⁻⁹）</option>
+        <option value="si:-6">µ（マイクロ・10⁻⁶）</option>
+        <option value="si:-3">m（ミリ・10⁻³）</option>
+        <option value="si:-2">c（センチ・10⁻²）</option>
+        <option value="si:-1">d（デシ・10⁻¹）</option>
+        <option value="si:0">（接頭辞なし・10⁰）</option>
+        <option value="si:1">da（デカ・10¹）</option>
+        <option value="si:2">h（ヘクト・10²）</option>
+        <option value="si:3" selected>k（キロ・10³）</option>
+        <option value="si:6">M（メガ・10⁶）</option>
+        <option value="si:9">G（ギガ・10⁹）</option>
+        <option value="si:12">T（テラ・10¹²）</option>
+        <option value="si:15">P（ペタ・10¹⁵）</option>
+        <option value="si:18">E（エクサ・10¹⁸）</option>
+        <option value="si:21">Z（ゼタ・10²¹）</option>
+        <option value="si:24">Y（ヨタ・10²⁴）</option>
+      </optgroup>
+      <optgroup label="IEC（2進）">
+        <option value="iec:1">Ki（キビ・1024¹）</option>
+        <option value="iec:2">Mi（メビ・1024²）</option>
+        <option value="iec:3">Gi（ギビ・1024³）</option>
+        <option value="iec:4">Ti（テビ・1024⁴）</option>
+        <option value="iec:5">Pi（ペビ・1024⁵）</option>
+        <option value="iec:6">Ei（エクスビ・1024⁶）</option>
+        <option value="iec:7">Zi（ゼビ・1024⁷）</option>
+        <option value="iec:8">Yi（ヨビ・1024⁸）</option>
+      </optgroup>
+    </select>
+  </div>
+  <div class="field">
+    <label for="up-unit">単位（表示用・任意）</label>
+    <input type="text" id="up-unit" autocomplete="off" spellcheck="false" value="B" maxlength="8">
+  </div>
+</div>
+<p class="error" id="up-error"></p>
+
+<div class="result">
+  <dl class="result-grid">
+    <dt>基準値（接頭辞なし）</dt><dd><span class="mono" id="up-base">-</span></dd>
+    <dt>工学表記（指数が3の倍数）</dt><dd><span class="mono" id="up-eng">-</span></dd>
+    <dt>指数表記</dt><dd><span class="mono" id="up-exp">-</span></dd>
+  </dl>
+</div>
+
+<div class="field" style="margin-top:16px">
+  <label>SI接頭辞（10進・y〜Y 20種）</label>
+  <div id="up-si-wrap"></div>
+</div>
+<div class="field">
+  <label>IEC接頭辞（2進・Ki〜Yi 8種）</label>
+  <div id="up-iec-wrap"></div>
+</div>
+
+<div class="field">
+  <label>用途別の使い分け早見表</label>
+  <table>
+    <thead><tr><th>用途</th><th>基準</th><th>備考</th></tr></thead>
+    <tbody>
+      <tr><td>ストレージ容量の公称値（HDD/SSD/USBメモリ等）</td><td>10進（SI）</td><td>1 kB = 1,000 B、1 TB = 1,000,000,000,000 B として表記されるのが一般的</td></tr>
+      <tr><td>OSのファイルサイズ表示・メモリ（RAM）容量</td><td>2進（IEC）</td><td>実体は1,024単位。表示が「KB」等でも中身は1,024区切りのことが多い</td></tr>
+      <tr><td>ネットワーク回線速度（bps・Mbps・Gbps）</td><td>常に10進（SI）</td><td>1 Mbps = 1,000,000 bit/s。2進で解釈しない</td></tr>
+      <tr><td>CPUクロック周波数（Hz・GHz）</td><td>10進（SI）</td><td>国際単位系の周波数はSI接頭辞のみ</td></tr>
+    </tbody>
+  </table>
+</div>

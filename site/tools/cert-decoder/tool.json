@@ -1,0 +1,10 @@
+{
+  "slug": "cert-decoder",
+  "title": "SSL証明書デコード（有効期限・SAN・発行者確認）",
+  "short_title": "証明書デコード",
+  "description": "PEM形式のSSL/TLS証明書を貼り付けると、有効期限（JST・残日数・期限切れ警告）、発行者/サブジェクトのCN・O、SAN（DNS名・IP）、公開鍵の種類とビット長、SHA-256/SHA-1フィンガープリントを解析します。秘密鍵は警告して処理しません。",
+  "keywords": ["証明書 デコード", "SSL証明書 確認", "PEM 解析", "証明書 有効期限 確認", "SAN 確認"],
+  "category": "security",
+  "related": ["hash-generator", "jwt-decoder"],
+  "updated": "2026-09-10"
+}

@@ -20,22 +20,40 @@ umask-calculator,umask 計算,linux,2,done,batch2B 2026-09-10
 crontab-generator,cron 生成専用,linux,3,todo,cron-parser に統合済みなら不要
 ls-permission-decoder,ls -l の読み方,linux,3,done,batch2E 2026-09-10
 systemd-timer,systemd timer OnCalendar 解読,linux,2,done,batch2B 2026-09-10
-cert-decoder,証明書(PEM)デコード,security,2,todo,WebCrypto では ASN.1 が要る→純JSで
+cert-decoder,証明書(PEM)デコード,security,2,done,batch3F 2026-09-10
 jwt-decoder,JWT デコード,security,2,done,batch2C 2026-09-10
 uuid-generator,UUID v4/v7 生成,dev,2,done,batch2C 2026-09-10
 timestamp-format,日付フォーマット変換(strftime/ISO),time,2,done,batch2D 2026-09-10
 timezone-converter,タイムゾーン変換,time,2,done,batch2D 2026-09-10
-epoch-batch,エポック秒 一括変換,time,3,todo,
-log-timestamp,ログのタイムスタンプ整形,linux,3,todo,
-yaml-json,YAML⇄JSON,dev,2,todo,純JS YAML パーサが必要・軽量実装
+epoch-batch,エポック秒 一括変換,time,3,done,batch3F 2026-09-10
+log-timestamp,ログのタイムスタンプ整形,linux,3,done,batch3F 2026-09-10
+yaml-json,YAML⇄JSON,dev,2,done,batch3F 2026-09-10
 csv-json,CSV⇄JSON,dev,2,done,batch2D 2026-09-10
 sql-formatter,SQL 整形,dev,2,done,batch2E 2026-09-10
 diff-text,テキスト差分,text,2,done,batch2E 2026-09-10
 line-sort-uniq,行のソート・重複削除,text,2,done,batch2E 2026-09-10
 case-converter,camel/snake/kebab 変換,text,2,done,batch2C 2026-09-10
 html-escape,HTML エスケープ,text,2,done,batch2C 2026-09-10
-color-converter,HEX⇄RGB⇄HSL,dev,3,todo,
-qr-generator,QRコード生成,dev,3,todo,純JS QR 実装が要る
+color-converter,HEX⇄RGB⇄HSL,dev,3,done,batch3G 2026-09-10
+qr-generator,QRコード生成,dev,3,done,batch3G 2026-09-10
 bandwidth-calc,転送時間・帯域計算,network,2,done,batch2D 2026-09-10
 raid-calculator,RAID 容量計算,linux,2,done,batch2B 2026-09-10
 uptime-sla,SLA 稼働率→許容停止時間,linux,1,done,batch2B 2026-09-10
+http-status-codes,HTTPステータスコード一覧・検索（意味と対処）,dev,2,done,batch3G 2026-09-10
+well-known-ports,ポート番号一覧・検索（well-known / registered）,network,2,done,batch3G 2026-09-10
+ascii-unicode-table,ASCII・Unicode コード表と文字→コードポイント変換,text,2,done,batch3H 2026-09-10
+shell-escape,シェルのクォート・エスケープ（bash / PowerShell / cmd）,linux,2,done,batch3H 2026-09-10
+dns-lookup-explainer,digコマンドの出力の読み方（レコード種別・TTL・フラグ）,network,3,building,batch4I
+nginx-config-checker,nginx location マッチ順の判定（正規表現・前方一致）,linux,3,building,batch4J
+unit-prefix,SI接頭辞・IEC接頭辞 換算（k/M/G/T と Ki/Mi/Gi）,dev,3,done,batch3H 2026-09-10
+markdown-table,Markdown 表の整形・CSV から表生成,text,3,done,batch3H 2026-09-10
+ssl-cipher-decoder,TLS暗号スイート名の解読と安全性判定,security,2,building,batch4I
+http-header-analyzer,HTTPレスポンスヘッダー解析（セキュリティヘッダーの有無）,security,2,building,batch4I
+url-parser,URL分解・組み立て（スキーム/ホスト/パス/クエリ）,dev,2,building,batch4I
+find-command-builder,findコマンド生成（条件を選んで組み立て）,linux,2,building,batch4J
+rsync-command-builder,rsyncコマンド生成（オプション解説つき）,linux,2,building,batch4J
+tar-command-builder,tar/zip コマンド生成（圧縮・展開・除外）,linux,2,building,batch4J
+number-base-converter,進数変換（2/8/10/16進・ビット演算）,dev,2,building,batch4K
+json-to-typescript,JSONからTypeScript型定義を生成,dev,2,building,batch4K
+sql-in-list,行リストをSQLのIN句・配列リテラルに変換,dev,2,building,batch4K
+dummy-data-generator,テストデータ生成（氏名・住所・メール・日付をCSV/JSONで）,dev,2,building,batch4K

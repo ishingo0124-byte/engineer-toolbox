@@ -1,0 +1,75 @@
+<h3 style="margin-top:0">タイムスタンプの検出・統一表示</h3>
+<div class="field">
+  <label for="lt-log-input">ログ行を貼り付け（syslog / Apache・nginx / ISO 8601 / JSONログ / エポック秒 が混在していても可）</label>
+  <textarea id="lt-log-input" rows="10" class="mono" spellcheck="false">Sep 10 15:04:05 myhost sshd[1234]: Accepted publickey for user taro
+192.168.1.1 - - [10/Sep/2026:15:04:12 +0900] "GET / HTTP/1.1" 200 512
+2026-09-10T06:04:20Z INFO starting up
+{"timestamp":"2026-09-10T15:04:25+09:00","level":"info","msg":"health check ok"}
+this line has no detectable timestamp</textarea>
+</div>
+<div class="row">
+  <div class="field">
+    <label for="lt-tz">統一後のタイムゾーン（オフセットが無い日時にも使用）</label>
+    <select id="lt-tz">
+      <option value="jst" selected>JST（日本時間・UTC+9固定）</option>
+      <option value="utc">UTC</option>
+      <option value="browser">ブラウザのタイムゾーン</option>
+    </select>
+  </div>
+  <div class="field">
+    <label for="lt-mode">出力モード</label>
+    <select id="lt-mode">
+      <option value="prefix" selected>行頭に統一ISO 8601を付加する</option>
+      <option value="sort">検出した日時で時系列に並べ替える（元の行はそのまま）</option>
+    </select>
+  </div>
+</div>
+<p id="lt-log-note" class="hint"></p>
+<div class="field">
+  <label for="lt-log-output">結果</label>
+  <textarea id="lt-log-output" rows="10" class="mono" readonly></textarea>
+</div>
+<div class="actions">
+  <button type="button" class="copy-btn" data-copy-target="lt-log-output">結果をコピー</button>
+</div>
+
+<hr style="border:none;border-top:1px solid var(--line);margin:22px 0">
+
+<h3>複数ファイルのマージ（時系列ソート）</h3>
+<p class="hint">最大3ファイル分のログを貼り付けると、検出したタイムスタンプ順にすべての行をマージします。タイムスタンプの無い行（スタックトレースなど）は直前の行に続けて扱われます。</p>
+<div class="row">
+  <div class="field">
+    <label for="lt-file-a">ファイルA</label>
+    <textarea id="lt-file-a" rows="6" class="mono" spellcheck="false">Sep 10 10:00:00 web1 app: request start
+Sep 10 10:00:05 web1 app: processing
+  at handler.process (app.js:42)
+Sep 10 10:00:10 web1 app: request done</textarea>
+  </div>
+  <div class="field">
+    <label for="lt-file-b">ファイルB</label>
+    <textarea id="lt-file-b" rows="6" class="mono" spellcheck="false">Sep 10 10:00:02 web2 app: request start
+Sep 10 10:00:07 web2 app: request done</textarea>
+  </div>
+</div>
+<div class="field">
+  <label for="lt-file-c">ファイルC（任意）</label>
+  <textarea id="lt-file-c" rows="4" class="mono" spellcheck="false"></textarea>
+</div>
+<div class="field">
+  <label for="lt-merge-tz">解釈・表示タイムゾーン</label>
+  <select id="lt-merge-tz">
+    <option value="jst" selected>JST（日本時間・UTC+9固定）</option>
+    <option value="utc">UTC</option>
+    <option value="browser">ブラウザのタイムゾーン</option>
+  </select>
+</div>
+<p id="lt-merge-note" class="hint"></p>
+<div class="field">
+  <label for="lt-merge-output">マージ結果（[A]/[B]/[C] は元ファイルの区別）</label>
+  <textarea id="lt-merge-output" rows="10" class="mono" readonly></textarea>
+</div>
+<div class="actions">
+  <button type="button" class="copy-btn" data-copy-target="lt-merge-output">結果をコピー</button>
+</div>
+
+<p class="hint">年を含まないsyslog形式（<code>Sep 10 15:04:05</code>）は、今年（<span id="lt-current-year" class="mono"></span>年）として解釈します。タイムゾーンのオフセットを含まない日時（syslogや一部のISO 8601・エポック秒以外）は、上で選択したタイムゾーンの時刻とみなして計算します。</p>

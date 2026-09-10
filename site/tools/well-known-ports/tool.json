@@ -1,0 +1,10 @@
+{
+  "slug": "well-known-ports",
+  "title": "ポート番号一覧・検索（TCP/UDP・サービス名・用途）",
+  "short_title": "ポート番号一覧",
+  "description": "SSHの22番やHTTPSの443番など、現場でよく見るTCP/UDPポート約140個の用途とサービス名、平文/要注意などのセキュリティ情報を一覧化。番号やサービス名で検索でき、well-known/registered/dynamicの範囲も解説します。",
+  "keywords": ["ポート番号 一覧", "well-known ports 一覧", "TCP UDP ポート 一覧", "ポート番号 検索", "サービス名 ポート"],
+  "category": "network",
+  "related": ["http-status-codes", "subnet-calculator"],
+  "updated": "2026-09-10"
+}

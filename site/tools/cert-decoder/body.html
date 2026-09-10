@@ -1,0 +1,23 @@
+<div class="field">
+  <label for="cd-pem">証明書（PEM形式、複数貼り付けでチェーンとして順に解析）</label>
+  <textarea id="cd-pem" rows="12" spellcheck="false" placeholder="-----BEGIN CERTIFICATE-----&#10;（ここにPEM形式の証明書を貼り付けます）&#10;-----END CERTIFICATE-----">-----BEGIN CERTIFICATE-----
+MIICZjCCAgygAwIBAgIUHFZRA2BAJrlkXS7xEQCQ72G9W78wCgYIKoZIzj0EAwIw
+dzELMAkGA1UEBhMCSlAxDjAMBgNVBAgMBVRva3lvMRAwDgYDVQQHDAdTaGlidXlh
+MRkwFwYDVQQKDBBFeGFtcGxlIFRlc3QgT3JnMRQwEgYDVQQLDAtFbmdpbmVlcmlu
+ZzEVMBMGA1UEAwwMZXhhbXBsZS50ZXN0MB4XDTI2MDkxMDEyMTg0OVoXDTM2MDkw
+NzEyMTg0OVowdzELMAkGA1UEBhMCSlAxDjAMBgNVBAgMBVRva3lvMRAwDgYDVQQH
+DAdTaGlidXlhMRkwFwYDVQQKDBBFeGFtcGxlIFRlc3QgT3JnMRQwEgYDVQQLDAtF
+bmdpbmVlcmluZzEVMBMGA1UEAwwMZXhhbXBsZS50ZXN0MFkwEwYHKoZIzj0CAQYI
+KoZIzj0DAQcDQgAEuIEJgomW1SoZm5V1itFfXmuWcEzoC9t3VwZV9Jy6iUwrLehl
+5ejfHNoohH7oMlqnS+XWvto+rthAgQ9x6yb3BaN2MHQwEgYDVR0TAQH/BAgwBgEB
+/wIBADAOBgNVHQ8BAf8EBAMCAYYwLwYDVR0RBCgwJoIMZXhhbXBsZS50ZXN0ghB3
+d3cuZXhhbXBsZS50ZXN0hwTAAAIKMB0GA1UdDgQWBBTRTZ0qNk5f0FcNQc34Z0VC
+oh6lhzAKBggqhkjOPQQDAgNIADBFAiEA8xVIhs7Whh7Vu4E+oKyBsNdgiIkzk2im
+gxfjkbywweICIC4mXxSY8s3SqysJCHBFiMd1yts0ikl5GXmJ8Q1VoR/q
+-----END CERTIFICATE-----</textarea>
+</div>
+<p class="hint">この証明書は解説用に作成した自己署名のテスト証明書です（実在のサイトのものではありません）。ブラウザ内だけで解析し、内容はどこにも送信されません。</p>
+<p id="cd-error" class="error"></p>
+<div id="cd-result"></div>
+
+<p class="hint"><strong>秘密鍵（PRIVATE KEY）やCSR（証明書署名要求）は貼り付けないでください。</strong> このツールは公開情報である証明書（CERTIFICATE）のみを解析対象とし、秘密鍵が貼り付けられた場合は内容を解析せず警告のみ表示します。秘密鍵はサーバーの外に一切出さないことが安全な運用の基本です。</p>

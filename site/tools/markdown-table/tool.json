@@ -1,0 +1,10 @@
+{
+  "slug": "markdown-table",
+  "title": "Markdown表の整形・CSV/TSVから表生成",
+  "short_title": "Markdown表整形",
+  "description": "CSV・TSV・スペース区切りのデータをMarkdown表（左/中央/右揃え指定つき）に変換。崩れた既存のMarkdown表を貼ると列幅を全角文字の表示幅も考慮して整列し直し、逆にMarkdown表からCSVへの変換にも対応します。",
+  "keywords": ["Markdown 表 変換", "CSV Markdown 変換", "Markdown テーブル 整形", "TSV 表 変換", "表 アライメント"],
+  "category": "text",
+  "related": ["csv-json", "line-sort-uniq"],
+  "updated": "2026-09-10"
+}

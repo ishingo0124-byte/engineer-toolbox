@@ -1,0 +1,68 @@
+<style>
+  #cc-preview { width: 100%; height: 64px; border-radius: 10px; border: 1px solid var(--line); }
+  .cc-scale { display: flex; gap: 4px; margin: 6px 0 0; }
+  .cc-scale div { flex: 1 1 0; height: 40px; border-radius: 6px; border: 1px solid var(--line); }
+  .cc-swatch-sm { width: 100%; height: 40px; border-radius: 8px; border: 1px solid var(--line); margin: 0 0 6px; }
+  .cc-badges { display: flex; gap: 8px; flex-wrap: wrap; margin: 6px 0 0; }
+  .cc-badge { font-size: 0.82em; padding: 3px 9px; border-radius: 999px; border: 1px solid var(--line); }
+  .cc-badge.pass { color: var(--ok); border-color: var(--ok); }
+  .cc-badge.fail { color: var(--err); border-color: var(--err); }
+  .cc-names { font-size: 0.82em; color: var(--muted); margin: 4px 0 0; }
+</style>
+<div class="row">
+  <div class="field">
+    <label for="cc-input">色（HEX / rgb() / hsl() / CSS色名のいずれか）</label>
+    <input type="text" id="cc-input" class="mono" autocomplete="off" spellcheck="false" value="#3b82f6">
+  </div>
+</div>
+<p class="error" id="cc-error"></p>
+<div id="cc-preview"></div>
+<div class="result">
+  <dl class="result-grid">
+    <dt>HEX</dt><dd><span id="cc-out-hex" class="mono">-</span><button type="button" class="copy-btn" data-copy-target="cc-out-hex">コピー</button></dd>
+    <dt>RGB</dt><dd><span id="cc-out-rgb" class="mono">-</span><button type="button" class="copy-btn" data-copy-target="cc-out-rgb">コピー</button></dd>
+    <dt>HSL</dt><dd><span id="cc-out-hsl" class="mono">-</span><button type="button" class="copy-btn" data-copy-target="cc-out-hsl">コピー</button></dd>
+    <dt>明度（Lightness）</dt><dd><span id="cc-out-lightness">-</span></dd>
+    <dt>一致するCSS色名</dt><dd><span id="cc-out-name">-</span></dd>
+  </dl>
+</div>
+<p class="cc-names" id="cc-names-hint"></p>
+
+<h3>背景色とのコントラスト比（WCAG）</h3>
+<div class="row">
+  <div class="field">
+    <label for="cc-bg">背景色</label>
+    <input type="text" id="cc-bg" class="mono" autocomplete="off" spellcheck="false" value="#ffffff">
+  </div>
+</div>
+<div class="actions">
+  <button type="button" id="cc-swap" class="ghost">前景色と背景色を入れ替え</button>
+</div>
+<div class="result">
+  <div class="row">
+    <div class="field" style="flex:0 0 auto;">
+      <label>文字色</label>
+      <div class="cc-swatch-sm" id="cc-swatch-fg" style="width:80px;"></div>
+    </div>
+    <div class="field" style="flex:0 0 auto;">
+      <label>背景色</label>
+      <div class="cc-swatch-sm" id="cc-swatch-bg" style="width:80px;"></div>
+    </div>
+  </div>
+  <dl class="result-grid">
+    <dt>コントラスト比</dt><dd><span id="cc-out-ratio">-</span></dd>
+  </dl>
+  <div class="cc-badges" id="cc-badges"></div>
+</div>
+
+<h3>補色・明暗バリエーション</h3>
+<div class="row">
+  <div class="field" style="flex:0 0 160px;">
+    <label>補色（Hue +180°）</label>
+    <div class="cc-swatch-sm" id="cc-comp-swatch"></div>
+    <span id="cc-comp-hex" class="mono">-</span>
+  </div>
+</div>
+<label class="hint">暗く（左）→ 元の色（中央）→ 明るく（右）</label>
+<div class="cc-scale" id="cc-scale"></div>
+<p class="hint">入力した色はこの端末内だけで処理され、外部には送信されません。</p>

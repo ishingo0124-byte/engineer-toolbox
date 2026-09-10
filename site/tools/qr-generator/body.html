@@ -1,0 +1,88 @@
+<style>
+  #qr-canvas-wrap { display: flex; align-items: flex-start; gap: 20px; flex-wrap: wrap; }
+  #qr-canvas { background: #fff; border: 1px solid var(--line); border-radius: 8px; image-rendering: pixelated; }
+  #qr-svg-preview { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 8px; display: inline-block; }
+  #qr-svg-preview svg { display: block; }
+  #qr-svg-code { min-height: 90px; font-size: 0.78em; }
+  .qr-mode-panel { display: none; }
+  .qr-mode-panel.active { display: block; }
+</style>
+<div class="row">
+  <div class="field" style="flex:0 0 200px;">
+    <label for="qr-mode">生成する内容</label>
+    <select id="qr-mode">
+      <option value="text" selected>URL・テキスト</option>
+      <option value="wifi">Wi-Fi接続設定</option>
+    </select>
+  </div>
+  <div class="field" style="flex:0 0 140px;">
+    <label for="qr-eclevel">誤り訂正レベル</label>
+    <select id="qr-eclevel">
+      <option value="L">L（約7%復元）</option>
+      <option value="M" selected>M（約15%復元）</option>
+      <option value="Q">Q（約25%復元）</option>
+      <option value="H">H（約30%復元）</option>
+    </select>
+  </div>
+  <div class="field" style="flex:0 0 160px;">
+    <label for="qr-cellsize">1セルのサイズ: <span id="qr-cellsize-val">6</span>px</label>
+    <input type="range" id="qr-cellsize" min="2" max="14" step="1" value="6">
+  </div>
+  <div class="field" style="flex:0 0 160px;">
+    <label for="qr-margin">余白（クワイエットゾーン）: <span id="qr-margin-val">4</span>モジュール</label>
+    <input type="range" id="qr-margin" min="0" max="10" step="1" value="4">
+  </div>
+</div>
+
+<div id="qr-panel-text" class="qr-mode-panel active">
+  <div class="field">
+    <label for="qr-text">URLまたはテキスト</label>
+    <textarea id="qr-text" spellcheck="false">https://engineer-toolbox.jp/</textarea>
+  </div>
+</div>
+
+<div id="qr-panel-wifi" class="qr-mode-panel">
+  <div class="row">
+    <div class="field">
+      <label for="qr-wifi-ssid">SSID（ネットワーク名）</label>
+      <input type="text" id="qr-wifi-ssid" autocomplete="off" spellcheck="false" value="MyHomeWiFi">
+    </div>
+    <div class="field">
+      <label for="qr-wifi-pass">パスワード</label>
+      <input type="text" id="qr-wifi-pass" autocomplete="off" spellcheck="false" value="correct-horse-battery">
+    </div>
+    <div class="field" style="flex:0 0 140px;">
+      <label for="qr-wifi-type">暗号化方式</label>
+      <select id="qr-wifi-type">
+        <option value="WPA" selected>WPA/WPA2/WPA3</option>
+        <option value="WEP">WEP</option>
+        <option value="nopass">暗号化なし</option>
+      </select>
+    </div>
+  </div>
+  <label class="check"><input type="checkbox" id="qr-wifi-hidden"> ステルス(SSIDを隠す)ネットワーク</label>
+  <p class="hint">生成される接続文字列: <span id="qr-wifi-preview" class="mono">-</span></p>
+</div>
+
+<p class="error" id="qr-error"></p>
+<p class="hint" id="qr-info"></p>
+
+<div id="qr-canvas-wrap">
+  <div>
+    <canvas id="qr-canvas" width="1" height="1"></canvas>
+    <div class="actions">
+      <a href="#" id="qr-download" download="qrcode.png" class="ghost" style="display:inline-block;padding:8px 14px;border:1px solid var(--line);border-radius:8px;">PNGをダウンロード</a>
+    </div>
+  </div>
+  <div id="qr-svg-preview"></div>
+</div>
+
+<div class="field">
+  <label for="qr-svg-code">SVGソースコード</label>
+  <textarea id="qr-svg-code" class="mono" readonly spellcheck="false"></textarea>
+</div>
+<div class="actions">
+  <button type="button" class="copy-btn" data-copy-target="qr-svg-code">SVGをコピー</button>
+</div>
+
+<p class="hint">入力したテキスト・Wi-Fi情報はこの端末（ブラウザ）内だけでQRコードに変換され、外部への送信は一切行っていません。パスワードを含むWi-Fi用QRコードは、印刷物の管理や共有範囲に注意してください。</p>
