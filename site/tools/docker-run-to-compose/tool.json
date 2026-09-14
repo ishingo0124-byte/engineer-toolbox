@@ -1,0 +1,10 @@
+{
+  "slug": "docker-run-to-compose",
+  "title": "docker run → docker-compose.yml 変換",
+  "short_title": "docker run→compose変換",
+  "description": "docker run コマンドを貼り付けると compose.yaml の services 定義に変換。-p/-v/-e/--restart/--network などに対応し、未対応オプションは捨てずにコメントで明示。ports は文字列で正しくクォート。",
+  "keywords": ["docker run compose 変換", "docker-compose.yml 作成", "docker run オプション 一覧", "compose.yaml 書き方"],
+  "category": "dev",
+  "related": ["yaml-json", "shell-escape", "well-known-ports", "json-formatter"],
+  "updated": "2026-09-14"
+}

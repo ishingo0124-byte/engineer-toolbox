@@ -1,0 +1,10 @@
+{
+  "slug": "systemd-unit-generator",
+  "title": "systemd サービスユニット生成（.service）",
+  "short_title": "systemd unit 生成",
+  "description": "Description・Type・ExecStart・User/Group・Restart・After/Wants などを入力して systemd の .service ファイルを生成。配置パスと systemctl daemon-reload / enable --now の手順、危険な組み合わせの警告も表示。",
+  "keywords": ["systemd service 作成", "systemd unit ファイル", "ExecStart 書き方", "systemctl enable 手順"],
+  "category": "linux",
+  "related": ["systemd-timer", "cron-parser", "log-timestamp", "chmod-calculator"],
+  "updated": "2026-09-14"
+}

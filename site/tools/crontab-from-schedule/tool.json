@@ -1,0 +1,10 @@
+{
+  "slug": "crontab-from-schedule",
+  "title": "日本語の予定 → cron 式 変換（毎週月曜9時など）",
+  "short_title": "日本語→cron式",
+  "description": "「毎週月曜9時30分」「平日18時」「5分おき」のような日本語の予定表現を5フィールドのcron式に変換。各フィールドの意味と次回実行5件をローカル時刻で表示、解釈できない表現はエラーで明示。",
+  "keywords": ["日本語 cron 変換", "cron式 作り方", "毎週 cron 設定", "crontab 書き方"],
+  "category": "linux",
+  "related": ["cron-parser", "systemd-timer", "unix-time", "timezone-converter"],
+  "updated": "2026-09-14"
+}

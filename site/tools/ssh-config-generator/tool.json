@@ -1,0 +1,10 @@
+{
+  "slug": "ssh-config-generator",
+  "title": "ssh_config 生成（Host/ProxyJump/鍵指定）",
+  "short_title": "ssh_config 生成",
+  "description": "Host・HostName・User・Port・IdentityFile・ProxyJump（多段可）などをフォーム入力するだけで ~/.ssh/config のブロックと対応する ssh コマンド1行を生成。複数ホストの追加・コピーにも対応。",
+  "keywords": ["ssh config 生成", "ProxyJump 設定", "ssh 踏み台 設定", "ssh_config 書き方"],
+  "category": "linux",
+  "related": ["shell-escape", "rsync-command-builder", "well-known-ports", "chmod-calculator"],
+  "updated": "2026-09-14"
+}

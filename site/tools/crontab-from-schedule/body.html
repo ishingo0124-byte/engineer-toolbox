@@ -1,0 +1,39 @@
+<div class="field">
+  <label for="cfs-input">日本語で予定を入力</label>
+  <input type="text" id="cfs-input" autocomplete="off" spellcheck="false" value="毎週月曜9時30分">
+</div>
+<div class="actions">
+  <button type="button" class="ghost" data-example="毎日3時">毎日3時</button>
+  <button type="button" class="ghost" data-example="毎週月曜9時30分">毎週月曜9時30分</button>
+  <button type="button" class="ghost" data-example="平日18時">平日18時</button>
+  <button type="button" class="ghost" data-example="毎月1日と15日0時">毎月1日と15日0時</button>
+  <button type="button" class="ghost" data-example="5分おき">5分おき</button>
+  <button type="button" class="ghost" data-example="毎時15分">毎時15分</button>
+  <button type="button" class="ghost" data-example="毎年1月1日">毎年1月1日</button>
+  <button type="button" class="ghost" data-example="週末12時">週末12時</button>
+</div>
+<p class="hint">対応する書き方の例:「毎日3時」「毎週月曜9時30分」「平日18時」「毎月1日と15日0時」「5分おき」「毎時15分」「毎年1月1日」「週末12時」「月水金9時」「9時半」。全角数字（毎日３時）も入力できます。</p>
+<p class="error" id="cfs-error"></p>
+
+<div class="result">
+  <dl class="result-grid">
+    <dt>cron式</dt>
+    <dd><span class="mono" id="cfs-cron">-</span><button type="button" class="copy-btn" data-copy-target="cfs-cron">コピー</button></dd>
+  </dl>
+</div>
+
+<div class="result">
+  <dl class="result-grid">
+    <dt>分</dt><dd><span id="cfs-min">-</span></dd>
+    <dt>時</dt><dd><span id="cfs-hour">-</span></dd>
+    <dt>日（day-of-month）</dt><dd><span id="cfs-dom">-</span></dd>
+    <dt>月</dt><dd><span id="cfs-mon">-</span></dd>
+    <dt>曜日（day-of-week）</dt><dd><span id="cfs-dow">-</span></dd>
+  </dl>
+  <p class="hint" id="cfs-note" style="margin:8px 0 0;"></p>
+</div>
+
+<div class="result">
+  <p class="hint" style="margin:0 0 6px;">次回実行日時（ブラウザのローカル時刻・最大5回、1年以内で計算）</p>
+  <ol id="cfs-next-list" class="mono" style="margin:0;padding-left:1.3em;"></ol>
+</div>

@@ -1,0 +1,119 @@
+<style>
+  #sug-output { white-space: pre-wrap; word-break: normal; overflow-wrap: anywhere; margin: 0; }
+  #sug-warnbox { border-left: 3px solid #c98a00; }
+  #sug-warnbox p { margin: 0 0 6px; color: #8a5a00; font-size: 0.9em; }
+  #sug-warnbox p:last-child { margin-bottom: 0; }
+  @media (prefers-color-scheme: dark) { #sug-warnbox p { color: #e0ab3d; } }
+</style>
+
+<div class="row">
+  <div class="field">
+    <label for="sug-desc">Description（説明文）</label>
+    <input type="text" id="sug-desc" autocomplete="off" value="My Backend Service">
+  </div>
+  <div class="field">
+    <label for="sug-unitname">ユニット名（拡張子なし）</label>
+    <input type="text" id="sug-unitname" autocomplete="off" spellcheck="false" value="myapp">
+  </div>
+</div>
+
+<div class="row">
+  <div class="field">
+    <label for="sug-type">Type=</label>
+    <select id="sug-type">
+      <option value="simple" selected>simple</option>
+      <option value="exec">exec</option>
+      <option value="forking">forking</option>
+      <option value="oneshot">oneshot</option>
+      <option value="notify">notify</option>
+    </select>
+  </div>
+</div>
+
+<div class="field">
+  <label for="sug-execstart">ExecStart=（実行コマンド。絶対パス必須）</label>
+  <input type="text" id="sug-execstart" autocomplete="off" spellcheck="false" value="/usr/local/bin/myapp --config /etc/myapp.conf">
+</div>
+
+<div class="field">
+  <label for="sug-workdir">WorkingDirectory=（省略可・絶対パス）</label>
+  <input type="text" id="sug-workdir" autocomplete="off" spellcheck="false" placeholder="/opt/myapp">
+</div>
+
+<div class="row">
+  <div class="field">
+    <label for="sug-user">User=（省略可）</label>
+    <input type="text" id="sug-user" autocomplete="off" spellcheck="false" value="myapp">
+  </div>
+  <div class="field">
+    <label for="sug-group">Group=（省略可）</label>
+    <input type="text" id="sug-group" autocomplete="off" spellcheck="false" placeholder="myapp">
+  </div>
+</div>
+
+<div class="field">
+  <label for="sug-env">Environment=（1行に1つ、KEY=VALUE形式）</label>
+  <textarea id="sug-env" rows="3" spellcheck="false" placeholder="NODE_ENV=production&#10;PORT=8080"></textarea>
+</div>
+<p class="hint">1行が1つの <code>Environment=</code> 行になります。「=」が無い行や、KEY部分が英数字とアンダースコアで始まらない行はエラーになります。</p>
+
+<div class="field">
+  <label for="sug-envfile">EnvironmentFile=（省略可・絶対パス）</label>
+  <input type="text" id="sug-envfile" autocomplete="off" spellcheck="false" placeholder="/etc/myapp/env">
+</div>
+<label class="check"><input type="checkbox" id="sug-envfile-optional"> ファイルが無くてもエラーにしない（先頭に "-" を付与）</label>
+
+<div class="row">
+  <div class="field">
+    <label for="sug-restart">Restart=</label>
+    <select id="sug-restart">
+      <option value="no" selected>no</option>
+      <option value="on-success">on-success</option>
+      <option value="on-failure">on-failure</option>
+      <option value="on-abnormal">on-abnormal</option>
+      <option value="on-watchdog">on-watchdog</option>
+      <option value="on-abort">on-abort</option>
+      <option value="always">always</option>
+    </select>
+  </div>
+  <div class="field">
+    <label for="sug-restartsec">RestartSec=（秒・省略可）</label>
+    <input type="text" id="sug-restartsec" autocomplete="off" spellcheck="false" inputmode="numeric" placeholder="5">
+  </div>
+</div>
+
+<div class="row">
+  <div class="field">
+    <label for="sug-after">After=（空白区切りで複数可）</label>
+    <input type="text" id="sug-after" autocomplete="off" spellcheck="false" value="network-online.target">
+  </div>
+  <div class="field">
+    <label for="sug-wants">Wants=（空白区切りで複数可）</label>
+    <input type="text" id="sug-wants" autocomplete="off" spellcheck="false" placeholder="network-online.target">
+  </div>
+</div>
+
+<div class="field">
+  <label for="sug-wantedby">WantedBy=（[Install]セクション）</label>
+  <input type="text" id="sug-wantedby" autocomplete="off" spellcheck="false" value="multi-user.target">
+</div>
+
+<p class="error" id="sug-error"></p>
+<div class="result" id="sug-warnbox" hidden></div>
+
+<div class="result">
+  <p class="hint" style="margin:0 0 6px">生成された .service ファイル</p>
+  <pre class="mono" id="sug-output"></pre>
+  <div class="actions">
+    <button type="button" class="copy-btn" data-copy-target="sug-output">ファイル内容をコピー</button>
+  </div>
+</div>
+
+<div class="result">
+  <dl class="result-grid">
+    <dt>配置先パス</dt><dd><span id="sug-path">-</span><button type="button" class="copy-btn" data-copy-target="sug-path">コピー</button></dd>
+    <dt>有効化コマンド</dt><dd><span class="mono" id="sug-cmd">-</span><button type="button" class="copy-btn" data-copy-target="sug-cmd">コピー</button></dd>
+  </dl>
+</div>
+
+<p class="hint">生成されるのは <code>.service</code> ファイルの中身と配置手順だけです。実際のファイル作成・配置・<code>systemctl</code> の実行はサーバー上で行ってください（このツールはブラウザ内で完結し、どこにも送信しません）。</p>

@@ -1,0 +1,16 @@
+<div class="field">
+  <label for="drc-input">docker run コマンド</label>
+  <textarea id="drc-input" rows="6" data-example>docker run -d --name web -p 8080:80 -p 443:443 -v /data/www:/usr/share/nginx/html:ro -e TZ=Asia/Tokyo --restart unless-stopped nginx:latest</textarea>
+</div>
+<div class="actions">
+  <button type="button" id="drc-clear" class="ghost">クリア</button>
+  <button type="button" class="copy-btn" data-copy-target="drc-output">YAMLをコピー</button>
+</div>
+<p class="error" id="drc-error"></p>
+<div class="result">
+  <div class="field">
+    <label for="drc-output">生成された compose.yaml（services 定義）</label>
+    <textarea id="drc-output" rows="18" class="mono" readonly></textarea>
+  </div>
+</div>
+<p class="hint">行末の <code>\</code> による複数行コマンド、シングル/ダブルクォートを含むコマンド（例:<code>-e MSG="hello world"</code>）にも対応しています。未対応のオプション（<code>--gpus</code> など）は変換をやめずに、生成結果の末尾にコメントとして残します。</p>

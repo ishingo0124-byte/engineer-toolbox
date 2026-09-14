@@ -1,0 +1,78 @@
+<div class="row">
+  <div class="field">
+    <label for="scg-host">Host（エイリアス名）</label>
+    <input type="text" id="scg-host" autocomplete="off" spellcheck="false" value="myserver">
+  </div>
+  <div class="field">
+    <label for="scg-hostname">HostName（接続先ホスト名 / IP）</label>
+    <input type="text" id="scg-hostname" autocomplete="off" spellcheck="false" value="203.0.113.10">
+  </div>
+</div>
+
+<div class="row">
+  <div class="field">
+    <label for="scg-user">User</label>
+    <input type="text" id="scg-user" autocomplete="off" spellcheck="false" value="deploy">
+  </div>
+  <div class="field">
+    <label for="scg-port">Port（空欄で既定の22番）</label>
+    <input type="text" id="scg-port" inputmode="numeric" autocomplete="off" spellcheck="false" value="2222">
+  </div>
+</div>
+
+<div class="row">
+  <div class="field">
+    <label for="scg-identityfile">IdentityFile（鍵ファイルのパス）</label>
+    <input type="text" id="scg-identityfile" autocomplete="off" spellcheck="false" value="~/.ssh/id_ed25519">
+  </div>
+  <div class="field">
+    <label for="scg-proxyjump">ProxyJump（踏み台。複数はカンマ区切りで多段）</label>
+    <input type="text" id="scg-proxyjump" autocomplete="off" spellcheck="false" value="bastion.example.com">
+  </div>
+</div>
+
+<div class="field">
+  <label>オプション</label>
+  <label class="check"><input type="checkbox" id="scg-identitiesonly"> IdentitiesOnly（指定した鍵だけを使う）</label>
+  <label class="check"><input type="checkbox" id="scg-forwardagent"> ForwardAgent（ssh-agent を接続先に転送）</label>
+</div>
+
+<div class="row">
+  <div class="field">
+    <label for="scg-serveraliveinterval">ServerAliveInterval（秒。空欄で無効）</label>
+    <input type="text" id="scg-serveraliveinterval" inputmode="numeric" autocomplete="off" spellcheck="false" value="">
+  </div>
+</div>
+
+<div class="field">
+  <label for="scg-localforward">LocalForward（1行に1つ。「ローカルポート:リモストホスト:リモートポート」）</label>
+  <textarea id="scg-localforward" rows="3" spellcheck="false" placeholder="8080:localhost:80"></textarea>
+</div>
+
+<p class="error" id="scg-error"></p>
+
+<div class="result">
+  <p class="hint">~/.ssh/config に追記するブロック</p>
+  <pre class="mono" id="scg-config-block"></pre>
+  <button type="button" class="copy-btn" data-copy-target="scg-config-block">設定ブロックをコピー</button>
+</div>
+
+<div class="result">
+  <p class="hint">対応する ssh コマンド（設定ファイル無しで同じ接続を行う場合）</p>
+  <p class="mono" id="scg-ssh-command"></p>
+  <button type="button" class="copy-btn" data-copy-target="scg-ssh-command">コマンドをコピー</button>
+</div>
+
+<div class="actions">
+  <button type="button" id="scg-add-host" class="primary">このホストを追加（複数ホストをまとめる）</button>
+</div>
+<div id="scg-host-list"></div>
+
+<div class="result">
+  <p class="hint">追加した全ホスト分の設定ファイル全文</p>
+  <pre class="mono" id="scg-all-config"></pre>
+  <button type="button" class="copy-btn" data-copy-target="scg-all-config">全文をコピー</button>
+</div>
+
+<p class="hint"><strong>ProxyJump の多段指定（ssh_config(5)の仕様）:</strong> カンマ区切りで複数ホストを書くと、先に書いた方から順に経由します（<code>bastion1,bastion2</code> なら、まず bastion1 に接続し、そこから bastion2 を経由して最終目的地に到達します）。</p>
+<p class="hint"><strong>IdentityFile のパスにスペースがある場合:</strong> 設定ファイル側はダブルクォートで囲みます（ssh_config(5) の仕様）。ssh コマンド側はシェルのクォート規則に従い、このツールは自動でクォートを付けます。</p>
