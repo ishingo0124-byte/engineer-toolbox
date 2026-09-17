@@ -1,0 +1,20 @@
+<div class="field">
+  <label for="ed-input">文字化けした文字列（または16進ダンプ）</label>
+  <textarea id="ed-input" rows="3" class="mono" data-example>縺薙ｓ縺ｫ縺｡縺ｯ</textarea>
+</div>
+<div class="check">
+  <label><input type="radio" name="ed-mode" id="ed-mode-text" value="text" checked> 文字列として入力</label>
+  <label><input type="radio" name="ed-mode" id="ed-mode-hex" value="hex"> 16進ダンプとして入力（例: e38193e38293）</label>
+</div>
+<div class="actions">
+  <button type="button" id="ed-clear" class="ghost">クリア</button>
+</div>
+<p id="ed-error" class="error"></p>
+<div class="result">
+  <p id="ed-summary" class="hint"></p>
+  <table id="ed-table" hidden>
+    <thead><tr><th>組み合わせ</th><th>復元結果</th><th>状態</th><th></th></tr></thead>
+    <tbody id="ed-rows"></tbody>
+  </table>
+</div>
+<p class="hint">スコアはひらがな・漢字などの出現比率から機械的に推定した「日本語らしさ」の目安です。上位が必ず正解とは限らないので、一覧を見た目で見比べて選んでください。「状態」に注意マークが付いた候補は、変換の過程で情報が失われ、完全には復元できていません。</p>

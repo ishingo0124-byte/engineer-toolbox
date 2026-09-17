@@ -63,9 +63,9 @@ systemd-unit-generator,systemd サービスユニットの生成,linux,2,done,ba
 logrotate-generator,logrotate 設定の生成,linux,3,todo,batch5候補
 docker-run-to-compose,docker run コマンド → docker-compose.yml 変換,dev,2,done,batch5 2026-09-14
 crontab-from-schedule,日本語の予定 → cron 式（毎週月曜9時 など）,linux,2,done,batch5 2026-09-14
-json-diff,JSON の差分（キー単位）,dev,2,todo,batch5候補
-text-encoding-detector,文字化けの復元（Shift_JIS/EUC-JP/UTF-8 誤判定）,text,2,todo,batch5候補
-ipv4-arithmetic,IP アドレスの加減算・範囲分割（サブネット分割）,network,2,todo,batch5候補
-vlsm-calculator,VLSM 計算（必要ホスト数からサブネット割り当て）,network,2,todo,batch5候補
+json-diff,JSON の差分（キー単位）,dev,2,done,batch6 2026-09-17
+text-encoding-detector,文字化けの復元（Shift_JIS/EUC-JP/UTF-8 誤判定）,text,2,done,batch6 2026-09-17
+ipv4-arithmetic,IP アドレスの加減算・範囲分割（サブネット分割）,network,2,done,batch6 2026-09-17
+vlsm-calculator,VLSM 計算（必要ホスト数からサブネット割り当て）,network,2,done,batch6 2026-09-17
 mtu-mss-calculator,MTU / MSS 計算（VPN・PPPoE のオーバーヘッド）,network,2,todo,batch5候補
 latency-bandwidth-delay,帯域遅延積と TCP ウィンドウサイズ計算,network,3,todo,batch5候補

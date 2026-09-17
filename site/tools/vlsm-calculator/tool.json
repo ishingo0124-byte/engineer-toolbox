@@ -1,0 +1,10 @@
+{
+  "slug": "vlsm-calculator",
+  "title": "VLSM計算機（可変長サブネット・必要ホスト数から割当）",
+  "short_title": "VLSM計算",
+  "description": "親ネットワーク（例192.168.10.0/24）と部署ごとの必要ホスト数を入れると、ホスト数の多い順に最小サブネットを自動割当。ネットワーク・ブロードキャスト・使用可能範囲・マスク・余りを表で表示し、収まらない場合はどの行で溢れたか不足量も示します。",
+  "keywords": ["VLSM 計算", "サブネット 分割 ホスト数", "可変長サブネットマスク", "サブネッティング 練習"],
+  "category": "network",
+  "related": ["subnet-calculator", "ipv4-arithmetic", "cidr-mask-converter"],
+  "updated": "2026-09-17"
+}

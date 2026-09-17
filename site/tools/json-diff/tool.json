@@ -1,0 +1,10 @@
+{
+  "slug": "json-diff",
+  "title": "JSON差分比較（キー単位・パス表示）",
+  "short_title": "JSON差分比較",
+  "description": "2つのJSONを貼るだけで、追加・削除・値変更・型変更をキーのパス（$.users[2].nameの形）で一覧表示。配列はインデックス比較（順序無視も選択可）。数値1と1.0は同値、\"1\"と1は型変更と判定し、構文エラーは行番号つきで表示します。",
+  "keywords": ["JSON 差分", "JSON diff", "JSON 比較", "JSON 変更点"],
+  "category": "dev",
+  "related": ["json-formatter", "diff-text", "yaml-json"],
+  "updated": "2026-09-17"
+}

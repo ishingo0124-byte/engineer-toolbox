@@ -1,0 +1,58 @@
+<h3>IPアドレスの加減算</h3>
+<div class="row">
+  <div class="field">
+    <label for="ia-add-ip">IPアドレス</label>
+    <input type="text" id="ia-add-ip" inputmode="numeric" autocomplete="off" spellcheck="false" value="192.168.0.250">
+  </div>
+  <div class="field">
+    <label for="ia-add-delta">加減算する整数（負数可）</label>
+    <input type="text" id="ia-add-delta" inputmode="numeric" autocomplete="off" spellcheck="false" value="10">
+  </div>
+</div>
+<p class="error" id="ia-add-error"></p>
+<div class="result">
+  <dl class="result-grid">
+    <dt>計算結果</dt><dd><span class="mono" id="ia-add-result">-</span> <button type="button" class="copy-btn" data-copy-target="ia-add-result">コピー</button></dd>
+  </dl>
+</div>
+
+<h3>2アドレス間の個数と最小CIDR分解</h3>
+<div class="row">
+  <div class="field">
+    <label for="ia-range-start">開始アドレス</label>
+    <input type="text" id="ia-range-start" inputmode="numeric" autocomplete="off" spellcheck="false" value="10.0.0.5">
+  </div>
+  <div class="field">
+    <label for="ia-range-end">終了アドレス</label>
+    <input type="text" id="ia-range-end" inputmode="numeric" autocomplete="off" spellcheck="false" value="10.0.0.20">
+  </div>
+</div>
+<p class="error" id="ia-range-error"></p>
+<div class="result">
+  <p id="ia-range-summary" class="hint"></p>
+  <table id="ia-range-table" hidden>
+    <thead><tr><th>CIDR</th><th>先頭</th><th>末尾</th></tr></thead>
+    <tbody id="ia-range-rows"></tbody>
+  </table>
+</div>
+
+<h3>ネットワークの等分割</h3>
+<div class="row">
+  <div class="field">
+    <label for="ia-split-cidr">親ネットワーク（CIDR表記）</label>
+    <input type="text" id="ia-split-cidr" inputmode="numeric" autocomplete="off" spellcheck="false" value="10.0.0.0/22">
+  </div>
+  <div class="field">
+    <label for="ia-split-newprefix">分割後のプレフィックス長 /n</label>
+    <input type="number" id="ia-split-newprefix" min="0" max="32" step="1" value="24">
+  </div>
+</div>
+<p class="error" id="ia-split-error"></p>
+<div class="result">
+  <p id="ia-split-summary" class="hint"></p>
+  <table id="ia-split-table" hidden>
+    <thead><tr><th>#</th><th>ネットワーク</th><th>先頭</th><th>末尾</th></tr></thead>
+    <tbody id="ia-split-rows"></tbody>
+  </table>
+</div>
+<p class="hint">32bit符号なし整数として計算するため桁あふれしません。加減算の結果が 0.0.0.0 未満、または 255.255.255.255 を超える場合はエラーを表示します。分割・分解の一覧は最大1024件まで表示し、それを超える分は件数のみ表示します。</p>

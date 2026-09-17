@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="field">
+    <label for="jd-a">JSON A（比較元）</label>
+    <textarea id="jd-a" rows="10" class="mono" data-example>{
+  "users": [
+    { "id": 1, "name": "佐藤", "active": true },
+    { "id": 2, "name": "田中", "active": false }
+  ],
+  "count": 2,
+  "version": "1.0"
+}</textarea>
+  </div>
+  <div class="field">
+    <label for="jd-b">JSON B（比較先）</label>
+    <textarea id="jd-b" rows="10" class="mono" data-example>{
+  "users": [
+    { "id": 1, "name": "佐藤", "active": true },
+    { "id": 2, "name": "田中", "role": "admin" }
+  ],
+  "count": "2",
+  "note": "updated"
+}</textarea>
+  </div>
+</div>
+<div class="check">
+  <label><input type="checkbox" id="jd-ignore-order"> 配列の順序を無視して比較（値の集合として比較）</label>
+</div>
+<div class="actions">
+  <button type="button" id="jd-swap" class="ghost">A⇄Bを入れ替え</button>
+  <button type="button" id="jd-clear" class="ghost">クリア</button>
+</div>
+<p id="jd-error-a" class="error"></p>
+<p id="jd-error-b" class="error"></p>
+<div class="result">
+  <p id="jd-summary" class="hint"></p>
+  <table id="jd-table" hidden>
+    <thead><tr><th>種類</th><th>パス</th><th>内容</th></tr></thead>
+    <tbody id="jd-rows"></tbody>
+  </table>
+</div>
+<p class="hint">キーの順序は比較に影響しません。配列は既定で同じインデックス同士を比較します（「順序を無視」を付けると、同じ値がいくつあるかだけを見ます）。数値の 1 と 1.0 は同じ値として扱い、"1"（文字列）と 1（数値）は型変更として区別します。</p>

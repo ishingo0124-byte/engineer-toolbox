@@ -1,0 +1,10 @@
+{
+  "slug": "ipv4-arithmetic",
+  "title": "IPv4アドレス計算（加減算・個数・範囲→CIDR・等分割）",
+  "short_title": "IPv4アドレス計算",
+  "description": "IPv4アドレスに整数を加減算（192.168.0.250+10→192.168.1.4）、2アドレス間の個数、範囲を最小のCIDR群に分解、ネットワークをCIDR単位で等分割。32bit符号なし演算で桁あふれせず、範囲外は即エラー表示します。",
+  "keywords": ["IPアドレス 計算", "IP 加算", "IP 範囲 CIDR", "サブネット 分割"],
+  "category": "network",
+  "related": ["subnet-calculator", "cidr-mask-converter", "ip-in-range"],
+  "updated": "2026-09-17"
+}
