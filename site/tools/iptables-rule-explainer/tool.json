@@ -1,0 +1,10 @@
+{
+  "slug": "iptables-rule-explainer",
+  "title": "iptables・nftablesルール解説（1行貼り付け）",
+  "short_title": "iptablesルール解説",
+  "description": "iptablesやnftablesのルールを1行貼り付けると、テーブル・チェーン・操作・プロトコル・送信元/宛先・ポート・モジュール・ターゲットに分解して日本語の表で説明。未対応の要素は「未対応」と明示して読み飛ばしません。",
+  "keywords": ["iptables 読み方", "iptables ルール 解説", "nftables 変換", "iptables -m state", "iptables ターゲット 意味"],
+  "category": "linux",
+  "related": ["nginx-config-checker", "well-known-ports", "shell-escape"],
+  "updated": "2026-09-22"
+}

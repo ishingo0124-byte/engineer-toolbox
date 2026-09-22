@@ -1,0 +1,55 @@
+<div class="row">
+  <div class="field">
+    <label for="mm-preset">プリセット</label>
+    <select id="mm-preset">
+      <option value="1500" selected>Ethernet（1500）</option>
+      <option value="1492">PPPoE over Ethernet（1492）</option>
+      <option value="1480">よくあるVPN既定値（1480）</option>
+      <option value="9000">ジャンボフレーム（9000）</option>
+      <option value="">カスタム（下の欄に直接入力）</option>
+    </select>
+  </div>
+  <div class="field">
+    <label for="mm-mtu">ベースMTU（バイト）</label>
+    <input type="text" inputmode="numeric" id="mm-mtu" value="1500">
+  </div>
+  <div class="field">
+    <label for="mm-ipver">IPバージョン（TCP区間）</label>
+    <select id="mm-ipver">
+      <option value="4" selected>IPv4（IPヘッダ20バイト）</option>
+      <option value="6">IPv6（IPヘッダ40バイト）</option>
+    </select>
+  </div>
+</div>
+
+<p class="hint">実際にこの経路をカプセル化するプロトコルにチェックを入れてください（複数選択可）。それぞれのオーバーヘッドをベースMTUから差し引きます。</p>
+
+<div class="row">
+  <label class="check"><input type="checkbox" id="mm-ov-pppoe" value="8"> PPPoE（+8バイト）</label>
+  <label class="check"><input type="checkbox" id="mm-ov-vlan" value="4"> VLAN 802.1Q（+4バイト）</label>
+  <label class="check"><input type="checkbox" id="mm-ov-gre" value="24"> GRE（外側IP+GREヘッダ、+24バイト）</label>
+  <label class="check"><input type="checkbox" id="mm-ov-vxlan" value="50"> VXLAN（外側IP/UDP/VXLAN/内側Eth、+50バイト）</label>
+  <label class="check"><input type="checkbox" id="mm-ov-wg" value="60"> WireGuard（IPv4外側、+60バイト）</label>
+</div>
+<div class="row">
+  <label class="check"><input type="checkbox" id="mm-ov-esp"> IPsec ESP（AES-CBC + HMAC想定の目安値）</label>
+  <div class="field" style="flex:0 0 260px">
+    <label for="mm-esp-mode">ESPモード</label>
+    <select id="mm-esp-mode">
+      <option value="53" selected>トランスポートモード（+53バイト目安）</option>
+      <option value="73">トンネルモード（+73バイト目安）</option>
+    </select>
+  </div>
+</div>
+
+<p id="mm-error" class="error"></p>
+
+<div class="result">
+  <dl class="result-grid">
+    <dt>選択したオーバーヘッド合計</dt><dd><span id="mm-ov-total" class="mono">0 バイト</span></dd>
+    <dt>実効MTU</dt><dd><span id="mm-eff-mtu" class="mono">-</span></dd>
+    <dt>TCP MSS</dt><dd><span id="mm-mss" class="mono">-</span></dd>
+    <dt>MSSクランプ推奨値</dt><dd><span id="mm-clamp" class="mono">-</span></dd>
+  </dl>
+</div>
+<p class="hint">MSS = 実効MTU − IPヘッダ（IPv4:20 / IPv6:40） − TCPヘッダ20。MSSクランプ推奨値は、ルーターの <code class="mono">ip tcp adjust-mss</code> や <code class="mono">iptables --clamp-mss-to-pmtu</code> の代わりに固定値で設定する場合に使うTCP MSSの値と同じです。IPsec ESPの数値はTCP/IPオプション無し・平均的なパディングを仮定した目安で、実際の暗号方式やパディング量によって前後します。</p>

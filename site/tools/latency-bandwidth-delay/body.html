@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="field">
+    <label for="lb-bw">帯域</label>
+    <input type="text" inputmode="decimal" id="lb-bw" value="100">
+  </div>
+  <div class="field">
+    <label for="lb-bw-unit">帯域の単位</label>
+    <select id="lb-bw-unit">
+      <option value="Kbps">Kbps</option>
+      <option value="Mbps" selected>Mbps</option>
+      <option value="Gbps">Gbps</option>
+    </select>
+  </div>
+  <div class="field">
+    <label for="lb-rtt">RTT（往復遅延, ミリ秒）</label>
+    <input type="text" inputmode="decimal" id="lb-rtt" value="50">
+  </div>
+</div>
+<p id="lb-error" class="error"></p>
+<div class="result">
+  <dl class="result-grid">
+    <dt>帯域遅延積（BDP）</dt><dd><span id="lb-bdp" class="mono">-</span></dd>
+    <dt>フル活用に必要な最小ウィンドウサイズ</dt><dd><span id="lb-window" class="mono">-</span></dd>
+    <dt>推奨ウィンドウスケール係数（RFC 1323）</dt><dd><span id="lb-scale" class="mono">-</span></dd>
+    <dt>ウィンドウ64KiB固定時の最大スループット</dt><dd><span id="lb-fixed" class="mono">-</span></dd>
+  </dl>
+</div>
+<p class="hint">BDP = 帯域[bps] × RTT[秒] ÷ 8。ウィンドウスケール係数は、スケーリングなしの最大ウィンドウ65,535バイトに 2<sup>n</sup> を掛けてBDPを満たす最小の n（0〜14）です。64KiB固定時の最大スループットは、TCPウィンドウスケール（RFC 1323）を使わない・使えない環境での実測上限の目安です。</p>

@@ -1,0 +1,10 @@
+{
+  "slug": "mtu-mss-calculator",
+  "title": "MTU・MSS計算機（PPPoE/VLAN/IPsec対応）",
+  "short_title": "MTU・MSS計算",
+  "description": "ベースMTU（既定1500）から、PPPoEやVLAN、IPsec ESP、WireGuard、GRE、VXLANなどのカプセル化オーバーヘッドを差し引いて実効MTUとTCP MSSを即時計算。MSSクランプの推奨設定値も表示します。",
+  "keywords": ["MTU 計算", "MSS 計算", "PPPoE MTU 1492", "IPsec MTU オーバーヘッド", "MSSクランプ"],
+  "category": "network",
+  "related": ["bandwidth-calc", "latency-bandwidth-delay", "subnet-calculator"],
+  "updated": "2026-09-22"
+}

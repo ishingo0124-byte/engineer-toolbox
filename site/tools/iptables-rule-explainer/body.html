@@ -1,0 +1,8 @@
+<div class="field">
+  <label for="ire-input">iptables / nftables のルール（1行に1つ。複数行可）</label>
+  <textarea id="ire-input" rows="6" spellcheck="false">iptables -A INPUT -p tcp --dport 22 -s 10.0.0.0/8 -m state --state NEW -j ACCEPT
+nft add rule inet filter input tcp dport 22 accept</textarea>
+</div>
+<p id="ire-error" class="error"></p>
+<div id="ire-output"></div>
+<p class="hint">1行ずつ解析して、下に表で表示します。解析できなかった要素は「未対応」として表に残します（黙って読み飛ばしません）。逆方向（日本語→ルール文字列）への変換は行いません。</p>

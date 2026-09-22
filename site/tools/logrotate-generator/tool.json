@@ -1,0 +1,10 @@
+{
+  "slug": "logrotate-generator",
+  "title": "logrotate設定ジェネレーター",
+  "short_title": "logrotate設定生成",
+  "description": "対象パスやローテーション周期（daily/weekly/monthly/size）、保持世代数、圧縮、missingok/notifempty/create等を選ぶだけで、/etc/logrotate.d/に置ける設定を即生成。矛盾する組み合わせは警告します。",
+  "keywords": ["logrotate 設定 生成", "logrotate.d 書き方", "logrotate copytruncate", "logrotate postrotate", "ログローテーション 設定"],
+  "category": "linux",
+  "related": ["systemd-unit-generator", "cron-parser", "ssh-config-generator"],
+  "updated": "2026-09-22"
+}

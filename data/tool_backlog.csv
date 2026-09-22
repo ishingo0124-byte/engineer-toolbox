@@ -58,14 +58,14 @@ json-to-typescript,JSONからTypeScript型定義を生成,dev,2,done,batch4K 202
 sql-in-list,行リストをSQLのIN句・配列リテラルに変換,dev,2,done,batch4K 2026-09-10
 dummy-data-generator,テストデータ生成（氏名・住所・メール・日付をCSV/JSONで）,dev,2,done,batch4K 2026-09-10
 ssh-config-generator,ssh_config 生成（Host/ProxyJump/鍵指定）,linux,2,done,batch5 2026-09-14
-iptables-rule-explainer,iptables / nftables ルールの読み方,linux,3,todo,batch5候補
+iptables-rule-explainer,iptables / nftables ルールの読み方,linux,3,done,batch7 2026-09-22
 systemd-unit-generator,systemd サービスユニットの生成,linux,2,done,batch5 2026-09-14
-logrotate-generator,logrotate 設定の生成,linux,3,todo,batch5候補
+logrotate-generator,logrotate 設定の生成,linux,3,done,batch7 2026-09-22
 docker-run-to-compose,docker run コマンド → docker-compose.yml 変換,dev,2,done,batch5 2026-09-14
 crontab-from-schedule,日本語の予定 → cron 式（毎週月曜9時 など）,linux,2,done,batch5 2026-09-14
 json-diff,JSON の差分（キー単位）,dev,2,done,batch6 2026-09-17
 text-encoding-detector,文字化けの復元（Shift_JIS/EUC-JP/UTF-8 誤判定）,text,2,done,batch6 2026-09-17
 ipv4-arithmetic,IP アドレスの加減算・範囲分割（サブネット分割）,network,2,done,batch6 2026-09-17
 vlsm-calculator,VLSM 計算（必要ホスト数からサブネット割り当て）,network,2,done,batch6 2026-09-17
-mtu-mss-calculator,MTU / MSS 計算（VPN・PPPoE のオーバーヘッド）,network,2,todo,batch5候補
-latency-bandwidth-delay,帯域遅延積と TCP ウィンドウサイズ計算,network,3,todo,batch5候補
+mtu-mss-calculator,MTU / MSS 計算（VPN・PPPoE のオーバーヘッド）,network,2,done,batch7 2026-09-22
+latency-bandwidth-delay,帯域遅延積と TCP ウィンドウサイズ計算,network,3,done,batch7 2026-09-22

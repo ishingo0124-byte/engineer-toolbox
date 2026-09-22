@@ -1,0 +1,10 @@
+{
+  "slug": "latency-bandwidth-delay",
+  "title": "帯域遅延積（BDP）・TCPウィンドウサイズ計算機",
+  "short_title": "BDP・TCPウィンドウ計算",
+  "description": "帯域（Kbps〜Gbps）とRTT（ミリ秒）から帯域遅延積（BDP）をバイト・KiB・MiBで即時計算。フル活用に必要なTCPウィンドウサイズ、RFC 1323のウィンドウスケール係数、64KiB固定時の最大スループットも表示します。",
+  "keywords": ["帯域遅延積 計算", "BDP 計算", "TCP ウィンドウサイズ", "ウィンドウスケール 計算", "RTT スループット"],
+  "category": "network",
+  "related": ["mtu-mss-calculator", "bandwidth-calc"],
+  "updated": "2026-09-22"
+}
