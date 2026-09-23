@@ -1,0 +1,2 @@
+date,tools_published,indexed_urls,not_indexed,impressions_28d,clicks_28d,avg_position,top_pages,revenue_jpy,source,note
+2026-09-22,69,37,32,38,1,17.7,timestamp-format(3imp/1click) bandwidth-calc(9imp) timezone-converter(5imp) http-header-analyzer(4imp) line-sort-uniq(2imp),0,Search Console 手動確認,初回記録。未登録32の内訳は「検出-インデックス未登録」24・「クロール済み-インデックス未登録」8。sitemap 最終読込 2026-09-21（69URL 検出、本日追加の4本は未反映）。AdSense 未申請のため収益0。
