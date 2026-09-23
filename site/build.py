@@ -103,11 +103,13 @@ def adsense_head(cfg):
 
 def ad_slot(cfg, slot_name):
     c = cfg.get("adsense_client")
-    if not c:
-        return '<div class="ad" data-slot="%s"></div>' % slot_name  # 未設定時は空枠（レイアウトを変えない）
+    slot = cfg.get("adsense_slots", {}).get(slot_name, "")
+    if not c or not slot:
+        # client 未設定、またはスロット ID 未発行（審査中・自動広告のみ運用）は空枠（レイアウトを変えない）
+        return '<div class="ad" data-slot="%s"></div>' % slot_name
     return ('<div class="ad"><ins class="adsbygoogle" style="display:block" data-ad-client="%s" data-ad-slot="%s" '
             'data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>'
-            % (c, cfg.get("adsense_slots", {}).get(slot_name, "")))
+            % (c, slot))
 
 
 def tool_page(t, tools_by_slug, cfg, base, aff):
