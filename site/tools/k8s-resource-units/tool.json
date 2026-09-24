@@ -1,0 +1,10 @@
+{
+  "slug": "k8s-resource-units",
+  "title": "Kubernetes リソース単位変換（CPU・メモリ）",
+  "short_title": "K8sリソース単位変換",
+  "description": "Kubernetesのresources指定（CPUのm・コア数、メモリのKi/Mi/Gi/Ti・k/M/G/T・e指数表記）を相互変換。128Mと128Miの違いや、メモリにmを付けた場合の落とし穴も表示します。",
+  "keywords": ["kubernetes リソース 単位", "CPU ミリコア 変換", "Mi M 違い", "kubernetes メモリ 単位", "resources requests limits"],
+  "category": "dev",
+  "related": ["unit-prefix", "byte-converter", "docker-run-to-compose"],
+  "updated": "2026-09-24"
+}

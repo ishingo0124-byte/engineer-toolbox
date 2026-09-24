@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="field">
+    <label for="zh-dir">変換方向</label>
+    <select id="zh-dir">
+      <option value="f2h" selected>全角 → 半角</option>
+      <option value="h2f">半角 → 全角</option>
+    </select>
+  </div>
+</div>
+<div class="field">
+  <label>変換する対象</label>
+  <label class="check"><input type="checkbox" id="zh-alnum" checked> 英数字（Ａ-Ｚ ａ-ｚ ０-９）</label>
+  <label class="check"><input type="checkbox" id="zh-symbol" checked> 記号（！＂＃…など）</label>
+  <label class="check"><input type="checkbox" id="zh-space" checked> スペース（全角空白）</label>
+  <label class="check"><input type="checkbox" id="zh-kana" checked> カタカナ（半角カナ⇄全角カナ）</label>
+</div>
+<div class="field">
+  <label for="zh-input">変換前のテキスト</label>
+  <textarea id="zh-input" rows="6">ＡＢＣ　１２３　ガッコウ　パーティー　こんにちは　ー　－　〜</textarea>
+</div>
+<div class="actions">
+  <button type="button" id="zh-clear" class="ghost">クリア</button>
+  <button type="button" id="zh-swap" class="ghost">方向を反転</button>
+  <button type="button" class="copy-btn" data-copy-target="zh-output">結果をコピー</button>
+</div>
+<p class="error" id="zh-error"></p>
+<div class="field">
+  <label for="zh-output">変換後のテキスト</label>
+  <textarea id="zh-output" rows="6" readonly></textarea>
+</div>
+<p class="hint">「ー」（長音記号・かな扱い）と「－」（全角ハイフン・記号扱い）、「〜」（波ダッシュ）と「～」（全角チルダ・記号扱い）は別の文字として扱います。カタカナだけ変換したい場合、「－」や「～」は対象外のまま残ります。円記号「￥」は英数字・記号のどちらの範囲にも含まれないため変換されません。</p>

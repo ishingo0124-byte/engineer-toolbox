@@ -1,0 +1,10 @@
+{
+  "slug": "cidr-aggregator",
+  "title": "CIDR集約（経路集約・重複/包含の除去）",
+  "short_title": "CIDR集約",
+  "description": "IPv4アドレス・CIDRのリストから重複や包含を除去し、最小のCIDR集合に経路集約します。ホストビットが立ったCIDRは警告して正規化、不正な行は行番号つきでエラー表示します。",
+  "keywords": ["CIDR 集約", "経路集約", "サブネット 統合", "ルート集約", "IPアドレス 重複 除去"],
+  "category": "network",
+  "related": ["subnet-calculator", "ipv4-arithmetic", "vlsm-calculator"],
+  "updated": "2026-09-24"
+}

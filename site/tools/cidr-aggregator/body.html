@@ -1,0 +1,30 @@
+<div class="field">
+  <label for="ca-input">IPv4アドレス・CIDRのリスト（1行に1件。単一IPは /32 扱い）</label>
+  <textarea id="ca-input" rows="8" spellcheck="false">192.168.0.0/24
+192.168.1.0/24
+192.168.2.0/25
+192.168.2.128/25
+10.0.0.5/24
+10.0.0.0/24
+999.1.1.1/33</textarea>
+</div>
+<div class="actions">
+  <button type="button" id="ca-clear" class="ghost">クリア</button>
+  <button type="button" class="copy-btn" data-copy-target="ca-output">結果をコピー</button>
+</div>
+
+<div class="result">
+  <dl class="result-grid">
+    <dt>入力（有効行）</dt><dd><span id="ca-count-in">0</span></dd>
+    <dt>集約後のCIDR数</dt><dd><span id="ca-count-out">0</span></dd>
+    <dt>総アドレス数</dt><dd><span id="ca-count-addr">0</span></dd>
+  </dl>
+</div>
+
+<div class="field" style="margin-top:12px">
+  <label for="ca-output">集約結果</label>
+  <textarea id="ca-output" rows="6" readonly class="mono"></textarea>
+</div>
+
+<p id="ca-messages" class="error" style="white-space: pre-line"></p>
+<p class="hint">ホストビットが立っている行（例:10.0.0.5/24）はネットワークアドレス（10.0.0.0/24）に正規化した上で警告を出します。処理はすべてブラウザ内で完結します。</p>

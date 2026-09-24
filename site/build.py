@@ -35,8 +35,33 @@ def write(p, s):
         f.write(s)
 
 
+SHOP = {}
+GLOBALS = {}  # 全ページ共通の差し込み（shop_footer など）。main() で設定
+
+
 def render(tpl, **kw):
+    kw = {**GLOBALS, **kw}
     return re.sub(r"\{\{(\w+)\}\}", lambda m: str(kw.get(m.group(1), "")), tpl)
+
+
+def load_shop():
+    p = os.path.join(SITE, "data", "shop.json")
+    return json.loads(read(p)) if os.path.exists(p) else {}
+
+
+def shop_box(shop, slug):
+    """運営者の BOOTH テンプレートを、関連するツールの解説末尾に最大2件。URL 未確定の商品は出さない。"""
+    items = [shop.get("items", {}).get(k) for k in shop.get("tool_map", {}).get(slug, [])]
+    items = [it for it in items if it and it.get("url")][:2]
+    if not items:
+        return ""
+    lis = []
+    for it in items:
+        free = (' ／ <a href="%s" rel="noopener" target="_blank">無料版</a>' % html.escape(it["free_url"])) if it.get("free_url") else ""
+        lis.append('<li><a href="%s" rel="noopener" target="_blank">%s（Excel）</a>%s</li>' % (html.escape(it["url"]), html.escape(it["title"]), free))
+    return ('<aside class="shop-box"><h2>この作業で使える Excel テンプレート</h2>'
+            '<p class="hint">運営者が制作・販売しているテンプレートです（BOOTH・「%s」）。無料版もあります。</p>'
+            '<ul>%s</ul></aside>' % (html.escape(shop.get("shop_name", "")), "".join(lis)))
 
 
 def md(text, aff):
@@ -147,6 +172,7 @@ def tool_page(t, tools_by_slug, cfg, base, aff):
 {ad_slot(cfg, 'under_tool')}
 <article class="guide">
 {guide}
+{shop_box(SHOP, t['slug'])}
 <h2>関連ツール</h2>
 <ul class="related">{rel_html}</ul>
 <p class="updated">最終更新: {html.escape(t.get('updated', ''))} · カテゴリ: <a href="../#{t['category']}">{html.escape(t['_catname'])}</a></p>
@@ -248,6 +274,11 @@ def main():
     cfg = json.loads(read(os.path.join(SITE, "config.json")))
     aff_path = os.path.join(SITE, "data", "affiliate_links.json")
     aff = json.loads(read(aff_path)) if os.path.exists(aff_path) else {}
+    global SHOP
+    SHOP = load_shop()
+    if SHOP.get("shop_url"):
+        GLOBALS["shop_footer"] = (' · <a href="%s" rel="noopener" target="_blank">運営者のテンプレートショップ（BOOTH）</a>'
+                                  % html.escape(SHOP["shop_url"]))
     tools = load_tools(cfg)
     by = {t["slug"]: t for t in tools}
     for t in tools:

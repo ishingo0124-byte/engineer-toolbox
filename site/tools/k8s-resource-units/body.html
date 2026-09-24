@@ -1,0 +1,15 @@
+<div class="field">
+  <label for="ku-cpu">CPU（例: 500m, 0.5, 2, 100m）</label>
+  <input type="text" id="ku-cpu" autocomplete="off" spellcheck="false" value="500m">
+</div>
+<p class="error" id="ku-cpu-error"></p>
+<div class="result" id="ku-cpu-result"></div>
+
+<div class="field" style="margin-top:18px">
+  <label for="ku-mem">メモリ（例: 128Mi, 128M, 129e6, 500m, 2Gi）</label>
+  <input type="text" id="ku-mem" autocomplete="off" spellcheck="false" value="128Mi">
+</div>
+<p class="error" id="ku-mem-error"></p>
+<div class="result" id="ku-mem-result"></div>
+
+<p class="hint">CPU の 1 = 1コア = 1000m です。メモリの Ki/Mi/Gi/Ti は1024ベース（2進）、k/M/G/T は1000ベース（10進、kのみ小文字）です。単位を付けない数値はバイトそのものとして扱います。</p>

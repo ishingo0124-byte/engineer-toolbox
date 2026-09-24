@@ -1,0 +1,36 @@
+{
+  "_note": "運営者の BOOTH ショップ（自律金策チャットが運営）。url が空の商品は表示されない。URL 確定の連絡が来たらここを埋めて build するだけ。",
+  "shop_name": "インフラ実務テンプレート工房",
+  "shop_url": "https://infra-templates.booth.pm/",
+  "items": {
+    "001": {"title": "サーバー構築パラメータシート", "url": "https://infra-templates.booth.pm/items/8890324", "free_url": "https://infra-templates.booth.pm/items/8890398"},
+    "002": {"title": "構築・作業手順書", "url": "", "free_url": ""},
+    "003": {"title": "障害報告書", "url": "", "free_url": ""},
+    "004": {"title": "システム移行計画書＋当日タイムチャート", "url": "", "free_url": ""},
+    "005": {"title": "運用引き継ぎ書", "url": "", "free_url": ""},
+    "006": {"title": "サーバー構築チェックリスト（Linux/Windows）", "url": "", "free_url": ""},
+    "007": {"title": "IPアドレス管理台帳", "url": "", "free_url": ""},
+    "008": {"title": "インフラ案件 WBS・ガント", "url": "", "free_url": ""},
+    "009": {"title": "変更管理申請書", "url": "", "free_url": ""}
+  },
+  "tool_map": {
+    "subnet-calculator": ["007"],
+    "vlsm-calculator": ["007"],
+    "cidr-mask-converter": ["007"],
+    "cidr-aggregator": ["007"],
+    "ip-in-range": ["007"],
+    "ipv4-arithmetic": ["007"],
+    "ssh-config-generator": ["001", "006"],
+    "systemd-unit-generator": ["001", "006"],
+    "logrotate-generator": ["001", "006"],
+    "chmod-calculator": ["006", "001"],
+    "umask-calculator": ["006", "001"],
+    "raid-calculator": ["001", "006"],
+    "uptime-sla": ["003"],
+    "rsync-command-builder": ["002", "004"],
+    "tar-command-builder": ["002", "004"],
+    "find-command-builder": ["002", "004"],
+    "iptables-rule-explainer": ["006", "009"],
+    "nginx-config-checker": ["006", "009"]
+  }
+}

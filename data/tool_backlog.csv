@@ -69,3 +69,7 @@ ipv4-arithmetic,IP アドレスの加減算・範囲分割（サブネット分�
 vlsm-calculator,VLSM 計算（必要ホスト数からサブネット割り当て）,network,2,done,batch6 2026-09-17
 mtu-mss-calculator,MTU / MSS 計算（VPN・PPPoE のオーバーヘッド）,network,2,done,batch7 2026-09-22
 latency-bandwidth-delay,帯域遅延積と TCP ウィンドウサイズ計算,network,3,done,batch7 2026-09-22
+zenkaku-hankaku,全角⇄半角変換（英数・記号・カナ）,text,2,building,batch8 backlog枯渇のため本部企画 2026-09-24
+wareki-converter,和暦⇄西暦変換（明治〜令和・改元日の境界）,time,2,building,batch8 backlog枯渇のため本部企画 2026-09-24
+cidr-aggregator,CIDR 集約（経路集約・重複除去）,network,2,building,batch8 backlog枯渇のため本部企画 2026-09-24
+k8s-resource-units,Kubernetes リソース単位換算（CPU m / メモリ Mi・M）,dev,2,building,batch8 backlog枯渇のため本部企画 2026-09-24

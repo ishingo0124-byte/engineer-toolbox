@@ -77,3 +77,7 @@ button.copy-btn.done { color: var(--ok); border-color: var(--ok); }
 .site-footer { border-top: 1px solid var(--line); color: var(--muted); font-size: 0.86em; padding: 20px 0; margin-top: 24px; }
 .site-footer p { margin: 0 0 6px; }
 @media (max-width: 480px) { h1 { font-size: 1.3em; } .tool { padding: 14px; } .result-grid { grid-template-columns: 1fr; } .result-grid dt { margin-top: 6px; } }
+
+.shop-box { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 4px 16px 10px; margin: 24px 0; }
+.shop-box h2 { font-size: 1.02em; border-left: 0; padding-left: 0; margin: 12px 0 4px; }
+.shop-box ul { margin: 6px 0 4px; padding-left: 1.2em; }

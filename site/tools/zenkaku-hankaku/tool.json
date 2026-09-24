@@ -1,0 +1,10 @@
+{
+  "slug": "zenkaku-hankaku",
+  "title": "全角⇄半角変換（英数字・記号・カタカナ）",
+  "short_title": "全角⇄半角変換",
+  "description": "全角と半角を対象別（英数字・記号・スペース・カタカナ）にチェックボックスで選んで相互変換。半角カナの濁点・半濁点の結合/分解（ｶﾞ⇄ガ）にも対応。漢字・ひらがなはそのまま保持します。",
+  "keywords": ["全角半角変換", "半角カナ 全角", "濁点 結合", "全角 数字 半角", "文字コード変換"],
+  "category": "text",
+  "related": ["case-converter", "char-count", "text-encoding-detector"],
+  "updated": "2026-09-24"
+}
