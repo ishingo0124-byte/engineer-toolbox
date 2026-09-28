@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="field">
+    <label for="ty-birth">生まれ年（西暦 例:1990 / 和暦も可 例:平成2年）</label>
+    <input type="text" id="ty-birth" autocomplete="off" value="1990">
+  </div>
+  <div class="field">
+    <label for="ty-sex">性別</label>
+    <select id="ty-sex">
+      <option value="male" selected>男性</option>
+      <option value="female">女性</option>
+    </select>
+  </div>
+</div>
+<p class="hint">年齢はすべて数え年（元日に1歳加算）で計算します。厄年の対象年齢は地域・寺社によって扱いが異なる場合があります。</p>
+<p class="error" id="ty-error"></p>
+
+<div class="field">
+  <label>厄年（前厄・本厄・後厄）</label>
+  <div class="result" id="ty-yaku-result" style="overflow-x:auto"></div>
+</div>
+
+<div class="field" style="margin-top:16px">
+  <label>年祝い（長寿のお祝い）</label>
+  <div class="result" id="ty-toshiwai-result" style="overflow-x:auto"></div>
+  <p class="hint">満年齢基準は「その年に満年齢に達する年」を表示しています。誕生日前かどうかまでは考慮していません。</p>
+</div>
+
+<hr style="border:none;border-top:1px solid var(--line);margin:24px 0 20px">
+
+<div class="field">
+  <label id="ty-thisyear-label">今年の厄年は何年生まれ?</label>
+  <div class="result" id="ty-thisyear-result" style="overflow-x:auto"></div>
+</div>

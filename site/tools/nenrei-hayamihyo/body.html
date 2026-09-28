@@ -1,0 +1,27 @@
+<style>
+  @media print {
+    .site-header, .site-footer, .breadcrumb, h1, p.lead, .ad, article.guide, .related, #nht-controls { display: none !important; }
+    main.wrap { padding: 0 !important; max-width: none !important; }
+    table { font-size: 12px; }
+  }
+</style>
+
+<div id="nht-controls">
+  <div class="row">
+    <div class="field">
+      <label for="nht-year">基準年（西暦）</label>
+      <input type="text" id="nht-year" inputmode="numeric" autocomplete="off" value="2026">
+    </div>
+    <div class="field">
+      <label for="nht-filter">絞り込み（年齢・和暦・干支などで検索）</label>
+      <input type="text" id="nht-filter" autocomplete="off" placeholder="例:40 / 平成 / 子">
+    </div>
+  </div>
+  <p class="hint">基準年の誕生日を迎えたかどうかで年齢が2通りあるため、両方の列を表示しています。改元があった年（1926年・1989年）は和暦も2通り表示します。</p>
+  <div class="actions">
+    <button type="button" class="ghost" id="nht-print">この表だけ印刷する</button>
+  </div>
+</div>
+
+<p class="error" id="nht-error"></p>
+<div id="nht-table-wrap"></div>

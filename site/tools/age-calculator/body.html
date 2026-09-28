@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="field">
+    <label for="ac-bdate">生年月日（西暦）</label>
+    <input type="date" id="ac-bdate" value="1985-03-04">
+  </div>
+  <div class="field">
+    <label for="ac-bwareki">または和暦で入力（任意）</label>
+    <input type="text" id="ac-bwareki" autocomplete="off" placeholder="例:昭和60年3月4日 / S60.3.4 / H1/1/8">
+  </div>
+</div>
+<p class="hint">和暦欄に入力した場合はそちらを優先します。空欄なら左の西暦欄を使います。元号は明治・大正・昭和・平成・令和、または M/T/S/H/R の記号に対応します。</p>
+
+<div class="field">
+  <label for="ac-refdate">基準日（何歳になるかを知りたい日。空欄なら今日）</label>
+  <input type="date" id="ac-refdate">
+</div>
+
+<p class="error" id="ac-error"></p>
+
+<div class="result">
+  <dl class="result-grid">
+    <dt>満年齢</dt><dd><span id="ac-mannen">-</span></dd>
+    <dt>数え年</dt><dd><span id="ac-kazoe">-</span></dd>
+    <dt>生年月日（和暦）</dt><dd><span id="ac-wareki">-</span></dd>
+    <dt>干支</dt><dd><span id="ac-eto">-</span></dd>
+    <dt>十二支</dt><dd><span id="ac-junishi">-</span></dd>
+    <dt>星座</dt><dd><span id="ac-seiza">-</span></dd>
+    <dt>生まれてからの日数</dt><dd><span id="ac-days">-</span></dd>
+    <dt>次の誕生日まで</dt><dd><span id="ac-next">-</span></dd>
+  </dl>
+</div>
+
+<p class="hint">満年齢は「誕生日当日に1つ増える」一般的な数え方で表示しています。法律上（年齢計算ニ関スル法律・民法143条）は誕生日の前日の終わりに加算されたものとして扱われ、これが4月1日生まれの子が1学年上になる根拠になっています。</p>
+<p class="hint" id="ac-feb29-note"></p>

@@ -77,3 +77,7 @@ semver-range,semver のバージョン範囲判定（^ ~ >= の意味と一致�
 ip-address-classifier,IPアドレスの種別判定（プライベート・予約・特殊用途 RFC6890）,network,2,done,batch9 本部企画 2026-09-28
 duration-converter,時間の長さ換算（秒⇄時分秒・ISO 8601 期間表記）,time,2,done,batch9 本部企画 2026-09-28
 unicode-normalizer,Unicode 正規化（NFC/NFD/NFKC/NFKD・Mac の濁点分離）,text,2,done,batch9 本部企画 2026-09-28
+age-calculator,年齢計算（生年月日→満年齢・数え年・和暦・干支）,time,1,done,batch10 和暦クラスタ（検索需要確認済み） 2026-09-28
+nenrei-hayamihyo,年齢早見表（西暦・和暦・干支・年齢の一覧）,time,1,done,batch10 和暦クラスタ（検索需要確認済み） 2026-09-28
+school-year-table,入学・卒業年 早見表（生年月日から小学校〜大学）,time,1,done,batch10 和暦クラスタ（検索需要確認済み） 2026-09-28
+toshiiwai-yakudoshi,厄年・年祝い（還暦・古希・喜寿など）早見表,time,1,done,batch10 和暦クラスタ（検索需要確認済み） 2026-09-28

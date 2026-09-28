@@ -1,0 +1,10 @@
+{
+  "slug": "nenrei-hayamihyo",
+  "title": "年齢早見表（西暦・和暦・干支・年齢の一覧）",
+  "short_title": "年齢早見表",
+  "description": "基準年を選ぶと1920年から基準年までの生まれ年ごとに、西暦・和暦・干支・誕生日前後の満年齢を十年ごとの見出し付きで一覧表示します。改元があった年は和暦を2通り表示し、年齢や和暦での絞り込み検索と、表だけを印刷するボタンにも対応しています。",
+  "keywords": ["年齢早見表", "西暦 和暦 一覧", "干支 早見表", "生まれ年 年齢"],
+  "category": "time",
+  "related": ["age-calculator", "wareki-converter", "school-year-table", "toshiiwai-yakudoshi"],
+  "updated": "2026-09-28"
+}

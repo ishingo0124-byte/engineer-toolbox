@@ -1,0 +1,10 @@
+{
+  "slug": "toshiiwai-yakudoshi",
+  "title": "厄年・年祝い早見表（還暦・古希・喜寿・米寿など）",
+  "short_title": "厄年・年祝い早見表",
+  "description": "生まれ年（西暦・和暦）と性別を入力すると、数え年での厄年（前厄・本厄・後厄）と、還暦・古希・喜寿・米寿などの年祝いの該当年を西暦・和暦で一覧表示します。今年が該当するかもハイライトし、今年の厄年が何年生まれかも調べられます。",
+  "keywords": ["厄年 早見表", "還暦 古希 喜寿", "年祝い 一覧", "数え年 厄年 計算"],
+  "category": "time",
+  "related": ["age-calculator", "nenrei-hayamihyo", "wareki-converter"],
+  "updated": "2026-09-28"
+}

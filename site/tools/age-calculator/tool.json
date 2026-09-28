@@ -1,0 +1,10 @@
+{
+  "slug": "age-calculator",
+  "title": "年齢計算（生年月日から満年齢・数え年・和暦・干支）",
+  "short_title": "年齢計算",
+  "description": "生年月日と基準日を入力するだけで、満年齢・数え年・生年月日の和暦・干支・十二支・星座・生まれてからの日数・次の誕生日までの日数を一度に計算します。和暦は「昭和60年3月4日」やS60.3.4形式でも入力でき、2月29日生まれの加齢日にも対応します。",
+  "keywords": ["年齢計算", "満年齢 計算", "数え年 計算", "生年月日 干支", "年齢 早見"],
+  "category": "time",
+  "related": ["wareki-converter", "nenrei-hayamihyo", "school-year-table", "date-diff"],
+  "updated": "2026-09-28"
+}

@@ -1,0 +1,44 @@
+<div class="field">
+  <label for="syt-birth">生年月日（西暦 例:2013-04-05 / 和暦も可 例:平成25年4月5日）</label>
+  <input type="text" id="syt-birth" autocomplete="off" value="2013-04-05" data-example="2013-04-05">
+</div>
+<div class="row">
+  <div class="field">
+    <label for="syt-extra">浪人・留年の年数（大学・短大/専門の入学を遅らせる年数）</label>
+    <input type="text" id="syt-extra" inputmode="numeric" autocomplete="off" value="0">
+  </div>
+</div>
+<p class="hint" id="syt-hayami-note"></p>
+<p class="error" id="syt-error"></p>
+
+<div class="result" id="syt-result" style="overflow-x:auto"></div>
+
+<div class="actions">
+  <button type="button" class="copy-btn" data-copy-target="syt-resume-text">履歴書用の文章をコピー（幼稚園は3年保育の場合）</button>
+</div>
+<pre class="mono" id="syt-resume-text" style="white-space:pre-wrap;background:var(--code);border-radius:8px;padding:10px 12px;margin:8px 0 0"></pre>
+
+<hr style="border:none;border-top:1px solid var(--line);margin:24px 0 20px">
+
+<div class="field">
+  <label>逆引き:卒業年 → 生まれ年の範囲</label>
+  <div class="row">
+    <div class="field">
+      <label for="syt-rev-stage">卒業する学校</label>
+      <select id="syt-rev-stage">
+        <option value="elementary">小学校</option>
+        <option value="jhs">中学校</option>
+        <option value="hs" selected>高校</option>
+        <option value="univ4">大学（4年制）</option>
+        <option value="univ2">短大・専門学校（2年制）</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="syt-rev-year">卒業する年（西暦）</label>
+      <input type="text" id="syt-rev-year" inputmode="numeric" autocomplete="off" value="2032">
+    </div>
+  </div>
+  <p class="hint">浪人・留年がない場合の範囲です。</p>
+  <div class="result" id="syt-rev-result"></div>
+  <p class="error" id="syt-rev-error"></p>
+</div>
