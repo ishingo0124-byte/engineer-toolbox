@@ -1,0 +1,10 @@
+{
+  "slug": "unicode-normalizer",
+  "title": "Unicode正規化（NFC/NFD/NFKC/NFKD変換）",
+  "short_title": "Unicode正規化",
+  "description": "テキストをNFC/NFD/NFKC/NFKDの4形式に変換し、コードポイント数・UTF-8バイト数・変化の有無を一覧表示。Macで濁点が分離する問題の検出・修正にも対応します。",
+  "keywords": ["Unicode 正規化", "NFC NFD 違い", "濁点 分離 修正", "NFKC 変換"],
+  "category": "text",
+  "related": ["zenkaku-hankaku", "text-encoding-detector", "ascii-unicode-table", "char-count"],
+  "updated": "2026-09-28"
+}

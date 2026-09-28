@@ -1,0 +1,10 @@
+{
+  "slug": "duration-converter",
+  "title": "期間コンバータ（秒⇄X日HH:MM:SS⇄ISO8601）",
+  "short_title": "期間・時間換算",
+  "description": "秒数、「X日 HH:MM:SS」表記、ミリ秒〜週の各単位、ISO 8601期間表記（PT1H30Mなど）を相互に変換。負数・小数秒・年月を含む概算換算にも対応します。",
+  "keywords": ["秒 時間 変換", "ISO8601 期間", "PT1H30M 変換", "経過時間 計算"],
+  "category": "time",
+  "related": ["unix-time", "date-diff", "uptime-sla", "timestamp-format"],
+  "updated": "2026-09-28"
+}

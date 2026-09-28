@@ -73,3 +73,7 @@ zenkaku-hankaku,全角⇄半角変換（英数・記号・カナ）,text,2,done,
 wareki-converter,和暦⇄西暦変換（明治〜令和・改元日の境界）,time,2,done,batch8 本部企画 2026-09-24
 cidr-aggregator,CIDR 集約（経路集約・重複除去）,network,2,done,batch8 本部企画 2026-09-24
 k8s-resource-units,Kubernetes リソース単位換算（CPU m / メモリ Mi・M）,dev,2,done,batch8 本部企画 2026-09-24
+semver-range,semver のバージョン範囲判定（^ ~ >= の意味と一致判定）,dev,2,done,batch9 本部企画 2026-09-28
+ip-address-classifier,IPアドレスの種別判定（プライベート・予約・特殊用途 RFC6890）,network,2,done,batch9 本部企画 2026-09-28
+duration-converter,時間の長さ換算（秒⇄時分秒・ISO 8601 期間表記）,time,2,done,batch9 本部企画 2026-09-28
+unicode-normalizer,Unicode 正規化（NFC/NFD/NFKC/NFKD・Mac の濁点分離）,text,2,done,batch9 本部企画 2026-09-28

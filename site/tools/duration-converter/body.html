@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="field">
+    <label for="dc-seconds">秒数</label>
+    <input type="text" id="dc-seconds" inputmode="decimal" data-example="1">
+  </div>
+  <div class="field">
+    <label for="dc-dhms">X日 HH:MM:SS</label>
+    <input type="text" id="dc-dhms" data-example="1">
+  </div>
+  <div class="field">
+    <label for="dc-iso">ISO 8601 期間</label>
+    <input type="text" id="dc-iso" placeholder="例: PT1H30M" data-example="1">
+  </div>
+</div>
+<p class="error" id="dc-error"></p>
+<p class="hint" id="dc-warning"></p>
+<div class="result">
+  <dl class="result-grid">
+    <dt>ミリ秒</dt><dd><span id="dc-ms">0</span></dd>
+    <dt>秒</dt><dd><span id="dc-s">0</span></dd>
+    <dt>分</dt><dd><span id="dc-min">0</span></dd>
+    <dt>時間</dt><dd><span id="dc-hour">0</span></dd>
+    <dt>日</dt><dd><span id="dc-day">0</span></dd>
+    <dt>週</dt><dd><span id="dc-week">0</span></dd>
+  </dl>
+</div>
+<p class="hint">3つの入力欄（秒数・X日 HH:MM:SS・ISO 8601）はどこを編集しても連動します。年(Y)・月(M)を含むISO表記は365日・30日換算である旨を警告表示します。</p>

@@ -1,0 +1,22 @@
+<div class="field">
+  <label for="sr-range">バージョン範囲</label>
+  <input type="text" id="sr-range" value="^1.2.3" data-example="1" placeholder="例: ^1.2.3, ~1.2, >=1.0.0 <2.0.0, 1.x, 1.2.3 - 2.3.4">
+</div>
+<div class="field">
+  <label for="sr-versions">判定するバージョン（1行に1つ）</label>
+  <textarea id="sr-versions" rows="6" data-example="1">1.2.3
+1.4.2
+2.0.0
+1.2.3-beta.1
+0.9.9</textarea>
+</div>
+<div class="actions">
+  <button type="button" class="copy-btn" data-copy-target="sr-expanded">展開結果をコピー</button>
+</div>
+<div class="result">
+  <p class="hint">展開した範囲（&gt;=A &lt;B 形式）</p>
+  <div class="mono" id="sr-expanded">—</div>
+</div>
+<p class="error" id="sr-error"></p>
+<dl class="result-grid" id="sr-list"></dl>
+<p class="hint">npm（node-semver）の仕様に準拠しています。プレリリース版（例 1.2.3-beta.1）は、範囲側に同じ major.minor.patch のプレリリース指定がある場合だけ一致します。</p>

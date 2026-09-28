@@ -1,0 +1,10 @@
+{
+  "slug": "ip-address-classifier",
+  "title": "IPアドレス種別判定（プライベート/CGNAT/ULA/グローバル）",
+  "short_title": "IPアドレス種別判定",
+  "description": "入力したIPv4/IPv6アドレスの種別（プライベート、ループバック、CGNAT、ドキュメント用、マルチキャスト、ULAなど）と該当RFC、グローバル到達可否をIANAレジストリに基づき一括判定します。",
+  "keywords": ["IPアドレス 種別", "プライベートIP 判定", "CGNAT とは", "IPv6 ULA fc00"],
+  "category": "network",
+  "related": ["subnet-calculator", "ip-in-range", "ipv6-expander", "cidr-aggregator"],
+  "updated": "2026-09-28"
+}

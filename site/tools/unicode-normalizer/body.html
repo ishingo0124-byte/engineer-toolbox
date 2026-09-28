@@ -1,0 +1,38 @@
+<div class="field">
+  <label for="un-text">テキストを入力</label>
+  <textarea id="un-text" rows="6" data-example="1"></textarea>
+</div>
+<p class="error" id="un-error"></p>
+<div class="result">
+  <table id="un-table"></table>
+</div>
+<div class="result" id="un-mac-note" hidden>
+  <p class="hint">濁点・半濁点が分離した結合文字（Macのファイル名でよくある現象）を検出しました。NFCで修正した文字列です。</p>
+  <p class="mono" id="un-mac-fixed" style="word-break:break-all;"></p>
+  <div class="actions">
+    <button type="button" class="copy-btn" data-copy-target="un-mac-fixed">修正済みをコピー</button>
+  </div>
+</div>
+<div class="result">
+  <div class="field">
+    <p class="hint">NFC変換後</p>
+    <p class="mono" id="un-out-nfc" style="word-break:break-all;"></p>
+    <div class="actions"><button type="button" class="copy-btn" data-copy-target="un-out-nfc">コピー</button></div>
+  </div>
+  <div class="field">
+    <p class="hint">NFD変換後</p>
+    <p class="mono" id="un-out-nfd" style="word-break:break-all;"></p>
+    <div class="actions"><button type="button" class="copy-btn" data-copy-target="un-out-nfd">コピー</button></div>
+  </div>
+  <div class="field">
+    <p class="hint">NFKC変換後</p>
+    <p class="mono" id="un-out-nfkc" style="word-break:break-all;"></p>
+    <div class="actions"><button type="button" class="copy-btn" data-copy-target="un-out-nfkc">コピー</button></div>
+  </div>
+  <div class="field">
+    <p class="hint">NFKD変換後</p>
+    <p class="mono" id="un-out-nfkd" style="word-break:break-all;"></p>
+    <div class="actions"><button type="button" class="copy-btn" data-copy-target="un-out-nfkd">コピー</button></div>
+  </div>
+</div>
+<p class="hint">サロゲートペアやZWJ結合絵文字を含む文字列でも、コードポイントの並びを崩さずに正規化します。</p>

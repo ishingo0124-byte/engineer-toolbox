@@ -1,0 +1,10 @@
+{
+  "slug": "semver-range",
+  "title": "semverバージョン範囲チェッカー（^1.2.3 対応）",
+  "short_title": "semver範囲チェック",
+  "description": "^1.2.3 や ~1.2、>=1.0.0 <2.0.0、1.x、ハイフン範囲、||などのバージョン範囲を「>=A <B」形式に展開し、指定バージョンが一致するかnpm（node-semver）準拠で一括判定します。",
+  "keywords": ["semver 範囲", "npm バージョン指定", "キャレット チルダ 違い", "package.json バージョン範囲"],
+  "category": "dev",
+  "related": ["number-base-converter", "json-diff", "docker-run-to-compose"],
+  "updated": "2026-09-28"
+}
