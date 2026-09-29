@@ -175,7 +175,7 @@ def tool_page(t, tools_by_slug, cfg, base, aff):
 {shop_box(SHOP, t['slug'])}
 <h2>関連ツール</h2>
 <ul class="related">{rel_html}</ul>
-<p class="updated">最終更新: {html.escape(t.get('updated', ''))} · カテゴリ: <a href="../#{t['category']}">{html.escape(t['_catname'])}</a></p>
+<p class="updated">最終更新・根拠の確認日: {html.escape(t.get('checked', t.get('updated', '')))} · カテゴリ: <a href="../#{t['category']}">{html.escape(t['_catname'])}</a></p>
 </article>
 {ad_slot(cfg, 'bottom')}
 """
@@ -253,6 +253,21 @@ def not_found_page(cfg, base, tools):
     write(os.path.join(DIST, "404.html"), page)
 
 
+def llms_txt(tools, cfg):
+    """llms.txt（https://llmstxt.org 形式）。効果は小さいという調査があるので、自動生成で置くだけ。"""
+    lines = [f"# {cfg['site_name']}", "", f"> {cfg['tagline']}", "",
+             "すべてのツールはブラウザ内で動作し、入力はサーバーへ送信されません。各ページに計算の根拠（RFC・法令・公式ドキュメント名）とよくある間違いを載せています。",
+             "AI での利用条件は RSL（/license.xml）を参照してください。回答での参照は出典表示とリンクを条件に許可、学習は禁止です。", ""]
+    for k, v in cfg["categories"].items():
+        ts = [t for t in tools if t["category"] == k]
+        if not ts:
+            continue
+        lines.append(f"## {v}")
+        lines += [f"- [{t['title']}]({cfg['base_url']}/tools/{t['slug']}/): {t['description']}" for t in ts]
+        lines.append("")
+    write(os.path.join(DIST, "llms.txt"), "\n".join(lines))
+
+
 def sitemap(tools, pages, cfg):
     today = datetime.date.today().isoformat()
     urls = [(cfg["base_url"] + "/", today, "1.0"), (cfg["base_url"] + "/tools/", today, "0.9")]
@@ -261,7 +276,8 @@ def sitemap(tools, pages, cfg):
     xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(
         f"  <url><loc>{html.escape(u)}</loc><lastmod>{d}</lastmod><priority>{p}</priority></url>\n" for u, d, p in urls) + "</urlset>\n"
     write(os.path.join(DIST, "sitemap.xml"), xml)
-    write(os.path.join(DIST, "robots.txt"), f"User-agent: *\nAllow: /\nSitemap: {cfg['base_url']}/sitemap.xml\n")
+    lic = f"License: {cfg['base_url']}/license.xml\n" if os.path.exists(os.path.join(SITE, "root", "license.xml")) else ""
+    write(os.path.join(DIST, "robots.txt"), f"User-agent: *\nAllow: /\n{lic}Sitemap: {cfg['base_url']}/sitemap.xml\n")
     host = re.sub(r"^https?://", "", cfg["base_url"]).strip("/")
     if host and "localhost" not in host and "example.com" not in host:
         write(os.path.join(DIST, "CNAME"), host + "\n")  # GitHub Pages カスタムドメイン
@@ -308,6 +324,7 @@ def main():
     index_pages(tools, cfg, base)
     not_found_page(cfg, base, tools)
     sitemap(tools, pages, cfg)
+    llms_txt(tools, cfg)
     print(f"built: {len(tools)} tools, {len(pages)} pages → {DIST}")
 
 

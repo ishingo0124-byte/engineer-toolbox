@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  RSL 1.0 (Really Simple Licensing) — https://rslstandard.org/rsl
+  エンジニアの道具箱の AI 利用条件:
+  - 検索エンジンのインデックス・AI の検索用インデックス・AI の回答での参照（RAG／エージェント）は、出典の表示とリンクを条件に許可
+  - AI モデルの学習・微調整は禁止
+  - 有償ライセンス（クロール課金・利用課金）の条件は <custom> の URL で案内する（2026-09 時点では未開始）
+-->
+<rsl xmlns="https://rslstandard.org/rsl">
+  <content url="/">
+    <license>
+      <permits type="usage">search ai-index ai-input</permits>
+      <prohibits type="usage">ai-train</prohibits>
+      <payment type="attribution">
+        <standard>https://creativecommons.org/licenses/by/4.0/</standard>
+      </payment>
+    </license>
+    <license>
+      <permits type="usage">ai-input</permits>
+      <prohibits type="usage">ai-train</prohibits>
+      <payment type="use">
+        <custom>https://engineer-toolbox.jp/about/#ai-license</custom>
+      </payment>
+    </license>
+    <copyright type="organization" contactUrl="https://github.com/ishingo0124-byte/engineer-toolbox/issues">
+      エンジニアの道具箱
+    </copyright>
+  </content>
+</rsl>

@@ -1,0 +1,34 @@
+# Search Console「インデックス登録をリクエスト」の待ち行列（上から順に。1日10〜13件が上限）
+# 済: 2026-09-28 13件（unix-time, base64, json-formatter, hash-generator, password-generator, http-status-codes, well-known-ports, date-diff, uptime-sla, age-calculator, nenrei-hayamihyo, school-year-table, toshiiwai-yakudoshi）
+# 済: 2026-09-29 1件（/tools/）→ cron-parser で上限到達
+https://engineer-toolbox.jp/tools/cron-parser/
+https://engineer-toolbox.jp/tools/chmod-calculator/
+https://engineer-toolbox.jp/tools/regex-tester/
+https://engineer-toolbox.jp/tools/url-encode/
+https://engineer-toolbox.jp/tools/shell-escape/
+https://engineer-toolbox.jp/tools/ip-in-range/
+https://engineer-toolbox.jp/tools/yaml-json/
+https://engineer-toolbox.jp/tools/csv-json/
+https://engineer-toolbox.jp/tools/cert-decoder/
+https://engineer-toolbox.jp/tools/mtu-mss-calculator/
+https://engineer-toolbox.jp/tools/number-base-converter/
+https://engineer-toolbox.jp/tools/ipv6-expander/
+https://engineer-toolbox.jp/tools/byte-converter/
+https://engineer-toolbox.jp/tools/url-parser/
+https://engineer-toolbox.jp/tools/systemd-timer/
+https://engineer-toolbox.jp/tools/ssl-cipher-decoder/
+https://engineer-toolbox.jp/tools/dns-lookup-explainer/
+https://engineer-toolbox.jp/tools/color-converter/
+https://engineer-toolbox.jp/tools/dummy-data-generator/
+https://engineer-toolbox.jp/tools/sql-in-list/
+https://engineer-toolbox.jp/tools/unit-prefix/
+https://engineer-toolbox.jp/tools/zenkaku-hankaku/
+https://engineer-toolbox.jp/tools/cidr-aggregator/
+https://engineer-toolbox.jp/tools/iptables-rule-explainer/
+https://engineer-toolbox.jp/tools/logrotate-generator/
+https://engineer-toolbox.jp/tools/latency-bandwidth-delay/
+https://engineer-toolbox.jp/tools/k8s-resource-units/
+https://engineer-toolbox.jp/tools/semver-range/
+https://engineer-toolbox.jp/tools/ip-address-classifier/
+https://engineer-toolbox.jp/tools/duration-converter/
+https://engineer-toolbox.jp/tools/unicode-normalizer/
