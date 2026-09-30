@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="field">
+    <label for="dw-era">暦</label>
+    <select id="dw-era">
+      <option value="西暦" selected>西暦</option>
+      <option value="明治">明治</option>
+      <option value="大正">大正</option>
+      <option value="昭和">昭和</option>
+      <option value="平成">平成</option>
+      <option value="令和">令和</option>
+    </select>
+  </div>
+  <div class="field">
+    <label for="dw-y">年（元年も可）</label>
+    <input type="text" id="dw-y" inputmode="numeric" autocomplete="off" value="2000">
+  </div>
+  <div class="field">
+    <label for="dw-m">月</label>
+    <input type="text" id="dw-m" inputmode="numeric" autocomplete="off" value="2">
+  </div>
+  <div class="field">
+    <label for="dw-d">日</label>
+    <input type="text" id="dw-d" inputmode="numeric" autocomplete="off" value="29">
+  </div>
+</div>
+<div class="actions">
+  <button type="button" id="dw-today" class="ghost">今日の日付を入れる</button>
+</div>
+<p class="error" id="dw-error"></p>
+<div class="result">
+  <dl class="result-grid">
+    <dt>曜日</dt><dd><span id="dw-wd">-</span></dd>
+    <dt>西暦（正規化）</dt><dd><span id="dw-g">-</span></dd>
+    <dt>和暦</dt><dd><span id="dw-w">-</span></dd>
+    <dt>年内の通算日</dt><dd><span id="dw-doy">-</span></dd>
+    <dt>同じ曜日になる前の年</dt><dd><span id="dw-prev">-</span></dd>
+    <dt>同じ曜日になる後の年</dt><dd><span id="dw-next">-</span></dd>
+  </dl>
+</div>
+<p class="hint" id="dw-notes"></p>
+<p class="hint">同じ月日で同じ曜日になる年は、2月29日の場合はうるう年だけを対象に探します。</p>

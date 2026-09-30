@@ -1,0 +1,74 @@
+<style>
+  .bd-sep { border: none; border-top: 1px solid var(--line); margin: 22px 0; }
+  .bd-list { margin: 8px 0 0; padding-left: 1.2em; font-size: 0.9em; }
+</style>
+<div>
+  <label class="check"><input type="checkbox" id="bd-yearend"> 年末年始（12/29〜1/3）も休業日として除く</label>
+</div>
+<p class="hint">土日と日本の祝日（振替休日・国民の休日を含む）は常に除きます。対応範囲は2000〜2030年です。</p>
+
+<div class="field"><label>期間の営業日数</label></div>
+<div class="row">
+  <div class="field">
+    <label for="bd-start">開始日</label>
+    <input type="date" id="bd-start" value="2026-04-27">
+  </div>
+  <div class="field">
+    <label for="bd-end">終了日（常に含む）</label>
+    <input type="date" id="bd-end" value="2026-05-29">
+  </div>
+</div>
+<label class="check"><input type="checkbox" id="bd-include" checked> 開始日を含めて数える</label>
+<p class="error" id="bd-error1"></p>
+<div class="result">
+  <dl class="result-grid">
+    <dt>営業日数</dt><dd><span id="bd-count">-</span></dd>
+    <dt>数えた期間の暦日数</dt><dd><span id="bd-cal">-</span></dd>
+    <dt>土日の日数</dt><dd><span id="bd-we">-</span></dd>
+    <dt>平日の祝日の日数</dt><dd><span id="bd-hol">-</span></dd>
+    <dt>年末年始の休業日数（平日分）</dt><dd><span id="bd-ye">-</span></dd>
+  </dl>
+  <ul class="bd-list" id="bd-hollist"></ul>
+</div>
+
+<hr class="bd-sep">
+
+<div class="field"><label>N営業日後・前の日付</label></div>
+<div class="row">
+  <div class="field">
+    <label for="bd-base">基準日</label>
+    <input type="date" id="bd-base" value="2026-09-18">
+  </div>
+  <div class="field">
+    <label for="bd-n">営業日数 N</label>
+    <input type="text" id="bd-n" inputmode="numeric" autocomplete="off" value="5">
+  </div>
+  <div class="field">
+    <label for="bd-dir">方向</label>
+    <select id="bd-dir">
+      <option value="1" selected>N営業日後</option>
+      <option value="-1">N営業日前</option>
+    </select>
+  </div>
+</div>
+<p class="error" id="bd-error2"></p>
+<div class="result">
+  <dl class="result-grid">
+    <dt>結果の日付</dt><dd><span id="bd-res">-</span></dd>
+    <dt>基準日からの暦日数</dt><dd><span id="bd-resdays">-</span></dd>
+    <dt>基準日の扱い</dt><dd><span id="bd-resbase">-</span></dd>
+  </dl>
+</div>
+<p class="hint">基準日そのものは数えず、翌営業日（前の場合は前営業日）を1として数えます。</p>
+
+<hr class="bd-sep">
+
+<div class="row">
+  <div class="field">
+    <label for="bd-year">祝日を一覧する年</label>
+    <input type="text" id="bd-year" inputmode="numeric" autocomplete="off" value="2026">
+  </div>
+</div>
+<p class="error" id="bd-error3"></p>
+<div class="result"><ul class="bd-list" id="bd-yearlist" style="margin:0"></ul></div>
+<p class="hint" id="bd-selftest"></p>

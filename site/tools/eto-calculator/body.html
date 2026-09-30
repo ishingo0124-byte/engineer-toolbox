@@ -1,0 +1,52 @@
+<div class="field">
+  <label>年から干支を調べる</label>
+  <div class="row">
+    <div class="field">
+      <label for="et-era">暦</label>
+      <select id="et-era">
+        <option value="西暦" selected>西暦</option>
+        <option value="明治">明治</option>
+        <option value="大正">大正</option>
+        <option value="昭和">昭和</option>
+        <option value="平成">平成</option>
+        <option value="令和">令和</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="et-year">年（元年も可）</label>
+      <input type="text" id="et-year" inputmode="numeric" autocomplete="off" value="2026">
+    </div>
+  </div>
+  <p class="error" id="et-error"></p>
+  <div class="result">
+    <dl class="result-grid">
+      <dt>西暦</dt><dd><span id="et-g">-</span></dd>
+      <dt>和暦</dt><dd><span id="et-w">-</span></dd>
+      <dt>干支（1月1日基準）</dt><dd><span id="et-eto">-</span></dd>
+      <dt>読み（訓読み）</dt><dd><span id="et-kun">-</span></dd>
+      <dt>読み（音読み）</dt><dd><span id="et-on">-</span></dd>
+      <dt>六十干支の番号</dt><dd><span id="et-no">-</span></dd>
+      <dt>十干</dt><dd><span id="et-stem">-</span></dd>
+      <dt>十二支</dt><dd><span id="et-branch">-</span></dd>
+      <dt>立春前に生まれた場合</dt><dd><span id="et-risshun">-</span></dd>
+      <dt>還暦（60年後）</dt><dd><span id="et-kanreki">-</span></dd>
+    </dl>
+  </div>
+</div>
+
+<div class="field" style="margin-top:22px">
+  <label>干支から年を逆引きする</label>
+  <div class="row">
+    <div class="field">
+      <label for="et-sel">干支</label>
+      <select id="et-sel"></select>
+    </div>
+    <div class="field">
+      <label for="et-base">基準の西暦年</label>
+      <input type="text" id="et-base" inputmode="numeric" autocomplete="off" value="2026">
+    </div>
+  </div>
+  <p class="error" id="et-error2"></p>
+  <div class="result" id="et-rev"></div>
+  <p class="hint">基準年以前で直近の年と、その前後の60年周期を表示します。</p>
+</div>

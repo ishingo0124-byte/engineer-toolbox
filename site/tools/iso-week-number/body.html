@@ -1,0 +1,54 @@
+<div class="field">
+  <label for="iw-date">日付 → 週番号</label>
+  <input type="date" id="iw-date" value="2024-12-30">
+</div>
+<div class="actions">
+  <button type="button" id="iw-today" class="ghost">今日の日付を入れる</button>
+</div>
+<p class="error" id="iw-error"></p>
+<div class="result">
+  <dl class="result-grid">
+    <dt>ISO 8601 週日付</dt><dd><span id="iw-code">-</span><button type="button" class="copy-btn" data-copy-target="iw-code">コピー</button></dd>
+    <dt>ISO 週番号</dt><dd><span id="iw-week">-</span></dd>
+    <dt>曜日</dt><dd><span id="iw-wd">-</span></dd>
+    <dt>その週の範囲（月〜日）</dt><dd><span id="iw-range">-</span></dd>
+    <dt>その ISO 年の週数</dt><dd><span id="iw-weeks">-</span></dd>
+    <dt>米国式（日曜始まり）</dt><dd><span id="iw-us">-</span></dd>
+    <dt>米国式の週の範囲（日〜土）</dt><dd><span id="iw-usrange">-</span></dd>
+  </dl>
+</div>
+<p class="hint" id="iw-note"></p>
+
+<div class="field" style="margin-top:22px">
+  <label>年＋週番号 → 日付</label>
+  <div class="row">
+    <div class="field">
+      <label for="iw-y">ISO 年</label>
+      <input type="text" id="iw-y" inputmode="numeric" autocomplete="off" value="2020">
+    </div>
+    <div class="field">
+      <label for="iw-w">週番号</label>
+      <input type="text" id="iw-w" inputmode="numeric" autocomplete="off" value="53">
+    </div>
+    <div class="field">
+      <label for="iw-dd">曜日</label>
+      <select id="iw-dd">
+        <option value="1" selected>月</option>
+        <option value="2">火</option>
+        <option value="3">水</option>
+        <option value="4">木</option>
+        <option value="5">金</option>
+        <option value="6">土</option>
+        <option value="7">日</option>
+      </select>
+    </div>
+  </div>
+  <p class="error" id="iw-error2"></p>
+  <div class="result">
+    <dl class="result-grid">
+      <dt>指定した曜日の日付</dt><dd><span id="iw-r-date">-</span></dd>
+      <dt>その週の範囲（月〜日）</dt><dd><span id="iw-r-range">-</span></dd>
+      <dt>その ISO 年の週数</dt><dd><span id="iw-r-weeks">-</span></dd>
+    </dl>
+  </div>
+</div>

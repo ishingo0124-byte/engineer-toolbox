@@ -81,3 +81,7 @@ age-calculator,年齢計算（生年月日→満年齢・数え年・和暦・�
 nenrei-hayamihyo,年齢早見表（西暦・和暦・干支・年齢の一覧）,time,1,done,batch10 和暦クラスタ（検索需要確認済み） 2026-09-28
 school-year-table,入学・卒業年 早見表（生年月日から小学校〜大学）,time,1,done,batch10 和暦クラスタ（検索需要確認済み） 2026-09-28
 toshiiwai-yakudoshi,厄年・年祝い（還暦・古希・喜寿など）早見表,time,1,done,batch10 和暦クラスタ（検索需要確認済み） 2026-09-28
+eto-calculator,干支の計算（西暦・和暦→十干十二支・六十干支の番号）,time,1,done,batch11 和暦クラスタ拡張 本部企画 2026-10-01
+day-of-week,曜日計算（日付→何曜日・和暦入力可・過去未来の同じ曜日）,time,1,done,batch11 和暦クラスタ拡張 本部企画 2026-10-01
+business-days,営業日計算（土日祝を除く日数・○営業日後・日本の祝日）,time,1,done,batch11 本部企画 2026-10-01
+iso-week-number,週番号（ISO 8601 週番号・年の第何週）,time,2,done,batch11 本部企画 2026-10-01

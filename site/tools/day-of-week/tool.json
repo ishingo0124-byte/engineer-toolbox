@@ -1,0 +1,11 @@
+{
+  "slug": "day-of-week",
+  "title": "曜日計算（西暦・和暦の日付から曜日を調べる）",
+  "short_title": "曜日計算",
+  "description": "西暦または和暦の日付（明治6年〜令和・元年入力可）から曜日を計算。1582年以前は先発グレゴリオ暦で計算し、同じ月日が同じ曜日になる前後の年、年内の通算日も表示。2月29日や改元日にも対応。",
+  "keywords": ["曜日 計算", "曜日 調べる 西暦", "和暦 曜日", "何曜日 日付", "同じ曜日になる年"],
+  "category": "time",
+  "related": ["date-diff", "wareki-converter", "business-days", "iso-week-number"],
+  "updated": "2026-10-01",
+  "checked": "2026-10-01"
+}

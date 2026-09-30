@@ -1,0 +1,11 @@
+{
+  "slug": "eto-calculator",
+  "title": "干支（えと）早見・計算（西暦・和暦／干支から逆引き）",
+  "short_title": "干支計算",
+  "description": "西暦または和暦（明治〜令和・元年入力可）の年から十干・十二支・六十干支の番号と読みを表示。2026年は丙午。干支から直近の該当年も逆引きでき、立春と1月1日の切り替えの違いも解説。",
+  "keywords": ["干支 計算", "干支 早見", "西暦 干支", "和暦 干支", "六十干支 一覧", "干支 逆引き"],
+  "category": "time",
+  "related": ["wareki-converter", "nenrei-hayamihyo", "toshiiwai-yakudoshi", "age-calculator"],
+  "updated": "2026-10-01",
+  "checked": "2026-10-01"
+}

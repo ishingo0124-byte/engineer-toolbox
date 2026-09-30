@@ -1,0 +1,11 @@
+{
+  "slug": "iso-week-number",
+  "title": "ISO週番号の計算（日付から週番号・週の範囲、週番号から日付）",
+  "short_title": "ISO週番号",
+  "description": "日付からISO 8601の週番号（2025-W01-1形式）と月曜〜日曜の範囲、その年が52週か53週かを表示。年と週番号から日付範囲の逆引きも可能。2024-12-30は2025-W01など年末年始の境界も正確に判定。",
+  "keywords": ["ISO週番号", "週番号 計算", "ISO 8601 週", "第何週 日付", "年末 週番号 ずれ", "53週"],
+  "category": "time",
+  "related": ["day-of-week", "date-diff", "timestamp-format"],
+  "updated": "2026-10-01",
+  "checked": "2026-10-01"
+}
