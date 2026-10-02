@@ -85,3 +85,19 @@ eto-calculator,干支の計算（西暦・和暦→十干十二支・六十干�
 day-of-week,曜日計算（日付→何曜日・和暦入力可・過去未来の同じ曜日）,time,1,done,batch11 和暦クラスタ拡張 本部企画 2026-10-01
 business-days,営業日計算（土日祝を除く日数・○営業日後・日本の祝日）,time,1,done,batch11 本部企画 2026-10-01
 iso-week-number,週番号（ISO 8601 週番号・年の第何週）,time,2,done,batch11 本部企画 2026-10-01
+age-to-birth-year,年齢→生まれ年・干支の逆算（◯歳は何年生まれ）,time,1,todo,"2026-10-02 検索需要「50歳 西暦」「87歳 西暦」「今年43歳 干支」「61歳干支」。年齢と基準日→誕生日前後の2通りの生まれ年（西暦・和暦）と干支。0〜120歳の一覧表も。related: age-calculator, eto-calculator, nenrei-hayamihyo"
+grade-calculator,学年計算（今◯年生→入学年・卒業年・生まれ年）,time,1,todo,"2026-10-02 検索需要「今大学四年生 何年入学」「今大学二年生 入学」「大学入学年度」。学校種別と今の学年→入学年月・卒業年月・生まれ年の範囲（早生まれ考慮・西暦和暦併記）。related: school-year-table, sotsu-hayamihyo"
+sotsu-hayamihyo,卒年早見表（27卒・28卒は何年生まれ・高校／大学入学年）,time,1,todo,"2026-10-02 検索需要「27卒 高校入学」「令和 8年 入学 大学 卒業 いつ」。◯◯卒（大卒・院卒・高卒・専門卒）→生まれ年度・各入学年。就活の卒年の数え方（卒業年の下2桁）を解説。related: school-year-table, grade-calculator"
+hoikuen-class,保育園・幼稚園のクラス年齢早見表（0歳児クラス〜年長・入園卒園年）,time,1,todo,"2026-10-02 検索需要「保育園 入園 卒 園 計算」「令和2年生まれ 幼稚園入園」。生年月日→各年度のクラス（0歳児〜5歳児、年少〜年長）と入園・卒園年月、年度の区切り（4/1時点の年齢）を表で。related: school-year-table, age-calculator"
+gengo-list,元号一覧（明治〜令和の期間・改元日・西暦との対応）,time,1,todo,"2026-10-02 検索需要「明治大正昭和平成令和」「昭和年号 西暦」「明治45年は西暦何年」。5元号の開始日・終了日・年数、改元年の扱い（明治45年=大正元年など）、元号→西暦の換算式。元号法・改元の政令を出典に。related: wareki-converter, nenrei-hayamihyo"
+utc-offset-list,UTCオフセット一覧と日本時間との時差（UTC-7とは）,time,1,todo,"2026-10-02 検索需要「utc-7とは」「utc+4」「utc 11時」「2:00 utc」「utc 夏時間」。UTC-12〜+14の一覧（代表都市・夏時間の有無・JSTとの差）と、UTC±hh:mm の時刻→日本時間の即時換算。IANA tz を出典に。related: timezone-converter, unix-time"
+utf8-byte-decoder,UTF-8 バイト列⇄文字（0xE3 0x80 0x80 → 全角スペース）,text,2,todo,"2026-10-02 検索需要「0xe3」「<0xe3><0x80><0x80>」「0xe2」「00a0 文字コード」。16進バイト列（0x 付き・\x 付き・%エンコード・<0x..>・スペース区切り）→文字とコードポイント、逆に文字→UTF-8/UTF-16/Shift_JIS のバイト列。不正なバイト列はどこで壊れたかを表示。related: ascii-unicode-table, text-encoding-detector, url-encode"
+unicode-block-list,Unicode ブロック一覧（ひらがな・カタカナ・CJK などの範囲）,text,2,todo,"2026-10-02 検索需要「unicode 表」「unicode一覧」「utf-16コード表」。主要ブロックの範囲（U+3040〜309F 等）と文字の一覧表示、正規表現での範囲指定例。related: ascii-unicode-table, regex-tester"
+zenkaku-checker,全角・半角の混在チェック（全角英数・全角スペースを色分け）,text,2,todo,"2026-10-02 検索需要「全角半角チェック」「カタカナ 半角 変換」。貼った文章の全角英数・全角スペース・半角カナ・NBSP などを色分けし、件数と位置を一覧。ワンクリックで統一。related: zenkaku-hankaku, char-count, ascii-unicode-table"
+dakuten-tool,濁点・半濁点の付け外しと小書き文字の変換（か→が・つ→っ）,text,2,todo,"2026-10-02 検索需要「濁点つけるツール」。文字列の濁点付与・除去、半濁点、小書き⇄大書き、結合文字（U+3099）と合成済み文字の相互変換。related: unicode-normalizer, zenkaku-hankaku"
+ipv6-subnet-calculator,IPv6 サブネット計算（/48・/56・/64 の分割とアドレス数）,network,2,todo,"2026-10-02 本部企画。IPv6プレフィックス→ネットワーク範囲・/64の個数・分割一覧、RFC 4291/RFC 6177 を出典に。IPv4 の subnet-calculator に対応する穴。related: ipv6-expander, subnet-calculator"
+openssl-command-builder,openssl コマンド生成（CSR作成・証明書確認・形式変換）,security,2,todo,"2026-10-02 本部企画。目的（秘密鍵+CSR作成、証明書の中身確認、PEM⇄DER⇄PFX 変換、有効期限確認、s_client 接続テスト）を選ぶと正しいコマンドを生成。SAN付きCSRの -addext。related: cert-decoder, ssl-cipher-decoder"
+curl-command-builder,curl コマンド生成（ヘッダー・POST・認証・タイムアウト）,dev,3,todo,"2026-10-02 本部企画。メソッド・URL・ヘッダー・JSONボディ・Basic/Bearer・-k/-L/--max-time などを選んでコマンド生成、PowerShell 用の引用符にも切替。related: http-status-codes, http-header-analyzer, shell-escape"
+htpasswd-generator,htpasswd 生成（Basic 認証の bcrypt / APR1 ハッシュ）,security,3,todo,"2026-10-02 本部企画。ユーザー名とパスワード→.htpasswd 1行（bcrypt と apr1-MD5 を純JSで実装、テストベクタで検証）。入力はブラウザ外に出ない旨を明記。related: password-generator, hash-generator"
+wareki-year-pages,和暦◯年は西暦何年（明治元年〜令和の年ごとページ）,time,2,idea,2026-10-02 検索需要「平成23年は西暦何年ですか」「平成22年…」「昭和24年西暦」など年ごとの検索が最多。年ごとページ（干支・その年生まれの年齢・入学卒業年をまとめた厚いページ）の生成には build.py の拡張が必要。2026-08 の量産ページ対策に注意して本部が設計してから着手
+kyureki-converter,旧暦⇄新暦変換,time,3,idea,2026-10-02 検索需要「旧暦 西暦 変換」。正確な計算には天文計算か旧暦の表データが必要。出典と精度を確保できるまで保留
