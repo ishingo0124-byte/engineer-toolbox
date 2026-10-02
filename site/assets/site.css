@@ -81,3 +81,4 @@ button.copy-btn.done { color: var(--ok); border-color: var(--ok); }
 .shop-box { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 4px 16px 10px; margin: 24px 0; }
 .shop-box h2 { font-size: 1.02em; border-left: 0; padding-left: 0; margin: 12px 0 4px; }
 .shop-box ul { margin: 6px 0 4px; padding-left: 1.2em; }
+.pr-label { display: inline-block; font-size: .72em; font-weight: 600; color: var(--muted, #666); border: 1px solid var(--line); border-radius: 4px; padding: 0 5px; margin-right: 8px; vertical-align: 2px; }

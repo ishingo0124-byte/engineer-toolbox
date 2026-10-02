@@ -18,6 +18,7 @@ build.py — 静的サイト生成（依存: markdown のみ）
 import argparse, datetime, html, json, os, re, shutil, sys
 
 import markdown
+from urllib.parse import quote
 
 sys.stdout.reconfigure(encoding="utf-8")
 SITE = os.path.dirname(os.path.abspath(__file__))
@@ -36,6 +37,7 @@ def write(p, s):
 
 
 SHOP = {}
+RAKUTEN = {}
 GLOBALS = {}  # 全ページ共通の差し込み（shop_footer など）。main() で設定
 
 
@@ -47,6 +49,26 @@ def render(tpl, **kw):
 def load_shop():
     p = os.path.join(SITE, "data", "shop.json")
     return json.loads(read(p)) if os.path.exists(p) else {}
+
+
+def load_rakuten():
+    p = os.path.join(SITE, "data", "rakuten.json")
+    return json.loads(read(p)) if os.path.exists(p) else {}
+
+
+def rakuten_box(rk, slug):
+    """楽天市場の検索結果へのアフィリエイトリンク（PR 表記）。data/rakuten.json の tool_map にあるツールだけ。"""
+    m = rk.get("tool_map", {}).get(slug)
+    if not m or not rk.get("afid"):
+        return ""
+    lis = []
+    for q, label in m["items"]:
+        u = "https://search.rakuten.co.jp/search/mall/%s/" % quote(q)
+        href = "https://hb.afl.rakuten.co.jp/hgc/%s/?pc=%s" % (rk["afid"], quote(u, safe=""))
+        lis.append('<li><a href="%s" rel="sponsored nofollow noopener" target="_blank">%s</a></li>' % (html.escape(href), html.escape(label)))
+    return ('<aside class="shop-box pr-box"><h2><span class="pr-label">PR</span>%s（楽天市場）</h2>'
+            '<p class="hint">楽天アフィリエイトのリンクです。楽天市場の検索結果が開きます。</p>'
+            '<ul>%s</ul></aside>' % (html.escape(m["heading"]), "".join(lis)))
 
 
 def shop_box(shop, slug):
@@ -172,6 +194,7 @@ def tool_page(t, tools_by_slug, cfg, base, aff):
 {ad_slot(cfg, 'under_tool')}
 <article class="guide">
 {guide}
+{rakuten_box(RAKUTEN, t['slug'])}
 {shop_box(SHOP, t['slug'])}
 <h2>関連ツール</h2>
 <ul class="related">{rel_html}</ul>
@@ -290,8 +313,9 @@ def main():
     cfg = json.loads(read(os.path.join(SITE, "config.json")))
     aff_path = os.path.join(SITE, "data", "affiliate_links.json")
     aff = json.loads(read(aff_path)) if os.path.exists(aff_path) else {}
-    global SHOP
+    global SHOP, RAKUTEN
     SHOP = load_shop()
+    RAKUTEN = load_rakuten()
     if SHOP.get("shop_url"):
         GLOBALS["shop_footer"] = (' · <a href="%s" rel="noopener" target="_blank">運営者のテンプレートショップ（BOOTH）</a>'
                                   % html.escape(SHOP["shop_url"]))
