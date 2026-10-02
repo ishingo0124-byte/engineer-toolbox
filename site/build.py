@@ -38,6 +38,7 @@ def write(p, s):
 
 SHOP = {}
 RAKUTEN = {}
+A8 = {}
 GLOBALS = {}  # 全ページ共通の差し込み（shop_footer など）。main() で設定
 
 
@@ -69,6 +70,31 @@ def rakuten_box(rk, slug):
     return ('<aside class="shop-box pr-box"><h2><span class="pr-label">PR</span>%s（楽天市場）</h2>'
             '<p class="hint">楽天アフィリエイトのリンクです。楽天市場の検索結果が開きます。</p>'
             '<ul>%s</ul></aside>' % (html.escape(m["heading"]), "".join(lis)))
+
+
+def load_a8():
+    p = os.path.join(SITE, "data", "a8.json")
+    return json.loads(read(p)) if os.path.exists(p) else {}
+
+
+def a8_box(a8, slug):
+    """A8.net のテキストリンク（PR 表記・計測用 1x1 画像つき）。data/a8.json の tool_map にあるツールだけ。"""
+    g = a8.get("groups", {}).get(a8.get("tool_map", {}).get(slug, ""))
+    if not g:
+        return ""
+    lis = []
+    for key in g["items"]:
+        pr = a8.get("programs", {}).get(key)
+        if not pr or not pr.get("mat"):
+            continue
+        lis.append('<li><a href="https://px.a8.net/svt/ejp?a8mat=%s" rel="sponsored nofollow noopener" target="_blank">%s</a>'
+                   '<img border="0" width="1" height="1" src="https://%s.a8.net/0.gif?a8mat=%s" alt="" loading="lazy"> — %s</li>'
+                   % (pr["mat"], html.escape(pr["label"]), pr["img"], pr["mat"], html.escape(pr["note"])))
+    if not lis:
+        return ""
+    return ('<aside class="shop-box pr-box"><h2><span class="pr-label">PR</span>%s</h2>'
+            '<p class="hint">A8.net のアフィリエイトリンクです。このページのツールはサーバーがなくても使えます。</p>'
+            '<ul>%s</ul></aside>' % (html.escape(g["heading"]), "".join(lis)))
 
 
 def shop_box(shop, slug):
@@ -195,6 +221,7 @@ def tool_page(t, tools_by_slug, cfg, base, aff):
 <article class="guide">
 {guide}
 {rakuten_box(RAKUTEN, t['slug'])}
+{a8_box(A8, t['slug'])}
 {shop_box(SHOP, t['slug'])}
 <h2>関連ツール</h2>
 <ul class="related">{rel_html}</ul>
@@ -313,9 +340,10 @@ def main():
     cfg = json.loads(read(os.path.join(SITE, "config.json")))
     aff_path = os.path.join(SITE, "data", "affiliate_links.json")
     aff = json.loads(read(aff_path)) if os.path.exists(aff_path) else {}
-    global SHOP, RAKUTEN
+    global SHOP, RAKUTEN, A8
     SHOP = load_shop()
     RAKUTEN = load_rakuten()
+    A8 = load_a8()
     if SHOP.get("shop_url"):
         GLOBALS["shop_footer"] = (' · <a href="%s" rel="noopener" target="_blank">運営者のテンプレートショップ（BOOTH）</a>'
                                   % html.escape(SHOP["shop_url"]))

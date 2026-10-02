@@ -1,0 +1,20 @@
+{
+  "_note": "A8.net（オーナー承認 2026-10-02。掲載サイト 003 エンジニアの道具箱 で作成したテキストリンクだけを使う。001/002 は既存事業のサイトなので流用しない）。mat は a8mat、img は計測用 1x1 画像のホスト。groups の順に表示。シンレンタルサーバーは提携時のサイトが 001 なので未使用。さくらのVPS は審査中。",
+  "programs": {
+    "xserver_vps": {"mat": "4BE70U+50EEMA+CO4+25EKCY", "img": "www13", "label": "XServer VPS（エックスサーバー）", "note": "root 権限つきの VPS。手元で試したい設定を、本物の Linux サーバーで確かめたいときに。"},
+    "conoha_vps": {"mat": "4BE70U+5HNZ5U+50+4Z0M6A", "img": "www12", "label": "ConoHa VPS（GMOインターネット）", "note": "時間課金のプランがあるので、短い検証なら使った時間の分だけで済みます。"},
+    "conoha_wing": {"mat": "4BE70U+5IUUDE+50+5SIUWY", "img": "www15", "label": "ConoHa WING（レンタルサーバー）", "note": "独自 SSL が無料で使えるレンタルサーバー。サーバーの管理はせずにサイトを置きたいときに。"}
+  },
+  "groups": {
+    "vps": {"heading": "検証用のサーバーを借りるなら", "items": ["xserver_vps", "conoha_vps"]},
+    "web": {"heading": "Web サイトを置くサーバーを借りるなら", "items": ["conoha_wing", "xserver_vps"]}
+  },
+  "tool_map": {
+    "subnet-calculator": "vps", "vlsm-calculator": "vps", "ssh-config-generator": "vps", "systemd-unit-generator": "vps",
+    "systemd-timer": "vps", "logrotate-generator": "vps", "iptables-rule-explainer": "vps", "chmod-calculator": "vps",
+    "umask-calculator": "vps", "cron-parser": "vps", "crontab-from-schedule": "vps", "rsync-command-builder": "vps",
+    "tar-command-builder": "vps", "find-command-builder": "vps", "docker-run-to-compose": "vps", "mtu-mss-calculator": "vps",
+    "nginx-config-checker": "vps",
+    "cert-decoder": "web", "ssl-cipher-decoder": "web", "http-header-analyzer": "web", "dns-lookup-explainer": "web"
+  }
+}
