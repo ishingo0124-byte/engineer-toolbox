@@ -1,0 +1,21 @@
+{
+  "_note": "Amazon アソシエイト（2026-10-03 登録、ID は消耗品えらびと共通）。書名を推測で書かないため、Amazon の書籍検索結果へリンクする。tool_map（個別）→ category_map（カテゴリ既定）の順で探す。text・time カテゴリは技術書と縁が薄いので出さない。tag を空にすると全ページで非表示。",
+  "tag": "engineertoolb-22",
+  "category_map": {
+    "network": [["ネットワーク 入門", "ネットワークの入門書"], ["TCP/IP", "TCP/IP の解説書"]],
+    "linux": [["Linux サーバー 構築", "Linux サーバー構築の本"], ["Linux コマンド", "Linux コマンドの本"]],
+    "security": [["暗号技術 入門", "暗号技術の入門書"], ["Webセキュリティ", "Web セキュリティの本"]],
+    "dev": [["Web技術 入門", "Web 技術の入門書"]]
+  },
+  "tool_map": {
+    "regex-tester": [["正規表現", "正規表現の本"]],
+    "sql-formatter": [["SQL 入門", "SQL の入門書"]],
+    "sql-in-list": [["SQL 入門", "SQL の入門書"]],
+    "docker-run-to-compose": [["Docker 入門", "Docker の入門書"]],
+    "k8s-resource-units": [["Kubernetes 入門", "Kubernetes の入門書"]],
+    "json-to-typescript": [["TypeScript 入門", "TypeScript の入門書"]],
+    "cron-parser": [["Linux サーバー 構築", "Linux サーバー構築の本"]],
+    "nginx-config-checker": [["nginx", "nginx の本"]],
+    "shell-escape": [["シェルスクリプト", "シェルスクリプトの本"]]
+  }
+}

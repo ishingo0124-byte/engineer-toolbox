@@ -39,6 +39,7 @@ def write(p, s):
 SHOP = {}
 RAKUTEN = {}
 A8 = {}
+AMAZON = {}
 GLOBALS = {}  # 全ページ共通の差し込み（shop_footer など）。main() で設定
 
 
@@ -95,6 +96,23 @@ def a8_box(a8, slug):
     return ('<aside class="shop-box pr-box"><h2><span class="pr-label">PR</span>%s</h2>'
             '<p class="hint">A8.net のアフィリエイトリンクです。このページのツールはサーバーがなくても使えます。</p>'
             '<ul>%s</ul></aside>' % (html.escape(g["heading"]), "".join(lis)))
+
+
+def load_amazon():
+    p = os.path.join(SITE, "data", "amazon.json")
+    return json.loads(read(p)) if os.path.exists(p) else {}
+
+
+def amazon_box(az, t):
+    """Amazon の書籍検索へのリンク（PR 表記）。個別指定 → カテゴリ既定の順。"""
+    items = az.get("tool_map", {}).get(t["slug"]) or az.get("category_map", {}).get(t.get("category", ""))
+    if not items or not az.get("tag"):
+        return ""
+    lis = "".join('<li><a href="https://www.amazon.co.jp/s?k=%s&amp;i=stripbooks&amp;tag=%s" rel="sponsored nofollow noopener" target="_blank">%s</a></li>'
+                  % (quote(q), quote(az["tag"]), html.escape(label)) for q, label in items)
+    return ('<aside class="shop-box pr-box"><h2><span class="pr-label">PR</span>もっと詳しく知りたいときの本（Amazon）</h2>'
+            '<p class="hint">Amazon の書籍の検索結果が開きます。Amazonのアソシエイトとして、エンジニアの道具箱は適格販売により収入を得ています。</p>'
+            '<ul>%s</ul></aside>' % lis)
 
 
 def shop_box(shop, slug):
@@ -222,6 +240,7 @@ def tool_page(t, tools_by_slug, cfg, base, aff):
 {guide}
 {rakuten_box(RAKUTEN, t['slug'])}
 {a8_box(A8, t['slug'])}
+{amazon_box(AMAZON, t)}
 {shop_box(SHOP, t['slug'])}
 <h2>関連ツール</h2>
 <ul class="related">{rel_html}</ul>
@@ -340,10 +359,11 @@ def main():
     cfg = json.loads(read(os.path.join(SITE, "config.json")))
     aff_path = os.path.join(SITE, "data", "affiliate_links.json")
     aff = json.loads(read(aff_path)) if os.path.exists(aff_path) else {}
-    global SHOP, RAKUTEN, A8
+    global SHOP, RAKUTEN, A8, AMAZON
     SHOP = load_shop()
     RAKUTEN = load_rakuten()
     A8 = load_a8()
+    AMAZON = load_amazon()
     if SHOP.get("shop_url"):
         GLOBALS["shop_footer"] = (' · <a href="%s" rel="noopener" target="_blank">運営者のテンプレートショップ（BOOTH）</a>'
                                   % html.escape(SHOP["shop_url"]))
