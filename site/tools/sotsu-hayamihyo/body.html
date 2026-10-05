@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="field">
+    <label for="sh-year">◯◯卒（27 または 2027）</label>
+    <input type="text" id="sh-year" inputmode="numeric" autocomplete="off" value="27" data-example="27">
+  </div>
+  <div class="field">
+    <label for="sh-type">区分</label>
+    <select id="sh-type">
+      <option value="univ" selected>大卒（学部4年）</option>
+      <option value="master">院卒（修士2年）</option>
+      <option value="hs">高卒</option>
+      <option value="short">短大・専門卒（2年）</option>
+    </select>
+  </div>
+</div>
+<p class="hint">「27卒」は2027年3月に卒業する人のことです。2桁で入れたときは20xx年として扱います。ストレート（浪人・留年なし）で進んだ場合の計算です。</p>
+<p class="error" id="sh-error"></p>
+<div class="result" id="sh-result"></div>
+
+<div class="field" style="margin-top:20px">
+  <label>24卒〜32卒の一覧（上で選んだ区分）</label>
+  <div id="sh-table"></div>
+  <p class="hint">生まれた期間はすべて「4月2日〜翌年4月1日」生まれです。浪人・留年・休学は含みません。</p>
+</div>

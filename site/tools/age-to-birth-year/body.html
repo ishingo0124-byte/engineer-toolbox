@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="field">
+    <label for="a2b-age">年齢（0〜120歳）</label>
+    <input type="text" id="a2b-age" inputmode="numeric" autocomplete="off" value="50" data-example="50">
+  </div>
+  <div class="field">
+    <label for="a2b-base">基準日（空欄なら今日）</label>
+    <input type="date" id="a2b-base">
+  </div>
+</div>
+<p class="hint">その年の誕生日をもう迎えたかどうかで、生まれ年が1年ちがってきます。そのため2通りを並べて表示します。</p>
+<p class="error" id="a2b-error"></p>
+<div class="result" id="a2b-result"></div>
+<p class="hint" id="a2b-note"></p>
+
+<div class="field" style="margin-top:20px">
+  <label>0〜120歳の一覧表（基準日の年で計算）</label>
+  <div id="a2b-table"></div>
+  <p class="hint">改元の年は和暦を2つ並べています（1912年=明治45年／大正元年、1926年=大正15年／昭和元年、1989年=昭和64年／平成元年、2019年=平成31年／令和元年）。</p>
+</div>

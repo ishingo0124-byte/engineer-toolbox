@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="field">
+    <label for="gc-type">学校の種類</label>
+    <select id="gc-type">
+      <option value="elementary">小学校（6年）</option>
+      <option value="jhs">中学校（3年）</option>
+      <option value="hs">高校（3年）</option>
+      <option value="univ4" selected>大学（4年）</option>
+      <option value="univ2">短大・専門学校（2年）</option>
+    </select>
+  </div>
+  <div class="field">
+    <label for="gc-grade">今の学年</label>
+    <select id="gc-grade"></select>
+  </div>
+  <div class="field">
+    <label for="gc-base">基準日（空欄なら今日）</label>
+    <input type="date" id="gc-base">
+  </div>
+</div>
+<p class="hint">学年は4月1日に上がるため、1〜3月は前の年度の学年として数えます。浪人・留年・休学・飛び入学がある人は対象外です（ストレートで進んだ場合の計算です）。</p>
+<p class="error" id="gc-error"></p>
+<div class="result" id="gc-result"></div>
+<p class="hint" id="gc-note"></p>
