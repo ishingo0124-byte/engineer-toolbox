@@ -115,6 +115,23 @@ def amazon_box(az, t):
             '<ul>%s</ul></aside>' % lis)
 
 
+def pr_boxes(t, limit=2):
+    """解説末尾の PR・ショップ枠。収益が先に立って見えないよう最大2つ（2026-10-05 AdSense 不承認を受けて）。"""
+    boxes = [rakuten_box(RAKUTEN, t["slug"]), a8_box(A8, t["slug"]), shop_box(SHOP, t["slug"]), amazon_box(AMAZON, t)]
+    return "\n".join([b for b in boxes if b][:limit])
+
+
+CAT_DESC = {
+    "network": "サブネット・CIDR・IPv6・MTU など、ネットワーク設計と切り分けで使う計算。",
+    "linux": "パーミッション・cron・systemd・rsync など、Linux サーバーの設定とコマンド作り。",
+    "dev": "JSON・YAML・SQL・Base64 など、開発中のデータ変換と確認。",
+    "security": "証明書・暗号スイート・ハッシュ・パスワードなど、セキュリティまわりの確認。",
+    "time": "和暦・年齢・学年・タイムゾーン・営業日など、日付と時刻の計算。",
+    "text": "文字数・文字コード・全角半角・正規表現など、文字と文章の処理。",
+}
+POPULAR = ["school-year-table", "mtu-mss-calculator", "ascii-unicode-table", "uptime-sla", "timezone-converter", "bandwidth-calc"]
+
+
 def shop_box(shop, slug):
     """運営者の BOOTH テンプレートを、関連するツールの解説末尾に最大2件。URL 未確定の商品は出さない。"""
     items = [shop.get("items", {}).get(k) for k in shop.get("tool_map", {}).get(slug, [])]
@@ -238,10 +255,7 @@ def tool_page(t, tools_by_slug, cfg, base, aff):
 {ad_slot(cfg, 'under_tool')}
 <article class="guide">
 {guide}
-{rakuten_box(RAKUTEN, t['slug'])}
-{a8_box(A8, t['slug'])}
-{amazon_box(AMAZON, t)}
-{shop_box(SHOP, t['slug'])}
+{pr_boxes(t)}
 <h2>関連ツール</h2>
 <ul class="related">{rel_html}</ul>
 <p class="updated">最終更新・根拠の確認日: {html.escape(t.get('checked', t.get('updated', '')))} · カテゴリ: <a href="../#{t['category']}">{html.escape(t['_catname'])}</a></p>
@@ -300,9 +314,19 @@ def index_pages(tools, cfg, base):
     # トップ
     root = "./"
     newest = sorted(tools, key=lambda t: t.get("updated", ""), reverse=True)[:12]
+    by_slug = {t["slug"]: t for t in tools}
+    popular = [by_slug[x] for x in POPULAR if x in by_slug]
+    cats = "".join('<li><a href="tools/#%s">%s</a>（%d件）— %s</li>' % (k, html.escape(v), sum(1 for t in tools if t["category"] == k), html.escape(CAT_DESC.get(k, "")))
+                   for k, v in cfg["categories"].items() if any(t["category"] == k for t in tools))
     content = (f"<h1>{html.escape(cfg['site_name'])}</h1><p class=\"lead\">{html.escape(cfg['tagline'])}</p>"
-               f'<h2>ツール</h2><ul class="cards">' + "".join(card(t, root) for t in newest) + "</ul>"
-               f'<p><a href="tools/">すべてのツールを見る（{len(tools)}件）→</a></p>')
+               "<p>インフラエンジニア歴15年の個人が運営しています。サブネットの境界やパーミッションの数字、和暦と西暦の換算のように、"
+               "現場で何度も調べ直してきた計算をまとめました。各ツールの解説には計算の根拠（RFC・法令・公式資料）を書き、"
+               "よく見られているページから順に、実際に入力した計算例とよくある間違いを足しています。入力した内容はブラウザの外に送られません。</p>"
+               f'<h2>カテゴリから探す</h2><ul>{cats}</ul>'
+               + (f'<h2>よく使われているツール</h2><ul class="cards">' + "".join(card(t, root) for t in popular) + "</ul>" if popular else "")
+               + f'<h2>新しく追加したツール</h2><ul class="cards">' + "".join(card(t, root) for t in newest[:6]) + "</ul>"
+               f'<p><a href="tools/">すべてのツールを見る（{len(tools)}件）→</a></p>'
+               '<p><a href="about/">このサイトについて（運営者・方針・誤りの報告）</a></p>')
     jsonld = {"@context": "https://schema.org", "@type": "WebSite", "name": cfg["site_name"], "url": cfg["base_url"] + "/", "inLanguage": "ja"}
     page = render(base, page_title=f"{cfg['site_name']} — {cfg['tagline'][:40]}", description=cfg["tagline"], canonical=cfg["base_url"] + "/",
                   site_name=cfg["site_name"], tagline=cfg["tagline"], root=root, nav=nav_html(cfg, root), breadcrumb="", content=content,

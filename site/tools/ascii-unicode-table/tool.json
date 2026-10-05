@@ -6,5 +6,6 @@
   "keywords": ["Unicode 変換", "コードポイント 変換", "ASCII コード表", "文字コード 変換", "UTF-8 バイト 変換"],
   "category": "text",
   "related": ["char-count", "html-escape", "case-converter"],
-  "updated": "2026-09-10"
+  "updated": "2026-09-10",
+  "checked": "2026-10-05"
 }

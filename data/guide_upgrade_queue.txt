@@ -1,0 +1,24 @@
+# 解説を厚くする順番（2026-10-05 AdSense「有用性の低いコンテンツ」不承認を受けて作成）
+# 定期タスクが上から2件ずつ取り、終わった行の先頭に「done YYYY-MM-DD 」を付ける。
+# 並びは Search Console の表示回数が多い順＋和暦クラスタ。空になったら guide.md が短い順に補充する。
+# 2026-10-05 済: school-year-table, uptime-sla, mtu-mss-calculator, ascii-unicode-table
+timezone-converter
+bandwidth-calc
+http-status-codes
+logrotate-generator
+k8s-resource-units
+nenrei-hayamihyo
+wareki-converter
+age-calculator
+subnet-calculator
+eto-calculator
+toshiiwai-yakudoshi
+grade-calculator
+sotsu-hayamihyo
+hoikuen-class
+age-to-birth-year
+cron-parser
+chmod-calculator
+unix-time
+day-of-week
+business-days

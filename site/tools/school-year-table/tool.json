@@ -3,8 +3,18 @@
   "title": "入学・卒業年 早見表（生年月日から小学校〜大学）",
   "short_title": "入学・卒業年早見表",
   "description": "生年月日（西暦・和暦どちらも可）から、幼稚園入園〜小学校・中学校・高校・大学（短大・専門）までの入学年と卒業年を西暦・和暦で一覧表示します。早生まれの学年判定や浪人・留年の年数にも対応し、履歴書の学歴欄にそのまま使える文章もコピーできます。",
-  "keywords": ["学歴 早見表", "入学 卒業年 計算", "早生まれ 学年 計算", "生年月日 学年 早見表"],
+  "keywords": [
+    "学歴 早見表",
+    "入学 卒業年 計算",
+    "早生まれ 学年 計算",
+    "生年月日 学年 早見表"
+  ],
   "category": "time",
-  "related": ["age-calculator", "wareki-converter", "nenrei-hayamihyo"],
-  "updated": "2026-09-28"
+  "related": [
+    "age-calculator",
+    "wareki-converter",
+    "nenrei-hayamihyo"
+  ],
+  "updated": "2026-09-28",
+  "checked": "2026-10-05"
 }

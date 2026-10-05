@@ -6,5 +6,6 @@
   "keywords": ["MTU 計算", "MSS 計算", "PPPoE MTU 1492", "IPsec MTU オーバーヘッド", "MSSクランプ"],
   "category": "network",
   "related": ["bandwidth-calc", "latency-bandwidth-delay", "subnet-calculator"],
-  "updated": "2026-09-22"
+  "updated": "2026-09-22",
+  "checked": "2026-10-05"
 }
