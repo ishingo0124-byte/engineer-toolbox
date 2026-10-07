@@ -6,5 +6,6 @@
   "keywords": ["転送時間 計算", "帯域 計算", "ダウンロード 時間 計算", "Mbps 変換", "bps ByteS 違い"],
   "category": "network",
   "related": ["byte-converter", "subnet-calculator"],
-  "updated": "2026-09-10"
+  "updated": "2026-09-10",
+  "checked": "2026-10-08"
 }

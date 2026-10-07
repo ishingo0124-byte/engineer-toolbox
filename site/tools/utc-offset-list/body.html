@@ -1,0 +1,167 @@
+<div class="field">
+  <label>UTC±hh:mm の時刻 → 日本時間</label>
+  <div class="row">
+    <div class="field">
+      <label for="uo-off1">UTCオフセット</label>
+      <select id="uo-off1">
+        <option value="-720">UTC-12:00</option>
+        <option value="-660">UTC-11:00</option>
+        <option value="-600">UTC-10:00</option>
+        <option value="-570">UTC-09:30</option>
+        <option value="-540">UTC-09:00</option>
+        <option value="-480">UTC-08:00</option>
+        <option value="-420" selected>UTC-07:00</option>
+        <option value="-360">UTC-06:00</option>
+        <option value="-300">UTC-05:00</option>
+        <option value="-240">UTC-04:00</option>
+        <option value="-210">UTC-03:30</option>
+        <option value="-180">UTC-03:00</option>
+        <option value="-120">UTC-02:00</option>
+        <option value="-60">UTC-01:00</option>
+        <option value="0">UTC+00:00</option>
+        <option value="60">UTC+01:00</option>
+        <option value="120">UTC+02:00</option>
+        <option value="180">UTC+03:00</option>
+        <option value="210">UTC+03:30</option>
+        <option value="240">UTC+04:00</option>
+        <option value="270">UTC+04:30</option>
+        <option value="300">UTC+05:00</option>
+        <option value="330">UTC+05:30</option>
+        <option value="345">UTC+05:45</option>
+        <option value="360">UTC+06:00</option>
+        <option value="390">UTC+06:30</option>
+        <option value="420">UTC+07:00</option>
+        <option value="480">UTC+08:00</option>
+        <option value="525">UTC+08:45</option>
+        <option value="540">UTC+09:00</option>
+        <option value="570">UTC+09:30</option>
+        <option value="600">UTC+10:00</option>
+        <option value="630">UTC+10:30</option>
+        <option value="660">UTC+11:00</option>
+        <option value="720">UTC+12:00</option>
+        <option value="765">UTC+12:45</option>
+        <option value="780">UTC+13:00</option>
+        <option value="840">UTC+14:00</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="uo-t1">時刻（hh:mm）</label>
+      <input type="text" id="uo-t1" inputmode="numeric" autocomplete="off" value="2:00">
+    </div>
+  </div>
+  <div class="result" id="uo-r1"></div>
+  <p class="error" id="uo-e1"></p>
+</div>
+
+<div class="field" style="margin-top:20px">
+  <label>日本時間 → 任意のUTCオフセット</label>
+  <div class="row">
+    <div class="field">
+      <label for="uo-t2">日本時間（hh:mm）</label>
+      <input type="text" id="uo-t2" inputmode="numeric" autocomplete="off" value="11:00">
+    </div>
+    <div class="field">
+      <label for="uo-off2">変換先のUTCオフセット</label>
+      <select id="uo-off2">
+        <option value="-720">UTC-12:00</option>
+        <option value="-660">UTC-11:00</option>
+        <option value="-600">UTC-10:00</option>
+        <option value="-570">UTC-09:30</option>
+        <option value="-540">UTC-09:00</option>
+        <option value="-480">UTC-08:00</option>
+        <option value="-420" selected>UTC-07:00</option>
+        <option value="-360">UTC-06:00</option>
+        <option value="-300">UTC-05:00</option>
+        <option value="-240">UTC-04:00</option>
+        <option value="-210">UTC-03:30</option>
+        <option value="-180">UTC-03:00</option>
+        <option value="-120">UTC-02:00</option>
+        <option value="-60">UTC-01:00</option>
+        <option value="0">UTC+00:00</option>
+        <option value="60">UTC+01:00</option>
+        <option value="120">UTC+02:00</option>
+        <option value="180">UTC+03:00</option>
+        <option value="210">UTC+03:30</option>
+        <option value="240">UTC+04:00</option>
+        <option value="270">UTC+04:30</option>
+        <option value="300">UTC+05:00</option>
+        <option value="330">UTC+05:30</option>
+        <option value="345">UTC+05:45</option>
+        <option value="360">UTC+06:00</option>
+        <option value="390">UTC+06:30</option>
+        <option value="420">UTC+07:00</option>
+        <option value="480">UTC+08:00</option>
+        <option value="525">UTC+08:45</option>
+        <option value="540">UTC+09:00</option>
+        <option value="570">UTC+09:30</option>
+        <option value="600">UTC+10:00</option>
+        <option value="630">UTC+10:30</option>
+        <option value="660">UTC+11:00</option>
+        <option value="720">UTC+12:00</option>
+        <option value="765">UTC+12:45</option>
+        <option value="780">UTC+13:00</option>
+        <option value="840">UTC+14:00</option>
+      </select>
+    </div>
+  </div>
+  <div class="result" id="uo-r2"></div>
+  <p class="error" id="uo-e2"></p>
+</div>
+
+<p style="margin:28px 0 8px;font-weight:700">代表都市の現在のオフセット（夏時間の判定）</p>
+<div class="field" style="max-width:240px">
+  <label for="uo-date">判定する日付</label>
+  <input type="date" id="uo-date">
+</div>
+<p class="error" id="uo-e3"></p>
+<table>
+  <thead><tr><th>都市</th><th>その日のオフセット</th><th>夏時間</th><th>日本との差</th></tr></thead>
+  <tbody id="uo-cities"></tbody>
+</table>
+<p class="hint">都市の判定はお使いのブラウザが持つタイムゾーン情報（IANA Time Zone Database）を使います。日付は各都市のその日の正午（UTC）で判定します。</p>
+
+<p style="margin:28px 0 8px;font-weight:700">UTCオフセット一覧表</p>
+<table>
+  <thead><tr><th>オフセット</th><th>代表都市・地域</th><th>夏時間</th><th>日本との差</th></tr></thead>
+  <tbody>
+    <tr><td class="mono">UTC-12:00</td><td>ベーカー島・ハウランド島（無人島）</td><td>なし</td><td>日本より21時間遅い</td></tr>
+    <tr><td class="mono">UTC-11:00</td><td>パゴパゴ（米領サモア）、ニウエ</td><td>なし</td><td>日本より20時間遅い</td></tr>
+    <tr><td class="mono">UTC-10:00</td><td>ホノルル（ハワイ標準時 HST）</td><td>ハワイは夏時間なし</td><td>日本より19時間遅い</td></tr>
+    <tr><td class="mono">UTC-09:30</td><td>マルケサス諸島（仏領ポリネシア）</td><td>なし</td><td>日本より18時間30分遅い</td></tr>
+    <tr><td class="mono">UTC-09:00</td><td>アンカレッジ（アラスカ標準時 AKST）</td><td>アラスカは夏に -08:00（AKDT）</td><td>日本より18時間遅い</td></tr>
+    <tr><td class="mono">UTC-08:00</td><td>ロサンゼルス・バンクーバー（太平洋標準時 PST）</td><td>北米は夏に -07:00（太平洋夏時間 PDT）</td><td>日本より17時間遅い</td></tr>
+    <tr><td class="mono">UTC-07:00</td><td>デンバー（山岳標準時 MST）、フェニックス、夏のロサンゼルス（PDT）</td><td>デンバーは夏に -06:00（MDT）。アリゾナ州は通年 -07:00</td><td>日本より16時間遅い</td></tr>
+    <tr><td class="mono">UTC-06:00</td><td>シカゴ（中部標準時 CST）、メキシコシティ</td><td>シカゴは夏に -05:00（CDT）。メキシコシティは夏時間なし</td><td>日本より15時間遅い</td></tr>
+    <tr><td class="mono">UTC-05:00</td><td>ニューヨーク・トロント（東部標準時 EST）、ボゴタ、リマ</td><td>ニューヨークは夏に -04:00（EDT）</td><td>日本より14時間遅い</td></tr>
+    <tr><td class="mono">UTC-04:00</td><td>ハリファックス（大西洋標準時 AST）、夏のニューヨーク（EDT）、ラパス</td><td>ハリファックスは夏に -03:00（ADT）</td><td>日本より13時間遅い</td></tr>
+    <tr><td class="mono">UTC-03:30</td><td>セントジョンズ（ニューファンドランド標準時 NST）</td><td>夏に -02:30（NDT）</td><td>日本より12時間30分遅い</td></tr>
+    <tr><td class="mono">UTC-03:00</td><td>サンパウロ、ブエノスアイレス</td><td>ブラジルは2019年から夏時間なし</td><td>日本より12時間遅い</td></tr>
+    <tr><td class="mono">UTC-02:00</td><td>フェルナンド・デ・ノローニャ（ブラジル）、サウスジョージア島</td><td>なし</td><td>日本より11時間遅い</td></tr>
+    <tr><td class="mono">UTC-01:00</td><td>アゾレス諸島（ポルトガル）、カーボベルデ</td><td>アゾレスは夏に 0:00。カーボベルデは夏時間なし</td><td>日本より10時間遅い</td></tr>
+    <tr><td class="mono">UTC+00:00</td><td>UTC、ロンドン（冬の GMT）、レイキャビク、アクラ</td><td>ロンドンは夏に +01:00（BST）。レイキャビクは夏時間なし</td><td>日本より9時間遅い</td></tr>
+    <tr><td class="mono">UTC+01:00</td><td>パリ・ベルリン・ローマ（中央ヨーロッパ時間 CET）、夏のロンドン（BST）、ラゴス</td><td>ヨーロッパは夏に +02:00（CEST）。ラゴスは夏時間なし</td><td>日本より8時間遅い</td></tr>
+    <tr><td class="mono">UTC+02:00</td><td>アテネ・ヘルシンキ（東ヨーロッパ時間 EET）、夏のパリ（CEST）、ヨハネスブルグ</td><td>EET は夏に +03:00（EEST）。ヨハネスブルグは夏時間なし</td><td>日本より7時間遅い</td></tr>
+    <tr><td class="mono">UTC+03:00</td><td>モスクワ、イスタンブール、リヤド、ナイロビ</td><td>いずれも夏時間なし</td><td>日本より6時間遅い</td></tr>
+    <tr><td class="mono">UTC+03:30</td><td>テヘラン（イラン標準時）</td><td>2022年に夏時間を廃止</td><td>日本より5時間30分遅い</td></tr>
+    <tr><td class="mono">UTC+04:00</td><td>ドバイ、バクー</td><td>なし</td><td>日本より5時間遅い</td></tr>
+    <tr><td class="mono">UTC+04:30</td><td>カブール（アフガニスタン）</td><td>なし</td><td>日本より4時間30分遅い</td></tr>
+    <tr><td class="mono">UTC+05:00</td><td>カラチ（パキスタン）、タシケント</td><td>なし</td><td>日本より4時間遅い</td></tr>
+    <tr><td class="mono">UTC+05:30</td><td>ムンバイ・デリー（インド標準時 IST）、コロンボ</td><td>なし</td><td>日本より3時間30分遅い</td></tr>
+    <tr><td class="mono">UTC+05:45</td><td>カトマンズ（ネパール）</td><td>なし</td><td>日本より3時間15分遅い</td></tr>
+    <tr><td class="mono">UTC+06:00</td><td>ダッカ（バングラデシュ）、ティンプー</td><td>なし</td><td>日本より3時間遅い</td></tr>
+    <tr><td class="mono">UTC+06:30</td><td>ヤンゴン（ミャンマー）</td><td>なし</td><td>日本より2時間30分遅い</td></tr>
+    <tr><td class="mono">UTC+07:00</td><td>バンコク、ジャカルタ、ハノイ</td><td>なし</td><td>日本より2時間遅い</td></tr>
+    <tr><td class="mono">UTC+08:00</td><td>北京・上海、香港、台北、シンガポール、パース</td><td>なし</td><td>日本より1時間遅い</td></tr>
+    <tr><td class="mono">UTC+08:45</td><td>ユークラ（オーストラリア西部の一部、非公式）</td><td>なし</td><td>日本より15分遅い</td></tr>
+    <tr><td class="mono">UTC+09:00</td><td>東京（日本標準時 JST）、ソウル</td><td>なし</td><td>日本と同じ</td></tr>
+    <tr><td class="mono">UTC+09:30</td><td>ダーウィン、アデレード（中部標準時 ACST）</td><td>アデレードは夏に +10:30（ACDT）。ダーウィンは夏時間なし</td><td>日本より30分早い</td></tr>
+    <tr><td class="mono">UTC+10:00</td><td>ブリスベン、シドニー・メルボルン（東部標準時 AEST）、グアム</td><td>シドニー・メルボルンは夏に +11:00（AEDT）。ブリスベンは夏時間なし</td><td>日本より1時間早い</td></tr>
+    <tr><td class="mono">UTC+10:30</td><td>ロード・ハウ島（オーストラリア）</td><td>夏に +11:00</td><td>日本より1時間30分早い</td></tr>
+    <tr><td class="mono">UTC+11:00</td><td>ヌーメア、ソロモン諸島、夏のシドニー（AEDT）</td><td>ソロモン諸島は夏時間なし</td><td>日本より2時間早い</td></tr>
+    <tr><td class="mono">UTC+12:00</td><td>ウェリントン・オークランド（ニュージーランド標準時 NZST）、フィジー</td><td>ニュージーランドは夏に +13:00（NZDT）</td><td>日本より3時間早い</td></tr>
+    <tr><td class="mono">UTC+12:45</td><td>チャタム諸島（ニュージーランド）</td><td>夏に +13:45</td><td>日本より3時間45分早い</td></tr>
+    <tr><td class="mono">UTC+13:00</td><td>トンガ、夏のオークランド（NZDT）</td><td>トンガは夏時間なし</td><td>日本より4時間早い</td></tr>
+    <tr><td class="mono">UTC+14:00</td><td>キリバス・ライン諸島（キリティマティ）</td><td>なし</td><td>日本より5時間早い</td></tr>
+  </tbody>
+</table>
+<p class="hint">夏時間の実施有無と開始・終了日は国や年で変わります。表は代表的なものだけです。実際の予定には、現地の最新の情報を確認してください。</p>

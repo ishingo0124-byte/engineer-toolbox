@@ -1,0 +1,11 @@
+{
+  "slug": "utc-offset-list",
+  "title": "UTCオフセット一覧と日本時間との時差（UTC-7とは）",
+  "short_title": "UTCオフセット一覧",
+  "description": "UTC-12:00〜+14:00の一覧表（30分・45分刻みも収録）。UTC-7やUTC+4の代表都市・夏時間の有無・日本との時差を確認でき、UTC 2:00のような時刻を日本時間へ、日本時間を任意のオフセットへ日付またぎ込みで換算します。",
+  "keywords": ["utc-7とは", "utc+4", "utc 日本時間 変換", "utc 夏時間", "utc オフセット 一覧"],
+  "category": "time",
+  "related": ["timezone-converter", "unix-time", "duration-converter"],
+  "updated": "2026-10-08",
+  "checked": "2026-10-08"
+}

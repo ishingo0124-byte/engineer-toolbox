@@ -1,0 +1,58 @@
+<table>
+  <thead>
+    <tr><th>元号</th><th>開始日</th><th>終了日</th><th>年数</th><th>元年（西暦）</th><th>最終年（西暦）</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>明治</td><td>1868-10-23<br><span class="hint">慶応4年9月8日</span></td><td>1912-07-29</td><td>45年</td><td>1868</td><td>明治45年（1912）</td></tr>
+    <tr><td>大正</td><td>1912-07-30</td><td>1926-12-24</td><td>15年</td><td>1912</td><td>大正15年（1926）</td></tr>
+    <tr><td>昭和</td><td>1926-12-25</td><td>1989-01-07</td><td>64年</td><td>1926</td><td>昭和64年（1989）</td></tr>
+    <tr><td>平成</td><td>1989-01-08</td><td>2019-04-30</td><td>31年</td><td>1989</td><td>平成31年（2019）</td></tr>
+    <tr><td>令和</td><td>2019-05-01</td><td>継続中</td><td>—</td><td>2019</td><td>—</td></tr>
+  </tbody>
+</table>
+<p class="hint">年数は元年から最終年までの数え方です。改元の年は2つの元号にまたがります（明治45年=大正元年=1912年、大正15年=昭和元年=1926年、昭和64年=平成元年=1989年、平成31年=令和元年=2019年）。</p>
+
+<div class="field" style="margin-top:20px">
+  <label>元号＋年 → 西暦</label>
+  <div class="row">
+    <div class="field">
+      <label for="gl-era">元号</label>
+      <select id="gl-era">
+        <option value="明治">明治</option>
+        <option value="大正">大正</option>
+        <option value="昭和" selected>昭和</option>
+        <option value="平成">平成</option>
+        <option value="令和">令和</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="gl-wy">年（元年は 1 または「元」）</label>
+      <input type="text" id="gl-wy" inputmode="numeric" autocomplete="off" value="64">
+    </div>
+  </div>
+  <div class="result" id="gl-w2g-result"></div>
+  <p class="error" id="gl-w2g-error"></p>
+</div>
+
+<div class="field" style="margin-top:20px">
+  <label>西暦 → 元号</label>
+  <div class="row">
+    <div class="field">
+      <label for="gl-gy">年（西暦）</label>
+      <input type="text" id="gl-gy" inputmode="numeric" autocomplete="off" value="1989">
+    </div>
+    <div class="field">
+      <label for="gl-gm">月（空欄可）</label>
+      <input type="text" id="gl-gm" inputmode="numeric" autocomplete="off" placeholder="任意">
+    </div>
+    <div class="field">
+      <label for="gl-gd">日（空欄可）</label>
+      <input type="text" id="gl-gd" inputmode="numeric" autocomplete="off" placeholder="任意">
+    </div>
+  </div>
+  <p class="hint">月日を空欄にすると年単位です。改元の年は元号が2つ表示されます。</p>
+  <div class="result" id="gl-g2w-result"></div>
+  <p class="error" id="gl-g2w-error"></p>
+</div>
+
+<p class="hint">換算式は「西暦 = 元年の西暦 + 年 − 1」です。明治5年までは旧暦（太陰太陽暦）で、明治6年1月1日（1873-01-01）から新暦（グレゴリオ暦）になりました。</p>

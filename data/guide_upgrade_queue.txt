@@ -2,8 +2,8 @@
 # 定期タスクが上から2件ずつ取り、終わった行の先頭に「done YYYY-MM-DD 」を付ける。
 # 並びは Search Console の表示回数が多い順＋和暦クラスタ。空になったら guide.md が短い順に補充する。
 # 2026-10-05 済: school-year-table, uptime-sla, mtu-mss-calculator, ascii-unicode-table
-timezone-converter
-bandwidth-calc
+done 2026-10-08 timezone-converter
+done 2026-10-08 bandwidth-calc
 http-status-codes
 logrotate-generator
 k8s-resource-units

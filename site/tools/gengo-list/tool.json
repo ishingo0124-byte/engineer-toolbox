@@ -1,0 +1,11 @@
+{
+  "slug": "gengo-list",
+  "title": "元号一覧（明治大正昭和平成令和の期間・西暦対応表）",
+  "short_title": "元号一覧",
+  "description": "明治・大正・昭和・平成・令和の開始日と終了日、年数を一覧表に整理。「昭和64年=平成元年=1989年」など改元年の扱いを明記し、元号と年から西暦、西暦から元号への換算もその場でできます。",
+  "keywords": ["元号 一覧", "明治大正昭和平成令和", "昭和 年号 西暦", "明治45年 西暦", "改元 日"],
+  "category": "time",
+  "related": ["wareki-converter", "nenrei-hayamihyo", "age-to-birth-year"],
+  "updated": "2026-10-08",
+  "checked": "2026-10-08"
+}

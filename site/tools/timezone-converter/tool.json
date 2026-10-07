@@ -6,5 +6,6 @@
   "keywords": ["タイムゾーン 変換", "世界時計 一覧", "JST UTC 変換", "夏時間 計算", "海外 会議 時差"],
   "category": "time",
   "related": ["timestamp-format", "unix-time"],
-  "updated": "2026-09-10"
+  "updated": "2026-09-10",
+  "checked": "2026-10-08"
 }
