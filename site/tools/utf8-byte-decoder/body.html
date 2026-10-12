@@ -1,0 +1,44 @@
+<style>
+.ub-tbl td, .ub-tbl th { white-space: nowrap; }
+.ub-bad { color: var(--err); }
+</style>
+<div class="field">
+  <label for="ub-hex">バイト列 → 文字</label>
+  <textarea id="ub-hex" spellcheck="false" autocomplete="off" data-example="0xE3 0x80 0x80 0xE3 0x81 0x82 0xC2 0xA0 0xF0 0x9F 0x98 0x80">0xE3 0x80 0x80 0xE3 0x81 0x82 0xC2 0xA0 0xF0 0x9F 0x98 0x80</textarea>
+  <p class="hint">0xE3 0x80 / \xE3\x80 / %E3%80 / &lt;0xE3&gt;&lt;0x80&gt; / E3 80 / E38080 のどれでも貼れます。区切りはスペース・カンマ・改行など。</p>
+  <p class="error" id="ub-d-error"></p>
+  <div class="field">
+    <label for="ub-d-text">変換結果（不正な箇所は � で表示）</label>
+    <textarea id="ub-d-text" readonly style="min-height:60px"></textarea>
+    <div class="actions"><button type="button" class="ghost copy-btn" data-copy-target="ub-d-text">結果をコピー</button></div>
+  </div>
+  <div class="result" id="ub-d-summary"></div>
+  <table class="ub-tbl">
+    <thead><tr><th>位置</th><th>バイト</th><th>コードポイント</th><th>文字</th><th>名前・備考</th></tr></thead>
+    <tbody id="ub-d-rows"></tbody>
+  </table>
+</div>
+
+<div class="field" style="margin-top:20px">
+  <label for="ub-text">文字 → バイト列</label>
+  <textarea id="ub-text" spellcheck="false" style="min-height:70px">あ　😀</textarea>
+  <div class="row">
+    <div class="field">
+      <label for="ub-fmt">出力形式</label>
+      <select id="ub-fmt">
+        <option value="space">E3 81 82（スペース区切り）</option>
+        <option value="0x">0xE3 0x81 0x82</option>
+        <option value="bs">\xE3\x81\x82</option>
+        <option value="pct">%E3%81%82</option>
+        <option value="angle">&lt;0xE3&gt;&lt;0x81&gt;&lt;0x82&gt;</option>
+        <option value="cont">E38182（連続）</option>
+      </select>
+    </div>
+  </div>
+  <p class="error" id="ub-e-error"></p>
+  <dl class="result-grid result" id="ub-e-result">
+    <dt>UTF-8</dt><dd><span id="ub-e-u8"></span><button type="button" class="ghost copy-btn" data-copy-target="ub-e-u8">コピー</button></dd>
+    <dt>UTF-16BE</dt><dd><span id="ub-e-u16"></span><button type="button" class="ghost copy-btn" data-copy-target="ub-e-u16">コピー</button></dd>
+    <dt>コードポイント</dt><dd><span id="ub-e-cp"></span></dd>
+  </dl>
+</div>

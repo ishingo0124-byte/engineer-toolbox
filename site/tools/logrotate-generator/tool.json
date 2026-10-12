@@ -6,5 +6,6 @@
   "keywords": ["logrotate 設定 生成", "logrotate.d 書き方", "logrotate copytruncate", "logrotate postrotate", "ログローテーション 設定"],
   "category": "linux",
   "related": ["systemd-unit-generator", "cron-parser", "ssh-config-generator"],
-  "updated": "2026-09-22"
+  "updated": "2026-09-22",
+  "checked": "2026-10-12"
 }

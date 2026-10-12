@@ -1,0 +1,45 @@
+<style>
+.ubl-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(36px, 1fr)); gap: 3px; margin: 10px 0; }
+.ubl-cell { font-size: 1.15em; line-height: 1; padding: 8px 0; text-align: center; border: 1px solid var(--line); border-radius: 6px; background: var(--panel); color: var(--ink); cursor: pointer; min-width: 0; }
+.ubl-cell.dim { color: var(--muted); background: var(--code); }
+.ubl-cell.sel { outline: 2px solid var(--accent); }
+.ubl-tbl td, .ubl-tbl th { white-space: nowrap; }
+.ubl-tbl td.n { white-space: normal; }
+</style>
+<div class="field">
+  <label for="ubl-q">文字 → どのブロックか判定</label>
+  <input type="text" id="ubl-q" autocomplete="off" value="あア漢Aー😀" data-example="あア漢Aー😀">
+  <p class="error" id="ubl-q-error"></p>
+  <table class="ubl-tbl" id="ubl-q-tbl">
+    <thead><tr><th>文字</th><th>コードポイント</th><th>ブロック</th><th>範囲</th></tr></thead>
+    <tbody id="ubl-q-rows"></tbody>
+  </table>
+</div>
+
+<div class="field" style="margin-top:20px">
+  <label for="ubl-filter">ブロック一覧（名前・日本語名・16進で絞り込み。例: 3040 / kana / 絵文字）</label>
+  <input type="text" id="ubl-filter" autocomplete="off" placeholder="絞り込み">
+  <table class="ubl-tbl">
+    <thead><tr><th>範囲</th><th>ブロック名</th><th>文字数</th><th></th></tr></thead>
+    <tbody id="ubl-rows"></tbody>
+  </table>
+  <p class="hint" id="ubl-count"></p>
+</div>
+
+<div class="field" style="margin-top:20px">
+  <label>選択中のブロック</label>
+  <div class="result" id="ubl-sel"></div>
+  <div class="actions">
+    <button type="button" class="ghost" id="ubl-prev">前のページ</button>
+    <span id="ubl-page" class="hint"></span>
+    <button type="button" class="ghost" id="ubl-next">次のページ</button>
+  </div>
+  <div class="ubl-grid" id="ubl-grid"></div>
+  <dl class="result-grid result" id="ubl-detail"></dl>
+  <p class="hint">灰色のマスは、お使いのブラウザの Unicode データで未割り当て、または表示できない文字（制御・空白・サロゲート・私用領域）です。</p>
+</div>
+
+<div class="field" style="margin-top:20px">
+  <label>このブロックの正規表現（JavaScript）</label>
+  <dl class="result-grid result" id="ubl-re"></dl>
+</div>

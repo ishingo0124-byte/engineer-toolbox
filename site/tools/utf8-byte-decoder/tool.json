@@ -1,0 +1,11 @@
+{
+  "slug": "utf8-byte-decoder",
+  "title": "UTF-8バイト列⇄文字変換（0xE3 0x80 0x80）",
+  "short_title": "UTF-8バイト列変換",
+  "description": "0xE3 0x80 0x80・\\xE3\\x80\\x80・%E3%80%80・<0xE3> など16進のUTF-8バイト列を文字とU+XXXXに変換。逆変換も可能で、途中切れや過長表現などの不正なバイトは何バイト目か表示します。",
+  "keywords": ["0xe3", "0xe2", "utf-8 バイト列 文字", "00a0 文字コード", "<0xe3><0x80><0x80>", "utf-8 デコード"],
+  "category": "text",
+  "related": ["ascii-unicode-table", "text-encoding-detector", "url-encode"],
+  "updated": "2026-10-12",
+  "checked": "2026-10-12"
+}

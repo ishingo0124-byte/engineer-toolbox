@@ -6,5 +6,6 @@
   "keywords": ["HTTPステータスコード 一覧", "404 意味", "503 原因", "HTTPステータスコード 検索", "429 too many requests"],
   "category": "dev",
   "related": ["well-known-ports", "url-encode"],
-  "updated": "2026-09-10"
+  "updated": "2026-09-10",
+  "checked": "2026-10-12"
 }

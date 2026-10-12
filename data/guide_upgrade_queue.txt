@@ -4,8 +4,8 @@
 # 2026-10-05 済: school-year-table, uptime-sla, mtu-mss-calculator, ascii-unicode-table
 done 2026-10-08 timezone-converter
 done 2026-10-08 bandwidth-calc
-http-status-codes
-logrotate-generator
+done 2026-10-12 http-status-codes
+done 2026-10-12 logrotate-generator
 k8s-resource-units
 nenrei-hayamihyo
 wareki-converter

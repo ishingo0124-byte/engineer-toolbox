@@ -1,0 +1,11 @@
+{
+  "slug": "unicode-block-list",
+  "title": "Unicodeブロック一覧（ひらがな・カタカナ・漢字の範囲）",
+  "short_title": "Unicodeブロック一覧",
+  "description": "ひらがな U+3040〜309F、カタカナ U+30A0〜30FF、CJK統合漢字 U+4E00〜9FFF など約50ブロックの範囲を一覧表示。ブロックごとの文字グリッド、正規表現の範囲指定例、入力した文字の所属ブロック判定つき。",
+  "keywords": ["unicode 表", "unicode 一覧", "utf-16 コード表", "ひらがな unicode 範囲", "unicode ブロック", "正規表現 unicode 範囲"],
+  "category": "text",
+  "related": ["ascii-unicode-table", "regex-tester"],
+  "updated": "2026-10-12",
+  "checked": "2026-10-12"
+}
