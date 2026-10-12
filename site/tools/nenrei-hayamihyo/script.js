@@ -41,7 +41,9 @@
   function escAttr(s) { return escHtml(s).replace(/"/g, "&quot;"); }
 
   function buildTable(basisYear) {
-    let out = '<table><thead><tr><th>西暦（生まれ年）</th><th>和暦</th><th>干支</th><th>誕生日後の年齢</th><th>誕生日前の年齢</th></tr></thead>';
+    const jumps = [["令和", 2019], ["平成", 1989], ["昭和", 1926], ["大正", 1920]].filter((j) => j[1] <= basisYear)
+      .map((j) => '<a href="#y' + j[1] + '">' + j[0] + "</a>").join(" ／ ");
+    let out = '<p class="hint nht-jump">年号へ移動: ' + jumps + '</p><table><thead><tr><th>西暦（生まれ年）</th><th>和暦</th><th>干支</th><th>誕生日後の年齢</th><th>誕生日前の年齢</th></tr></thead>';
     let decade = null, rows = "";
     const flush = () => {
       if (decade !== null) out += '<tbody class="nht-decade"><tr class="nht-decade-head"><th colspan="5">' + decade + '年代</th></tr>' + rows + "</tbody>";
@@ -56,7 +58,7 @@
       const afterText = afterAge >= 0 ? afterAge + "歳" : "-";
       const beforeText = beforeAge >= 0 ? beforeAge + "歳" : "-";
       const kw = tb.z2h([y + "年", wareki, etoStr, afterText, beforeText].join(" ")).toLowerCase();
-      rows += '<tr data-kw="' + escAttr(kw) + '"><td>' + y + '年</td><td>' + escHtml(wareki || "-") + '</td><td>' + escHtml(etoStr)
+      rows += '<tr id="y' + y + '" data-kw="' + escAttr(kw) + '"><td>' + y + '年</td><td>' + escHtml(wareki || "-") + '</td><td>' + escHtml(etoStr)
         + '</td><td>' + afterText + '</td><td>' + beforeText + '</td></tr>';
     }
     flush();
@@ -91,6 +93,9 @@
     }
     $("nht-table-wrap").innerHTML = buildTable(y);
     applyFilter();
+    // 「#y2011」のようなリンクで来たときは、その年の行を表示する
+    const target = /^#y\d{4}$/.test(location.hash) ? document.getElementById(location.hash.slice(1)) : null;
+    if (target && target.scrollIntoView) target.scrollIntoView({ block: "center" });
   }
 
   document.addEventListener("DOMContentLoaded", () => {

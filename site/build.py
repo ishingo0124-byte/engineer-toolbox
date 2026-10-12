@@ -15,7 +15,7 @@ build.py — 静的サイト生成（依存: markdown のみ）
   site/root/                  サイト直下にそのまま置くファイル（google 所有権確認 html、ads.txt など）
   site/data/affiliate_links.json  {"key": {"url": "...", "label": "..."}}   guide.md 内の {{aff:key}} を置換
 """
-import argparse, datetime, html, json, os, re, shutil, sys
+import argparse, datetime, html, json, os, re, shutil, subprocess, sys
 
 import markdown
 from urllib.parse import quote
@@ -224,6 +224,17 @@ def tool_page(t, tools_by_slug, cfg, base, aff):
     root = "../../"
     url = f"{cfg['base_url']}/tools/{t['slug']}/"
     body = read(os.path.join(t["_dir"], "body.html"))
+    if t.get("prerender"):
+        # JS で描く表を、ビルド時に HTML として埋め込む（検索エンジンが文字として読めるように。JS は読み込み後に同じ内容で描き直す）
+        pid = t["prerender"]
+        r = subprocess.run(["node", os.path.join(SITE, "prerender.js"), os.path.join(t["_dir"], "script.js"), pid],
+                           capture_output=True, text=True, encoding="utf-8")
+        if r.returncode != 0 or not r.stdout.strip():
+            sys.exit(f"prerender failed: {t['slug']}: {r.stderr[:300]}")
+        tag = f'<div id="{pid}"></div>'
+        if tag not in body:
+            sys.exit(f"prerender target not found: {t['slug']} {tag}")
+        body = body.replace(tag, f'<div id="{pid}">{r.stdout}</div>', 1)
     guide = md(read(os.path.join(t["_dir"], "guide.md")), aff)
     related = [tools_by_slug[s] for s in t.get("related", []) if s in tools_by_slug]
     # 同カテゴリから補充（最大6）
