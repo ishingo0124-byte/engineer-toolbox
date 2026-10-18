@@ -6,8 +6,8 @@ done 2026-10-08 timezone-converter
 done 2026-10-08 bandwidth-calc
 done 2026-10-12 http-status-codes
 done 2026-10-12 logrotate-generator
-k8s-resource-units
-nenrei-hayamihyo
+done 2026-10-19 k8s-resource-units
+done 2026-10-19 nenrei-hayamihyo
 wareki-converter
 age-calculator
 subnet-calculator

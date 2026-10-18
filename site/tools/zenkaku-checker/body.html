@@ -1,0 +1,53 @@
+<style>
+.zc-m { border-radius: 3px; padding: 0 1px; }
+.zc-t-fwalnum { background: rgba(255,152,0,.35); border-bottom: 2px solid #f57c00; }
+.zc-t-fwspace { background: rgba(244,67,54,.30); outline: 1px dashed #e53935; }
+.zc-t-hwkana { background: rgba(156,39,176,.28); border-bottom: 2px dotted #8e24aa; }
+.zc-t-nbsp { background: rgba(33,150,243,.35); outline: 1px solid #1e88e5; }
+.zc-t-fwsym { background: rgba(0,150,136,.30); border-bottom: 2px double #00897b; }
+.zc-t-othersp { background: rgba(121,85,72,.35); outline: 1px dotted #6d4c41; }
+.zc-t-zw { background: rgba(96,125,139,.40); outline: 1px dashed #546e7a; }
+#zc-view { white-space: pre-wrap; max-height: 320px; overflow: auto; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.92em; }
+.zc-line { min-height: 1.5em; }
+.zc-ln { display: inline-block; min-width: 2.5em; color: var(--muted); user-select: none; -webkit-user-select: none; }
+.zc-type { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin: 4px 0; }
+.zc-type label { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
+.zc-pos { margin: 2px 0 8px 12px; font-size: 0.85em; color: var(--muted); font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; overflow-wrap: anywhere; }
+</style>
+<div class="field">
+  <label for="zc-in">チェックしたい文章（貼り付け）</label>
+  <textarea id="zc-in" rows="6" autocomplete="off" spellcheck="false" data-example="1">ＡＢＣ123 と　全角スペース、ｶﾞｲﾄﾞ（ﾊﾟｰﾄ１）
+Ver 2.0 と Ｖｅｒ　２．０ の表記ゆれ。
+NBSP のつもりの空白もあります。</textarea>
+  <p class="hint">全角英数・全角スペース・半角カナ・NBSP などを色分けします。入力は端末内だけで処理され、送信されません。</p>
+</div>
+
+<div class="field" style="margin-top:14px">
+  <label>見つかった文字（チェックした種類が「統一」の対象です）</label>
+  <div class="zc-type"><input type="checkbox" id="zc-c-fwalnum" checked><label for="zc-c-fwalnum"><span class="zc-m zc-t-fwalnum">Ａ</span> 全角英数 → 半角</label><span class="mono" id="zc-n-fwalnum">0</span></div>
+  <div class="zc-type"><input type="checkbox" id="zc-c-fwspace" checked><label for="zc-c-fwspace"><span class="zc-m zc-t-fwspace">□</span> 全角スペース → 半角スペース</label><span class="mono" id="zc-n-fwspace">0</span></div>
+  <div class="zc-type"><input type="checkbox" id="zc-c-hwkana" checked><label for="zc-c-hwkana"><span class="zc-m zc-t-hwkana">ｶ</span> 半角カナ → 全角</label><span class="mono" id="zc-n-hwkana">0</span></div>
+  <div class="zc-type"><input type="checkbox" id="zc-c-nbsp" checked><label for="zc-c-nbsp"><span class="zc-m zc-t-nbsp">␣</span> NBSP（U+00A0）→ 半角スペース</label><span class="mono" id="zc-n-nbsp">0</span></div>
+  <div class="zc-type"><input type="checkbox" id="zc-c-othersp" checked><label for="zc-c-othersp"><span class="zc-m zc-t-othersp">·</span> その他の特殊空白（U+2000〜200A など）→ 半角スペース</label><span class="mono" id="zc-n-othersp">0</span></div>
+  <div class="zc-type"><input type="checkbox" id="zc-c-zw" checked><label for="zc-c-zw"><span class="zc-m zc-t-zw">▯</span> ゼロ幅文字・BOM → 削除</label><span class="mono" id="zc-n-zw">0</span></div>
+  <div class="zc-type"><input type="checkbox" id="zc-c-fwsym"><label for="zc-c-fwsym"><span class="zc-m zc-t-fwsym">！</span> 全角記号（ASCII 相当）→ 半角</label><span class="mono" id="zc-n-fwsym">0</span></div>
+  <p class="hint">全角記号（！？（）など）は日本語の文章では全角が普通なので、初期状態ではチェックを外してあります。「、」「。」「ー」は対象外です。</p>
+</div>
+
+<p class="error" id="zc-error"></p>
+<div class="result" id="zc-summary"></div>
+<div class="result" id="zc-view" aria-label="色分け表示"></div>
+<div class="field" style="margin-top:12px">
+  <label>位置（行・桁。桁は行頭の1文字目を1とした文字数です）</label>
+  <div id="zc-pos"></div>
+</div>
+
+<div class="field" style="margin-top:14px">
+  <label for="zc-out">統一後の文章</label>
+  <textarea id="zc-out" rows="5" readonly spellcheck="false"></textarea>
+  <div class="actions">
+    <button type="button" class="primary" id="zc-apply">入力欄に反映（統一する）</button>
+    <button type="button" class="ghost copy-btn" data-copy-target="zc-out">統一後をコピー</button>
+  </div>
+  <p class="hint" id="zc-outinfo"></p>
+</div>

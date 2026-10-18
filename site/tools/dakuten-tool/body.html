@@ -1,0 +1,38 @@
+<div class="field">
+  <label for="dk-in">変換したい文字列</label>
+  <textarea id="dk-in" rows="5" autocomplete="off" spellcheck="false" data-example="1">かきくけこ さしすせそ たちつてと はひふへほ
+カキクケコ ウ ワ つ ヤ</textarea>
+</div>
+
+<div class="row" style="margin-top:12px">
+  <div class="field">
+    <label for="dk-op">操作</label>
+    <select id="dk-op">
+      <option value="dakuten-add" selected>濁点を付ける（か→が）</option>
+      <option value="dakuten-remove">濁点を外す（が→か）</option>
+      <option value="handakuten-add">半濁点を付ける（は→ぱ）</option>
+      <option value="handakuten-remove">半濁点を外す（ぱ→は）</option>
+      <option value="small">小書きにする（つ→っ）</option>
+      <option value="large">大書きに戻す（っ→つ）</option>
+      <option value="decompose">結合文字に分解（が→か＋U+3099、NFD 相当）</option>
+      <option value="compose">合成済み文字にまとめる（か＋U+3099→が、NFC 相当）</option>
+    </select>
+  </div>
+</div>
+<div class="row">
+  <label><input type="checkbox" id="dk-hira" checked> ひらがなを対象にする</label>
+  <label><input type="checkbox" id="dk-kata" checked> カタカナを対象にする</label>
+  <label><input type="checkbox" id="dk-ext"> ㇰ〜ㇿ（アイヌ語表記用の小書き）も小書き⇄大書きに含める</label>
+</div>
+<p class="hint">ウ→ヴ・ゔ、ワ→ヷ、ヰ→ヸ、ヱ→ヹ、ヲ→ヺ も付けられます。ひらがなの わ・ゐ・ゑ・を に付く濁音は、合成済みの1文字がないため、そのまま残します。</p>
+
+<p class="error" id="dk-error"></p>
+<div class="field" style="margin-top:8px">
+  <label for="dk-out">変換結果</label>
+  <textarea id="dk-out" rows="5" readonly spellcheck="false"></textarea>
+  <div class="actions">
+    <button type="button" class="primary" id="dk-apply">結果を入力欄に反映</button>
+    <button type="button" class="ghost copy-btn" data-copy-target="dk-out">結果をコピー</button>
+  </div>
+</div>
+<div class="result" id="dk-info"></div>

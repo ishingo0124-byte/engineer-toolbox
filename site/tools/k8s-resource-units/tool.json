@@ -6,5 +6,6 @@
   "keywords": ["kubernetes リソース 単位", "CPU ミリコア 変換", "Mi M 違い", "kubernetes メモリ 単位", "resources requests limits"],
   "category": "dev",
   "related": ["unit-prefix", "byte-converter", "docker-run-to-compose"],
-  "updated": "2026-09-24"
+  "updated": "2026-09-24",
+  "checked": "2026-10-19"
 }
