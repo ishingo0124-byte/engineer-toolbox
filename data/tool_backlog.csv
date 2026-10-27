@@ -101,3 +101,5 @@ curl-command-builder,curl コマンド生成（ヘッダー・POST・認証・�
 htpasswd-generator,htpasswd 生成（Basic 認証の bcrypt / APR1 ハッシュ）,security,3,todo,"2026-10-02 本部企画。ユーザー名とパスワード→.htpasswd 1行（bcrypt と apr1-MD5 を純JSで実装、テストベクタで検証）。入力はブラウザ外に出ない旨を明記。related: password-generator, hash-generator"
 wareki-year-pages,和暦◯年は西暦何年（明治元年〜令和の年ごとページ）,time,2,idea,2026-10-02 検索需要「平成23年は西暦何年ですか」「平成22年…」「昭和24年西暦」など年ごとの検索が最多。年ごとページ（干支・その年生まれの年齢・入学卒業年をまとめた厚いページ）の生成には build.py の拡張が必要。2026-08 の量産ページ対策に注意して本部が設計してから着手
 kyureki-converter,旧暦⇄新暦変換,time,3,idea,2026-10-02 検索需要「旧暦 西暦 変換」。正確な計算には天文計算か旧暦の表データが必要。出典と精度を確保できるまで保留
+game-server-memory,マイクラ・パルワールドのサーバー必要メモリの目安,dev,1,done,2026-10-27 本部（別セッション）依頼・オーナー承認。A8 LOLIPOP! for Gamers。数字は Mojang・Pocketpair・各社公開の目安のみ
+pc-spec-checker,中古PC・ミニPCのスペック判定（Win11・Docker・LLM）,dev,1,done,2026-10-27 本部（別セッション）依頼・オーナー承認。A8 Qualit・PC WRAP・GMKtec・OZ GAMING。判定は Microsoft・VS Code・Docker・Ollama の公式要件のみ
