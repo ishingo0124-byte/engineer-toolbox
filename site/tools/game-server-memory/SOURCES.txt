@@ -1,0 +1,32 @@
+SOURCES (checked 2026-10-27) - game-server-memory  [review only, not published]
+
+Official game docs
+1. Mojang  Minecraft Bedrock 版のサーバーをダウンロード | Minecraft  -> RAM: 4 GB RAM (system requirements)
+   https://www.minecraft.net/ja-jp/download/server/bedrock
+2. Mojang  Minecraft サーバー ダウンロード | Minecraft (Java)  -> command example "java -Xmx4G -Xms4G -jar minecraft_server.26.3.jar nogui" (an example, not a recommendation; shown as reference row, excluded from the range)
+   https://www.minecraft.net/ja-jp/download/server
+3. Pocketpair  Palworld Server Guide / 要件 (v1.0.4, ja)  -> memory 16GB, 32GB+ recommended for stable operation
+   https://docs.palworldgame.com/ja/getting-started/requirements/
+
+Rental companies' own pages
+4. ロリポップ! for Gamers blog: マイクラのおすすめレンタルサーバー｜人数別の料金相場と選び方【Java版/統合版】 (updated 2026/10/08)  -> table of players vs plan (Bedrock / Java with MOD)
+   https://gamers.lolipop.jp/blog/minecraft/best-server
+5. ロリポップ! for Gamers blog: パルワールドのおすすめレンタルサーバーは？人数別のプランの選び方と料金も解説 (updated 2026/07/09)  -> 2-3 players 16GB, 5-10 32GB, 10-20 64GB, 20-32 128GB
+   https://gamers.lolipop.jp/blog/palworld/rental-server
+6. ロリポップ! for Gamers plan sizes (sign-up button plan names): Java 4-128GB / Bedrock 2-128GB / Palworld 16-128GB
+   https://gamers.lolipop.jp/minecraft-je   https://gamers.lolipop.jp/minecraft-bedrock   https://gamers.lolipop.jp/palworld
+7. XServer GAMEs 解説記事: 【マイクラ】サーバーのメモリ割り当てを最適化する方法 (2026-07-02)  -> <=4 players 2GB, 5-10 4GB, 11+ 8GB (Java premise); with MOD/plugins at least ~4GB
+   https://games.xserver.ne.jp/minecraft-media/memory-allocation/
+8. XServer GAMEs Minecraft plan table (目安プレイ人数 / メモリ容量; vanilla+Bedrock table, MOD-loader table)
+   https://games.xserver.ne.jp/game-server/minecraft/
+9. XServer GAMEs Palworld plan table (<=10: 16GB, 10+: 32GB, <=32: 64GB)
+   https://games.xserver.ne.jp/game-server/palworld/
+10. ConoHa for GAME マイクラゼミ: マルチプレイ向けレンタルサーバーの選び方 -> <=4 players 2GB, 5-10 4GB, 11+ 8GB (16/32/64GB plans also exist)
+   https://game.conoha.jp/media/mine-semi/recommended-server/
+11. ConoHa for GAME plan sizes: Minecraft template 1/2/4/8/16/32/64GB; Palworld dedicated plan 8/16/32/64GB
+   https://game.conoha.jp/template/minecraft/   https://game.conoha.jp/pricing/
+
+Notes for reviewer
+- ConoHa for GAME top/pricing pages show a banner "臨時メンテナンスのため、新規お申し込み受付を停止" while the news list also has a "受付再開のお知らせ" item. The state is contradictory, so the tool does NOT state it; it only says "新規受付の状況は変わります。申し込み前に公式ページで確認".
+- No source gives a MOD-count or modpack-size based number. The tool therefore has no MOD count input; it shows "公開された目安がありません" and the XServer caution (large MODs may need more than 4GB).
+- LOLIPOP Java-edition table is "MOD使用時" only, so no LOLIPOP row for vanilla Java.

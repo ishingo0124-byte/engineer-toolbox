@@ -121,6 +121,9 @@ def pr_boxes(t, limit=2):
     return "\n".join([b for b in boxes if b][:limit])
 
 
+PR_NOTICE = ('<p class="hint pr-notice"><span class="pr-label">PR</span>このページには広告（アフィリエイトリンク）が含まれます。'
+             'リンク先で購入や申し込みがあると、運営者に紹介料が入ることがあります。判定や計算の結果は広告とは関係なく決まります。</p>')
+
 CAT_DESC = {
     "network": "サブネット・CIDR・IPv6・MTU など、ネットワーク設計と切り分けで使う計算。",
     "linux": "パーミッション・cron・systemd・rsync など、Linux サーバーの設定とコマンド作り。",
@@ -260,6 +263,7 @@ def tool_page(t, tools_by_slug, cfg, base, aff):
     content = f"""
 <h1>{html.escape(t['title'])}</h1>
 <p class="lead">{html.escape(t['description'])}</p>
+{PR_NOTICE if t.get('pr_notice') else ''}
 <section class="tool" id="tool">
 {body}
 </section>

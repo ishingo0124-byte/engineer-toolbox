@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="field">
+    <label for="gsm-game">ゲームの種類</label>
+    <select id="gsm-game">
+      <option value="jv" selected>Minecraft Java版（バニラ）</option>
+      <option value="jm">Minecraft Java版（MODあり）</option>
+      <option value="be">Minecraft 統合版（Bedrock）</option>
+      <option value="pw">パルワールド</option>
+    </select>
+  </div>
+  <div class="field">
+    <label for="gsm-players">同時に遊ぶ人数</label>
+    <input type="text" id="gsm-players" inputmode="numeric" autocomplete="off" value="8">
+  </div>
+</div>
+<div class="field" id="gsm-bigmod-wrap" hidden>
+  <label><input type="checkbox" id="gsm-bigmod"> 工業系・魔術系などの大型MODを入れる</label>
+  <p class="hint">MODの数や大きさ別の数値は、公開された出典にありません。チェックすると、出典にある注意書きを表示します。</p>
+</div>
+<p class="hint">人数は、同じ時間にサーバーへ入っている人数です。メモリの数字は、各社と公式ページに書かれた目安をそのまま並べたものです。</p>
+<div class="result" id="gsm-summary"></div>
+<p class="error" id="gsm-error"></p>
+<p style="margin:16px 0 6px;font-weight:700">出典ごとの目安</p>
+<div id="gsm-table"></div>
+<div id="gsm-plans"></div>

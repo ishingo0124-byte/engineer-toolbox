@@ -1,0 +1,12 @@
+{
+  "slug": "pc-spec-checker",
+  "title": "中古PC・ミニPCのスペック判定（Win11・LLM）",
+  "short_title": "中古PCスペック判定",
+  "description": "中古PC・ミニPCのCPU世代・メモリ・TPMなどを入れると、Windows 11・VS Code・WSL 2・Docker Desktop・Ollama（ローカルLLM）に足りるかを公式要件で判定。合格・要確認・不足を理由つきで一覧表示します。",
+  "keywords": ["中古PC スペック 判定", "ミニPC Windows 11 対応", "Windows 11 要件 チェック", "Docker Desktop 必要スペック", "ローカルLLM メモリ 目安", "WSL2 要件"],
+  "category": "dev",
+  "related": ["byte-converter", "unit-prefix", "raid-calculator"],
+  "updated": "2026-10-27",
+  "checked": "2026-10-27",
+  "pr_notice": true
+}

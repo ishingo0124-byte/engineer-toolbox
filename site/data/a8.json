@@ -1,10 +1,10 @@
 {
-  "_note": "A8.net（オーナー承認 2026-10-02。掲載サイト 003 エンジニアの道具箱 で作成したテキストリンクだけを使う。001/002 は既存事業のサイトなので流用しない）。mat は a8mat、img は計測用 1x1 画像のホスト。groups の順に表示。シンレンタルサーバーは提携時のサイトが 001 なので未使用。さくらのVPS は 2026-10-05 承認。",
+  "_note": "A8.net（オーナー承認 2026-10-02。掲載サイト 003 エンジニアの道具箱 で作成したテキストリンクだけを使う。001/002 は既存事業のサイトなので流用しない）。mat は a8mat、img は計測用 1x1 画像のホスト。groups の順に表示。シンレンタルサーバーは提携時のサイトが 001 なので未使用。さくらのVPS は 2026-10-05 承認。 2026-10-27: 本部の別セッションが5件と即時提携（オーナー承認済み）。リンク文言は A8 の素材のテキストそのまま（label）、補足は note に分ける。",
   "programs": {
     "xserver_vps": {
       "mat": "4BE70U+50EEMA+CO4+25EKCY",
       "img": "www13",
-      "label": "XServer VPS（エックスサーバー）",
+      "label": "XServer VPS",
       "note": "root 権限つきの VPS。手元で試したい設定を、本物の Linux サーバーで確かめたいときに。"
     },
     "conoha_vps": {
@@ -22,8 +22,38 @@
     "sakura_vps": {
       "mat": "4BE70U+53Z08Y+D8Y+BWVTE",
       "img": "www17",
-      "label": "さくらのVPS（さくらインターネット）",
+      "label": "さくらのVPS",
       "note": "月額制の VPS。検証用の Linux 環境を、決まった料金で置いておきたいときに。"
+    },
+    "lolipop_gamers": {
+      "mat": "4BEPQ5+9ALOAQ+348+4AT4PU",
+      "img": "www10",
+      "label": "LOLIPOP! for Gamers",
+      "note": "GMOペパボのマルチプレイ用ゲームサーバー。メモリの大きさでプランを選ぶ形です。"
+    },
+    "qualit": {
+      "mat": "4BEPQ5+8BH3LU+50H8+5YJRM",
+      "img": "www11",
+      "label": "【Qualit】",
+      "note": "中古パソコンの販売店。保証の期間や付属品は商品ページで確かめてください。"
+    },
+    "pcwrap": {
+      "mat": "4BEPQ5+8DUU0Y+4U56+5YRHE",
+      "img": "www13",
+      "label": "長期保証付きで常時400種4000台の中古PCを販売【PC WRAP】",
+      "note": "中古パソコンの専門店。型番とメモリ・ストレージを上の判定にかけてから選べます。"
+    },
+    "gmktec": {
+      "mat": "4BEPQ5+958RUQ+5W12+5YRHE",
+      "img": "www19",
+      "label": "【GMKtec】",
+      "note": "ミニPCのメーカー直販。CPU とメモリの組み合わせを上の判定で確かめてから選べます。"
+    },
+    "oz_gaming": {
+      "mat": "4BEPQ5+9CZEPU+5U1O+5YRHE",
+      "img": "www16",
+      "label": "【OZ GAMING】",
+      "note": "BTO（受注生産）のゲーミングPC。新品でメモリやストレージを選びたいときに。"
     }
   },
   "groups": {
@@ -40,6 +70,21 @@
       "items": [
         "conoha_wing",
         "xserver_vps"
+      ]
+    },
+    "gameserver": {
+      "heading": "ゲームサーバーを借りるなら",
+      "items": [
+        "lolipop_gamers"
+      ]
+    },
+    "pc": {
+      "heading": "判定に合うパソコンを探すなら",
+      "items": [
+        "qualit",
+        "pcwrap",
+        "gmktec",
+        "oz_gaming"
       ]
     }
   },
@@ -64,6 +109,8 @@
     "cert-decoder": "web",
     "ssl-cipher-decoder": "web",
     "http-header-analyzer": "web",
-    "dns-lookup-explainer": "web"
+    "dns-lookup-explainer": "web",
+    "game-server-memory": "gameserver",
+    "pc-spec-checker": "pc"
   }
 }

@@ -1,0 +1,133 @@
+<style>
+.psc-table { display: table; table-layout: fixed; width: 100%; font-size: 0.9em; }
+.psc-table th, .psc-table td { vertical-align: top; text-align: left; padding: 8px 6px; border-bottom: 1px solid var(--line); word-break: break-word; }
+.psc-table th:nth-child(1) { width: 27%; }
+.psc-table th:nth-child(2) { width: 17%; }
+.psc-table ul { margin: 0; padding-left: 1.1em; }
+.psc-table li { margin: 0 0 4px; }
+.psc-badge { display: inline-block; font-weight: 700; padding: 1px 8px; border-radius: 999px; border: 1px solid currentColor; white-space: nowrap; }
+.psc-pass { color: var(--ok); }
+.psc-warn { color: #9a5b00; }
+.psc-fail { color: var(--err); }
+.psc-mark { font-weight: 700; margin-right: 4px; white-space: nowrap; }
+.psc-un { color: var(--muted); font-size: 0.92em; }
+.psc-sum { font-weight: 700; margin: 0 0 8px; }
+@media (prefers-color-scheme: dark) { .psc-warn { color: #ffb74d; } }
+@media (max-width: 480px) { .psc-table { font-size: 0.84em; } .psc-table th, .psc-table td { padding: 6px 4px; } }
+</style>
+<div class="row">
+  <div class="field">
+    <label for="psc-cpu">CPU（メーカーと世代・番台）</label>
+    <select id="psc-cpu">
+      <optgroup label="Intel">
+        <option value="intel-le6">Core 第6世代以前（i3/i5/i7 の 6xxx 以前）</option>
+        <option value="intel-7">Core 第7世代（7xxx）</option>
+        <option value="intel-8" selected>Core 第8世代（8xxx）</option>
+        <option value="intel-9">Core 第9世代（9xxx）</option>
+        <option value="intel-10">Core 第10世代（10xxx）</option>
+        <option value="intel-11">Core 第11世代（11xxx）</option>
+        <option value="intel-12">Core 第12世代（12xxx）</option>
+        <option value="intel-13">Core 第13世代（13xxx）</option>
+        <option value="intel-14">Core 第14世代（14xxx）</option>
+        <option value="intel-ultra">Core Ultra</option>
+        <option value="intel-low">Celeron / Pentium / Atom</option>
+      </optgroup>
+      <optgroup label="AMD">
+        <option value="amd-1000">Ryzen 1000 番台</option>
+        <option value="amd-2000">Ryzen 2000 番台</option>
+        <option value="amd-3000">Ryzen 3000 番台</option>
+        <option value="amd-4000">Ryzen 4000 番台</option>
+        <option value="amd-5000">Ryzen 5000 番台</option>
+        <option value="amd-6000">Ryzen 6000 番台</option>
+        <option value="amd-7000">Ryzen 7000 番台</option>
+        <option value="amd-8000">Ryzen 8000 番台</option>
+        <option value="amd-9000">Ryzen 9000 番台</option>
+        <option value="amd-other">Athlon など Ryzen 以外</option>
+      </optgroup>
+      <option value="unknown">わからない</option>
+    </select>
+  </div>
+  <div class="field">
+    <label for="psc-cores">コア数</label>
+    <input type="text" id="psc-cores" inputmode="numeric" autocomplete="off" value="4">
+  </div>
+  <div class="field">
+    <label for="psc-threads">スレッド数（空欄可）</label>
+    <input type="text" id="psc-threads" inputmode="numeric" autocomplete="off" value="8" placeholder="任意">
+  </div>
+</div>
+
+<div class="row">
+  <div class="field">
+    <label for="psc-ram">メモリ（GB）</label>
+    <input type="text" id="psc-ram" inputmode="decimal" autocomplete="off" value="8">
+  </div>
+  <div class="field">
+    <label for="psc-stype">ストレージの種類</label>
+    <select id="psc-stype">
+      <option value="hdd">HDD</option>
+      <option value="sata">SATA SSD</option>
+      <option value="nvme" selected>NVMe SSD</option>
+      <option value="unknown">わからない</option>
+    </select>
+  </div>
+  <div class="field">
+    <label for="psc-ssize">ストレージ容量（GB）</label>
+    <input type="text" id="psc-ssize" inputmode="decimal" autocomplete="off" value="256">
+  </div>
+</div>
+
+<div class="row">
+  <div class="field">
+    <label for="psc-tpm">TPM</label>
+    <select id="psc-tpm">
+      <option value="2" selected>あり（TPM 2.0）</option>
+      <option value="1.2">あり（TPM 1.2）</option>
+      <option value="none">なし</option>
+      <option value="unknown">不明</option>
+    </select>
+  </div>
+  <div class="field">
+    <label for="psc-sb">UEFI セキュアブート</label>
+    <select id="psc-sb">
+      <option value="yes" selected>対応</option>
+      <option value="no">非対応（レガシー BIOS のみ）</option>
+      <option value="unknown">不明</option>
+    </select>
+  </div>
+  <div class="field">
+    <label for="psc-virt">BIOS の仮想化機能（VT-x / AMD-V）</label>
+    <select id="psc-virt">
+      <option value="on">有効</option>
+      <option value="off">無効</option>
+      <option value="unknown" selected>不明</option>
+    </select>
+  </div>
+</div>
+
+<div class="row">
+  <div class="field">
+    <label for="psc-os">いまの OS（入れる予定の OS）</label>
+    <select id="psc-os">
+      <option value="w11new" selected>Windows 11 23H2 以降</option>
+      <option value="w11old">Windows 11 22H2 以前</option>
+      <option value="w10new">Windows 10 22H2</option>
+      <option value="w10old">Windows 10 21H2 以前</option>
+      <option value="none">OS なし・不明</option>
+    </select>
+  </div>
+  <div class="field">
+    <label for="psc-edition">エディション</label>
+    <select id="psc-edition">
+      <option value="pro" selected>Pro / Enterprise / Education</option>
+      <option value="home">Home</option>
+      <option value="unknown">不明</option>
+    </select>
+  </div>
+</div>
+<p class="hint">コア数・スレッド数・メモリ・容量は数字で入力します（全角も可。1 TB は 1000 など GB に直してください）。CPU・TPM・セキュアブートは、Windows の「設定 → システム → バージョン情報」や機器の仕様表で確かめられます。</p>
+
+<div class="result" id="psc-result" aria-live="polite"></div>
+<p class="error" id="psc-error"></p>
+<div class="actions"><button type="button" class="ghost" id="psc-copy">結果をテキストでコピー</button></div>
+<p class="hint">「合格」は、入力できた項目が公式の要件を満たすという意味です。入力欄がない項目（クロック、GPU など）は各行の「未判定」に書いています。購入前には、機器の型番や公式の一覧で必ず再確認してください。</p>

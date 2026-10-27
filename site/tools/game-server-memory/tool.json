@@ -1,0 +1,12 @@
+{
+  "slug": "game-server-memory",
+  "title": "マイクラ・パルワールドのサーバー必要メモリの目安",
+  "short_title": "ゲームサーバー必要メモリ",
+  "description": "マイクラ（Java版・MOD・統合版）とパルワールドのサーバー必要メモリを人数別に調べます。Mojang・ポケットペアの公式ページと、ロリポップ・XServer GAMEs・ConoHaの公開数字を出典つきで並べ、満たす最小プランも表示。",
+  "keywords": ["マイクラ サーバー メモリ", "パルワールド サーバー 必要メモリ", "マイクラ サーバー 何人 何GB", "マイクラ 統合版 サーバー メモリ", "ゲームサーバー メモリ 目安"],
+  "category": "dev",
+  "related": ["byte-converter", "bandwidth-calc", "k8s-resource-units"],
+  "updated": "2026-10-27",
+  "checked": "2026-10-27",
+  "pr_notice": true
+}

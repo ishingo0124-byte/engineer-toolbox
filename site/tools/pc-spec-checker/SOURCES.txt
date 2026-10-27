@@ -1,0 +1,39 @@
+SOURCES (review only, not published). Checked 2026-10-27.
+
+Windows 11 minimum requirements (1 GHz+ / 2+ cores / 64-bit compatible CPU, 4 GB RAM, 64 GB storage, UEFI Secure Boot capable, TPM 2.0)
+  Page: "Windows 11 Specs and System Requirements | Microsoft Windows"
+  https://www.microsoft.com/en-us/windows/windows-11-specifications
+
+Windows 11 supported CPUs (Intel 8th gen+ Core i3/i5/i7/i9, 14th gen, Core Series 1, Core X 7000X/9000X/10000X, Xeon W...; later generations treated as supported)
+  Page: "Windows processor requirements Windows 11 supported Intel processors | Microsoft Learn" (ms.date 2025-10-16)
+  https://learn.microsoft.com/en-us/windows-hardware/design/minimum/supported/windows-11-supported-intel-processors
+  Page: "Windows processor requirements Windows 11 supported AMD processors | Microsoft Learn" (ms.date 2023-07-25, updated 2025-10-30)
+  https://learn.microsoft.com/en-us/windows-hardware/design/minimum/supported/windows-11-supported-amd-processors
+  Note: AMD list has Ryzen 2300X/2500X/2600/2700X etc. but no Ryzen 1000 series and no 2200G/2400G/2500U/2700U. Pointer to PC Health Check is on:
+  https://learn.microsoft.com/en-us/windows-hardware/design/minimum/windows-processor-requirements
+
+VS Code (recommended 1.6 GHz+, 1 GB RAM; Windows = supported 64-bit Windows client versions)
+  Page: "Requirements for Visual Studio Code"
+  https://code.visualstudio.com/docs/supporting/requirements
+
+WSL 2 (Windows 11, or Windows 10 x64 Version 1903 / Build 18362.1049+; virtualization capabilities required)
+  Page: "Install WSL | Microsoft Learn"
+  https://learn.microsoft.com/en-us/windows/wsl/install
+  Page: "Manual installation steps for older versions of WSL | Microsoft Learn"
+  https://learn.microsoft.com/en-us/windows/wsl/install-manual
+
+Docker Desktop for Windows, WSL 2 backend (SLAT 64-bit CPU, 8 GB system RAM [NOT 4 GB: the page now says 8GB], BIOS/UEFI virtualization,
+Windows 10 22H2 build 19045 / Windows 11 23H2 build 22631+, Enterprise/Pro/Education; Home mentioned only as "Linux containers only" in a note; WSL 2.1.5+)
+  Page: "Install Docker Desktop on Windows"
+  https://docs.docker.com/desktop/setup/install/windows-install/
+
+Ollama RAM guidance
+  - Current ollama/ollama README.md (main) has NO RAM statement (checked). docs.ollama.com FAQ / Windows / Quickstart / Hardware support have no 7B/13B/33B figure.
+  - Model page "llama2": "7b ... at least 8GB of RAM", "13b ... at least 16GB", "70b ... at least 64GB"
+    https://ollama.com/library/llama2
+  - README at tag v0.3.0, Model library note: "at least 8 GB of RAM to run the 7B models, 16 GB to run the 13B models, and 32 GB to run the 33B models"
+    https://raw.githubusercontent.com/ollama/ollama/v0.3.0/README.md
+  - Windows OS requirement: Windows 10 22H2 or newer, Home or Pro. Page: "Windows" (Ollama docs)
+    https://docs.ollama.com/windows
+  - Quickstart (VRAM note: with less VRAM Ollama can use system RAM but responses may be slower)
+    https://docs.ollama.com/quickstart
