@@ -43,10 +43,13 @@
   function buildTable(basisYear) {
     const jumps = [["令和", 2019], ["平成", 1989], ["昭和", 1926], ["大正", 1920]].filter((j) => j[1] <= basisYear)
       .map((j) => '<a href="#y' + j[1] + '">' + j[0] + "</a>").join(" ／ ");
-    let out = '<p class="hint nht-jump">年号へ移動: ' + jumps + '</p><table><thead><tr><th>西暦（生まれ年）</th><th>和暦</th><th>干支</th><th>誕生日後の年齢</th><th>誕生日前の年齢</th></tr></thead>';
+    const nextYear = basisYear + 1;
+    const nowLabel = gregorianYearToWareki(basisYear).slice(-1)[0] + "・" + eto(basisYear);
+    const nextLabel = gregorianYearToWareki(nextYear).slice(-1)[0] + "・" + eto(nextYear);
+    let out = '<p class="hint nht-jump">年号へ移動: ' + jumps + '</p><table><thead><tr><th rowspan="2">西暦（生まれ年）</th><th rowspan="2">和暦</th><th rowspan="2">干支</th><th colspan="2">' + basisYear + '年（' + nowLabel + '）の年齢</th><th colspan="2">' + nextYear + '年（' + nextLabel + '）の年齢</th></tr><tr><th>誕生日後</th><th>誕生日前</th><th>誕生日後</th><th>誕生日前</th></tr></thead>';
     let decade = null, rows = "";
     const flush = () => {
-      if (decade !== null) out += '<tbody class="nht-decade"><tr class="nht-decade-head"><th colspan="5">' + decade + '年代</th></tr>' + rows + "</tbody>";
+      if (decade !== null) out += '<tbody class="nht-decade"><tr class="nht-decade-head"><th colspan="7">' + decade + '年代</th></tr>' + rows + "</tbody>";
     };
     for (let y = basisYear; y >= START_YEAR; y--) {
       const dec = Math.floor(y / 10) * 10;
@@ -57,9 +60,13 @@
       const beforeAge = afterAge - 1;
       const afterText = afterAge >= 0 ? afterAge + "歳" : "-";
       const beforeText = beforeAge >= 0 ? beforeAge + "歳" : "-";
-      const kw = tb.z2h([y + "年", wareki, etoStr, afterText, beforeText].join(" ")).toLowerCase();
+      const nextAfter = nextYear - y;
+      const nextBefore = nextAfter - 1;
+      const nextAfterText = nextAfter >= 0 ? nextAfter + "歳" : "-";
+      const nextBeforeText = nextBefore >= 0 ? nextBefore + "歳" : "-";
+      const kw = tb.z2h([y + "年", wareki, etoStr, afterText, beforeText, nextAfterText, nextBeforeText].join(" ")).toLowerCase();
       rows += '<tr id="y' + y + '" data-kw="' + escAttr(kw) + '"><td>' + y + '年</td><td>' + escHtml(wareki || "-") + '</td><td>' + escHtml(etoStr)
-        + '</td><td>' + afterText + '</td><td>' + beforeText + '</td></tr>';
+        + '</td><td>' + afterText + '</td><td>' + beforeText + '</td><td>' + nextAfterText + '</td><td>' + nextBeforeText + '</td></tr>';
     }
     flush();
     out += "</table>";

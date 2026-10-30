@@ -1,0 +1,22 @@
+<div class="field">
+  <label for="sjh-birth">生年月日（西暦 例:2006-04-02 / 和暦も可 例:平成18年4月2日）</label>
+  <input type="text" id="sjh-birth" autocomplete="off" value="2006-04-02" data-example="2006-04-02">
+</div>
+<p class="error" id="sjh-birth-error"></p>
+<div class="result" id="sjh-birth-result" style="overflow-x:auto"></div>
+
+<hr style="border:none;border-top:1px solid var(--line);margin:24px 0 20px">
+
+<div class="field">
+  <label for="sjh-year">逆引き:式の年 → 対象の生年月日（例:2027 / 令和9年）</label>
+  <input type="text" id="sjh-year" inputmode="numeric" autocomplete="off" value="2027" data-example="2027">
+</div>
+<p class="error" id="sjh-year-error"></p>
+<div class="result" id="sjh-year-result" style="overflow-x:auto"></div>
+<p class="hint">20歳を対象にした式（二十歳のつどいなど）の計算です。18歳や19歳を対象にしている自治体は含みません。</p>
+
+<div class="field" style="margin-top:20px">
+  <label>2025年〜2032年の式の対象（一覧）</label>
+  <div style="overflow-x:auto"><div id="sjh-table"></div></div>
+  <p class="hint">対象の生年月日はすべて「4月2日〜翌年4月1日」生まれです。成人の日は参考で、式の日程は自治体によって違います。</p>
+</div>

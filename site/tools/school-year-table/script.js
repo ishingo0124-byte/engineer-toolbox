@@ -164,9 +164,40 @@
       '<p class="hint" style="margin:6px 0 0">和暦では ' + html(waLabel(cohort, 4)) + "2日 〜 " + html(waLabel(cohort + 1, 4)) + "1日 生まれです。</p>";
   }
 
+  // 2027年版の固定表（検索エンジンが読めるよう、ビルド時に prerender で HTML 化される）。上の REV_TABLE と同じ計算
+  const TARGET = 2027;
+  const STAGE_LABEL = { elementary: "小学校", jhs: "中学校", hs: "高校", univ4: "大学（4年制）", univ2: "短大・専門学校（2年制）" };
+  function cohortRange(cohort) {
+    return {
+      g: cohort + "年4月2日 〜 " + (cohort + 1) + "年4月1日",
+      w: waLabel(cohort, 4) + "2日 〜 " + waLabel(cohort + 1, 4) + "1日"
+    };
+  }
+  function table2027(kind) {
+    const rows = Object.keys(STAGE_LABEL).map((k) => {
+      const t = REV_TABLE[k];
+      const cohort = kind === "entry" ? TARGET - t.offset - 7 : TARGET - t.offset - t.dur - 7;
+      const r = cohortRange(cohort);
+      return "<tr><td>" + html(STAGE_LABEL[k]) + "</td><td class=\"mono\">" + html(r.g) + "</td><td class=\"mono\">" + html(r.w) + "</td></tr>";
+    }).join("");
+    return '<table><thead><tr><th>' + (kind === "entry" ? "入学する学校" : "卒業する学校") + '</th><th>生まれ（西暦）</th><th>生まれ（和暦）</th></tr></thead><tbody>' + rows + '</tbody></table>';
+  }
+  function html2027() {
+    const el = cohortRange(TARGET - 7);
+    const w = gregorianDateToWareki(TARGET, 4, 1);
+    return "<h3>" + TARGET + "年4月に入学・進学する子の生まれ年（" + w.era + w.year + "年度）</h3>" +
+      "<p>" + TARGET + "年4月の小学校入学は、<strong>" + html(el.g) + "</strong>生まれ（" + html(el.w) + "）の子です。" +
+      "学年の区切りは4月2日〜翌年4月1日なので、1月〜3月生まれの早生まれは、同じ年の4月以降生まれより1つ上の学年に入ります。</p>" +
+      table2027("entry") +
+      "<h3>" + TARGET + "年3月に卒業する子の生まれ年</h3>" +
+      "<p>" + TARGET + "年3月の卒業は、次の生まれ年の範囲です。浪人・留年がない場合の目安です。</p>" +
+      table2027("exit");
+  }
+
   function run2() { run(); runReverse(); }
 
   document.addEventListener("DOMContentLoaded", () => {
+    $("syt-2027").innerHTML = html2027();
     ["syt-birth", "syt-extra"].forEach((id) => $(id).addEventListener("input", run));
     ["syt-rev-stage", "syt-rev-year"].forEach((id) => {
       $(id).addEventListener("input", runReverse);

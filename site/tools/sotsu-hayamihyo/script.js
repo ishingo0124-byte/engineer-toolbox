@@ -55,6 +55,14 @@
     return { rows: rows, b1: bornY, b2: bornY + 1, H: H };
   }
 
+  function summary(typeKey) {
+    const lab = TYPES[typeKey].label;
+    return "<p style=\"margin:0 0 6px\">" + [2027, 2028].map((G) => {
+      const s = stages(G, typeKey);
+      return String(G).slice(2) + "卒（" + html(lab) + "）は" + s.b1 + "年4月2日〜" + s.b2 + "年4月1日生まれ（" + html(wareki(s.b1, 4, 2) + "〜" + wareki(s.b2, 4, 1)) + "）";
+    }).join("、") + "です。</p>";
+  }
+
   function buildTable(typeKey) {
     const isMaster = typeKey === "master", isHs = typeKey === "hs";
     let h = "<table><thead><tr><th>卒年</th><th>卒業</th><th>生まれた期間</th><th>小学校入学</th><th>中学校入学</th><th>高校入学</th>" +
@@ -65,13 +73,13 @@
         "<td class=\"mono\">" + (H - 12) + "年4月</td><td class=\"mono\">" + (H - 6) + "年4月</td><td class=\"mono\">" + (H - 3) + "年4月</td>" +
         (isHs ? "" : "<td class=\"mono\">" + H + "年4月</td>") + (isMaster ? "<td class=\"mono\">" + (H + 4) + "年4月</td>" : "") + "</tr>";
     }
-    return h + "</tbody></table>";
+    return summary(typeKey) + h + "</tbody></table>";
   }
 
   function run() {
     const err = $("sh-error"), box = $("sh-result");
     err.textContent = "";
-    const typeKey = $("sh-type").value;
+    const typeKey = TYPES[$("sh-type").value] ? $("sh-type").value : "univ";
     $("sh-table").innerHTML = buildTable(typeKey);
     const G = parseGrad($("sh-year").value);
     if (G === null) { err.textContent = "卒年は「27」または「2027」のように、2桁か4桁の数字で入力してください"; box.innerHTML = ""; return; }

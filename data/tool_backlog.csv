@@ -103,3 +103,7 @@ wareki-year-pages,和暦◯年は西暦何年（明治元年〜令和の年ご�
 kyureki-converter,旧暦⇄新暦変換,time,3,idea,2026-10-02 検索需要「旧暦 西暦 変換」。正確な計算には天文計算か旧暦の表データが必要。出典と精度を確保できるまで保留
 game-server-memory,マイクラ・パルワールドのサーバー必要メモリの目安,dev,1,done,2026-10-27 本部（別セッション）依頼・オーナー承認。A8 LOLIPOP! for Gamers。数字は Mojang・Pocketpair・各社公開の目安のみ
 pc-spec-checker,中古PC・ミニPCのスペック判定（Win11・Docker・LLM）,dev,1,done,2026-10-27 本部（別セッション）依頼・オーナー承認。A8 Qualit・PC WRAP・GMKtec・OZ GAMING。判定は Microsoft・VS Code・Docker・Ollama の公式要件のみ
+seijinshiki-hayamihyo,二十歳のつどい（成人式）は何年生まれ？早見表,time,1,done,2026-10-30 流入施策④（オーナー承認）: 一般向け年齢・学年クラスタ。12〜1月が検索の山。10/30 に本部で制作
+shichigosan-hayamihyo,七五三は何年？数え年・満年齢の早見表,time,1,todo,2026-10-30 流入施策④（オーナー承認）: 一般向け年齢・学年クラスタ。2027年秋向け。夏までに公開
+hatsuzekku-hayamihyo,初節句はいつ？生まれ月から桃の節句・端午の節句の年,time,1,todo,2026-10-30 流入施策④（オーナー承認）: 一般向け年齢・学年クラスタ。2〜5月が山。1月までに公開
+kekkon-kinenbi,結婚記念日は何年目？銀婚式・金婚式の一覧と計算,time,1,todo,2026-10-30 流入施策④（オーナー承認）: 一般向け年齢・学年クラスタ。通年

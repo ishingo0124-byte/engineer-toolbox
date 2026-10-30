@@ -59,9 +59,15 @@
 
   const MALE_AGES = [25, 42, 61];
   const FEMALE_AGES = [19, 33, 37, 61];
+  // [名称, 数え年, 満年齢]。還暦は数え61歳＝満60歳。ほかは同じ年齢で祝う
   const TOSHIWAI = [
-    ["還暦", 61], ["古希", 70], ["喜寿", 77], ["傘寿", 80], ["米寿", 88], ["卒寿", 90], ["白寿", 99], ["百寿", 100]
+    ["還暦", 61, 60], ["古希", 70, 70], ["喜寿", 77, 77], ["傘寿", 80, 80], ["米寿", 88, 88], ["卒寿", 90, 90], ["白寿", 99, 99], ["百寿", 100, 100]
   ];
+  // 検索用に、静的HTMLとして常に出しておく年（令和9年・丁未）
+  const FEATURE_YEAR = 2027;
+  const JIKKAN = ["甲", "乙", "丙", "丁", "戊", "己", "庚", "辛", "壬", "癸"];
+  const JUNISHI = ["子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥"];
+  function eto(y) { return JIKKAN[((y - 4) % 10 + 10) % 10] + JUNISHI[((y - 4) % 12 + 12) % 12]; }
 
   function yakudoshiRows(birthYear, sex) {
     const ages = sex === "female" ? FEMALE_AGES : MALE_AGES;
@@ -73,12 +79,14 @@
     }));
   }
   function toshiwaiRows(birthYear) {
-    return TOSHIWAI.map(([name, age]) => ({
-      name: name, age: age,
+    return TOSHIWAI.map(([name, age, manAge]) => ({
+      name: name, age: age, manAge: manAge,
       kazoeYear: birthYear + age - 1,
-      manYear: birthYear + age
+      manYear: birthYear + manAge
     }));
   }
+
+  function ageText(r) { return r.manAge === r.age ? r.age + "歳" : "数え" + r.age + "歳／満" + r.manAge + "歳"; }
 
   function mark(y, thisYear) {
     return y === thisYear ? " <strong class=\"ok\">← 今年</strong>" : "";
@@ -87,6 +95,28 @@
     return html(y) + "年（" + html(waLabel(y)) + "）" + mark(y, thisYear);
   }
 
+  // FEATURE_YEAR に該当する人の生まれ年を一覧にする（入力に依存しない。ビルド時の静的HTMLにも使う）
+  function birthLabel(y) { return y + "年（" + waLabel(y) + "）"; }
+  function renderFeatureYear() {
+    const fy = FEATURE_YEAR;
+    const lab = $("ty-feature-label");
+    if (lab) lab.textContent = fy + "年（" + waLabel(fy) + "・" + eto(fy) + "）の厄年・年祝い 生まれ年早見表";
+    let yaku = '<table><thead><tr><th>性別</th><th>本厄の数え年</th><th>前厄の生まれ年</th><th>本厄の生まれ年</th><th>後厄の生まれ年</th></tr></thead><tbody>';
+    [["男性", MALE_AGES], ["女性", FEMALE_AGES]].forEach(([sexName, ages]) => {
+      ages.forEach((A) => {
+        yaku += "<tr><td>" + sexName + "</td><td>" + A + "歳</td><td>" + html(birthLabel(fy - (A - 1) + 1)) + "</td><td>" + html(birthLabel(fy - A + 1))
+          + "</td><td>" + html(birthLabel(fy - (A + 1) + 1)) + "</td></tr>";
+      });
+    });
+    yaku += "</tbody></table>";
+    let wai = '<table><thead><tr><th>名称</th><th>年齢</th><th>数え年で祝う人の生まれ年</th><th>満年齢で祝う人の生まれ年</th></tr></thead><tbody>';
+    TOSHIWAI.forEach(([name, age, manAge]) => {
+      wai += "<tr><td>" + html(name) + "</td><td>" + ageText({ age: age, manAge: manAge }) + "</td><td>" + html(birthLabel(fy - age + 1))
+        + "</td><td>" + html(birthLabel(fy - manAge)) + "</td></tr>";
+    });
+    wai += "</tbody></table>";
+    $("ty-feature-result").innerHTML = "<p><strong>厄年（前厄・本厄・後厄）</strong></p>" + yaku + "<p style='margin-top:16px'><strong>年祝い（長寿のお祝い）</strong></p>" + wai;
+  }
   function run() {
     const err = $("ty-error");
     err.textContent = "";
@@ -105,7 +135,7 @@
 
       const tr = toshiwaiRows(birth.y);
       $("ty-toshiwai-result").innerHTML = '<table><thead><tr><th>名称</th><th>年齢</th><th>数え年で祝う場合</th><th>満年齢で祝う場合</th></tr></thead><tbody>' +
-        tr.map((r) => "<tr><td>" + html(r.name) + "</td><td>" + r.age + "歳</td><td>" + cell(r.kazoeYear, thisYear) + "</td><td>" + cell(r.manYear, thisYear) + "</td></tr>").join("") +
+        tr.map((r) => "<tr><td>" + html(r.name) + "</td><td>" + ageText(r) + "</td><td>" + cell(r.kazoeYear, thisYear) + "</td><td>" + cell(r.manYear, thisYear) + "</td></tr>").join("") +
         "</tbody></table>";
     }
 
@@ -128,5 +158,6 @@
       $(id).addEventListener("change", run);
     });
     run();
+    renderFeatureYear();
   });
 })();

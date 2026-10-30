@@ -97,16 +97,34 @@
     if (y < 1) box.innerHTML += '<p class="hint" style="margin:6px 0 0">基準年以前に該当年はありません（次の周期以降を表示）。</p>';
   }
 
+  // 2027年版の固定セクション（検索エンジンが読めるよう、ビルド時に prerender で HTML 化される）
+  const TARGET = 2027;
+  function html2027() {
+    const i = etoIndex(TARGET), prev = etoIndex(TARGET - 1);
+    const animal = ANIMAL[i % 12];
+    let out = "<h3>" + TARGET + "年（" + warekiList(TARGET)[0] + "）の干支は" + BRANCHES[i % 12] + "（" + BRANCH_KUN[i % 12] + "）</h3>" +
+      "<p>" + TARGET + "年（" + warekiList(TARGET)[0] + "）の干支は<strong>" + BRANCHES[i % 12] + "（" + BRANCH_KUN[i % 12] + "）</strong>で、動物では" + animal + "年です。" +
+      "十干十二支では<strong>" + etoName(i) + "（" + etoKun(i) + "）</strong>にあたります。" +
+      "直前の" + (TARGET - 1) + "年は" + etoName(prev) + "（" + etoKun(prev) + "）です。年賀状は1月1日基準なので、" + TARGET + "年の元日に届く年賀状は" + BRANCHES[i % 12] + "年用です。</p>";
+    const rows = [];
+    for (let y = 1868; y <= TARGET; y++) {
+      if (etoIndex(y) % 12 !== i % 12) continue;
+      const age = TARGET - y;
+      rows.push("<tr><td class=\"mono\">" + y + "年</td><td class=\"mono\">" + warekiList(y).join(" ／ ") + "</td><td>" + etoName(etoIndex(y)) + "</td><td class=\"mono\">" +
+        (age <= 120 ? age + "歳" : "―") + "</td></tr>");
+    }
+    out += "<p>" + BRANCHES[i % 12] + "年生まれの年と、" + TARGET + "年中に誕生日を迎えたあとの満年齢です（誕生日前は1歳少なくなります）。</p>" +
+      "<table><thead><tr><th>西暦</th><th>和暦</th><th>干支</th><th>" + TARGET + "年の年齢</th></tr></thead><tbody>" + rows.join("") + "</tbody></table>";
+    return out;
+  }
+
   function run() { runFwd(); runRev(); }
 
   document.addEventListener("DOMContentLoaded", () => {
+    $("et-2027").innerHTML = html2027();
     const sel = $("et-sel");
-    for (let i = 0; i < 60; i++) {
-      const o = document.createElement("option");
-      o.value = String(i);
-      o.textContent = (i + 1) + ". " + etoName(i) + "（" + etoKun(i) + "）";
-      sel.appendChild(o);
-    }
+    sel.innerHTML = Array.from({ length: 60 }, (_, i) =>
+      '<option value="' + i + '">' + (i + 1) + ". " + etoName(i) + "（" + etoKun(i) + "）</option>").join("");
     sel.value = String(etoIndex(2026));
     $("et-base").value = String(new Date().getFullYear());
     ["et-era", "et-year", "et-sel", "et-base"].forEach((id) => {

@@ -72,6 +72,31 @@
   // c = 学年区分の基準年（4月2日以降生まれはその年、1月1日〜4月1日生まれは前年）
   function cohortYear(y, m, d) { return (m * 100 + d) >= 402 ? y : y - 1; }
 
+  // 年度F（F年4月〜F+1年3月）のa歳児クラス = 4月1日時点でa歳 = (F-a-1)年4月2日〜(F-a)年4月1日生まれ
+  function fullWa(y, m, d) {
+    const w = gregorianDateToWareki(y, m, d);
+    if (!w) return "―";
+    return w.era + (w.year === 1 ? "元年" : w.year + "年") + m + "月" + d + "日";
+  }
+  function bornRange(F, a) { return { y1: F - a - 1, y2: F - a }; }
+  function fyTable(F) {
+    let h = "<p style=\"margin:12px 0 4px\"><strong>" + F + "年度（" + html(waYearLabel(F)) + "）　" + F + "年4月〜" + (F + 1) + "年3月</strong></p>" +
+      "<table><thead><tr><th>クラス</th><th>生年月日の範囲（西暦）</th><th>生年月日の範囲（和暦）</th><th>幼稚園</th></tr></thead><tbody>";
+    for (let a = 0; a <= 6; a++) {
+      const r = bornRange(F, a);
+      const cls = a <= 5 ? a + "歳児クラス" + (a === 3 ? "（年少）" : a === 4 ? "（年中）" : a === 5 ? "（年長）" : "") : "（参考）小学1年生";
+      const you = a === 3 ? "年少" : a === 4 ? "年中" : a === 5 ? "年長" : "―";
+      h += "<tr><td>" + cls + "</td><td class=\"mono\">" + r.y1 + "年4月2日〜" + r.y2 + "年4月1日</td><td>" +
+        html(fullWa(r.y1, 4, 2)) + "〜" + html(fullWa(r.y2, 4, 1)) + "</td><td>" + you + "</td></tr>";
+    }
+    return h + "</tbody></table>";
+  }
+  function renderFiscal() {
+    const F = 2027, z = bornRange(F, 0), g = bornRange(F, 5);
+    $("hc-fy").innerHTML = "<p style=\"margin:0 0 4px\">" + F + "年度（" + html(F + "年4月〜" + (F + 1) + "年3月") + "）の0歳児クラスは" + z.y1 + "年4月2日〜" + z.y2 + "年4月1日生まれ、5歳児（年長）クラスは" +
+      g.y1 + "年4月2日〜" + g.y2 + "年4月1日生まれです。前の年度の表も並べます。</p>" + fyTable(2027) + fyTable(2026);
+  }
+
   function run() {
     const err = $("hc-error"), box = $("hc-result"), tbl = $("hc-table"), note = $("hc-note");
     err.textContent = ""; note.textContent = "";
@@ -107,6 +132,7 @@
   }
 
   document.addEventListener("DOMContentLoaded", () => {
+    renderFiscal();
     $("hc-birth").addEventListener("input", run);
     run();
   });
