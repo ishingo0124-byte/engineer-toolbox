@@ -1,0 +1,38 @@
+<div class="field">
+  <label for="v6s-addr">IPv6 アドレス / プレフィックス長（例: 2001:db8::/48）</label>
+  <input type="text" id="v6s-addr" autocomplete="off" spellcheck="false" value="2001:db8::/48">
+</div>
+<p class="error" id="v6s-error"></p>
+
+<div class="result">
+  <dl class="result-grid">
+    <dt>ネットワークアドレス</dt><dd><span class="mono" id="v6s-net">-</span> <button type="button" class="copy-btn" data-copy-target="v6s-net">コピー</button></dd>
+    <dt>同・完全表記</dt><dd><span class="mono" id="v6s-net-full">-</span></dd>
+    <dt>先頭アドレス</dt><dd><span class="mono" id="v6s-first">-</span></dd>
+    <dt>末尾アドレス</dt><dd><span class="mono" id="v6s-last">-</span> <button type="button" class="copy-btn" data-copy-target="v6s-last">コピー</button></dd>
+    <dt>同・完全表記</dt><dd><span class="mono" id="v6s-last-full">-</span></dd>
+    <dt>アドレス数</dt><dd><span class="mono" id="v6s-count">-</span></dd>
+    <dt>含まれる /64 の数</dt><dd><span id="v6s-n64">-</span></dd>
+    <dt>補足</dt><dd><span id="v6s-note">-</span></dd>
+  </dl>
+</div>
+
+<div class="field" style="margin-top:20px">
+  <label for="v6s-target">分割先のプレフィックス長（空欄で分割しない）</label>
+  <div class="row">
+    <input type="text" id="v6s-target" inputmode="numeric" autocomplete="off" spellcheck="false" value="56">
+    <div class="actions">
+      <button type="button" class="ghost" data-v6s-prefix="48">/48</button>
+      <button type="button" class="ghost" data-v6s-prefix="56">/56</button>
+      <button type="button" class="ghost" data-v6s-prefix="64">/64</button>
+    </div>
+  </div>
+</div>
+<p class="error" id="v6s-split-error"></p>
+<p class="hint" id="v6s-split-summary"></p>
+<div class="result">
+  <pre id="v6s-list">-</pre>
+  <button type="button" class="copy-btn" data-copy-target="v6s-list">一覧をコピー</button>
+</div>
+
+<p class="hint">IPv6 には IPv4 のようなブロードキャストアドレスがありません。ここでの「先頭」「末尾」は範囲の両端の値です。ホスト部がすべて 0 の先頭アドレスは、RFC 4291 でサブネットルーターエニーキャストアドレスとして予約されています。一覧は最大 64 件までで、全件の数は上の要約に出ます。</p>

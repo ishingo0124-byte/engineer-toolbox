@@ -6,5 +6,6 @@
   "keywords": ["年齢計算", "満年齢 計算", "数え年 計算", "生年月日 干支", "年齢 早見"],
   "category": "time",
   "related": ["wareki-converter", "nenrei-hayamihyo", "school-year-table", "date-diff"],
-  "updated": "2026-09-28"
+  "updated": "2026-09-28",
+  "checked": "2026-10-30"
 }

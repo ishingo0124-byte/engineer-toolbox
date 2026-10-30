@@ -1,0 +1,20 @@
+{
+  "slug": "openssl-command-builder",
+  "title": "opensslコマンド生成（CSR・PFX・期限確認）",
+  "short_title": "openssl コマンド生成",
+  "description": "秘密鍵とCSRの作成、自己署名証明書、証明書の中身・期限の確認、PEM/DER/PFX変換、鍵と証明書の対応確認、s_client接続テストまで。SAN付きのopensslコマンドを、目的を選んで値を入れるだけで1行生成。生成のみで実行はしません。",
+  "keywords": [
+    "openssl コマンド",
+    "openssl CSR 作成",
+    "openssl 自己署名証明書",
+    "openssl pfx 変換",
+    "openssl 有効期限 確認"
+  ],
+  "category": "security",
+  "related": [
+    "cert-decoder",
+    "ssl-cipher-decoder"
+  ],
+  "updated": "2026-10-30",
+  "checked": "2026-10-30"
+}

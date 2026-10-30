@@ -6,5 +6,6 @@
   "keywords": ["和暦 西暦 変換", "元号 変換", "令和 西暦", "改元 日付", "昭和 平成 変換"],
   "category": "time",
   "related": ["date-diff", "timestamp-format", "unix-time"],
-  "updated": "2026-09-24"
+  "updated": "2026-09-24",
+  "checked": "2026-10-30"
 }

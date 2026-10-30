@@ -1,0 +1,20 @@
+{
+  "slug": "ipv6-subnet-calculator",
+  "title": "IPv6サブネット計算（/48 /56 /64の分割）",
+  "short_title": "IPv6サブネット計算",
+  "description": "IPv6アドレスとプレフィックス長から、ネットワークアドレス・先頭と末尾・アドレス数・含まれる/64の数を計算。/48を/56や/64に分割した一覧と総数も出せます。::省略やIPv4埋め込み表記、/0〜/128の境界にも対応。",
+  "keywords": [
+    "IPv6 サブネット 計算",
+    "IPv6 /64 分割",
+    "IPv6 プレフィックス 計算",
+    "IPv6 /48 /56 /64",
+    "IPv6 アドレス数"
+  ],
+  "category": "network",
+  "related": [
+    "ipv6-expander",
+    "subnet-calculator"
+  ],
+  "updated": "2026-10-30",
+  "checked": "2026-10-30"
+}

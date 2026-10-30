@@ -1,0 +1,186 @@
+<style>#openssl-builder [hidden]{display:none !important}</style>
+<div id="openssl-builder">
+<div class="field">
+  <label for="ocb-purpose">やりたいこと</label>
+  <select id="ocb-purpose">
+    <option value="key-csr" selected>秘密鍵と CSR を作る</option>
+    <option value="selfsigned">自己署名証明書を作る</option>
+    <option value="x509-text">証明書の中身を見る（x509 -text）</option>
+    <option value="enddate">証明書の有効期限を確認する</option>
+    <option value="csr-verify">CSR の中身を確認する</option>
+    <option value="convert">PEM と DER を相互変換する</option>
+    <option value="pem2pfx">PEM から PFX（PKCS#12）を作る</option>
+    <option value="pfx2pem">PFX から PEM を取り出す</option>
+    <option value="match">秘密鍵と証明書が対応しているか確認する</option>
+    <option value="sclient">サーバーに TLS 接続して証明書を見る（s_client）</option>
+  </select>
+</div>
+
+<div data-p="key-csr selfsigned">
+  <div class="row">
+    <div class="field">
+      <label for="ocb-keytype">鍵の種類</label>
+      <select id="ocb-keytype">
+        <option value="rsa2048" selected>RSA 2048 ビット</option>
+        <option value="rsa3072">RSA 3072 ビット</option>
+        <option value="rsa4096">RSA 4096 ビット</option>
+        <option value="ec-p256">EC P-256（prime256v1）</option>
+        <option value="ec-p384">EC P-384（secp384r1）</option>
+      </select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="field">
+      <label for="ocb-cn">CN（共通名）</label>
+      <input type="text" id="ocb-cn" autocomplete="off" spellcheck="false" value="example.com">
+    </div>
+    <div class="field" data-p="selfsigned">
+      <label for="ocb-days">有効日数</label>
+      <input type="text" id="ocb-days" inputmode="numeric" autocomplete="off" value="365">
+    </div>
+  </div>
+  <div class="field">
+    <label for="ocb-san">SAN（1 行に 1 つ、またはカンマ区切り。IP アドレスは自動で IP: になります）</label>
+    <textarea id="ocb-san" rows="3" spellcheck="false">example.com
+www.example.com</textarea>
+  </div>
+  <div class="row">
+    <div class="field"><label for="ocb-c">C（国・任意）</label><input type="text" id="ocb-c" autocomplete="off" spellcheck="false" value=""></div>
+    <div class="field"><label for="ocb-st">ST（都道府県・任意）</label><input type="text" id="ocb-st" autocomplete="off" spellcheck="false" value=""></div>
+  </div>
+  <div class="row">
+    <div class="field"><label for="ocb-l">L（市区町村・任意）</label><input type="text" id="ocb-l" autocomplete="off" spellcheck="false" value=""></div>
+    <div class="field"><label for="ocb-o">O（組織名・任意）</label><input type="text" id="ocb-o" autocomplete="off" spellcheck="false" value=""></div>
+  </div>
+</div>
+
+<div data-p="pfx2pem">
+  <div class="row">
+    <div class="field">
+      <label for="ocb-extract">取り出すもの</label>
+      <select id="ocb-extract">
+        <option value="all" selected>証明書と秘密鍵のすべて</option>
+        <option value="cert">証明書だけ（-nokeys）</option>
+        <option value="key">秘密鍵だけ（-nocerts）</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<div data-p="convert">
+  <div class="row">
+    <div class="field">
+      <label for="ocb-obj">変換するもの</label>
+      <select id="ocb-obj">
+        <option value="cert" selected>証明書</option>
+        <option value="key">秘密鍵</option>
+        <option value="csr">CSR</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="ocb-dir">向き</label>
+      <select id="ocb-dir">
+        <option value="pem2der" selected>PEM → DER</option>
+        <option value="der2pem">DER → PEM</option>
+      </select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="field"><label for="ocb-in">変換元ファイル</label><input type="text" id="ocb-in" autocomplete="off" spellcheck="false" value="cert.pem"></div>
+    <div class="field"><label for="ocb-out">変換先ファイル</label><input type="text" id="ocb-out" autocomplete="off" spellcheck="false" value="cert.der"></div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="field" data-p="key-csr selfsigned pem2pfx match">
+    <label for="ocb-key">秘密鍵ファイル</label>
+    <input type="text" id="ocb-key" autocomplete="off" spellcheck="false" value="server.key">
+  </div>
+  <div class="field" data-p="key-csr csr-verify match">
+    <label for="ocb-csr">CSR ファイル</label>
+    <input type="text" id="ocb-csr" autocomplete="off" spellcheck="false" value="server.csr">
+  </div>
+  <div class="field" data-p="selfsigned x509-text enddate pem2pfx match">
+    <label for="ocb-cert">証明書ファイル</label>
+    <input type="text" id="ocb-cert" autocomplete="off" spellcheck="false" value="server.crt">
+  </div>
+</div>
+<div class="row">
+  <div class="field" data-p="pem2pfx">
+    <label for="ocb-chain">中間証明書ファイル（任意）</label>
+    <input type="text" id="ocb-chain" autocomplete="off" spellcheck="false" value="">
+  </div>
+  <div class="field" data-p="pem2pfx pfx2pem">
+    <label for="ocb-pfx">PFX ファイル</label>
+    <input type="text" id="ocb-pfx" autocomplete="off" spellcheck="false" value="server.pfx">
+  </div>
+  <div class="field" data-p="pfx2pem">
+    <label for="ocb-pem">出力する PEM ファイル</label>
+    <input type="text" id="ocb-pem" autocomplete="off" spellcheck="false" value="all.pem">
+  </div>
+  <div class="field" data-p="pem2pfx">
+    <label for="ocb-name">フレンドリ名（任意）</label>
+    <input type="text" id="ocb-name" autocomplete="off" spellcheck="false" value="">
+  </div>
+</div>
+<div class="field" data-p="match">
+  <label class="check"><input type="checkbox" id="ocb-with-csr"> CSR の公開鍵も比較する</label>
+</div>
+<div class="field" data-p="enddate">
+  <label for="ocb-checkend">この日数以内に失効するか調べる（任意・日）</label>
+  <input type="text" id="ocb-checkend" inputmode="numeric" autocomplete="off" value="">
+</div>
+<div class="field" id="ocb-g-enc" data-p="key-csr selfsigned pfx2pem">
+  <label for="ocb-enc">秘密鍵の保存方法</label>
+  <select id="ocb-enc">
+    <option value="nodes" selected>パスフレーズなし（-nodes）</option>
+    <option value="noenc">パスフレーズなし（-noenc・3.0 以降）</option>
+    <option value="pass">パスフレーズを付ける</option>
+  </select>
+</div>
+<div class="field" data-p="pem2pfx pfx2pem">
+  <label for="ocb-legacy">古い環境との互換（OpenSSL 3.x で作る・読むとき）</label>
+  <select id="ocb-legacy">
+    <option value="" selected>指定しない</option>
+    <option value="legacy">-legacy（レガシープロバイダを使う）</option>
+    <option value="pbe">-certpbe / -keypbe / -macalg（3DES・SHA-1 を指定）</option>
+  </select>
+</div>
+
+<div data-p="sclient">
+  <div class="row">
+    <div class="field">
+      <label for="ocb-host">ホスト名または IP</label>
+      <input type="text" id="ocb-host" autocomplete="off" spellcheck="false" value="example.com">
+    </div>
+    <div class="field">
+      <label for="ocb-port">ポート（空欄で 443）</label>
+      <input type="text" id="ocb-port" inputmode="numeric" autocomplete="off" value="443">
+    </div>
+  </div>
+  <div class="field">
+    <label class="check"><input type="checkbox" id="ocb-sni" checked> -servername（SNI）を付ける</label>
+    <label class="check"><input type="checkbox" id="ocb-showcerts"> -showcerts（チェーンをすべて表示）</label>
+    <label class="check"><input type="checkbox" id="ocb-quit" checked> &lt;/dev/null（接続後すぐ終了）</label>
+    <label class="check"><input type="checkbox" id="ocb-dates"> 有効期間だけ表示する</label>
+  </div>
+</div>
+
+<div class="field">
+  <label class="check"><input type="checkbox" id="ocb-multiline"> オプションごとに改行する（bash / zsh 向けの \ 継続）</label>
+</div>
+
+<p class="error" id="ocb-error"></p>
+
+<div class="result">
+  <pre id="ocb-command">-</pre>
+  <button type="button" class="copy-btn" data-copy-target="ocb-command">コマンドをコピー</button>
+</div>
+
+<div class="result">
+  <p class="hint">生成された内容の意味</p>
+  <ul id="ocb-explain"></ul>
+</div>
+
+<p class="hint">コマンドは bash / zsh などの POSIX シェルを想定しています。PowerShell や cmd では引用符の扱いが違います。Git Bash（Windows）では、-subj の先頭の / がファイルパスとして変換されることがあります。その場合は <code>MSYS_NO_PATHCONV=1</code> を先頭に付けて実行してください。このページはコマンドを組み立てるだけで、実行も送信もしません。</p>
+</div>
