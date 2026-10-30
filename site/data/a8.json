@@ -1,5 +1,5 @@
 {
-  "_note": "A8.net（オーナー承認 2026-10-02。掲載サイト 003 エンジニアの道具箱 で作成したテキストリンクだけを使う。001/002 は既存事業のサイトなので流用しない）。mat は a8mat、img は計測用 1x1 画像のホスト。groups の順に表示。シンレンタルサーバーは提携時のサイトが 001 なので未使用。さくらのVPS は 2026-10-05 承認。 2026-10-27: 本部の別セッションが5件と即時提携（オーナー承認済み）。リンク文言は A8 の素材のテキストそのまま（label）、補足は note に分ける。",
+  "_note": "A8.net（オーナー承認 2026-10-02。掲載サイト 003 エンジニアの道具箱 で作成したテキストリンクだけを使う。001/002 は既存事業のサイトなので流用しない）。mat は a8mat、img は計測用 1x1 画像のホスト。groups の順に表示。シンレンタルサーバーは提携時のサイトが 001 なので未使用。さくらのVPS は 2026-10-05 承認。 2026-10-27: 本部の別セッションが5件と即時提携（オーナー承認済み）。リンク文言は A8 の素材のテキストそのまま（label）、補足は note に分ける。 2026-10-30: XServer VPS for Game・XServer GAMEs・エックスサーバー・MINISFORUM を追加（オーナー承認、即時提携）。",
   "programs": {
     "xserver_vps": {
       "mat": "4BE70U+50EEMA+CO4+25EKCY",
@@ -54,6 +54,30 @@
       "img": "www16",
       "label": "【OZ GAMING】",
       "note": "BTO（受注生産）のゲーミングPC。新品でメモリやストレージを選びたいときに。"
+    },
+    "xserver_vps_game": {
+      "mat": "4BES25+7LA0ZM+CO4+2N9KIA",
+      "img": "www14",
+      "label": "XServer VPS for Game",
+      "note": "エックスサーバーのゲーム用 VPS。メモリの大きさでプランを選ぶ形です。"
+    },
+    "xserver_games": {
+      "mat": "4BES25+7YYZWI+CO4+3H18R6",
+      "img": "www10",
+      "label": "サーバーの知識不要！簡単にマルチプレイを始められる『XServer GAMEs』",
+      "note": "上の表の「XServer GAMEs」のプランは、ここから申し込めます。"
+    },
+    "xserver_rental": {
+      "mat": "4BES25+805V42+CO4+6AZAQ",
+      "img": "www12",
+      "label": "エックスサーバー",
+      "note": "共用のレンタルサーバー。SSL や DNS の設定をサーバー会社に任せてサイトを置きたいときに。"
+    },
+    "minisforum": {
+      "mat": "4BES25+81CQBM+5O6K+5Z6WY",
+      "img": "www18",
+      "label": "【Minisforum】",
+      "note": "ミニPCのメーカー直販。CPU とメモリの組み合わせを上の判定で確かめてから選べます。"
     }
   },
   "groups": {
@@ -69,13 +93,16 @@
       "heading": "Web サイトを置くサーバーを借りるなら",
       "items": [
         "conoha_wing",
+        "xserver_rental",
         "xserver_vps"
       ]
     },
     "gameserver": {
       "heading": "ゲームサーバーを借りるなら",
       "items": [
-        "lolipop_gamers"
+        "lolipop_gamers",
+        "xserver_games",
+        "xserver_vps_game"
       ]
     },
     "pc": {
@@ -84,6 +111,7 @@
         "qualit",
         "pcwrap",
         "gmktec",
+        "minisforum",
         "oz_gaming"
       ]
     }
