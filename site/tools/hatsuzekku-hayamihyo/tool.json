@@ -1,0 +1,23 @@
+{
+  "slug": "hatsuzekku-hayamihyo",
+  "title": "初節句はいつ？生まれ月から桃の節句・端午の節句の年を計算",
+  "short_title": "初節句早見表",
+  "description": "生年月日と性別を入れると、初節句（女の子は3月3日の桃の節句、男の子は5月5日の端午の節句）の日付・曜日・生後日数を表示します。生まれてすぐで翌年に回す場合の日付も並べ、生まれ月別の早見表（平年基準）で全体を見渡せます。出産予定日でも使えます。",
+  "keywords": [
+    "初節句 いつ",
+    "初節句 生まれ月",
+    "桃の節句 初節句",
+    "端午の節句 初節句",
+    "初節句 翌年"
+  ],
+  "category": "time",
+  "related": [
+    "shichigosan-hayamihyo",
+    "age-calculator",
+    "nenrei-hayamihyo",
+    "day-of-week"
+  ],
+  "updated": "2026-11-04",
+  "checked": "2026-11-04",
+  "prerender": "hzk-table-wrap"
+}

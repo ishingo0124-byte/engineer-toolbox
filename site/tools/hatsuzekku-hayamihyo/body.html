@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="field">
+    <label for="hzk-birth">生年月日（出産予定日でも可。西暦 例:2026-02-25　和暦 例:令和8年2月25日）</label>
+    <input type="text" id="hzk-birth" autocomplete="off" value="2026-02-25" data-example="2026-02-25">
+  </div>
+  <div class="field">
+    <label for="hzk-sex">性別</label>
+    <select id="hzk-sex">
+      <option value="girl" selected>女の子（桃の節句）</option>
+      <option value="boy">男の子（端午の節句）</option>
+    </select>
+  </div>
+</div>
+<p class="error" id="hzk-error"></p>
+<div class="result" id="hzk-result"></div>
+<p class="hint" id="hzk-note"></p>
+<p class="hint">生後日数は、生まれた日を0日と数えています。初節句をいつ行うかは地域や家庭で違うため、ここでは「生まれた年」と「翌年」の両方の日付を示します。</p>
+
+<p style="margin:24px 0 6px"><strong>生まれ月別の早見表（初節句までの生後日数）</strong></p>
+<div id="hzk-table-wrap"></div>
+<p class="hint">日数は平年（2月が28日の年）で数えています。うるう年をまたぐ場合は1日ずれることがあります。</p>

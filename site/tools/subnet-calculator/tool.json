@@ -6,5 +6,6 @@
   "keywords": ["サブネット計算", "CIDR 計算", "サブネットマスク 変換", "ホスト数 計算", "ブロードキャストアドレス"],
   "category": "network",
   "related": ["cidr-mask-converter", "ip-in-range"],
-  "updated": "2026-09-10"
+  "updated": "2026-09-10",
+  "checked": "2026-11-04"
 }

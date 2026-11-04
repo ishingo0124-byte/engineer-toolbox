@@ -10,8 +10,8 @@ done 2026-10-19 k8s-resource-units
 done 2026-10-19 nenrei-hayamihyo
 done 2026-10-30 wareki-converter
 done 2026-10-30 age-calculator
-subnet-calculator
-eto-calculator
+done 2026-11-04 subnet-calculator
+done 2026-11-04 eto-calculator
 toshiiwai-yakudoshi
 grade-calculator
 sotsu-hayamihyo

@@ -1,0 +1,23 @@
+{
+  "slug": "shichigosan-hayamihyo",
+  "title": "七五三は何年？数え年・満年齢の早見表｜生まれ年から計算",
+  "short_title": "七五三早見表",
+  "description": "生まれ年や生年月日を入れると、七五三（3歳・5歳・7歳）をお祝いする年を満年齢と数え年の両方で表示します。2016〜2026年生まれの早見表付き。11月15日時点の満年齢と学年、早生まれ（1〜4月1日生まれ）の扱いも確認できます。",
+  "keywords": [
+    "七五三 何年",
+    "七五三 数え年 満年齢",
+    "七五三 早見表",
+    "七五三 生まれ年",
+    "七五三 早生まれ"
+  ],
+  "category": "time",
+  "related": [
+    "nenrei-hayamihyo",
+    "school-year-table",
+    "age-calculator",
+    "wareki-converter"
+  ],
+  "updated": "2026-11-04",
+  "checked": "2026-11-04",
+  "prerender": "shh-table-wrap"
+}
