@@ -6,5 +6,6 @@
   "keywords": ["TLS 暗号スイート 意味", "cipher suite 解読", "OpenSSL 暗号スイート 変換", "暗号スイート 安全性", "前方秘匿性 確認"],
   "category": "security",
   "related": ["cert-decoder", "http-header-analyzer"],
-  "updated": "2026-09-10"
+  "updated": "2026-09-10",
+  "checked": "2026-11-13"
 }

@@ -339,7 +339,7 @@
     if (level > 1 && !rec.pfs) {
       downgrade(2, "前方秘匿性(PFS)がありません。サーバーの長期秘密鍵が将来漏えいすると、過去に記録された通信も遡って復号される恐れがあります");
     }
-    if (level > 1 && !rec.aead && rec.mode === "CBC" && rec.mac === "HMAC-SHA-1") {
+    if (level > 1 && !rec.aead && rec.mode && rec.mode.indexOf("CBC") !== -1 && rec.mac === "HMAC-SHA-1") {
       downgrade(2, "CBCモード+SHA-1の組み合わせはBEAST/Lucky13等、実装によっては既知の攻撃手法が報告された組み合わせです");
     }
     if (level > 2 && rec.mode && rec.mode.indexOf("CCM_8") !== -1) {
