@@ -207,7 +207,9 @@
   ];
 
   function toHalfWidthDigits(s) {
-    return String(s || "").replace(/[０-９]/g, (c) => String.fromCharCode(c.charCodeAt(0) - 0xfee0));
+    const str = String(s || "");
+    if (typeof window !== "undefined" && window.tb && window.tb.z2h) return window.tb.z2h(str);
+    return str.replace(/[０-９Ａ-Ｚａ-ｚ]/g, (c) => String.fromCharCode(c.charCodeAt(0) - 0xfee0));
   }
 
   function itemHtml(it) {

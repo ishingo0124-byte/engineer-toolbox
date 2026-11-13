@@ -6,5 +6,6 @@
   "keywords": ["MACアドレス 変換", "MAC 表記", "EUI-64", "Cisco MAC 形式", "MACアドレス コロン ハイフン"],
   "category": "network",
   "related": ["ipv6-expander", "cidr-mask-converter"],
-  "updated": "2026-09-10"
+  "updated": "2026-09-10",
+  "checked": "2026-11-13"
 }

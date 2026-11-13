@@ -6,5 +6,6 @@
   "keywords": ["シェル エスケープ", "bash クォート", "PowerShell エスケープ", "cmd.exe エスケープ", "コマンドライン 引数"],
   "category": "linux",
   "related": ["html-escape", "url-encode", "regex-tester"],
-  "updated": "2026-09-10"
+  "updated": "2026-09-10",
+  "checked": "2026-11-13"
 }

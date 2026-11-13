@@ -6,5 +6,6 @@
   "keywords": ["ログ タイムスタンプ 変換", "syslog 時刻 変換", "Apache ログ 日時", "ログ タイムゾーン 統一", "ログ マージ 時系列"],
   "category": "linux",
   "related": ["epoch-batch", "timezone-converter", "line-sort-uniq"],
-  "updated": "2026-09-10"
+  "updated": "2026-09-10",
+  "checked": "2026-11-13"
 }

@@ -6,5 +6,6 @@
   "keywords": ["camelCase 変換", "snake_case 変換", "kebab-case 変換", "命名規則 変換", "PascalCase 変換"],
   "category": "text",
   "related": ["line-sort-uniq", "char-count"],
-  "updated": "2026-09-10"
+  "updated": "2026-09-10",
+  "checked": "2026-11-13"
 }

@@ -6,5 +6,6 @@
   "keywords": ["SI接頭辞 変換", "キロ メガ ギガ 変換", "Ki Mi Gi 変換", "工学表記 変換", "2進 10進 単位"],
   "category": "dev",
   "related": ["byte-converter", "bandwidth-calc"],
-  "updated": "2026-09-10"
+  "updated": "2026-09-10",
+  "checked": "2026-11-13"
 }

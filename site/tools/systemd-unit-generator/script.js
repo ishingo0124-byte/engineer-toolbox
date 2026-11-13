@@ -32,6 +32,14 @@
     return { entries, badLines };
   }
 
+  // systemd.exec(5): 空白や引用符を含む値は Environment="KEY=value" の形にし、中の \ と " は \ で逃がす
+  function formatEnvLine(key, value) {
+    if (/[\s"']/.test(value)) {
+      return 'Environment="' + key + "=" + value.replace(/[\\"]/g, "\\$&") + '"';
+    }
+    return "Environment=" + key + "=" + value;
+  }
+
   // input -> { errors: string[], warnings: string[], unitText, path, cmd }
   function generate(input) {
     const errors = [];
@@ -94,7 +102,7 @@
     if (workdir) serviceLines.push("WorkingDirectory=" + workdir);
     if (user) serviceLines.push("User=" + user);
     if (group) serviceLines.push("Group=" + group);
-    envParsed.entries.forEach((e) => serviceLines.push("Environment=" + e.key + "=" + e.value));
+    envParsed.entries.forEach((e) => serviceLines.push(formatEnvLine(e.key, e.value)));
     if (envfile) serviceLines.push("EnvironmentFile=" + (envfileOptional ? "-" : "") + envfile);
     serviceLines.push("Restart=" + restart);
     if (restartSecResult.value != null) serviceLines.push("RestartSec=" + restartSecResult.value);

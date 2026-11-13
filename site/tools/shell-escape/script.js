@@ -53,6 +53,14 @@
     return result;
   }
 
+  // 引数リストの cmd.exe 用。cmd のメタ文字を含む引数は、引数解析の規則で引用符を整えたうえで、
+  // cmd が解釈する文字をすべて ^ で無効化する（cmd が引用符の状態を数え違えないようにする）。
+  function cmdArgQuote(s) {
+    const q = winArgvQuote(s);
+    if (!/[&|<>^()%!"]/.test(s)) return q;
+    return q.replace(/[&|<>^()%!"]/g, "^$&");
+  }
+
   function regexEscape(s) {
     return s.replace(/[.*+?^${}()|[\]\\/]/g, "\\$&");
   }
@@ -76,7 +84,7 @@
     const prefix = cmdName ? cmdName + " " : "";
     $("se-line-bash").textContent = prefix + lines.map(bashSingleQuote).join(" ");
     $("se-line-ps").textContent = prefix + lines.map(psSingleQuote).join(" ");
-    $("se-line-cmd").textContent = prefix + lines.map(winArgvQuote).join(" ");
+    $("se-line-cmd").textContent = prefix + lines.map(cmdArgQuote).join(" ");
   }
 
   document.addEventListener("DOMContentLoaded", () => {

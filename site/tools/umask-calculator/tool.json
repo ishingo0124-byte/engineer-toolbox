@@ -6,5 +6,6 @@
   "keywords": ["umask 計算", "umask 022", "umask 逆算", "新規ファイル 権限", "umask 一覧"],
   "category": "linux",
   "related": ["chmod-calculator", "ls-permission-decoder"],
-  "updated": "2026-09-10"
+  "updated": "2026-09-10",
+  "checked": "2026-11-13"
 }

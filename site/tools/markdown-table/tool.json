@@ -6,5 +6,6 @@
   "keywords": ["Markdown 表 変換", "CSV Markdown 変換", "Markdown テーブル 整形", "TSV 表 変換", "表 アライメント"],
   "category": "text",
   "related": ["csv-json", "line-sort-uniq"],
-  "updated": "2026-09-10"
+  "updated": "2026-09-10",
+  "checked": "2026-11-13"
 }
