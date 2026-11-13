@@ -6,5 +6,6 @@
   "keywords": ["RAID 容量計算", "RAID5 実効容量", "RAID10 容量", "RAID 耐障害性", "TB TiB 変換"],
   "category": "linux",
   "related": ["byte-converter", "uptime-sla"],
-  "updated": "2026-09-10"
+  "updated": "2026-09-10",
+  "checked": "2026-11-13"
 }

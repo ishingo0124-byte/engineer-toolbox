@@ -6,5 +6,6 @@
   "keywords": ["iptables 読み方", "iptables ルール 解説", "nftables 変換", "iptables -m state", "iptables ターゲット 意味"],
   "category": "linux",
   "related": ["nginx-config-checker", "well-known-ports", "shell-escape"],
-  "updated": "2026-09-22"
+  "updated": "2026-09-22",
+  "checked": "2026-11-13"
 }

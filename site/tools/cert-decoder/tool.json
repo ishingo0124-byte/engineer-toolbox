@@ -6,5 +6,6 @@
   "keywords": ["証明書 デコード", "SSL証明書 確認", "PEM 解析", "証明書 有効期限 確認", "SAN 確認"],
   "category": "security",
   "related": ["hash-generator", "jwt-decoder"],
-  "updated": "2026-09-10"
+  "updated": "2026-09-10",
+  "checked": "2026-11-13"
 }
