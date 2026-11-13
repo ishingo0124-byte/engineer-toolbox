@@ -6,5 +6,6 @@
   "keywords": ["tar コマンド 生成", "tar 展開", "zip unzip コマンド", "tar 除外", "strip-components"],
   "category": "linux",
   "related": ["find-command-builder", "rsync-command-builder"],
-  "updated": "2026-09-10"
+  "updated": "2026-09-10",
+  "checked": "2026-11-13"
 }

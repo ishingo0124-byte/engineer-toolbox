@@ -6,5 +6,6 @@
   "keywords": ["SQL IN句 変換", "IN句 作成", "配列リテラル 変換", "SQL クォート 一括"],
   "category": "dev",
   "related": ["line-sort-uniq", "csv-json", "sql-formatter"],
+  "checked": "2026-11-13",
   "updated": "2026-09-10"
 }

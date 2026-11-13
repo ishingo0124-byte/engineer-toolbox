@@ -6,5 +6,6 @@
   "keywords": ["UNIX時間 変換", "エポック秒 変換", "UNIXタイムスタンプ", "エポック秒 現在時刻"],
   "category": "time",
   "related": ["date-diff", "cron-parser"],
-  "updated": "2026-09-10"
+  "updated": "2026-09-10",
+  "checked": "2026-11-13"
 }

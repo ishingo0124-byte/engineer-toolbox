@@ -6,5 +6,6 @@
   "keywords": ["Base64 エンコード", "Base64 デコード", "Base64 変換", "URL-safe Base64", "Base64 日本語"],
   "category": "dev",
   "related": ["url-encode", "json-formatter", "hash-generator"],
-  "updated": "2026-09-10"
+  "updated": "2026-09-10",
+  "checked": "2026-11-13"
 }

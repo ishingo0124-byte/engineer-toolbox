@@ -6,5 +6,6 @@
   "keywords": ["IPアドレス 種別", "プライベートIP 判定", "CGNAT とは", "IPv6 ULA fc00"],
   "category": "network",
   "related": ["subnet-calculator", "ip-in-range", "ipv6-expander", "cidr-aggregator"],
-  "updated": "2026-09-28"
+  "updated": "2026-09-28",
+  "checked": "2026-11-13"
 }

@@ -6,5 +6,6 @@
   "keywords": ["semver 範囲", "npm バージョン指定", "キャレット チルダ 違い", "package.json バージョン範囲"],
   "category": "dev",
   "related": ["number-base-converter", "json-diff", "docker-run-to-compose"],
-  "updated": "2026-09-28"
+  "updated": "2026-09-28",
+  "checked": "2026-11-13"
 }

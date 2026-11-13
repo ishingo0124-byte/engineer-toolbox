@@ -6,5 +6,6 @@
   "keywords": ["rsync コマンド", "rsync --delete", "rsync --exclude", "rsync ssh ポート", "rsync dry-run"],
   "category": "linux",
   "related": ["find-command-builder", "tar-command-builder", "ssh-config-generator"],
-  "updated": "2026-09-10"
+  "updated": "2026-09-10",
+  "checked": "2026-11-13"
 }

@@ -6,5 +6,6 @@
   "keywords": ["行 ソート", "重複行 削除", "uniq ブラウザ", "テキスト 空行削除"],
   "category": "text",
   "related": ["diff-text", "case-converter", "char-count"],
-  "updated": "2026-09-10"
+  "updated": "2026-09-10",
+  "checked": "2026-11-13"
 }

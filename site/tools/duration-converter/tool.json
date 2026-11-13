@@ -6,5 +6,6 @@
   "keywords": ["秒 時間 変換", "ISO8601 期間", "PT1H30M 変換", "経過時間 計算"],
   "category": "time",
   "related": ["unix-time", "date-diff", "uptime-sla", "timestamp-format"],
-  "updated": "2026-09-28"
+  "updated": "2026-09-28",
+  "checked": "2026-11-13"
 }

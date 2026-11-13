@@ -6,5 +6,6 @@
   "keywords": ["JSON 整形", "JSON 検証", "JSON 圧縮", "JSON フォーマッター", "JSON バリデーター"],
   "category": "dev",
   "related": ["base64", "url-encode"],
-  "updated": "2026-09-10"
+  "updated": "2026-09-10",
+  "checked": "2026-11-13"
 }

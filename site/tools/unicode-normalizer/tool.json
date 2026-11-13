@@ -6,5 +6,6 @@
   "keywords": ["Unicode 正規化", "NFC NFD 違い", "濁点 分離 修正", "NFKC 変換"],
   "category": "text",
   "related": ["zenkaku-hankaku", "text-encoding-detector", "ascii-unicode-table", "char-count"],
-  "updated": "2026-09-28"
+  "updated": "2026-09-28",
+  "checked": "2026-11-13"
 }

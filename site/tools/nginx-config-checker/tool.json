@@ -6,5 +6,6 @@
   "keywords": ["nginx location 優先順位", "nginx マッチ順", "nginx 正規表現 location", "nginx ^~", "nginx 設定 確認"],
   "category": "linux",
   "related": ["regex-tester", "http-status-codes"],
-  "updated": "2026-09-10"
+  "updated": "2026-09-10",
+  "checked": "2026-11-13"
 }
