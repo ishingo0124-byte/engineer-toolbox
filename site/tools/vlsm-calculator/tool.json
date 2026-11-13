@@ -6,5 +6,6 @@
   "keywords": ["VLSM 計算", "サブネット 分割 ホスト数", "可変長サブネットマスク", "サブネッティング 練習"],
   "category": "network",
   "related": ["subnet-calculator", "ipv4-arithmetic", "cidr-mask-converter"],
-  "updated": "2026-09-17"
+  "updated": "2026-09-17",
+  "checked": "2026-11-13"
 }

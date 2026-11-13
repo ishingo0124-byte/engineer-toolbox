@@ -6,5 +6,6 @@
   "keywords": ["バイト変換", "KB MB GB 変換", "KiB 変換", "10進 2進 バイト", "ストレージ 容量 計算"],
   "category": "dev",
   "related": ["char-count", "unix-time"],
-  "updated": "2026-09-10"
+  "updated": "2026-09-10",
+  "checked": "2026-11-13"
 }

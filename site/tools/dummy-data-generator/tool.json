@@ -6,5 +6,6 @@
   "keywords": ["テストデータ 生成", "ダミーデータ 作成", "氏名 ダミー", "CSV テストデータ"],
   "category": "dev",
   "related": ["uuid-generator", "csv-json", "sql-in-list"],
-  "updated": "2026-09-10"
+  "updated": "2026-09-10",
+  "checked": "2026-11-13"
 }

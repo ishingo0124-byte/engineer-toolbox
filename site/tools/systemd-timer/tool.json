@@ -6,5 +6,6 @@
   "keywords": ["OnCalendar 書式", "systemdタイマー 書き方", "systemd-analyze calendar", "OnCalendar cron 変換", "systemd タイマー 次回実行"],
   "category": "linux",
   "related": ["cron-parser", "unix-time"],
-  "updated": "2026-09-10"
+  "updated": "2026-09-10",
+  "checked": "2026-11-13"
 }

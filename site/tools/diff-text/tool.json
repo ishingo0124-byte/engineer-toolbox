@@ -6,5 +6,6 @@
   "keywords": ["テキスト差分", "diff ツール", "unified diff 作成", "行の差分比較"],
   "category": "text",
   "related": ["line-sort-uniq", "regex-tester"],
-  "updated": "2026-09-10"
+  "updated": "2026-09-10",
+  "checked": "2026-11-13"
 }

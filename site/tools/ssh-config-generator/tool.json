@@ -6,5 +6,6 @@
   "keywords": ["ssh config 生成", "ProxyJump 設定", "ssh 踏み台 設定", "ssh_config 書き方"],
   "category": "linux",
   "related": ["shell-escape", "rsync-command-builder", "well-known-ports", "chmod-calculator"],
-  "updated": "2026-09-14"
+  "updated": "2026-09-14",
+  "checked": "2026-11-13"
 }

@@ -6,5 +6,6 @@
   "keywords": ["ハッシュ計算", "MD5 変換", "SHA256 計算", "ファイル ハッシュ値 確認"],
   "category": "security",
   "related": ["password-generator", "base64"],
-  "updated": "2026-09-10"
+  "updated": "2026-09-10",
+  "checked": "2026-11-13"
 }

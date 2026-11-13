@@ -6,5 +6,6 @@
   "keywords": ["JSON TypeScript 変換", "型定義 自動生成", "interface 生成", "JSON to TS"],
   "category": "dev",
   "related": ["json-formatter", "case-converter"],
-  "updated": "2026-09-10"
+  "updated": "2026-09-10",
+  "checked": "2026-11-13"
 }

@@ -6,5 +6,6 @@
   "keywords": ["cron 意味", "cron 次回実行", "cron 式 生成", "crontab 書き方", "cron 解読"],
   "category": "linux",
   "related": ["chmod-calculator", "unix-time"],
-  "updated": "2026-09-10"
+  "updated": "2026-09-10",
+  "checked": "2026-11-13"
 }

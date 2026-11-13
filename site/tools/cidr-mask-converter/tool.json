@@ -6,5 +6,6 @@
   "keywords": ["CIDR 変換", "サブネットマスク 変換", "ワイルドカードマスク", "CIDR 一覧表", "サブネットマスク 早見表"],
   "category": "network",
   "related": ["subnet-calculator", "ip-in-range"],
-  "updated": "2026-09-10"
+  "updated": "2026-09-10",
+  "checked": "2026-11-13"
 }

@@ -6,5 +6,6 @@
   "keywords": ["正規表現テスター", "regex テスト", "正規表現 置換", "キャプチャグループ 確認"],
   "category": "text",
   "related": ["char-count", "url-encode"],
-  "updated": "2026-09-10"
+  "updated": "2026-09-10",
+  "checked": "2026-11-13"
 }

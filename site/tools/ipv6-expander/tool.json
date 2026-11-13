@@ -6,5 +6,6 @@
   "keywords": ["IPv6 展開", "IPv6 省略形", "IPv6 正規化", "IPv6 変換", "RFC 5952"],
   "category": "network",
   "related": ["subnet-calculator", "mac-address-format"],
-  "updated": "2026-09-10"
+  "updated": "2026-09-10",
+  "checked": "2026-11-13"
 }

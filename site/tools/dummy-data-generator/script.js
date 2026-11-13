@@ -102,7 +102,7 @@
     const d = 1 + Math.floor(rng() * daysInMonth);
     const birth = new Date(y, m - 1, d);
     const emailLocal = (given.r + "." + surname.r).toLowerCase().replace(/[^a-z.]/g, "") + (100 + Math.floor(rng() * 900));
-    const emailDomain = rng() < 0.5 ? "example.com" : "example.jp";
+    const emailDomain = rng() < 0.5 ? "example.com" : "example.org";
     const mobile = rng() < 0.6;
     const phone = mobile ? "090-" + digits(rng, 4) + "-" + digits(rng, 4) : "03-" + digits(rng, 4) + "-" + digits(rng, 4);
     const postal = String(100 + Math.floor(rng() * 900)) + "-" + digits(rng, 4);
