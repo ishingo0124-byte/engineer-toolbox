@@ -26,10 +26,12 @@
     let y = b.getUTCFullYear() - a.getUTCFullYear();
     let m = b.getUTCMonth() - a.getUTCMonth();
     let d = b.getUTCDate() - a.getUTCDate();
-    if (d < 0) {
+    // 日が足りないときは月を繰り下げる。1回で足りなければ（1/31→3/1 など）さらに前の月を繰り下げる
+    let back = 0;
+    while (d < 0) {
+      back += 1;
       m -= 1;
-      const prevMonthLastDay = new Date(Date.UTC(b.getUTCFullYear(), b.getUTCMonth(), 0)).getUTCDate();
-      d += prevMonthLastDay;
+      d += new Date(Date.UTC(b.getUTCFullYear(), b.getUTCMonth() - back + 1, 0)).getUTCDate();
     }
     if (m < 0) { y -= 1; m += 12; }
     return { y: y, m: m, d: d };

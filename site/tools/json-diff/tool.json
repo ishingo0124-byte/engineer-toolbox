@@ -6,5 +6,6 @@
   "keywords": ["JSON 差分", "JSON diff", "JSON 比較", "JSON 変更点"],
   "category": "dev",
   "related": ["json-formatter", "diff-text", "yaml-json"],
-  "updated": "2026-09-17"
+  "updated": "2026-09-17",
+  "checked": "2026-11-13"
 }

@@ -6,5 +6,6 @@
   "keywords": ["日数計算", "2つの日付 差", "○日後 計算", "営業日 計算"],
   "category": "time",
   "related": ["unix-time", "cron-parser"],
-  "updated": "2026-09-10"
+  "updated": "2026-09-10",
+  "checked": "2026-11-13"
 }

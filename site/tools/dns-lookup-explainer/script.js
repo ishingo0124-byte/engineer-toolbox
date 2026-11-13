@@ -122,18 +122,29 @@
     const result = { server: null, records: [], soa: null, nonAuth: false };
     let pendingName = null;
     let soaCtx = null;
+    let serverAddrPending = false;
+    let lastWasAddr = false;
 
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i];
       if (line === "") continue;
 
       let m;
-      if ((m = /^Server:\s*(.+)$/i.exec(line))) { result.server = m[1]; continue; }
+      if ((m = /^Server:\s*(.+)$/i.exec(line))) { result.server = m[1]; serverAddrPending = true; lastWasAddr = false; continue; }
+      // 問い合わせ先サーバーの Address 行は回答レコードに含めない
+      if (serverAddrPending && /^Address(?:es)?:/i.test(line)) { serverAddrPending = false; continue; }
+      // Addresses: の2行目以降（アドレスだけの行）
+      if (lastWasAddr && pendingName && (m = /^([0-9a-fA-F.:]+)$/.exec(line)) && /[.:]/.test(m[1])) {
+        result.records.push({ name: pendingName, type: m[1].indexOf(":") !== -1 ? "AAAA" : "A", rdata: m[1] });
+        continue;
+      }
+      lastWasAddr = false;
       if (/^non-authoritative answer:/i.test(line)) { result.nonAuth = true; continue; }
       if ((m = /^Name:\s*(.+)$/i.exec(line))) { pendingName = m[1]; continue; }
       if ((m = /^Address(?:es)?:\s*([0-9a-fA-F.:]+)$/i.exec(line))) {
         const isV6 = m[1].indexOf(":") !== -1;
         result.records.push({ name: pendingName || "(不明)", type: isV6 ? "AAAA" : "A", rdata: m[1] });
+        lastWasAddr = true;
         continue;
       }
       if ((m = /^(\S+)\s+canonical name = (\S+?)\.?$/i.exec(line))) {

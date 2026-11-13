@@ -1,23 +1,75 @@
+dig を打ったら、見慣れない行が20行も返ってきた。
+status は NOERROR なのに、ANSWER が空っぽ。
+TTL の数字が、打つたびに減っていく。
+このツールは、dig や nslookup の出力を貼ると、flags と status、各セクション、レコード種別ごとの意味、TTL の読みやすい表記、SOA の各項目を日本語で解説します。
+
 ## 使い方
 
-1. `dig example.com` や `nslookup example.com` の実行結果を貼り付けます。
-2. dig形式ではHEADERのopcode/status/id、flags（qr/aa/rd/ra/ad/cd等）、QUESTION/ANSWER/AUTHORITY/ADDITIONALを分解し、レコードごとにTTLの読みやすい表記と意味を表示します。
-3. nslookup形式ではServer/Name/Address等や、`-type=any`実行時の`canonical name =`等を解析します。
-4. CNAMEが連なる場合はチェーンを矢印表示し、SOAはserial等の各値に分解します。
+1. ターミナルで `dig example.com` や `nslookup example.com` を実行し、出力をそのまま貼り付けます。
+2. dig の出力なら、HEADER の opcode・status・id、flags、QUESTION から ADDITIONAL までの各セクションを分けて表にします。レコードごとに、TTL の秒数と「5分0秒」のような読み替え、種別の意味が付きます。
+3. nslookup の出力なら、問い合わせ先サーバー、権威応答か非権威応答か、見つかったレコードを一覧にします。`-type=any` で出る `canonical name =` や `mail exchanger =` の行も読みます。
+4. CNAME が連なっているときは、矢印でつないだチェーンを表示します。SOA は、serial や refresh などの項目に分けます。
 
-## 仕組み・根拠
+このツールは DNS サーバーへの問い合わせを一切しません。貼ったテキストを、ブラウザの中で読むだけです。
 
-DNSメッセージのヘッダーとリソースレコードの構造はRFC 1035で規定されています。本ツールはdig・nslookupの出力テキストの行パターン（`;; ->>HEADER<<-`、`;; ○○ SECTION:`、`Name:`等）を正規表現で解析するだけで、実際の名前解決やDNSサーバーへの問い合わせは行いません。`NXDOMAIN`はドメイン自体が存在しないこと、`SERVFAIL`はサーバー側の異常を示すことなど、RFC 1035の応答コードの意味を表示します。SOAのminimumはレコード不在をキャッシュする際のTTLです（RFC 2308）。
+## 仕組み・計算式
 
-**現場の落とし穴**: ANSWER SECTIONのTTLは権威サーバーが返した時点の値で、キャッシュサーバー経由では経過時間が引かれた残り時間に見えることがあります。同じドメインへ複数回`dig`してTTLが徐々に減るのはこのためで異常ではありません。またANSWERが0件でもNOERRORなら「該当レコード種別のみ不在（NODATA）」であり、ドメイン自体が無いNXDOMAINとは意味が異なります。
+DNS メッセージのヘッダーとリソースレコードの形は、RFC 1035 が定めています。ヘッダーの応答コード（RCODE）は、0が NOERROR、1が FORMERR、2が SERVFAIL、3が NXDOMAIN、4が NOTIMP、5が REFUSED です。ツールは、dig の出力にある `;; ->>HEADER<<-` や `;; ANSWER SECTION:` のような行を正規表現で見つけて、この意味を添えます。
 
+flags のうち、よく見るものは次の通りです。
+
+- `qr` は応答であること、`rd` は再帰問い合わせの要求、`ra` は相手が再帰に対応していることを示します。
+- `aa` は権威サーバー自身の回答、`ad` は DNSSEC（RFC 4035）で検証済みであることを示します。
+- `cd` は DNSSEC の検証を止めるよう頼んだこと、`tc` は応答が切り詰められたことを示します。
+
+つまり、キャッシュを持つ一般のリゾルバ経由の回答は、`qr rd ra` が揃い、`aa` は付かないのがふつうです。
+
+SOA の minimum は、もとは RFC 1035 で「ゾーン内のレコードに付ける最小の TTL」でした。今は RFC 2308 により、「存在しない」という答えをキャッシュする時間の上限を示します。実際のネガティブキャッシュの長さは、SOA レコード自身の TTL と minimum の小さいほうです。ツールは minimum の値をそのまま見せるので、実際の長さは SOA 行の TTL と見比べてください。
+
+SOA の rname は、管理者のメールアドレスを `@` の代わりに `.` で書いたものです。`hostmaster.example.com.` は、hostmaster@example.com を表します。
+
+## 計算例
+
+初期表示の dig 出力と、下の入力例を、ツールの解析ロジックで動かして確かめた値です。
+
+**例1:初期表示の `www.example.com` の A 問い合わせ。**
+status は NOERROR で、flags は `qr rd ra ad` でした。件数は QUESTION 1、ANSWER 3、AUTHORITY 0、ADDITIONAL 1 です。www.example.com. の CNAME は TTL 300秒（5分0秒）、cdn.example.net. の A が2つとも TTL 60秒（1分0秒）です。チェーンは `www.example.com. → cdn.example.net. (CNAME) → 203.0.113.10 (A)` と出ました。
+
+**例2:存在しない名前（NXDOMAIN）の SOA。**
+status が NXDOMAIN で、ANSWER が0件、AUTHORITY に SOA が1件ある出力を貼りました。SOA が `ns1.example.com. hostmaster.example.com. 2026091001 7200 900 1209600 86400`、行の TTL が 3600 のとき、表示はこうなります。
+
+- refresh は 7200秒（2時間0分）
+- retry は 900秒（15分0秒）
+- expire は 1209600秒（14日0時間）
+- minimum は 86400秒（1日0時間）
+
+この場合、ネガティブキャッシュの長さは、SOA の TTL 3600秒と minimum 86400秒の小さいほう、つまり3600秒（1時間）です。minimum の1日をそのまま信じると、ずれます。
+
+**例3（境界値）:TTL が 90061 秒。**
+表示は「1日1時間」でした。1日以上のときは、分と秒を省いて日と時間だけにします。細かい秒まで要るときは、秒の数字のほうを読んでください。
+
+**例4:権威サーバーに直接問い合わせた MX。**
+flags が `qr aa rd` で `ra` がない出力では、aa が点灯し、ra は「無効」と表示されました。権威サーバーは、再帰を受け付けないことが多いためです。
+
+## よくある間違い
+
+**NOERROR で ANSWER が0件を、ドメインが無いと読む。** NXDOMAIN は名前そのものが存在しないことで、NOERROR で ANSWER が空なら、名前はあるのに、聞いた種別のレコードだけが無い（NODATA）状態です。たとえば AAAA だけを持たないサイトに AAAA を聞くと、こうなります。AUTHORITY に SOA が付いているかも、見てみてください。
+
+**TTL が減るのを異常だと思う。** 打つたびに数字が小さくなって、焦ったことはありませんか？ キャッシュを持つサーバーは、権威サーバーから受け取った時点の TTL から、経過した秒数を引いて返します。同じ名前を何度か続けて引くと、数字が小さくなるのはふつうです。
+
+**flags に `aa` が無いのを失敗だと思う。** 一般のリゾルバ経由なら、無いのがふつうです。正直なところ、aa が無いと不安になりますが、キャッシュ経由では無いほうが自然です。`ad` が無いのも、DNSSEC の署名がないゾーンか、リゾルバが検証していないだけで、エラーとは限りません。
+
+**CNAME のある名前に、MX や TXT も付けられると思う。** CNAME が付いた名前には、ほかの種別のレコードを置けない決まりです（RFC 1034 と RFC 2181）。ANSWER に CNAME が出たら、本当に知りたい値は、矢印の先のチェーンを追った最後のレコードにあります。
 ## よくある質問
 
-### Q. このツールで実際にDNSの名前解決はできますか？
-A. できません。貼り付けたテキストを解析して解説するのみで、DNSサーバーへの照会は一切行いません。
+### Q. このツールで、実際に名前解決はできますか？
+A. できません。貼ったテキストを読んで解説するだけで、DNS サーバーへの問い合わせはしません。
 
-### Q. `nslookup`の出力をそのまま貼っても解析できますか？
-A. Server/Non-authoritative answer/Name/Address等の一般的な形式や、`-type=any`実行時のcanonical name/nameserver/mail exchanger/text/SOA形式に対応しています。認識できない行は無視されます。
+### Q. nslookup の出力をそのまま貼っても読めますか？
+A. `Server:`、`Non-authoritative answer:`、`Name:`、`Address:` といった一般的な形と、`-type=any` の `canonical name`・`nameserver`・`mail exchanger`・`text`・SOA の行を読みます。読めない行は無視します。Linux の `Address: 127.0.0.53#53` のように `#` が付く行は、レコードとして数えません。
 
-### Q. flagsに`aa`が無いのは異常ですか？
-A. いいえ。`aa`は権威サーバーからの直接の回答にのみ付き、キャッシュDNSサーバー経由では通常付きません。
+### Q. 「dig の出力らしき特徴はありますが、解析できる行が見つかりませんでした」と出ます。
+A. `;; ->>HEADER<<-` や `;; ANSWER SECTION:` はあるのに、HEADER 行の書式が違うか、レコード行がひとつも読めなかった場合です。レコード行は名前・TTL・クラス・種別・値の順で、空白かタブ区切りである必要があります。
+
+### Q. 未登録のレコード種別が出ると、どうなりますか？
+A. 表には載りますが、意味の欄には「説明未登録のレコード種別です」と出ます。A、AAAA、CNAME、MX、NS、TXT、SOA、PTR、SRV、CAA、OPT には、説明が付いています。

@@ -6,5 +6,6 @@
   "keywords": ["dig 出力 見方", "nslookup 結果 意味", "DNS レコード 種別", "SOA レコード 意味", "DNS TTL 確認"],
   "category": "network",
   "related": ["subnet-calculator", "well-known-ports"],
-  "updated": "2026-09-10"
+  "updated": "2026-09-10",
+  "checked": "2026-11-13"
 }
