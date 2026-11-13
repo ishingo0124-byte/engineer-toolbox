@@ -64,9 +64,9 @@
         tokens.push({ type: "number", value: sql.slice(i, j) });
         i = j; continue;
       }
-      if (/[A-Za-z_@#]/.test(c)) {
+      if (/[A-Za-z_@#\u0080-\uFFFF]/.test(c)) {
         let j = i + 1;
-        while (j < n && /[A-Za-z0-9_$@#]/.test(sql[j])) j++;
+        while (j < n && /[A-Za-z0-9_$@#]|[^\x00-\x7F\s]/.test(sql[j])) j++;
         tokens.push({ type: "word", value: sql.slice(i, j) });
         i = j; continue;
       }

@@ -6,5 +6,6 @@
   "keywords": ["JWT デコード", "JWT 中身 確認", "JWT exp 確認", "JWT ペイロード 表示", "JWT 有効期限"],
   "category": "security",
   "related": ["base64", "hash-generator"],
-  "updated": "2026-09-10"
+  "updated": "2026-09-10",
+  "checked": "2026-11-13"
 }

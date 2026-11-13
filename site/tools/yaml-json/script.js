@@ -417,10 +417,11 @@
     if (s === "") return true;
     if (/^\s|\s$/.test(s)) return true;
     if (/^[-?:,[\]{}#&*!|>'"%@`]/.test(s)) return true;
-    if (/^[-+]?(0|[1-9][0-9]*)$/.test(s)) return true;
+    if (/^[-+]?[0-9][0-9_]*$/.test(s)) return true;
+    if (/^[-+]?\.(inf|Inf|INF)$|^\.(nan|NaN|NAN)$/.test(s)) return true;
     if (/^[-+]?(\.[0-9]+|[0-9]+(\.[0-9]*)?)([eE][-+]?[0-9]+)?$/.test(s) && /[0-9]/.test(s) && /[.eE]/.test(s)) return true;
     if (/^0x[0-9a-fA-F]+$/.test(s) || /^0o[0-7]+$/.test(s)) return true;
-    if (/^(true|false|True|False|TRUE|FALSE|null|Null|NULL|~|yes|no|on|off|Yes|No|On|Off|YES|NO|ON|OFF)$/.test(s)) return true;
+    if (/^(true|false|True|False|TRUE|FALSE|null|Null|NULL|~|yes|no|on|off|Yes|No|On|Off|YES|NO|ON|OFF|y|n|Y|N)$/.test(s)) return true;
     if (/: |:$/.test(s)) return true;
     if (/ #/.test(s)) return true;
     if (/[\n\t]/.test(s)) return true;

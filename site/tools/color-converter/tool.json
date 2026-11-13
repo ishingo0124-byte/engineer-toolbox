@@ -6,5 +6,6 @@
   "keywords": ["カラーコード変換", "HEX RGB 変換", "コントラスト比 計算", "WCAG AA 判定", "CSS 色名"],
   "category": "dev",
   "related": ["html-escape", "unit-prefix"],
-  "updated": "2026-09-10"
+  "updated": "2026-09-10",
+  "checked": "2026-11-13"
 }

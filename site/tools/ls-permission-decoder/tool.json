@@ -6,5 +6,6 @@
   "keywords": ["ls -l 読み方", "パーミッション 8進数", "chmod 意味", "ファイル権限 確認"],
   "category": "linux",
   "related": ["chmod-calculator", "umask-calculator"],
-  "updated": "2026-09-10"
+  "updated": "2026-09-10",
+  "checked": "2026-11-13"
 }

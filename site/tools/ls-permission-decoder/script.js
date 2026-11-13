@@ -12,7 +12,7 @@
     "s": "ソケット", "D": "ドア（Solaris固有）"
   };
 
-  const FULL_RE = /^([-dlbcpsD])([r-][w-][xsS-])([r-][w-][xsS-])([r-][w-][xtT-])([.+@]?)\s+(\d+)\s+(\S+)\s+(\S+)\s+(\d+)\s+(.*)$/;
+  const FULL_RE = /^([-dlbcpsD])([r-][w-][xsS-])([r-][w-][xsS-])([r-][w-][xtT-])([.+@]?)\s+(\d+)\s+(\S+)\s+(\S+)\s+(\d+,\s+\d+|\d+(?:[.,]\d+)?[KMGTPE]?i?B?)\s+(.*)$/;
   const BARE_RE = /^([-dlbcpsD]?)([r-][w-][xsS-])([r-][w-][xsS-])([r-][w-][xtT-])([.+@]?)$/;
 
   const DATE_PATTERNS = [
@@ -92,7 +92,7 @@
       return {
         full: true, typeChar, aclFlag,
         o: decodeTriad(oT, "owner"), g: decodeTriad(gT, "group"), oth: decodeTriad(otT, "other"),
-        links: parseInt(links, 10), owner, group, size: parseInt(size, 10), date, name, target
+        links: parseInt(links, 10), owner, group, sizeRaw: size, size: /^\d+$/.test(size) ? parseInt(size, 10) : null, date, name, target
       };
     }
     m = trimmed.match(BARE_RE);
@@ -129,7 +129,7 @@
       html += "<dt>ハードリンク数</dt><dd><span>" + tb.fmt(r.links) + "</span></dd>";
       html += "<dt>所有者</dt><dd><span>" + escapeHtml(r.owner) + "</span></dd>";
       html += "<dt>グループ</dt><dd><span>" + escapeHtml(r.group) + "</span></dd>";
-      html += "<dt>サイズ</dt><dd><span>" + tb.fmt(r.size) + " バイト（" + humanSize(r.size) + "）</span></dd>";
+      html += "<dt>サイズ</dt><dd><span>" + (r.size !== null ? tb.fmt(r.size) + " バイト（" + humanSize(r.size) + "）" : (/,/.test(r.sizeRaw) ? "デバイス番号 " + escapeHtml(r.sizeRaw) + "（メジャー, マイナー）" : escapeHtml(r.sizeRaw) + "（ls -h の表示。1K = 1024バイト）")) + "</span></dd>";
       html += "<dt>日時</dt><dd><span>" + (r.date ? escapeHtml(r.date) : "（判読できませんでした）") + "</span></dd>";
       html += "<dt>ファイル名</dt><dd><span>" + escapeHtml(r.name) + (r.target ? " → " + escapeHtml(r.target) : "") + "</span></dd>";
       html += "</dl>";

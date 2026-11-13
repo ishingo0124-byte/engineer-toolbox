@@ -6,5 +6,6 @@
   "keywords": ["HTML エスケープ", "HTML アンエスケープ", "文字参照 変換", "実体参照 デコード", "XSS対策 エスケープ"],
   "category": "text",
   "related": ["url-encode", "base64"],
-  "updated": "2026-09-10"
+  "updated": "2026-09-10",
+  "checked": "2026-11-13"
 }

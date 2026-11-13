@@ -6,5 +6,6 @@
   "keywords": ["UUID 生成", "UUID v4", "UUID v7", "GUID 生成", "UUID 解析"],
   "category": "dev",
   "related": ["password-generator", "hash-generator"],
-  "updated": "2026-09-10"
+  "updated": "2026-09-10",
+  "checked": "2026-11-13"
 }

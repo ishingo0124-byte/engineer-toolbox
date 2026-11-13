@@ -6,5 +6,6 @@
   "keywords": ["YAML JSON 変換", "YAML 変換 ツール", "JSON YAML 変換", "YAML パーサー オンライン"],
   "category": "dev",
   "related": ["json-formatter", "csv-json"],
-  "updated": "2026-09-10"
+  "updated": "2026-09-10",
+  "checked": "2026-11-13"
 }

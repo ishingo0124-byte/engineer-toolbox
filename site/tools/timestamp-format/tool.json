@@ -6,5 +6,6 @@
   "keywords": ["日付フォーマット 変換", "ISO8601 変換", "strftime 書式", "Excel シリアル値 変換", "RFC2822 日付"],
   "category": "time",
   "related": ["unix-time", "timezone-converter", "date-diff"],
-  "updated": "2026-09-10"
+  "updated": "2026-09-10",
+  "checked": "2026-11-13"
 }
