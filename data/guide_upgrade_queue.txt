@@ -2,6 +2,7 @@
 # 定期タスクが上から2件ずつ取り、終わった行の先頭に「done YYYY-MM-DD 」を付ける。
 # 並びは Search Console の表示回数が多い順＋和暦クラスタ。空になったら guide.md が短い順に補充する。
 # 2026-10-05 済: school-year-table, uptime-sla, mtu-mss-calculator, ascii-unicode-table
+# 2026-11-13: 2,000字未満だった72ページを一括で書き直し、全102ページが2,000字以上・計算例/よくある間違いあり。下の残りもこの日に済。
 done 2026-10-08 timezone-converter
 done 2026-10-08 bandwidth-calc
 done 2026-10-12 http-status-codes
@@ -12,13 +13,13 @@ done 2026-10-30 wareki-converter
 done 2026-10-30 age-calculator
 done 2026-11-04 subnet-calculator
 done 2026-11-04 eto-calculator
-toshiiwai-yakudoshi
-grade-calculator
-sotsu-hayamihyo
-hoikuen-class
-age-to-birth-year
-cron-parser
-chmod-calculator
-unix-time
-day-of-week
-business-days
+done 2026-11-13 toshiiwai-yakudoshi
+done 2026-11-13 grade-calculator
+done 2026-11-13 sotsu-hayamihyo
+done 2026-11-13 hoikuen-class
+done 2026-11-13 age-to-birth-year
+done 2026-11-13 cron-parser
+done 2026-11-13 chmod-calculator
+done 2026-11-13 unix-time
+done 2026-11-13 day-of-week
+done 2026-11-13 business-days
