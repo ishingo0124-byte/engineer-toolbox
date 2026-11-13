@@ -168,7 +168,7 @@
         case "-u": case "--user": ctx.user = takeValue(); break;
         case "--hostname": ctx.hostname = takeValue(); break;
         case "--entrypoint": ctx.entrypoint = takeValue(); break;
-        case "--label": {
+        case "-l": case "--label": {
           const v = takeValue();
           const eq = v.indexOf("=");
           if (eq === -1) ctx.labels[v] = null; else ctx.labels[v.slice(0, eq)] = v.slice(eq + 1);
@@ -268,6 +268,20 @@
     }
     if (ctx.privileged) lines.push("    privileged: true");
     if (ctx.restart) push("restart", ctx.restart);
+
+    const namedVols = [];
+    const addNamed = (src) => {
+      if (/^[A-Za-z0-9][A-Za-z0-9_.-]+$/.test(src) && namedVols.indexOf(src) === -1) namedVols.push(src);
+    };
+    for (const v of ctx.volumes) {
+      const parts = v.split(":");
+      if (parts.length >= 2) addNamed(parts[0]);
+    }
+    if (namedVols.length) {
+      lines.push("");
+      lines.push("volumes:");
+      for (const n of namedVols) lines.push("  " + y(n) + ":");
+    }
 
     if (ctx.networks.length) {
       lines.push("");

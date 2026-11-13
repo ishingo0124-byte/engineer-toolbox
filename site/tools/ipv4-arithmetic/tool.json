@@ -6,5 +6,6 @@
   "keywords": ["IPアドレス 計算", "IP 加算", "IP 範囲 CIDR", "サブネット 分割"],
   "category": "network",
   "related": ["subnet-calculator", "cidr-mask-converter", "ip-in-range"],
-  "updated": "2026-09-17"
+  "updated": "2026-09-17",
+  "checked": "2026-11-13"
 }

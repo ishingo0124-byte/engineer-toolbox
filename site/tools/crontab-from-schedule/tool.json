@@ -6,5 +6,6 @@
   "keywords": ["日本語 cron 変換", "cron式 作り方", "毎週 cron 設定", "crontab 書き方"],
   "category": "linux",
   "related": ["cron-parser", "systemd-timer", "unix-time", "timezone-converter"],
-  "updated": "2026-09-14"
+  "updated": "2026-09-14",
+  "checked": "2026-11-13"
 }

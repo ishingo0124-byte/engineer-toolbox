@@ -6,5 +6,6 @@
   "keywords": ["docker run compose 変換", "docker-compose.yml 作成", "docker run オプション 一覧", "compose.yaml 書き方"],
   "category": "dev",
   "related": ["yaml-json", "shell-escape", "well-known-ports", "json-formatter"],
-  "updated": "2026-09-14"
+  "updated": "2026-09-14",
+  "checked": "2026-11-13"
 }

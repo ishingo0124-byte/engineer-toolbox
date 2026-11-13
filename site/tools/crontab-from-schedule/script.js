@@ -172,6 +172,20 @@
       });
     }
 
+    // 頭の「毎日」「毎週」を省いた書き方: 「9時半」「月水金9時」
+    if (body === "" && t.hadTime) {
+      return Object.assign(dailyPart(t.hour, t.minute), {
+        domField: "*", dowField: "*", domSet: fullSet(1, 31), dowSet: fullSet(0, 6),
+        domRestricted: false, dowRestricted: false,
+      });
+    }
+    if (t.hadTime && /^[日月火水木金土曜・,、と]+$/.test(body)) {
+      const days = parseWeekdayGroup(body);
+      return Object.assign(dailyPart(t.hour, t.minute), {
+        domField: "*", dowField: days.join(","), domSet: fullSet(1, 31), dowSet: new Set(days),
+        domRestricted: false, dowRestricted: true,
+      });
+    }
     fail("入力された表現を解釈できませんでした。" + HELP);
   }
 
