@@ -131,8 +131,10 @@ CAT_DESC = {
     "security": "証明書・暗号スイート・ハッシュ・パスワードなど、セキュリティまわりの確認。",
     "time": "和暦・年齢・学年・タイムゾーン・営業日など、日付と時刻の計算。",
     "text": "文字数・文字コード・全角半角・正規表現など、文字と文章の処理。",
+    "life": "年齢・学年・和暦・干支・七五三や厄年など、家族の行事と手続きで調べる早見表。",
 }
-POPULAR = ["school-year-table", "mtu-mss-calculator", "ascii-unicode-table", "uptime-sla", "timezone-converter", "bandwidth-calc"]
+LIFE_CATS = ("life",)  # トップで「仕事の道具」と分けて見せるカテゴリ
+POPULAR = ["subnet-calculator", "mtu-mss-calculator", "ascii-unicode-table", "uptime-sla", "timezone-converter", "bandwidth-calc"]
 
 
 def shop_box(shop, slug):
@@ -332,15 +334,21 @@ def index_pages(tools, cfg, base):
     by_slug = {t["slug"]: t for t in tools}
     popular = [by_slug[x] for x in POPULAR if x in by_slug]
     cats = "".join('<li><a href="tools/#%s">%s</a>（%d件）— %s</li>' % (k, html.escape(v), sum(1 for t in tools if t["category"] == k), html.escape(CAT_DESC.get(k, "")))
-                   for k, v in cfg["categories"].items() if any(t["category"] == k for t in tools))
+                   for k, v in cfg["categories"].items() if k not in LIFE_CATS and any(t["category"] == k for t in tools))
+    life = [t for t in tools if t["category"] in LIFE_CATS]
+    newest_work = [t for t in newest if t["category"] not in LIFE_CATS]
     content = (f"<h1>{html.escape(cfg['site_name'])}</h1><p class=\"lead\">{html.escape(cfg['tagline'])}</p>"
                "<p>インフラエンジニア歴15年の個人が運営しています。サブネットの境界やパーミッションの数字、和暦と西暦の換算のように、"
-               "現場で何度も調べ直してきた計算をまとめました。各ツールの解説には計算の根拠（RFC・法令・公式資料）を書き、"
-               "よく見られているページから順に、実際に入力した計算例とよくある間違いを足しています。入力した内容はブラウザの外に送られません。</p>"
-               f'<h2>カテゴリから探す</h2><ul>{cats}</ul>'
+               "現場で何度も調べ直してきた計算をまとめました。各ツールの解説には計算の根拠（RFC・法令・公式資料）と、"
+               "実際に入力した計算例、よくある間違いを書いています。入力した内容はブラウザの外に送られません。</p>"
+               f'<h2>仕事の道具（カテゴリから探す）</h2><ul>{cats}</ul>'
                + (f'<h2>よく使われているツール</h2><ul class="cards">' + "".join(card(t, root) for t in popular) + "</ul>" if popular else "")
-               + f'<h2>新しく追加したツール</h2><ul class="cards">' + "".join(card(t, root) for t in newest[:6]) + "</ul>"
-               f'<p><a href="tools/">すべてのツールを見る（{len(tools)}件）→</a></p>'
+               + f'<h2>新しく追加したツール</h2><ul class="cards">' + "".join(card(t, root) for t in newest_work[:6]) + "</ul>"
+               + (f'<h2 id="life">暮らしの早見表（{len(life)}件）</h2>'
+                  '<p>和暦と西暦の換算を作るうちに、年齢や学年、七五三・厄年の年を調べる人が多いことが分かりました。'
+                  'どれも生年月日と年度の数え方だけで決まる計算なので、仕事の道具とは棚を分けて置いています。</p>'
+                  '<ul class="cards">' + "".join(card(t, root) for t in life) + "</ul>" if life else "")
+               + f'<p><a href="tools/">すべてのツールを見る（{len(tools)}件）→</a></p>'
                '<p><a href="about/">このサイトについて（運営者・方針・誤りの報告）</a></p>')
     jsonld = {"@context": "https://schema.org", "@type": "WebSite", "name": cfg["site_name"], "url": cfg["base_url"] + "/", "inLanguage": "ja"}
     page = render(base, page_title=f"{cfg['site_name']} — {cfg['tagline'][:40]}", description=cfg["tagline"], canonical=cfg["base_url"] + "/",
