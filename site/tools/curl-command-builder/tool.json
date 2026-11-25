@@ -1,0 +1,22 @@
+{
+  "slug": "curl-command-builder",
+  "title": "curl コマンド生成（POST・ヘッダー・タイムアウト）",
+  "short_title": "curl コマンド生成",
+  "description": "メソッド・URL・ヘッダー・JSON/フォームのボディ・Basic/Bearer認証・タイムアウトを選ぶだけでcurlコマンドを生成。bash・PowerShell・cmdごとの引用符とエスケープに対応し、単一引用符を含む値も安全に出力します。",
+  "keywords": [
+    "curl コマンド 生成",
+    "curl POST JSON",
+    "curl ヘッダー 指定",
+    "curl Bearer 認証",
+    "curl PowerShell 引用符",
+    "curl タイムアウト"
+  ],
+  "category": "dev",
+  "related": [
+    "http-status-codes",
+    "http-header-analyzer",
+    "shell-escape"
+  ],
+  "updated": "2026-11-25",
+  "checked": "2026-11-25"
+}

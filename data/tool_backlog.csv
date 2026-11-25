@@ -97,7 +97,7 @@ zenkaku-checker,全角・半角の混在チェック（全角英数・全角ス�
 dakuten-tool,濁点・半濁点の付け外しと小書き文字の変換（か→が・つ→っ）,text,2,done,"2026-10-02 検索需要「濁点つけるツール」。文字列の濁点付与・除去、半濁点、小書き⇄大書き、結合文字（U+3099）と合成済み文字の相互変換。related: unicode-normalizer, zenkaku-hankaku done 2026-10-19"
 ipv6-subnet-calculator,IPv6 サブネット計算（/48・/56・/64 の分割とアドレス数）,network,2,done,"2026-10-02 本部企画。IPv6プレフィックス→ネットワーク範囲・/64の個数・分割一覧、RFC 4291/RFC 6177 を出典に。IPv4 の subnet-calculator に対応する穴。related: ipv6-expander, subnet-calculator done 2026-10-30"
 openssl-command-builder,openssl コマンド生成（CSR作成・証明書確認・形式変換）,security,2,done,"2026-10-02 本部企画。目的（秘密鍵+CSR作成、証明書の中身確認、PEM⇄DER⇄PFX 変換、有効期限確認、s_client 接続テスト）を選ぶと正しいコマンドを生成。SAN付きCSRの -addext。related: cert-decoder, ssl-cipher-decoder done 2026-10-30"
-curl-command-builder,curl コマンド生成（ヘッダー・POST・認証・タイムアウト）,dev,3,todo,"2026-10-02 本部企画。メソッド・URL・ヘッダー・JSONボディ・Basic/Bearer・-k/-L/--max-time などを選んでコマンド生成、PowerShell 用の引用符にも切替。related: http-status-codes, http-header-analyzer, shell-escape"
+curl-command-builder,curl コマンド生成（ヘッダー・POST・認証・タイムアウト）,dev,3,done,"2026-10-02 本部企画。メソッド・URL・ヘッダー・JSONボディ・Basic/Bearer・-k/-L/--max-time などを選んでコマンド生成、PowerShell 用の引用符にも切替。related: http-status-codes, http-header-analyzer, shell-escape 2026-11-25"
 htpasswd-generator,htpasswd 生成（Basic 認証の bcrypt / APR1 ハッシュ）,security,3,todo,"2026-10-02 本部企画。ユーザー名とパスワード→.htpasswd 1行（bcrypt と apr1-MD5 を純JSで実装、テストベクタで検証）。入力はブラウザ外に出ない旨を明記。related: password-generator, hash-generator"
 wareki-year-pages,和暦◯年は西暦何年（明治元年〜令和の年ごとページ）,time,2,idea,2026-10-02 検索需要「平成23年は西暦何年ですか」「平成22年…」「昭和24年西暦」など年ごとの検索が最多。年ごとページ（干支・その年生まれの年齢・入学卒業年をまとめた厚いページ）の生成には build.py の拡張が必要。2026-08 の量産ページ対策に注意して本部が設計してから着手
 kyureki-converter,旧暦⇄新暦変換,time,3,idea,2026-10-02 検索需要「旧暦 西暦 変換」。正確な計算には天文計算か旧暦の表データが必要。出典と精度を確保できるまで保留
@@ -106,4 +106,4 @@ pc-spec-checker,中古PC・ミニPCのスペック判定（Win11・Docker・LLM�
 seijinshiki-hayamihyo,二十歳のつどい（成人式）は何年生まれ？早見表,time,1,done,2026-10-30 流入施策④（オーナー承認）: 一般向け年齢・学年クラスタ。12〜1月が検索の山。10/30 に本部で制作
 shichigosan-hayamihyo,七五三は何年？数え年・満年齢の早見表,time,1,done,2026-10-30 流入施策④（オーナー承認）: 一般向け年齢・学年クラスタ。2027年秋向け。夏までに公開 2026-11-04
 hatsuzekku-hayamihyo,初節句はいつ？生まれ月から桃の節句・端午の節句の年,time,1,done,2026-10-30 流入施策④（オーナー承認）: 一般向け年齢・学年クラスタ。2〜5月が山。1月までに公開 2026-11-04
-kekkon-kinenbi,結婚記念日は何年目？銀婚式・金婚式の一覧と計算,life,1,todo,2026-10-30 流入施策④（オーナー承認）: 一般向け年齢・学年クラスタ。通年
+kekkon-kinenbi,結婚記念日は何年目？銀婚式・金婚式の一覧と計算,life,1,done,2026-10-30 流入施策④（オーナー承認）: 一般向け年齢・学年クラスタ。通年 2026-11-25

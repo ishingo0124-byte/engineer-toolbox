@@ -23,3 +23,14 @@ done 2026-11-13 chmod-calculator
 done 2026-11-13 unix-time
 done 2026-11-13 day-of-week
 done 2026-11-13 business-days
+# 2026-11-25 補充: キューが空になったので guide.md の空白を除いた文字数が短い順に10件
+done 2026-11-25 sotsu-hayamihyo
+done 2026-11-25 age-calculator
+hoikuen-class
+wareki-converter
+zenkaku-checker
+hatsuzekku-hayamihyo
+line-sort-uniq
+toshiiwai-yakudoshi
+age-to-birth-year
+dakuten-tool

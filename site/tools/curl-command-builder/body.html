@@ -1,0 +1,110 @@
+<div class="row">
+  <div class="field">
+    <label for="cb-method">メソッド</label>
+    <select id="cb-method">
+      <option value="GET">GET</option>
+      <option value="POST" selected>POST</option>
+      <option value="PUT">PUT</option>
+      <option value="PATCH">PATCH</option>
+      <option value="DELETE">DELETE</option>
+      <option value="HEAD">HEAD</option>
+      <option value="OPTIONS">OPTIONS</option>
+    </select>
+  </div>
+  <div class="field" style="flex:3 1 280px">
+    <label for="cb-url">URL</label>
+    <input type="text" id="cb-url" autocomplete="off" spellcheck="false" value="https://api.example.com/v1/users" data-example="https://api.example.com/v1/users">
+  </div>
+</div>
+
+<div class="field">
+  <label for="cb-headers">ヘッダー（1行に1つ。例: Accept: application/json）</label>
+  <textarea id="cb-headers" rows="3" spellcheck="false" autocomplete="off">Accept: application/json</textarea>
+</div>
+
+<div class="row">
+  <div class="field">
+    <label for="cb-bodytype">ボディの形式</label>
+    <select id="cb-bodytype">
+      <option value="none">なし</option>
+      <option value="json" selected>JSON（Content-Type: application/json）</option>
+      <option value="form">フォーム（-d。key=value を1行ずつ・そのまま送る）</option>
+      <option value="formenc">フォーム（--data-urlencode。値をURLエンコード）</option>
+      <option value="multipart">multipart（-F。ファイルは key=@パス）</option>
+      <option value="raw">そのまま（-d の文字列を1つ）</option>
+    </select>
+  </div>
+  <div class="field">
+    <label for="cb-auth">認証</label>
+    <select id="cb-auth">
+      <option value="none">なし</option>
+      <option value="basic">Basic（-u）</option>
+      <option value="bearer" selected>Bearer（Authorization ヘッダー）</option>
+    </select>
+  </div>
+</div>
+
+<div class="field">
+  <label for="cb-body">ボディ</label>
+  <textarea id="cb-body" rows="4" spellcheck="false" autocomplete="off">{"name": "Taro", "note": "it's ok"}</textarea>
+</div>
+
+<div class="row" id="cb-basic-row" hidden>
+  <div class="field">
+    <label for="cb-user">ユーザー名（: を含められません）</label>
+    <input type="text" id="cb-user" autocomplete="off" spellcheck="false" value="">
+  </div>
+  <div class="field">
+    <label for="cb-pass">パスワード</label>
+    <input type="text" id="cb-pass" autocomplete="off" spellcheck="false" value="">
+  </div>
+</div>
+<div class="field" id="cb-bearer-row">
+  <label for="cb-token">Bearer トークン</label>
+  <input type="text" id="cb-token" autocomplete="off" spellcheck="false" value="YOUR_TOKEN">
+</div>
+
+<div class="row">
+  <div class="field">
+    <label for="cb-maxtime">--max-time（秒・空欄で付けない）</label>
+    <input type="text" id="cb-maxtime" inputmode="decimal" autocomplete="off" value="30">
+  </div>
+  <div class="field">
+    <label for="cb-conntime">--connect-timeout（秒・空欄で付けない）</label>
+    <input type="text" id="cb-conntime" inputmode="decimal" autocomplete="off" value="10">
+  </div>
+  <div class="field">
+    <label for="cb-shell">シェル</label>
+    <select id="cb-shell">
+      <option value="bash" selected>bash / zsh（単一引用符）</option>
+      <option value="ps7">PowerShell 7.3 以降（curl.exe）</option>
+      <option value="ps5">Windows PowerShell 5.1（curl.exe）</option>
+      <option value="cmd">Windows cmd（二重引用符）</option>
+    </select>
+  </div>
+</div>
+
+<div class="field">
+  <label class="check"><input type="checkbox" id="cb-s"> -s（進行状況を出さない）</label>
+  <label class="check"><input type="checkbox" id="cb-S"> -S（-s のときもエラーは表示）</label>
+  <label class="check"><input type="checkbox" id="cb-i"> -i（レスポンスヘッダーも表示）</label>
+  <label class="check"><input type="checkbox" id="cb-v"> -v（通信の詳細を表示）</label>
+  <label class="check"><input type="checkbox" id="cb-L"> -L（リダイレクトに従う）</label>
+  <label class="check"><input type="checkbox" id="cb-k"> -k（証明書を検証しない。開発用）</label>
+  <label class="check"><input type="checkbox" id="cb-g"> -g（URL の [ ] { } を展開しない）</label>
+  <label class="check"><input type="checkbox" id="cb-compressed"> --compressed（圧縮レスポンスを展開）</label>
+  <label class="check"><input type="checkbox" id="cb-jsonopt"> JSON は --json で送る（curl 7.82.0 以降）</label>
+  <label class="check"><input type="checkbox" id="cb-minify"> JSON を1行に整える</label>
+  <label class="check"><input type="checkbox" id="cb-xalways"> -X を常に付ける</label>
+  <label class="check"><input type="checkbox" id="cb-long"> 長いオプション名で出力</label>
+  <label class="check"><input type="checkbox" id="cb-oneline"> 1行で出力</label>
+</div>
+
+<p class="error" id="cb-error"></p>
+<div class="hint" id="cb-warn"></div>
+
+<div class="result">
+  <p class="hint">生成コマンド（入力はこのページの中だけで処理し、外には送信しません）</p>
+  <pre class="mono" id="cb-out" style="white-space:pre-wrap;word-break:break-all;margin:0 0 8px"></pre>
+  <button type="button" class="copy-btn" data-copy-target="cb-out">コマンドをコピー</button>
+</div>

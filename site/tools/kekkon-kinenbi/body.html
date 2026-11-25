@@ -1,0 +1,28 @@
+<style>
+#kk-table tr.kk-now td { background: var(--soft); font-weight: 700; }
+#kk-table tr.kk-next td { background: var(--code); }
+</style>
+<div class="row">
+  <div class="field">
+    <label for="kk-wed">結婚した日（西暦 例:2001-10-10 / 和暦も可 例:平成13年10月10日）</label>
+    <input type="text" id="kk-wed" autocomplete="off" value="2001-10-10" data-example="2001-10-10">
+  </div>
+  <div class="field">
+    <label for="kk-base">基準日（空欄なら今日）</label>
+    <input type="text" id="kk-base" autocomplete="off" value="" placeholder="空欄なら今日">
+  </div>
+</div>
+<div class="row">
+  <div class="field">
+    <label for="kk-leap">2月29日に結婚した人の平年の記念日</label>
+    <select id="kk-leap">
+      <option value="feb28" selected>2月28日として数える</option>
+      <option value="mar1">3月1日として数える</option>
+    </select>
+  </div>
+</div>
+<p class="error" id="kk-error"></p>
+<div class="result" id="kk-result"></div>
+<p class="hint">入力した日付はこのページの中だけで計算し、外には送信しません。表の強調は、いまの年数（太字）と次の年数（灰色）です。</p>
+
+<div style="overflow-x:auto"><div id="kk-table"></div></div>
